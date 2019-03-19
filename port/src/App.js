@@ -130,7 +130,9 @@ class App extends React.Component {
         <section className="Projects bgGrey">
           <h1>Things I've worked on</h1>
           <div className="Project-icons-list">
-            <div className="Project-icons bgAlmostBlack" onClick={this.state.currentProject !== "MotionArt" ? () => this.nextProject("MotionArt") : () => this.nextProject("Default")}></div>
+            <div className={this.state.currentProject === "MotionArt" ? "Project-icons-selected bgAlmostBlack" : "Project-icons bgAlmostBlack"} 
+              onClick={this.state.currentProject !== "MotionArt" ? 
+              () => this.nextProject("MotionArt") : () => this.nextProject("Default")}></div>
             <div className="Project-icons bgBlue"></div>
             <div className="Project-icons bgNeonBlue"></div>
             <div className="Project-icons bgWhite"></div>
