@@ -51,10 +51,16 @@
   overflow-x: hidden;
 }
 
+.Container-expanded{
+  height: 100%;
+}
+
+/* #region About Page Stuff */
 .About{
   display: inline-block;
   text-align: justify;
   padding: 1em;
+  width: 100%;
 }
 
 .About-info{
@@ -62,8 +68,47 @@
 }
 
 .About-info p{
+  
   padding-left: 1.5em;
 }
+/* #endregion About Page Stuff */
+.Contact{
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  padding: 1em;
+  width: 100%;
+}
+
+.Contact-icons{
+  width: 100px;
+  height: 100px;
+  filter: grayscale(100%);
+}
+
+.Contact a{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  justify-items: center;
+  align-items: center;
+  width: max-content;
+  padding: 1em;
+}
+
+.Icon-reference{
+  display: flex;
+  color: white;
+}
+
+.Icon-reference a{
+  padding: 0 0.3em 0 0.3em;
+}
+
+a span{
+  padding-left: 0.5em;
+}
+
 
 /*#region Scrollbar Stuff */
 ::-webkit-scrollbar {
