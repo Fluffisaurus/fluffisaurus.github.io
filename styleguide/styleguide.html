@@ -4,7 +4,7 @@
 <head>
 
   <meta charset="utf-8">
-  <title></title>
+  <title>Portfolio Style Guide</title>
 
   <link href="css/main.css" rel="stylesheet">
 
@@ -12,16 +12,16 @@
 
 <body>
 
-  <header>
+  <header id="top">
     <h1>Portfolio Style Guide</h1>
 
     <p>A style guide for general elements within my portfolio.</p>
 
     <nav>
-      <a href="#interactive_elements">Interactive Elements</a>
-      <a href="#text_elements">Text Elements</a>
-      <a href="#combined_elements">Combined Elements</a>
-      <a href="#citations">Citations</a>
+      <a href="#interactive_elements" class="colBlue">Interactive Elements</a>
+      <a href="#text_elements" class="colBlue">Text Elements</a>
+      <a href="#combined_elements" class="colBlue">Combined Elements</a>
+      <a href="#citations" class="colBlue">Citations</a>
     </nav>
   </header>
 
@@ -34,7 +34,8 @@
       <p>He's a data scientist / software engineer to be.</p>
 
       <h3>What is Angus?</h3>
-      <p>He is a human who is ethnically Chinese that was born / raised in Vancouver, Canada. Angus also happens to be a type of beef.</p>
+      <p>He is a human who is ethnically Chinese that was born / raised in Vancouver, Canada. Angus also happens to be a
+        type of beef.</p>
 
       <h3>When is Angus?</h3>
       <p>Now.</p>
@@ -56,8 +57,10 @@
     <h2>Process Analysis of Past Projects</h2>
     <section class="element">
       <h3>Optimizaton of SFU Bennett Library's WIFI Coverage</h3>
-      <p>Optimization project within Operations Research (OR) done with Kaveh Alemi, David Ling and Anson Christo in which we make 
-        a mathematical model to optimize wi-fi coverage in population dense areas of SFU's main library. To do so, we required data from SFU in regards to...
+      <p>Optimization project within Operations Research (OR) done with Kaveh Alemi, David Ling and Anson Christo in
+        which we make
+        a mathematical model to optimize wi-fi coverage in population dense areas of SFU's main library. To do so, we
+        required data from SFU in regards to...
       </p>
       <ol>
         <li>floor plan of the library, </li>
@@ -67,20 +70,38 @@
         <li>network speeds, </li>
         <li>and current coverage setup.</li>
       </ol>
-      <p>In an ideal world, all the data we require would be provided to us. However, as students we had limited access to the 
-        institution's data. With the help of SFU's IT and Network Services, we were able to obtain a sufficient amount. 
+      <p>In an ideal world, all the data we require would be provided to us. However, as students we had limited access
+        to the
+        institution's data. With the help of SFU's IT and Network Services, we were able to obtain a sufficient amount.
       </p>
     </section>
     <section class="element">
       <h3>Motion Art</h3>
-      <p>The idea for this mobile application dervies from the attempt to enable a means of drawing through your body's movement. Given 
-        that this was a project for school, I was restricted to only the use of the sensors native to mobile devices. This proved
-        to be a limitation for what I had hoped to achieve. My goal was to map device position to a blank canvas in which the user's
-        movement would translate as a drawing stroke. At the end of the day, what I achieved was a basic drawing application without 
+      <p>The idea for this mobile application dervies from the attempt to enable a means of drawing through your body's
+        movement. Given
+        that this was a project for school, I was restricted to only the use of the sensors native to mobile devices.
+        This proved
+        to be a limitation for what I had hoped to achieve. My goal was to map device position to a blank canvas in
+        which the user's
+        movement would translate as a drawing stroke. At the end of the day, what I achieved was a basic drawing
+        application without
         the special / intended feature.
       </p>
     </section>
   </section>
+
+
+  <section id="colour_palette">
+    <h2>Colour Palette</h2>
+    <div class="palette">
+      <div class="colour bgAlmostBlack"></div>
+      <div class="colour bgGrey"></div>
+      <div class="colour bgBlue"></div>
+      <div class="colour bgNeonBlue"></div>
+      <div class="colour bgWhite"></div>
+    </div>
+  </section>
+
 
   <!-- INTERACTIVE ELEMENTS SECTION // -->
   <section id="interactive_elements">
@@ -89,6 +110,10 @@
 
     <section class="element">
       <h3>In-text link</h3>
+      <h4>CSS Selector:</h4>
+      <p></p>
+
+      <p>This is an <a href="#top" class="colBlue">in-text link</a>. Click to go back to top.</p>
     </section>
 
 
@@ -104,18 +129,22 @@
       <code>&lt;a href="#" class="button"&gt;Default Button&lt;/a&gt;</code>
 
       <h4>Rendered element:</h4>
-      <a class="button-nav" href="#">Default Button</a>
+      <a class="button-nav bgGrey colWhite" href="#">Default Button</a>
 
     </section>
 
 
     <section class="element">
       <h3>Submit/Reset Buttons</h3>
+      <button class="button-nav bgGrey colWhite">Confirm</button>
+      <button class="button-nav bgGrey colWhite">Cancel</button>
     </section>
 
 
     <section class="element">
       <h3>Text Input Field with Label</h3>
+      <label for="textInput">Text Input: </label>
+      <input type="text" id="textInput">
     </section>
 
 
@@ -126,6 +155,10 @@
 
     <section class="element">
       <h3>Image as a Link</h3>
+
+      <a href="#top">
+        <img src="https://via.placeholder.com/300.png?text=Image+as+a+link.+Click+me!" alt="placeholder img">
+      </a>
     </section>
 
 
