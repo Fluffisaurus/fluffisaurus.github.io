@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -13,7 +17,20 @@ code {
     monospace;
 }
 
-a{
+nav span{
   text-decoration: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+nav span:hover, nav span:focus{
+  color: #51eef7;
+}
+
+h1, h2, h3, h4{
+  color: #51eef7;
+}
+
+p{
   color: white;
 }

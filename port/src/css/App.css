@@ -1,0 +1,63 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh; 
+  width: 100vw;
+}
+
+.App-header{
+  width: 80%;
+}
+
+.Navigation{
+  font-size: calc(10px + 2vmin);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.Container{
+  width: 60%;
+  padding: 1em;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.About{
+  display: inline-block;
+  text-align: justify;
+  padding: 1em;
+}
+
+.About-info{
+  margin-bottom: 2.5em;
+}
+
+.About-info p{
+  padding-left: 1.5em;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #425051;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3899ed; 
+}
