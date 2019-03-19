@@ -20,6 +20,7 @@ class App extends React.Component {
     this.nextComponent = this.nextComponent.bind(this);
     this.state = {
       currentComponent: "Default",
+      currentProject: "Default",
       headerExpand: false
     }
   }
@@ -104,12 +105,48 @@ class App extends React.Component {
     );
   }
 
+  getProject(){
+    let project;
+    switch(this.state.currentProject){
+      case "MotionArt":
+        project = this.projectMotionArt();
+        break;
+      default:
+        project = <React.Fragment></React.Fragment>
+        break;
+    }
+    return project;
+  }
+
+  nextProject(projectName){
+    this.setState({
+      currentProject: projectName
+    });
+  }
+  
   projectsPage() {
     return (
       <React.Fragment>
         <section className="Projects bgGrey">
           <h1>Things I've worked on</h1>
-          <h2>Motion Art</h2>
+          <div className="Project-icons-list">
+            <div className="Project-icons bgAlmostBlack" onClick={this.state.currentProject !== "MotionArt" ? () => this.nextProject("MotionArt") : () => this.nextProject("Default")}></div>
+            <div className="Project-icons bgBlue"></div>
+            <div className="Project-icons bgNeonBlue"></div>
+            <div className="Project-icons bgWhite"></div>
+          </div>
+          <div className={this.state.currentProject !== "Default" ? "Container Container-expanded" : "Container"}>
+            {this.getProject()}
+          </div>
+        </section>
+      </React.Fragment>
+    );
+  }
+
+  projectMotionArt(){
+    return(
+      <React.Fragment>
+        <h2>Motion Art</h2>
           <p>The idea for this mobile application dervies from the attempt to enable a means of drawing through your body's
             movement. My goal was to map device position to a blank canvas in which the user's movement would translate as a drawing stroke.
             However, given that this was a project for school I was restricted to only the use of the sensors native to mobile devices.
@@ -133,7 +170,6 @@ class App extends React.Component {
 
           <p>Attempted gyroscope + accelerometer combination but still too inaccurate.</p>
           <p>At the end of the day, what I achieved was a basic drawing application without the special / intended feature.</p>
-        </section>
       </React.Fragment>
     );
   }

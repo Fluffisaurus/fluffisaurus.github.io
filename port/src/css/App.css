@@ -86,6 +86,23 @@
   width: 50%;
   height: auto;
 }
+
+.Project-icons-list{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Project-icons{
+  width: 100px;
+  height: 100px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.Project-icons:hover, .Project-icons:focus{
+  transform: scale(1.025);
+}
 /* #endregion Projects Page Stuff */
 
 /* #region Contact Page Stuff */
