@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
+import logo from './logo.svg'
 import './css/App.css';
 import './css/palette.css'
 
@@ -10,7 +11,8 @@ class App extends React.Component {
     super(props);
     this.nextComponent = this.nextComponent.bind(this);
     this.state = {
-      currentComponent: "default"
+      currentComponent: "Default",
+      headerExpand: false
     }
   }
 
@@ -20,7 +22,7 @@ class App extends React.Component {
       case "About":
         component = this.aboutPage();
         break;
-      default:
+      case "Default":
         component = this.defaultPage();
     }
     return component;
@@ -30,6 +32,15 @@ class App extends React.Component {
     this.setState({
       currentComponent: pageName
     });
+    if(pageName !== "Default"){
+      this.setState({
+        headerExpand: true
+      });
+    }else{
+      this.setState({
+        headerExpand: false
+      })
+    }
   }
 
   defaultPage() {
@@ -79,7 +90,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App bgAlmostBlack">
-        <header className="App-header">
+        <header className={this.state.headerExpand ? "App-header-expanded" : "App-header-compressed"}>
+          <img className={this.state.headerExpand ? "App-logo App-logo-pin": "App-logo"} onClick={() => this.nextComponent("Default")} 
+            src={logo} alt="temp react logo"/>
           <nav className="Navigation">
             <span className="colBlue" onClick={() => this.nextComponent("About")}>About</span>
             <span className="colBlue">Projects</span>

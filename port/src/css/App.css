@@ -1,3 +1,18 @@
+.App-logo{
+  width: 180px;
+  height: 180px;
+  cursor: pointer;
+  animation: App-logo-spin infinite 20s linear;
+}
+
+.App-logo-pin{
+  position: absolute;
+  float: left;
+  width: 80px;
+  height: 80px;
+  margin-left: 2em;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -8,7 +23,12 @@
   width: 100vw;
 }
 
-.App-header{
+.App-header-compressed{
+  width: 80%;
+}
+
+.App-header-expanded{
+  display: flex;
   width: 80%;
 }
 
@@ -18,11 +38,15 @@
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  padding: 0.7em;
+  margin: 0 auto;
+  width: inherit;
 }
 
 .Container{
   width: 60%;
-  padding: 1em;
+  padding-left: 1em;
+  padding-right: 1em;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -41,23 +65,30 @@
   padding-left: 1.5em;
 }
 
-/* width */
+/*#region Scrollbar Stuff */
 ::-webkit-scrollbar {
   width: 10px;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: #425051;
 }
  
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: white;
   border-radius: 10px;
 }
 
-/* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #3899ed; 
+}
+/*#endregion Scrollbar Stuff  */
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
