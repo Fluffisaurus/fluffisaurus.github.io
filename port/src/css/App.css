@@ -72,6 +72,23 @@
   padding-left: 1.5em;
 }
 /* #endregion About Page Stuff */
+
+/* #region Projects Page Stuff */
+.Projects{
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+  padding: 1em;
+  width: 100%;
+}
+
+.Projects img{
+  width: 50%;
+  height: auto;
+}
+/* #endregion Projects Page Stuff */
+
+/* #region Contact Page Stuff */
 .Contact{
   display: flex;
   flex-direction: column;
@@ -108,6 +125,7 @@
 a span{
   padding-left: 0.5em;
 }
+/* #endregion Contact Page Stuff */
 
 
 /*#region Scrollbar Stuff */
