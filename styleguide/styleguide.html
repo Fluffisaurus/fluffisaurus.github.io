@@ -78,15 +78,20 @@
     <section class="element">
       <h3>Motion Art</h3>
       <p>The idea for this mobile application dervies from the attempt to enable a means of drawing through your body's
-        movement. Given
-        that this was a project for school, I was restricted to only the use of the sensors native to mobile devices.
-        This proved
-        to be a limitation for what I had hoped to achieve. My goal was to map device position to a blank canvas in
-        which the user's
-        movement would translate as a drawing stroke. At the end of the day, what I achieved was a basic drawing
-        application without
-        the special / intended feature.
+        movement. My goal was to map device position to a blank canvas in which the user's movement would translate as a drawing stroke. 
+        However, given that this was a project for school I was restricted to only the use of the sensors native to mobile devices.
+        This proved to be a limitation for what I had hoped to achieve. 
       </p>
+      <p>The native sensors that I experimented with include the accelerometer, gyroscope, and GPS.</p>
+      <ul>
+        <li>Mathematical limitations with the accelerometer pertain to the inaccuracies of deriving position from double integration.</li>
+        <li>GPS has various levels of accuracy. Low accuracy is too imprecise with accuracys within 50m while high accuracy 
+          delivers accurate positioning within 5m but takes too much time to acquire data and too much power consumption.
+        </li>
+        <li>Gyroscope itself can determine device orientation</li>
+      </ul>
+      <p>Attempted gyroscope + accelerometer combination but still too inaccurate.</p>
+      <p>At the end of the day, what I achieved was a basic drawing application without the special / intended feature.</p>
     </section>
   </section>
 
