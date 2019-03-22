@@ -1,10 +1,30 @@
-import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import logo from './assets/logo.svg'
+import React from 'react';
+import CSSTransition from 'react-transition-group/CSSTransitionGroup';
+import TransitionGroup from 'react-transition-group/TransitionGroup';
+import logo from './assets/logo.svg';
 import './css/App.css';
-import './css/palette.css'
+import './css/palette.css';
 
-import { DefaultPage, AboutPage, ProjectsPage, ContactPage } from './Pages.js'
+import { DefaultPage, AboutPage, ProjectsPage, ContactPage } from './Pages.js';
+
+function GetComponent(props){
+  let component;
+  switch (props) {
+    case "About":
+      component = <AboutPage />;
+      break;
+    case "Projects":
+      component = <ProjectsPage />;
+      break;
+    case "Contact":
+      component = <ContactPage />;
+      break;
+    case "Default":
+      component = <DefaultPage />;
+      break;
+  }
+  return component;
+}
 
 class App extends React.Component {
   constructor(props) {
@@ -17,23 +37,24 @@ class App extends React.Component {
     }
   }
 
-  getComponent() {
-    let component;
-    switch (this.state.currentComponent) {
-      case "About":
-        component = <AboutPage/>;
-        break;
-      case "Projects":
-        component = <ProjectsPage/>;
-        break;
-      case "Contact":
-        component = <ContactPage/>;
-      case "Default":
-        component = <DefaultPage />;
-        break;
-    }
-    return component;
-  }
+  // getComponent() {
+  //   let component;
+  //   switch (this.state.currentComponent) {
+  //     case "About":
+  //       component = <AboutPage />;
+  //       break;
+  //     case "Projects":
+  //       component = <ProjectsPage />;
+  //       break;
+  //     case "Contact":
+  //       component = <ContactPage />;
+  //       break;
+  //     case "Default":
+  //       component = <DefaultPage />;
+  //       break;
+  //   }
+  //   return component;
+  // }
 
   nextComponent(pageName) {
     this.setState({
@@ -64,16 +85,12 @@ class App extends React.Component {
           </nav>
         </header>
         <div className={this.state.headerExpand ? "Container Container-expanded" : "Container"}>
-          {this.getComponent()}
+          {GetComponent(this.state.currentComponent)}
+          {/* <CSSTransition key={this.state.currentComponent} className="fade">
+            {GetComponent(this.state.currentComponent)}
+          </CSSTransition> */}
         </div>
-        {/* <CSSTransition
-          in={headerExpand}
-          timeout={300}
-          classNames="message"
-          unmountOnExit
-        >
-        {this.getComponent()}
-        </CSSTransition> */}
+
       </div>
     );
   }

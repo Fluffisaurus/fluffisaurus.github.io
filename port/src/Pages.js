@@ -18,7 +18,7 @@ export class AboutPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section className="About bgGrey">
+        <section className="About Page bgGrey">
           <h1>5W + 1H = Angus H.</h1>
           <div className="About-info">
             <h2>Who is Angus?</h2>
@@ -82,7 +82,7 @@ export class ProjectsPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section className="Projects bgGrey">
+        <section className="Projects Page bgGrey">
           <h1>Things I've worked on</h1>
           <div className="Project-icons-list">
             <div className={this.state.currentProject === "MotionArt" ? "Project-icons-selected bgAlmostBlack" : "Project-icons bgAlmostBlack"}
@@ -105,7 +105,7 @@ export class ContactPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section className="Contact bgGrey">
+        <section className="Contact Page bgGrey">
           <h1>Grab a hold of me here!</h1>
           <a href="https://www.linkedin.com/in/angus-hon/" target="_blank" rel="noopener noreferrer">
             <img className="Contact-icons" src={linkedinIcon} alt="linkedin logo made by Freepik" />
