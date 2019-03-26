@@ -5,9 +5,9 @@ import motionArt3 from './assets/motionart3.jpg'
 import motionArt4 from './assets/motionart4.jpg'
 import motionArt5 from './assets/motionart5.jpg'
 
-export class DefaultProject extends React.Component{
-  render(){
-    return(
+export class DefaultProject extends React.Component {
+  render() {
+    return (
       <React.Fragment></React.Fragment>
     );
   }
@@ -41,6 +41,34 @@ export class ProjectMotionArt extends React.Component {
 
         <p>Attempted gyroscope + accelerometer combination but still too inaccurate.</p>
         <p>At the end of the day, what I achieved was a basic drawing application without the special / intended feature.</p>
+      </React.Fragment>
+    );
+  }
+}
+
+export class ProjectWifiOptimization extends React.Component {
+  render() {
+    return (
+      <React.Fragment>
+        <h2>Optimizaton of SFU Bennett Library's WIFI Coverage</h2>
+        <p>Optimization project within Operations Research (OR) done with Kaveh Alemi, David Ling and Anson Christo in
+        which we make
+        a mathematical model to optimize wi-fi coverage in population dense areas of SFU's main library. To do so, we
+        required data from SFU in regards to...
+        </p>
+        <div className="Projects-gallery"></div>
+        <ol>
+          <li>floor plan of the library, </li>
+          <li>capacity of the library at peak hours, </li>
+          <li>data usage per user within the library, </li>
+          <li>cost of data usage, </li>
+          <li>network speeds, </li>
+          <li>and current coverage setup.</li>
+        </ol>
+        <p>In an ideal world, all the data we require would be provided to us. However, as students we had limited access
+          to the
+          institution's data. With the help of SFU's IT and Network Services, we were able to obtain a sufficient amount.
+        </p>
       </React.Fragment>
     );
   }

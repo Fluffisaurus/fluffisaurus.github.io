@@ -1,5 +1,5 @@
 import React from 'react';
-import { DefaultProject, ProjectMotionArt } from './Projects.js'
+import { DefaultProject, ProjectMotionArt, ProjectWifiOptimization } from './Projects.js'
 import linkedinIcon from './assets/linkedin.svg'
 import emailIcon from './assets/email.svg'
 import phoneIcon from './assets/chat.svg'
@@ -67,6 +67,9 @@ export class ProjectsPage extends React.Component {
       case "MotionArt":
         project = <ProjectMotionArt/>;
         break;
+      case "WifiOptimization":
+        project = <ProjectWifiOptimization/>;
+        break;
       default:
         project = <DefaultProject/>
         break;
@@ -85,12 +88,16 @@ export class ProjectsPage extends React.Component {
         <section className="Projects Page bgGrey">
           <h1>Things I've worked on</h1>
           <div className="Project-icons-list">
-            <div className={this.state.currentProject === "MotionArt" ? "Project-icons-selected bgAlmostBlack" : "Project-icons bgAlmostBlack"}
+            <div className={this.state.currentProject === "MotionArt" ? "Project-icons Project-icons-selected bgAlmostBlack" : "Project-icons bgAlmostBlack"}
               onClick={this.state.currentProject !== "MotionArt" ?
-                () => this.nextProject("MotionArt") : () => this.nextProject("Default")}></div>
-            <div className="Project-icons bgBlue"></div>
-            <div className="Project-icons bgNeonBlue"></div>
-            <div className="Project-icons bgWhite"></div>
+                () => this.nextProject("MotionArt") : () => this.nextProject("Default")}>
+              <p className="Project-name">MotionArt</p>
+            </div>
+            <div className={this.state.currentProject === "WifiOptimization" ? "Project-icons Project-icons-selected bgAlmostBlack" : "Project-icons bgAlmostBlack"}
+              onClick={this.state.currentProject !== "WifiOptimization" ?
+                () => this.nextProject("WifiOptimization") : () => this.nextProject("Default")}>
+              <p className="Project-name">Wifi Opt.</p>
+            </div>
           </div>
           <div className={this.state.currentProject !== "Default" ? "Container Container-expanded" : "Container"}>
             {this.getProject()}
