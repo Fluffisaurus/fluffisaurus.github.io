@@ -2,6 +2,7 @@
   width: 180px;
   height: 180px;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
   animation: App-logo-spin infinite 20s linear;
 }
 
@@ -21,6 +22,11 @@
   text-align: center;
   height: 100vh; 
   width: 100vw;
+}
+
+.App-header{
+  transition: 0.3s ease-in;
+  animation: slide-up 0.3s ease-in;
 }
 
 .App-header-compressed{
@@ -49,14 +55,18 @@
   padding-right: 1em;
   overflow-y: auto;
   overflow-x: hidden;
+  height: 0%;
+  transition: 0.3s ease-out;
 }
 
 .Container-expanded{
   height: 100%;
+  transition: 0.3s ease-in;
+  animation: fade 0.3s ease-in;
 }
 
 .Page{
-  animation: fade 0.3s ease-in;
+  /* animation:  */
 }
 
 /* #region About Page Stuff */
@@ -98,22 +108,28 @@
 }
 
 .Project-icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100px;
   height: 100px;
+  border-radius: 8px;
+  margin-right: 0.5em;
   cursor: pointer;
-  transition: 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.Project-icons:hover .Project-name{
+  color: #51eef7;
+  background-color: #313535;
 }
 
 .Project-icons-selected{
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  transition: 0.3s ease-in-out;
-  transform: scale(1.025);
+  transform: scale(1.05);
 }
 
 .Project-icons:hover, .Project-icons:focus{
-  transform: scale(1.025);
+  transform: scale(1.05);
 }
 /* #endregion Projects Page Stuff */
 
@@ -177,22 +193,13 @@ a span{
 /*#endregion Scrollbar Stuff  */
 
 /* Animations */
-.fade-enter {
-  opacity: 0.01;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
+@keyframes slide-up{
+  from{
+    translate: -20px;
+  }
+  to{
+    translate: 0px;
+  }
 }
 
 @keyframes fade{
@@ -210,5 +217,50 @@ a span{
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 40em){
+  .Container,.App-header, .App-header-compressed, .App-header-expanded{
+    width: 100%;
+  }
+  .App-logo-pin{
+    width: 50px;
+    height: 50px;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 40em){ /*640px*/
+  .Container,.App-header, .App-header-compressed, .App-header-expanded{
+    width: 90%;
+  }
+  .App-logo-pin{
+    width: 65px;
+    height: 65px;
+    margin-left: 1;
+  }
+}
+
+@media (min-width: 62.5em){ /*1000px*/
+  .App-header, .App-header-compressed, .App-header-expanded{
+    width: 80%;
+  }
+  .Container{
+    width: 70%;
+  }
+  .App-logo-pin{
+    width: 80px;
+    height: 80px;
+    margin-left: 2;
+  }
+}
+
+@media (min-width: 87.5em){ /*1400px*/
+  .App-header, .App-header-compressed, .App-header-expanded{
+    width: 80%;
+  }
+  .Container{
+    width: 60%;
   }
 }

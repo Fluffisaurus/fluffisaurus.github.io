@@ -75,7 +75,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App bgAlmostBlack">
-        <header className={this.state.headerExpand ? "App-header-expanded" : "App-header-compressed"}>
+        <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
           <img className={this.state.headerExpand ? "App-logo App-logo-pin" : "App-logo"} onClick={() => this.nextComponent("Default")}
             src={logo} alt="temp react logo" />
           <nav className="Navigation">
@@ -84,7 +84,7 @@ class App extends React.Component {
             <span className={this.state.currentComponent === "Contact" ? "colNeonBlue" : "colBlue"} onClick={() => this.nextComponent("Contact")}>Contact</span>
           </nav>
         </header>
-        <div className={this.state.headerExpand ? "Container Container-expanded" : "Container"}>
+        <div className={this.state.headerExpand ?  "Container-expanded Container": "Container"}>
           {GetComponent(this.state.currentComponent)}
           {/* <CSSTransition key={this.state.currentComponent} className="fade">
             {GetComponent(this.state.currentComponent)}
