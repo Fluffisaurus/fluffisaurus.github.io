@@ -48,7 +48,7 @@ h1, h2, h3, h4{
   color: #51eef7;
 }
 
-p, ul, ol, li{
+p, ul, ol, li, label{
   color: white;
 }
 
@@ -63,9 +63,29 @@ a:hover, a:focus{
   color: #42ebf4;
 }
 
+.button-nav {
+  display: inline-block;
+  padding: 0.5rem;
+  text-decoration: none;
+  transition-property: background-color; 
+  transition-duration: 0.5s;
+}
+
+.button-nav:hover, .button-nav:focus {
+  color: #51eef7;
+  background-color: #313535;
+}
+
+form button{
+  width: 120px;
+  height: 40px;
+  margin-left: 0.2em;
+}
+
 button{
   display: inline-block;
   border: none;
+  border-radius: 0.25em;
   padding: 1rem 2rem;
   margin: 0;
   font-family: sans-serif;
@@ -88,14 +108,22 @@ button:active {
 
 input{
   border-color: #425051;
+  border-width: 0.1em;
+  border-radius: 1em;
+  transition: 0.3s ease;
+  padding-left: 1em;
+}
+
+textarea{
+  border-color: #425051;
   border-width: 0.2em;
-  border-radius: 2em;
+  border-radius: 0.5em;
   transition: 0.3s ease;
 }
 
-input:focus, input:hover{
+input:focus, input:hover, textarea:focus, textarea:hover{
   border-color: #313535;
-  transform: scale(1.03);
+  transform: scale(1.005);
   outline:none;
 }
 
