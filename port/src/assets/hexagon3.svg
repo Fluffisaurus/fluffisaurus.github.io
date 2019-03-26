@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" class="hexagon_formation" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 653.7 436" style="enable-background:new 0 0 653.7 436;" xml:space="preserve">
+<g>
+	<polygon class="hex" points="351.8,261.3 301.8,174.7 351.8,88.1 451.8,88.1 501.8,174.7 451.8,261.3 	"/>
+	<polygon class="hex" points="351.9,434.5 301.9,347.9 351.9,261.3 451.9,261.3 501.9,347.9 451.9,434.5 	"/>
+	<polygon class="hex" points="502,347.9 452,261.3 502,174.7 602,174.7 652,261.3 602,347.9 	"/>
+	<polygon class="hex" points="502,174.7 452,88.1 502,1.5 602,1.5 652,88.1 602,174.7 	"/>
+	<polygon class="hex" points="201.8,174.7 151.8,88.1 201.8,1.5 301.8,1.5 351.8,88.1 301.8,174.7 	"/>
+	<polygon class="hex" points="51.7,261.3 1.7,174.7 51.7,88.1 151.7,88.1 201.7,174.7 151.7,261.3 	"/>
+</g>
+</svg>
