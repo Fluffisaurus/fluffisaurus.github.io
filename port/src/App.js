@@ -37,25 +37,6 @@ class App extends React.Component {
     }
   }
 
-  // getComponent() {
-  //   let component;
-  //   switch (this.state.currentComponent) {
-  //     case "About":
-  //       component = <AboutPage />;
-  //       break;
-  //     case "Projects":
-  //       component = <ProjectsPage />;
-  //       break;
-  //     case "Contact":
-  //       component = <ContactPage />;
-  //       break;
-  //     case "Default":
-  //       component = <DefaultPage />;
-  //       break;
-  //   }
-  //   return component;
-  // }
-
   nextComponent(pageName) {
     this.setState({
       currentComponent: pageName
@@ -90,7 +71,6 @@ class App extends React.Component {
             {GetComponent(this.state.currentComponent)}
           </CSSTransition> */}
         </div>
-
       </div>
     );
   }
