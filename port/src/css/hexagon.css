@@ -1,0 +1,30 @@
+.hexagon_formation{
+  position: absolute;
+  z-index: -1;
+  width: 500px;
+  height: auto;
+  transform: rotate(0);
+}
+
+.hex{
+  fill:none;
+  stroke:#00FFFF;
+  stroke-width:3;
+  stroke-miterlimit:10;
+  animation: bg-pulse 2s ease-in-out infinite;
+}
+
+@keyframes bg-pulse{
+  0%{
+    opacity: 0.6;
+    stroke-width: 3;
+  }
+  50%{
+    opacity: 1;
+    stroke-width: 6;
+  }
+  100%{
+    opacity: 0.6;
+    stroke-width: 3;
+  }
+}

@@ -22,11 +22,15 @@
   text-align: center;
   height: 100vh; 
   width: 100vw;
+
+  /* for bg polygon */
+  position: relative;
+  z-index: 0; 
 }
 
 .App-header{
   transition: 0.3s ease-in;
-  animation: slide-up 0.3s ease-in;
+  /* animation: slide-up 0.3s ease-in; */
 }
 
 .App-header-compressed{
@@ -56,17 +60,31 @@
   overflow-y: auto;
   overflow-x: hidden;
   height: 0%;
-  transition: 0.3s ease-out;
+  transition: 0.2s ease-out;
 }
 
 .Container-expanded{
   height: 100%;
-  transition: 0.3s ease-in;
-  animation: fade 0.3s ease-in;
+  transition: 0.2s ease-in;
+  animation: fade 0.2s ease-in;
+}
+
+.Container-email{
+  margin-left: 0.5em;
+}
+
+.Container-email-buttons{
+  align-self: flex-end;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
 }
 
 .Page{
   /* animation:  */
+  border-radius: 0.8em;
 }
 
 /* #region About Page Stuff */
@@ -160,6 +178,7 @@
 
 .Icon-reference{
   display: flex;
+  flex-wrap: wrap;
   color: white;
 }
 
@@ -228,6 +247,11 @@ a span{
     width: 50px;
     height: 50px;
     margin-left: 0;
+  }
+  
+  .Contact a{
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 
