@@ -1,33 +1,35 @@
+/* dark palette */
 .bgAlmostBlack{
-  background-color: #313535;
+  background-color: #353639;
 }
 
 .colAlmostBlack{
-  background-color: #313535;
+  color: #353639;
 }
 
 .bgGrey{
-  background-color: #425051ea;
+  background-color: #48494aea;
 }
 
 .colGrey{
-  color: #425051;
+  color: #48494a;
 }
 
 .bgBlue{
-  background-color: #3899ed;
+  background-color: #338bd5;
 }
 
 .colBlue{
-  color: #3899ed;
+  color: #338bd5;
 }
 
+
 .bgNeonBlue{
-  background-color: #51eef7;
+  background-color: #4cdfe3;
 }
 
 .colNeonBlue{
-  color: #51eef7;
+  color: #4cdfe3;
 }
 
 .bgWhite{
@@ -36,4 +38,13 @@
 
 .colWhite{
   color: white;
+}
+
+/* light palette */
+.bgLight{
+  background-color: white;
+}
+
+.bgLight2{
+  background-color:#e7e1d6; 
 }
