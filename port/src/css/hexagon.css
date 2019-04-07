@@ -19,9 +19,21 @@
     opacity: 0.6;
     stroke-width: 3;
   }
+  20%{
+    opacity: 1;
+    stroke-width: 1;
+  }
+  30%{
+    opacity: 0.2;
+    stroke-width: 2;
+  }
   50%{
     opacity: 1;
-    stroke-width: 6;
+    stroke-width: 4;
+  }
+  70%{
+    opacity: 0.4;
+    stroke-width: 2;
   }
   100%{
     opacity: 0.6;

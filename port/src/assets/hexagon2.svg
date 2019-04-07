@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" class="hexagon_formation" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 650.1 433" style="enable-background:new 0 0 650.1 433;" xml:space="preserve">
+<svg version="1.1" class="hexagon_formation" viewBox="0 0 650.1 433" >
 <g>
 	<polygon class="hex" points="350.1,259.8 300.1,173.2 350.1,86.6 450.1,86.6 500.1,173.2 450.1,259.8 	"/>
 	<polygon class="hex" points="500.1,173.2 450.1,86.6 500.1,0 600.1,0 650.1,86.6 600.1,173.2 	"/>
