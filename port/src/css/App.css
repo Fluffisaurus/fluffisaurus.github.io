@@ -146,6 +146,10 @@ form{
   transform: scale(1.05);
 }
 
+.Project-icons-selected p{
+  color: #51eef7;
+}
+
 .Project-icons:hover, .Project-icons:focus{
   transform: scale(1.05);
 }

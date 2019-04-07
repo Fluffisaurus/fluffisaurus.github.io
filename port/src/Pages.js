@@ -58,7 +58,7 @@ export class ProjectsPage extends React.Component {
     super(props);
     this.nextProject = this.nextProject.bind(this);
     this.state = {
-      currentProject: "Default"
+      currentProject: "MotionArt"
     }
   }
   getProject() {
@@ -142,14 +142,14 @@ export class ContactPage extends React.Component {
           </a>
           <a onClick={() => this.handleClick()}>
             <img className="Contact-icons" src={emailIcon} alt="email icon made by Freepik" />
-            <span>angus_hon@sfu.ca</span>
+            <span aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>angus_hon@sfu.ca</span>
           </a>
           <div className={this.state.showEmailMe ? "Container-expanded Container Container-email": "Container Container-email"}>
             {this.getComponent()}
           </div>
           <a>
             <img className="Contact-icons" src={phoneIcon} alt="phone icon made by Zurb" />
-            <span>+1 (778) 788 9168</span>
+            <span aria-label="phone number">+1 (778) 788 9168</span>
           </a>
           <p className="Icon-reference"> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/<?=_('authors').'/'?>zurb" title="Zurb">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> and editted by Angus Hon. </p>
         </section>
@@ -171,8 +171,8 @@ export class EmailMe extends React.Component {
           <input type="hidden" name="subject" value="Sample web form"/>
           <input type="hidden" name="redirect_url" value="<a href=http://www.sfu.ca/acs&gt; the IT Services Home Page</a&gt;"/>
           <div className="Container-email-buttons">
-            <button type="reset" value="Clear Form" className="button-nav">Clear</button>
-            <button type="submit" value="Send Form" className="button-nav">Send</button>
+            <button role="button" type="reset" value="Clear Form" className="button-nav">Clear</button>
+            <button role="button" type="submit" value="Send Form" className="button-nav">Send</button>
           </div>
         </form>
       </React.Fragment>
