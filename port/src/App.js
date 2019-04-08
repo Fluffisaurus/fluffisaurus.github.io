@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Switch } from "react-router";
 import logo from './assets/logo.svg';
 import './css/App.css';
 import './css/palette.css';
@@ -16,8 +17,6 @@ class App extends React.Component {
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.randomPos = this.randomPos.bind(this);
     this.state = {
-      currentComponent: "Default",
-      currentProject: "Default",
       headerExpand: false,
       width: window.innerWidth,
       height: window.innerHeight,
@@ -55,13 +54,13 @@ class App extends React.Component {
   }
 
   //if headerexpand is set to true, opens container height > 0 to show components
-  containerOpen(){
+  containerOpen() {
     this.setState({
       headerExpand: true
     })
   }
 
-  containerClose(){
+  containerClose() {
     this.setState({
       headerExpand: false
     })
@@ -128,16 +127,18 @@ class App extends React.Component {
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
             <CustomLogoLink activeOnlyWhenExact={true} to="/" label="Home" handleClick={this.containerClose}/>
             <nav className="Navigation">
-              <CustomMenuLink to="/about" label="About" handleClick={this.containerOpen}/>
-              <CustomMenuLink to="/projects" label="Projects" handleClick={this.containerOpen}/>
-              <CustomMenuLink to="/contact" label="Contact" handleClick={this.containerOpen}/>
+              <CustomMenuLink to="/about" label="About" handleClick={this.containerOpen} />
+              <CustomMenuLink to="/projects" label="Projects" handleClick={this.containerOpen} />
+              <CustomMenuLink to="/contact" label="Contact" handleClick={this.containerOpen} />
             </nav>
           </header>
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
-            <Route exact path="/" component={DefaultPage} />
-            <Route exact path="/about" component={AboutPage} />
-            <Route exact path="/projects" component={ProjectsPage} />
-            <Route exact path="/contact" component={ContactPage} />
+            <Switch>
+              <Route exact path="/" component={DefaultPage} />
+              <Route exact path="/about" component={AboutPage} />
+              <Route exact path="/projects" component={ProjectsPage} />
+              <Route exact path="/contact" component={ContactPage} />
+            </Switch>
           </div>
         </Router>
       </div >

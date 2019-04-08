@@ -9,7 +9,7 @@
 .hex{
   fill:none;
   stroke:#00FFFF;
-  opacity: 0.2;
+  opacity: 0.25;
   stroke-width:2;
   stroke-miterlimit:10;
 }
