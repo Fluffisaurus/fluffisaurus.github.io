@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import logo from './assets/logo.svg';
 import './css/App.css';
 import './css/palette.css';
@@ -43,6 +44,8 @@ class App extends React.Component {
       posy: [0, 0, 0],
       rotate: 0
     }
+    this.containerOpen = this.containerOpen.bind(this);
+    this.containerClose = this.containerClose.bind(this);
   }
 
   // https://stackoverflow.com/a/42141641
@@ -52,7 +55,7 @@ class App extends React.Component {
     window.addEventListener('resize', this.updateWindowDimensions);
     this.randomPos();
   }
-  
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
@@ -62,11 +65,11 @@ class App extends React.Component {
     console.log("width: " + this.state.width + ", height: " + this.state.height);
   }
 
-  randomPos(){
+  randomPos() {
     this.setState({
       posx: [Math.random() * this.state.width, Math.random() * this.state.width, Math.random() * this.state.width],
       posy: [Math.random() * this.state.height, Math.random() * this.state.height, Math.random() * this.state.height],
-      rotate: Math.random()*360
+      rotate: Math.random() * 360
     });
     console.log("i am triggered width: " + this.state.posx + ", height: " + this.state.posy + ", rotate: " + this.state.rotate);
 
@@ -74,6 +77,7 @@ class App extends React.Component {
 
 
   nextComponent(pageName) {
+    console.log(pageName);
     this.setState({
       currentComponent: pageName
     });
@@ -89,6 +93,18 @@ class App extends React.Component {
     }
   }
 
+  containerOpen(){
+    this.setState({
+      headerExpand: true
+    })
+  }
+
+  containerClose(){
+    this.setState({
+      headerExpand: false
+    })
+  }
+
   handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       alert("clicked enter");
@@ -100,25 +116,25 @@ class App extends React.Component {
 
   render() {
     const hex1 = {
-      width: this.state.width/2,
-      height: this.state.height/2,
-      left: (this.state.posx[0] - this.state.width/2) <= 0 ? 0 : this.state.posx[0] - this.state.width/2 ,
-      top: (this.state.posy[0] - this.state.height/2) <= 0 ? 0 : this.state.posy[0] - this.state.height/2 ,
-      transform: 'rotate('+ this.state.rotate + 'deg)'
+      width: this.state.width / 2,
+      height: this.state.height / 2,
+      left: (this.state.posx[0] - this.state.width / 2) <= 0 ? 0 : this.state.posx[0] - this.state.width / 2,
+      top: (this.state.posy[0] - this.state.height / 2) <= 0 ? 0 : this.state.posy[0] - this.state.height / 2,
+      transform: 'rotate(' + this.state.rotate + 'deg)'
     };
     const hex2 = {
-      width: this.state.width/2,
-      height: this.state.height/2,
-      left: (this.state.posx[1] - this.state.width/2) <= 0 ? 0 : this.state.posx[1] - this.state.width/2 ,
-      top: (this.state.posy[1] - this.state.height/2) <= 0 ? 0 : this.state.posy[1] - this.state.height/2 ,
-      transform: 'rotate('+ this.state.rotate*3/4 + 'deg)'
+      width: this.state.width / 2,
+      height: this.state.height / 2,
+      left: (this.state.posx[1] - this.state.width / 2) <= 0 ? 0 : this.state.posx[1] - this.state.width / 2,
+      top: (this.state.posy[1] - this.state.height / 2) <= 0 ? 0 : this.state.posy[1] - this.state.height / 2,
+      transform: 'rotate(' + this.state.rotate * 3 / 4 + 'deg)'
     };
     const hex3 = {
-      width: this.state.width/2,
-      height: this.state.height/2,
-      left: (this.state.posx[2] - this.state.width/2) <= 0 ? 0 : this.state.posx[2] - this.state.width/2 ,
-      top: (this.state.posy[2] - this.state.height/2) <= 0 ? 0 : this.state.posy[2] - this.state.height/2 ,
-      transform: 'rotate('+ this.state.rotate*1/2 + 'deg)'
+      width: this.state.width / 2,
+      height: this.state.height / 2,
+      left: (this.state.posx[2] - this.state.width / 2) <= 0 ? 0 : this.state.posx[2] - this.state.width / 2,
+      top: (this.state.posy[2] - this.state.height / 2) <= 0 ? 0 : this.state.posy[2] - this.state.height / 2,
+      transform: 'rotate(' + this.state.rotate * 1 / 2 + 'deg)'
     };
     return (
       <div className="App bgAlmostBlack">
@@ -154,7 +170,7 @@ class App extends React.Component {
             <polygon className={this.state.headerExpand ? "hex" : "hex hex3"} points="51.7,261.3 1.7,174.7 51.7,88.1 151.7,88.1 201.7,174.7 151.7,261.3 	" />
           </g>
         </svg>
-
+        {/* 
         <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
           <img role="button" tabIndex="0" aria-pressed="false" onKeyPress={() => this.nextComponent("Default")}
             className={this.state.headerExpand ? "App-logo App-logo-pin" : "App-logo"} onClick={() => this.nextComponent("Default")}
@@ -170,13 +186,47 @@ class App extends React.Component {
         </header>
         <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
           {GetComponent(this.state.currentComponent)}
-          {/* <CSSTransition key={this.state.currentComponent} className="fade">
-            {GetComponent(this.state.currentComponent)}
-          </CSSTransition> */}
-        </div>
+        </div> */}
+
+        <Router>
+          <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
+            <CustomMenuLink activeOnlyWhenExact={true} to="/" label="Home" handleClick={this.containerClose}/>
+            <nav className="Navigation">
+              <CustomMenuLink to="/about" label="About" handleClick={this.containerOpen}/>
+              <CustomMenuLink to="/projects" label="Projects" handleClick={this.containerOpen}/>
+              <CustomMenuLink to="/contact" label="Contact" handleClick={this.containerOpen}/>
+            </nav>
+          </header>
+          <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
+            <Route exact path="/" component={DefaultPage} />
+            <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/projects" component={ProjectsPage} />
+            <Route exact path="/contact" component={ContactPage} />
+          </div>
+        </Router>
+
+
       </div >
     );
   }
 }
+
+class CustomMenuLink extends React.Component {
+  render() {
+    return (
+      <Route
+        path={this.props.to}
+        exact={this.props.activeOnlyWhenExact}
+        children={({ match }) => (
+          <div className={match ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"}>
+            {/* {match ? "> " : ""} */}
+            <Link to={this.props.to} onClick={this.props.handleClick}>{this.props.label}</Link>
+          </div>
+        )}
+      />
+    );
+  }
+}
+
 
 export default App;
