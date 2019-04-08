@@ -7,33 +7,14 @@ import './css/hexagon.css';
 
 import { DefaultPage, AboutPage, ProjectsPage, ContactPage } from './Pages.js';
 
-function GetComponent(props) {
-  let component;
-  switch (props) {
-    case "About":
-      component = <AboutPage />;
-      break;
-    case "Projects":
-      component = <ProjectsPage />;
-      break;
-    case "Contact":
-      component = <ContactPage />;
-      break;
-    case "Default":
-      component = <DefaultPage />;
-      break;
-  }
-  return component;
-}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.nextComponent = this.nextComponent.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.containerOpen = this.containerOpen.bind(this);
+    this.containerClose = this.containerClose.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.randomPos = this.randomPos.bind(this);
-    this.buttonClicked = React.createRef();
     this.state = {
       currentComponent: "Default",
       currentProject: "Default",
@@ -44,8 +25,6 @@ class App extends React.Component {
       posy: [0, 0, 0],
       rotate: 0
     }
-    this.containerOpen = this.containerOpen.bind(this);
-    this.containerClose = this.containerClose.bind(this);
   }
 
   // https://stackoverflow.com/a/42141641
@@ -75,24 +54,7 @@ class App extends React.Component {
 
   }
 
-
-  nextComponent(pageName) {
-    console.log(pageName);
-    this.setState({
-      currentComponent: pageName
-    });
-    // if header is expanded, container expanded to 100% height 
-    if (pageName !== "Default") {
-      this.setState({
-        headerExpand: true
-      });
-    } else {
-      this.setState({
-        headerExpand: false
-      })
-    }
-  }
-
+  //if headerexpand is set to true, opens container height > 0 to show components
   containerOpen(){
     this.setState({
       headerExpand: true
@@ -103,15 +65,6 @@ class App extends React.Component {
     this.setState({
       headerExpand: false
     })
-  }
-
-  handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      alert("clicked enter");
-      this.setState({
-        headerExpand: true
-      })
-    }
   }
 
   render() {
@@ -170,27 +123,10 @@ class App extends React.Component {
             <polygon className={this.state.headerExpand ? "hex" : "hex hex3"} points="51.7,261.3 1.7,174.7 51.7,88.1 151.7,88.1 201.7,174.7 151.7,261.3 	" />
           </g>
         </svg>
-        {/* 
-        <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
-          <img role="button" tabIndex="0" aria-pressed="false" onKeyPress={() => this.nextComponent("Default")}
-            className={this.state.headerExpand ? "App-logo App-logo-pin" : "App-logo"} onClick={() => this.nextComponent("Default")}
-            src={logo} alt="temp react logo" />
-          <nav className="Navigation">
-            <span role="button" tabIndex="0" aria-pressed="false" aria-haspopup="menu" onKeyPress={() => this.nextComponent("About")}
-              className={this.state.currentComponent === "About" ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"} onClick={() => this.nextComponent("About")}>About</span>
-            <span role="button" tabIndex="0" aria-pressed="false" aria-haspopup="menu" onKeyPress={() => this.nextComponent("Projects")}
-              className={this.state.currentComponent === "Projects" ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"} onClick={() => this.nextComponent("Projects")}>Projects</span>
-            <span role="button" tabIndex="0" aria-pressed="false" aria-haspopup="menu" onKeyPress={() => this.nextComponent("Contact")}
-              className={this.state.currentComponent === "Contact" ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"} onClick={() => this.nextComponent("Contact")}>Contact</span>
-          </nav>
-        </header>
-        <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
-          {GetComponent(this.state.currentComponent)}
-        </div> */}
 
         <Router>
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
-            <CustomMenuLink activeOnlyWhenExact={true} to="/" label="Home" handleClick={this.containerClose}/>
+            <CustomLogoLink activeOnlyWhenExact={true} to="/" label="Home" handleClick={this.containerClose}/>
             <nav className="Navigation">
               <CustomMenuLink to="/about" label="About" handleClick={this.containerOpen}/>
               <CustomMenuLink to="/projects" label="Projects" handleClick={this.containerOpen}/>
@@ -204,14 +140,31 @@ class App extends React.Component {
             <Route exact path="/contact" component={ContactPage} />
           </div>
         </Router>
-
-
       </div >
     );
   }
 }
 
+class CustomLogoLink extends React.Component{
+  render(){
+    return(
+      <Route
+        path={this.props.to}
+        exact={this.props.activeOnlyWhenExact}
+        children={({ match }) => (
+          <Link to={this.props.to} onClick={this.props.handleClick}>
+            <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={logo} alt="temp react logo"/>
+          </Link>
+        )}
+      />
+    );
+  }
+}
+
 class CustomMenuLink extends React.Component {
+  // access props for definitions, parent container will open if click is handled
+  // handleClick either triggers containerOpen or containerClosed in parent function
+  // it sets state of headerExpand, if its true then container will open up, else it'll stay closed or close
   render() {
     return (
       <Route
@@ -219,7 +172,6 @@ class CustomMenuLink extends React.Component {
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
           <div className={match ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"}>
-            {/* {match ? "> " : ""} */}
             <Link to={this.props.to} onClick={this.props.handleClick}>{this.props.label}</Link>
           </div>
         )}

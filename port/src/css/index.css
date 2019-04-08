@@ -16,14 +16,8 @@ code {
   font-family: 'Inconsolata', monospace;
 }
 
-nav span{
+nav a, nav a:focus{
   text-decoration: none;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-nav span:hover, nav span:focus{
-  color: #51eef7;
 }
 
 a span{
