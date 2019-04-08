@@ -9,34 +9,46 @@
 .hex{
   fill:none;
   stroke:#00FFFF;
-  stroke-width:3;
+  opacity: 0.2;
+  stroke-width:2;
   stroke-miterlimit:10;
+}
+
+.hex1{
   animation: bg-pulse 2s ease-in-out infinite;
+}
+
+.hex2{
+  animation: bg-pulse 5s ease-in infinite;
+}
+
+.hex3{
+  animation: bg-pulse 3s ease-in-out infinite;
 }
 
 @keyframes bg-pulse{
   0%{
     opacity: 0.6;
-    stroke-width: 3;
+    stroke-width: 2;
   }
   20%{
-    opacity: 1;
-    stroke-width: 1;
+    opacity: 0.8;
+    stroke-width: 0.5;
   }
   30%{
     opacity: 0.2;
-    stroke-width: 2;
+    stroke-width: 1;
   }
   50%{
-    opacity: 1;
-    stroke-width: 4;
+    opacity: 0.7;
+    stroke-width: 2.5;
   }
   70%{
     opacity: 0.4;
-    stroke-width: 2;
+    stroke-width: 1;
   }
   100%{
     opacity: 0.6;
-    stroke-width: 3;
+    stroke-width: 2.5;
   }
 }

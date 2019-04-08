@@ -22,6 +22,7 @@
   text-align: center;
   height: 100vh; 
   width: 100vw;
+  overflow: hidden;
 
   /* for bg polygon */
   position: relative;

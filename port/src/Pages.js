@@ -109,24 +109,24 @@ export class ProjectsPage extends React.Component {
 }
 
 export class ContactPage extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       showEmailMe: false
     }
     this.handleClick = this.handleClick.bind(this);
   }
-  
-  handleClick(){
+
+  handleClick() {
     this.setState({
       showEmailMe: !this.state.showEmailMe
     });
   }
 
-  getComponent(){
-    if(this.state.showEmailMe === true){
-      return <EmailMe/>
-    }else{
+  getComponent() {
+    if (this.state.showEmailMe === true) {
+      return <EmailMe />
+    } else {
       return <React.Fragment></React.Fragment>
     }
   }
@@ -144,14 +144,14 @@ export class ContactPage extends React.Component {
             <img className="Contact-icons" src={emailIcon} alt="email icon made by Freepik" />
             <span aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>angus_hon@sfu.ca</span>
           </a>
-          <div className={this.state.showEmailMe ? "Container-expanded Container Container-email": "Container Container-email"}>
+          <div className={this.state.showEmailMe ? "Container-expanded Container Container-email" : "Container Container-email"}>
             {this.getComponent()}
           </div>
           <a>
             <img className="Contact-icons" src={phoneIcon} alt="phone icon made by Zurb" />
             <span aria-label="phone number">+1 (778) 788 9168</span>
           </a>
-          <p className="Icon-reference"> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/<?=_('authors').'/'?>zurb" title="Zurb">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> and editted by Angus Hon. </p>
+          <p className="Icon-reference"> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/<?=_('authors').'/'?>zurb" title="Zurb">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a> and editted by Angus Hon. </p>
         </section>
       </React.Fragment>
     );
@@ -163,17 +163,19 @@ export class EmailMe extends React.Component {
     return (
       <React.Fragment>
         <form method="POST" action="http://www.sfu.ca/cgi-bin/mailto.pl">
-          <label htmlFor="email">E-Mail Address</label><input name="email" size="36"/>
-          <label htmlFor="name">Name</label><input name="name" size="36"/>
+          <label htmlFor="email">E-Mail Address</label><input name="email" size="36" />
+          <label htmlFor="name">Name</label><input name="name" size="36" />
           <label htmlFor="body">Send a greeting:</label>
-          <textarea name="body" rows="10" cols = "60">Send a greeting here</textarea>
-          <input type="hidden" name="recipient" value="angus.hon@sfu.ca"/>
-          <input type="hidden" name="subject" value="Sample web form"/>
-          <input type="hidden" name="redirect_url" value="<a href=http://www.sfu.ca/acs&gt; the IT Services Home Page</a&gt;"/>
-          <div className="Container-email-buttons">
-            <button role="button" type="reset" value="Clear Form" className="button-nav">Clear</button>
-            <button role="button" type="submit" value="Send Form" className="button-nav">Send</button>
-          </div>
+          <textarea name="body" rows="10" cols="60">Send a greeting here</textarea>
+          <p>
+            <input type="hidden" name="recipient" value="angus.hon@sfu.ca" />
+            <input type="hidden" name="subject" value="Sample web form" />
+            <input type="hidden" name="redirect_url" value="<a href=http://www.sfu.ca/acs&gt; the IT Services Home Page</a&gt;" />
+            <div className="Container-email-buttons">
+              <button type="reset" value="Clear Form" className="button-nav">Clear</button>
+              <button type="submit" value="Send Form" className="button-nav">Send</button>
+            </div>
+          </p>
         </form>
       </React.Fragment>
     );
