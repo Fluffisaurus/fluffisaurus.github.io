@@ -28,19 +28,32 @@ class App extends React.Component {
 
   // https://stackoverflow.com/a/42141641
   componentDidMount() {
-    console.log("hi");
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
+    //initially randomize positioning
     this.randomPos();
+
+    //if header is expanded, stop animations
+    if(!this.state.headerExpand){
+      this.timePassed = setInterval(()=>this.randomPos(), 6500);
+    }
+
+    //regex to check current url of router after "/"" if home page content isn't open
+    //set container to open... this can probably be done better with react-router by checking
+    //
+    if((window.location.href).replace(/.*\//, "") !== ""){
+      this.containerOpen();
+    }
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions);
+    clearInterval(this.timePassed);
   }
 
   updateWindowDimensions() {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
-    console.log("width: " + this.state.width + ", height: " + this.state.height);
+    //console.log("width: " + this.state.width + ", height: " + this.state.height);
   }
 
   randomPos() {
@@ -124,14 +137,15 @@ class App extends React.Component {
 
         <Router>
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
-            <CustomLogoLink activeOnlyWhenExact={true} to="/" label="Home" handleClick={this.containerClose}/>
+            <CustomLogoLink activeOnlyWhenExact={true} to="/" label="Home" handleLogoClick={this.containerClose}/>
             <nav className="Navigation">
-              <CustomMenuLink to="/about" label="About" handleClick={this.containerOpen} />
-              <CustomMenuLink to="/projects" label="Projects" handleClick={this.containerOpen} />
-              <CustomMenuLink to="/contact" label="Contact" handleClick={this.containerOpen} />
+              <CustomMenuLink to="/about" label="About" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/projects" label="Projects" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} />
             </nav>
           </header>
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
+          {/* <div tabIndex="0" className={this.props.match.path != "/" ? "Container-expanded Container" : "Container"}> */}
             <Switch>
               <Route exact path="/" component={DefaultPage} />
               <Route exact path="/about" component={AboutPage} />
@@ -152,7 +166,7 @@ class CustomLogoLink extends React.Component{
         path={this.props.to}
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
-          <Link to={this.props.to} onClick={this.props.handleClick}>
+          <Link to={this.props.to} onClick={this.props.handleLogoClick}>
             <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={logo} alt="temp react logo"/>
           </Link>
         )}
@@ -172,7 +186,7 @@ class CustomMenuLink extends React.Component {
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
           <div className={match ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"}>
-            <Link to={this.props.to} onClick={this.props.handleClick}>{this.props.label}</Link>
+            <Link to={this.props.to} onClick={this.props.handleMenuClick}>{this.props.label}</Link>
           </div>
         )}
       />
