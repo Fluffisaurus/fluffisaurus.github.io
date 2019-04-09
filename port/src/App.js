@@ -49,29 +49,28 @@ class App extends React.Component {
       posy: [Math.random() * this.state.height, Math.random() * this.state.height, Math.random() * this.state.height],
       rotate: Math.random() * 360
     });
-    console.log("i am triggered width: " + this.state.posx + ", height: " + this.state.posy + ", rotate: " + this.state.rotate);
-
+    //console.log("i am triggered width: " + this.state.posx + ", height: " + this.state.posy + ", rotate: " + this.state.rotate);
   }
 
   //if headerexpand is set to true, opens container height > 0 to show components
   containerOpen() {
     this.setState({
       headerExpand: true
-    })
+    },() => {console.log("headerExpand: " + this.state.headerExpand)});
   }
 
   containerClose() {
     this.setState({
       headerExpand: false
-    })
+    },() => {console.log("headerExpand: " + this.state.headerExpand)});
   }
 
   render() {
     const hex1 = {
       width: this.state.width / 2,
       height: this.state.height / 2,
-      left: (this.state.posx[0] - this.state.width / 2) <= 0 ? 0 : this.state.posx[0] - this.state.width / 2,
-      top: (this.state.posy[0] - this.state.height / 2) <= 0 ? 0 : this.state.posy[0] - this.state.height / 2,
+      left: (this.state.posx[0] - this.state.width / 2) <= 0 ? this.state.width/10 : this.state.posx[0] - this.state.width / 2,
+      top: (this.state.posy[0] - this.state.height / 2) <= 0 ? this.state.height/10 : this.state.posy[0] - this.state.height / 2,
       transform: 'rotate(' + this.state.rotate + 'deg)'
     };
     const hex2 = {
