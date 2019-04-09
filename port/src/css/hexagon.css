@@ -4,6 +4,7 @@
   width: 500px;
   height: auto;
   transform: rotate(0);
+  transition: all 0.4s ease-in-out;
 }
 
 .hex{
@@ -15,15 +16,15 @@
 }
 
 .hex1{
-  animation: bg-pulse 2s ease-in-out infinite;
+  animation: bg-pulse 5s ease-in-out infinite;
 }
 
 .hex2{
-  animation: bg-pulse 5s ease-in infinite;
+  animation: bg-pulse 8s ease-in infinite;
 }
 
 .hex3{
-  animation: bg-pulse 3s ease-in-out infinite;
+  animation: bg-pulse 6s ease-in-out infinite;
 }
 
 @keyframes bg-pulse{
