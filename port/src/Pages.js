@@ -228,9 +228,9 @@ export class EmailMe extends React.Component {
       }).then(response => {
         response.json().then(data =>{
           console.log("Successful" + data);
-          alert('Thanks for your message ' + this.state.nameValue + '!');
-          this.handleClear()
-        })
+        }),
+        alert('Thanks for your message ' + this.state.nameValue + '!');
+        this.handleClear();
     }).catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
   }
 
