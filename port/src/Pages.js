@@ -200,9 +200,17 @@ export class EmailMe extends React.Component {
   handleSubmit(event) {
     alert('Thanks for your message ' + this.state.nameValue + '!');
     event.preventDefault();
-    let userData = this.state;
+
+    let userData ={
+      newUser:{
+        email: this.state.emailValue,
+        name: this.state.nameValue,
+        message: this.state.bodyValue
+      }
+    };
 
     const url = 'http://www.sfu.ca/cgi-bin/mailto.pl'
+    
     fetch(url,{
         method: "POST",
         body: JSON.stringify(userData),
