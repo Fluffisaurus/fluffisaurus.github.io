@@ -159,22 +159,84 @@ export class ContactPage extends React.Component {
 }
 
 export class EmailMe extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      emailValue: '',
+      nameValue: '',
+      bodyValue:''
+    };
+
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleEmailChange(event) {
+    this.setState({ 
+      emailValue: event.target.value 
+    }/*,
+      ()=>console.log(this.state.emailValue)*/
+    );
+  }
+
+  handleNameChange(event){
+    this.setState({ 
+      nameValue: event.target.value 
+    }/*,
+      ()=>console.log(this.state.nameValue)*/
+    );
+  }
+
+  handleBodyChange(event){
+    this.setState({ 
+      bodyValue: event.target.value 
+    }/*,
+      ()=>console.log(this.state.bodyValue)*/
+    );
+  }
+
+  handleSubmit(event) {
+    alert('Thanks for your message ' + this.state.nameValue + '!');
+    event.preventDefault();
+    let userData = this.state;
+
+    const url = 'http://www.sfu.ca/cgi-bin/mailto.pl'
+    fetch(url,{
+        method: "POST",
+        body: JSON.stringify(userData),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+      }).then(response => {
+        response.json().then(data =>{
+          console.log("Successful" + data);
+        })
+    }).catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
+  }
+
   render() {
     return (
       <React.Fragment>
-        <form method="POST" action="http://www.sfu.ca/cgi-bin/mailto.pl">
-          <label htmlFor="email">E-Mail Address</label><input name="email" size="36" />
-          <label htmlFor="name">Name</label><input name="name" size="36" />
+        <form onSubmit={this.handleSubmit}>
+          <label htmlFor="email">E-Mail Address</label>
+          <input name="email" placeholder="Your Email" value={this.state.emailValue} onChange={this.handleEmailChange}/>
+          
+          <label htmlFor="name">Name</label>
+          <input name="name" placeholder="Your name" value={this.state.nameValue} onChange={this.handleNameChange}/>
+
           <label htmlFor="body">Send a greeting:</label>
-          <textarea name="body" rows="10" cols="60">Send a greeting here</textarea>
+          <textarea name="body" rows="10" cols="60" placeholder="Send me a message!" value={this.state.bodyValue} onChange={this.handleBodyChange}/>
           <p>
-            <input type="hidden" name="recipient" value="angus.hon@sfu.ca" />
-            <input type="hidden" name="subject" value="Sample web form" />
-            <input type="hidden" name="redirect_url" value="<a href=http://www.sfu.ca/acs&gt; the IT Services Home Page</a&gt;" />
-            <div className="Container-email-buttons">
+            <input type="hidden" name="recipient" defaultValue="angus_hon@sfu.ca" />
+            <input type="hidden" name="subject" defaultValue="Sample web form" />
+            {/* <input type="hidden" name="redirect_url" defaultValue="<a href=index.html&gt; Home Page</a&gt;" /> */}
+            {/* <div className="Container-email-buttons"> */}
               <button type="reset" value="Clear Form" className="button-nav">Clear</button>
               <button type="submit" value="Send Form" className="button-nav">Send</button>
-            </div>
+            {/* </div> */}
           </p>
         </form>
       </React.Fragment>

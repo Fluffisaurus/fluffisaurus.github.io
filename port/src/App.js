@@ -40,7 +40,7 @@ class App extends React.Component {
 
     //regex to check current url of router after "/"" if home page content isn't open
     //set container to open... this can probably be done better with react-router by checking
-    //
+    //current location within router
     if((window.location.href).replace(/.*\//, "") !== ""){
       this.containerOpen();
     }
