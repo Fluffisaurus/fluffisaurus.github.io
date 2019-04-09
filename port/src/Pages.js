@@ -170,6 +170,7 @@ export class EmailMe extends React.Component {
     this.handleEmailChange = this.handleEmailChange.bind(this);
     this.handleNameChange = this.handleNameChange.bind(this);
     this.handleBodyChange = this.handleBodyChange.bind(this);
+    this.handleClear = this.handleClear.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -197,10 +198,17 @@ export class EmailMe extends React.Component {
     );
   }
 
-  handleSubmit(event) {
-    alert('Thanks for your message ' + this.state.nameValue + '!');
+  handleClear(event){
     event.preventDefault();
+    this.setState({
+      emailValue: '',
+      nameValue: '',
+      bodyValue: ''
+    });
+  }
 
+  handleSubmit(event) {
+    event.preventDefault();
     let userData ={
       newUser:{
         email: this.state.emailValue,
@@ -208,9 +216,8 @@ export class EmailMe extends React.Component {
         message: this.state.bodyValue
       }
     };
-
     const url = 'http://www.sfu.ca/cgi-bin/mailto.pl'
-    
+
     fetch(url,{
         method: "POST",
         body: JSON.stringify(userData),
@@ -221,6 +228,8 @@ export class EmailMe extends React.Component {
       }).then(response => {
         response.json().then(data =>{
           console.log("Successful" + data);
+          alert('Thanks for your message ' + this.state.nameValue + '!');
+          this.handleClear()
         })
     }).catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
   }
@@ -242,7 +251,7 @@ export class EmailMe extends React.Component {
             <input type="hidden" name="subject" defaultValue="Sample web form" />
             {/* <input type="hidden" name="redirect_url" defaultValue="<a href=index.html&gt; Home Page</a&gt;" /> */}
             {/* <div className="Container-email-buttons"> */}
-              <button type="reset" value="Clear Form" className="button-nav">Clear</button>
+              <button type="reset" value="Clear Form" className="button-nav" onClick={this.handleClear}>Clear</button>
               <button type="submit" value="Send Form" className="button-nav">Send</button>
             {/* </div> */}
           </p>
