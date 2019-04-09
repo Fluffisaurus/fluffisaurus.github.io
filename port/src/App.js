@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Switch } from "react-router";
 import logo from './assets/logo.svg';
 import './css/App.css';
 import './css/palette.css';
@@ -6,36 +8,15 @@ import './css/hexagon.css';
 
 import { DefaultPage, AboutPage, ProjectsPage, ContactPage } from './Pages.js';
 
-function GetComponent(props) {
-  let component;
-  switch (props) {
-    case "About":
-      component = <AboutPage />;
-      break;
-    case "Projects":
-      component = <ProjectsPage />;
-      break;
-    case "Contact":
-      component = <ContactPage />;
-      break;
-    case "Default":
-      component = <DefaultPage />;
-      break;
-  }
-  return component;
-}
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.nextComponent = this.nextComponent.bind(this);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.containerOpen = this.containerOpen.bind(this);
+    this.containerClose = this.containerClose.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.randomPos = this.randomPos.bind(this);
-    this.buttonClicked = React.createRef();
     this.state = {
-      currentComponent: "Default",
-      currentProject: "Default",
       headerExpand: false,
       width: window.innerWidth,
       height: window.innerHeight,
@@ -47,78 +28,77 @@ class App extends React.Component {
 
   // https://stackoverflow.com/a/42141641
   componentDidMount() {
-    console.log("hi");
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
+    //initially randomize positioning
     this.randomPos();
+
+    //if header is expanded, stop animations
+    if(!this.state.headerExpand){
+      this.timePassed = setInterval(()=>this.randomPos(), 6500);
+    }
+
+    //regex to check current url of router after "/"" if home page content isn't open
+    //set container to open... this can probably be done better with react-router by checking
+    //current location within router
+    if((window.location.href).replace(/.*\//, "") !== ""){
+      this.containerOpen();
+    }
   }
-  
+
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions);
+    clearInterval(this.timePassed);
   }
 
   updateWindowDimensions() {
     this.setState({ width: window.innerWidth, height: window.innerHeight });
-    console.log("width: " + this.state.width + ", height: " + this.state.height);
+    //console.log("width: " + this.state.width + ", height: " + this.state.height);
   }
 
-  randomPos(){
+  randomPos() {
     this.setState({
       posx: [Math.random() * this.state.width, Math.random() * this.state.width, Math.random() * this.state.width],
       posy: [Math.random() * this.state.height, Math.random() * this.state.height, Math.random() * this.state.height],
-      rotate: Math.random()*360
+      rotate: Math.random() * 360
     });
-    console.log("i am triggered width: " + this.state.posx + ", height: " + this.state.posy + ", rotate: " + this.state.rotate);
-
+    //console.log("i am triggered width: " + this.state.posx + ", height: " + this.state.posy + ", rotate: " + this.state.rotate);
   }
 
-
-  nextComponent(pageName) {
+  //if headerexpand is set to true, opens container height > 0 to show components
+  containerOpen() {
     this.setState({
-      currentComponent: pageName
-    });
-    // if header is expanded, container expanded to 100% height 
-    if (pageName !== "Default") {
-      this.setState({
-        headerExpand: true
-      });
-    } else {
-      this.setState({
-        headerExpand: false
-      })
-    }
+      headerExpand: true
+    },() => {console.log("headerExpand: " + this.state.headerExpand)});
   }
 
-  handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      alert("clicked enter");
-      this.setState({
-        headerExpand: true
-      })
-    }
+  containerClose() {
+    this.setState({
+      headerExpand: false
+    },() => {console.log("headerExpand: " + this.state.headerExpand)});
   }
 
   render() {
     const hex1 = {
-      width: this.state.width/2,
-      height: this.state.height/2,
-      left: (this.state.posx[0] - this.state.width/2) <= 0 ? 0 : this.state.posx[0] - this.state.width/2 ,
-      top: (this.state.posy[0] - this.state.height/2) <= 0 ? 0 : this.state.posy[0] - this.state.height/2 ,
-      transform: 'rotate('+ this.state.rotate + 'deg)'
+      width: this.state.width / 2,
+      height: this.state.height / 2,
+      left: (this.state.posx[0] - this.state.width / 2) <= 0 ? this.state.width/10 : this.state.posx[0] - this.state.width / 2,
+      top: (this.state.posy[0] - this.state.height / 2) <= 0 ? this.state.height/10 : this.state.posy[0] - this.state.height / 2,
+      transform: 'rotate(' + this.state.rotate + 'deg)'
     };
     const hex2 = {
-      width: this.state.width/2,
-      height: this.state.height/2,
-      left: (this.state.posx[1] - this.state.width/2) <= 0 ? 0 : this.state.posx[1] - this.state.width/2 ,
-      top: (this.state.posy[1] - this.state.height/2) <= 0 ? 0 : this.state.posy[1] - this.state.height/2 ,
-      transform: 'rotate('+ this.state.rotate*3/4 + 'deg)'
+      width: this.state.width / 2,
+      height: this.state.height / 2,
+      left: (this.state.posx[1] - this.state.width / 2) <= 0 ? 0 : this.state.posx[1] - this.state.width / 2,
+      top: (this.state.posy[1] - this.state.height / 2) <= 0 ? 0 : this.state.posy[1] - this.state.height / 2,
+      transform: 'rotate(' + this.state.rotate * 3 / 4 + 'deg)'
     };
     const hex3 = {
-      width: this.state.width/2,
-      height: this.state.height/2,
-      left: (this.state.posx[2] - this.state.width/2) <= 0 ? 0 : this.state.posx[2] - this.state.width/2 ,
-      top: (this.state.posy[2] - this.state.height/2) <= 0 ? 0 : this.state.posy[2] - this.state.height/2 ,
-      transform: 'rotate('+ this.state.rotate*1/2 + 'deg)'
+      width: this.state.width / 2,
+      height: this.state.height / 2,
+      left: (this.state.posx[2] - this.state.width / 2) <= 0 ? 0 : this.state.posx[2] - this.state.width / 2,
+      top: (this.state.posy[2] - this.state.height / 2) <= 0 ? 0 : this.state.posy[2] - this.state.height / 2,
+      transform: 'rotate(' + this.state.rotate * 1 / 2 + 'deg)'
     };
     return (
       <div className="App bgAlmostBlack">
@@ -155,28 +135,64 @@ class App extends React.Component {
           </g>
         </svg>
 
-        <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
-          <img role="button" tabIndex="0" aria-pressed="false" onKeyPress={() => this.nextComponent("Default")}
-            className={this.state.headerExpand ? "App-logo App-logo-pin" : "App-logo"} onClick={() => this.nextComponent("Default")}
-            src={logo} alt="temp react logo" />
-          <nav className="Navigation">
-            <span role="button" tabIndex="0" aria-pressed="false" aria-haspopup="menu" onKeyPress={() => this.nextComponent("About")}
-              className={this.state.currentComponent === "About" ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"} onClick={() => this.nextComponent("About")}>About</span>
-            <span role="button" tabIndex="0" aria-pressed="false" aria-haspopup="menu" onKeyPress={() => this.nextComponent("Projects")}
-              className={this.state.currentComponent === "Projects" ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"} onClick={() => this.nextComponent("Projects")}>Projects</span>
-            <span role="button" tabIndex="0" aria-pressed="false" aria-haspopup="menu" onKeyPress={() => this.nextComponent("Contact")}
-              className={this.state.currentComponent === "Contact" ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"} onClick={() => this.nextComponent("Contact")}>Contact</span>
-          </nav>
-        </header>
-        <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
-          {GetComponent(this.state.currentComponent)}
-          {/* <CSSTransition key={this.state.currentComponent} className="fade">
-            {GetComponent(this.state.currentComponent)}
-          </CSSTransition> */}
-        </div>
+        <Router>
+          <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
+            <CustomLogoLink activeOnlyWhenExact={true} to="/" label="Home" handleLogoClick={this.containerClose}/>
+            <nav className="Navigation">
+              <CustomMenuLink to="/about" label="About" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/projects" label="Projects" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} />
+            </nav>
+          </header>
+          <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
+          {/* <div tabIndex="0" className={this.props.match.path != "/" ? "Container-expanded Container" : "Container"}> */}
+            <Switch>
+              <Route exact path="/" component={DefaultPage} />
+              <Route exact path="/about" component={AboutPage} />
+              <Route exact path="/projects" component={ProjectsPage} />
+              <Route exact path="/contact" component={ContactPage} />
+            </Switch>
+          </div>
+        </Router>
       </div >
     );
   }
 }
+
+class CustomLogoLink extends React.Component{
+  render(){
+    return(
+      <Route
+        path={this.props.to}
+        exact={this.props.activeOnlyWhenExact}
+        children={({ match }) => (
+          <Link to={this.props.to} onClick={this.props.handleLogoClick}>
+            <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={logo} alt="temp react logo"/>
+          </Link>
+        )}
+      />
+    );
+  }
+}
+
+class CustomMenuLink extends React.Component {
+  // access props for definitions, parent container will open if click is handled
+  // handleClick either triggers containerOpen or containerClosed in parent function
+  // it sets state of headerExpand, if its true then container will open up, else it'll stay closed or close
+  render() {
+    return (
+      <Route
+        path={this.props.to}
+        exact={this.props.activeOnlyWhenExact}
+        children={({ match }) => (
+          <div className={match ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"}>
+            <Link to={this.props.to} onClick={this.props.handleMenuClick}>{this.props.label}</Link>
+          </div>
+        )}
+      />
+    );
+  }
+}
+
 
 export default App;
