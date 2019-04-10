@@ -2,7 +2,6 @@ import React from 'react';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import{ HashRouter as HashRouter, Route, Link } from "react-router-dom";
 import { Switch } from "react-router";
-import logo from './assets/logo.svg';
 import myLogo from './assets/myLogo.svg';
 import './css/App.css';
 import './css/palette.css';
