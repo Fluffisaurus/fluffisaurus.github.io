@@ -216,7 +216,7 @@ export class EmailMe extends React.Component {
         message: this.state.bodyValue
       }
     };
-    const url = 'http://www.sfu.ca/cgi-bin/mailto.pl'
+    const url = 'https://www.sfu.ca/cgi-bin/mailto.pl'
 
     fetch(url,{
         method: "POST",
