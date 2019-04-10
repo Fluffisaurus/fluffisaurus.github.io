@@ -3,7 +3,7 @@
   height: 180px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  animation: App-logo-spin infinite 20s linear;
+  /* animation: App-logo-spin infinite 20s linear; */
 }
 
 .App-logo-pin{
