@@ -1,5 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import{ HashRouter as HashRouter, Route, Link } from "react-router-dom";
 import { Switch } from "react-router";
 import logo from './assets/logo.svg';
 import './css/App.css';
@@ -134,10 +135,20 @@ class App extends React.Component {
             <polygon className={this.state.headerExpand ? "hex" : "hex hex3"} points="51.7,261.3 1.7,174.7 51.7,88.1 151.7,88.1 201.7,174.7 151.7,261.3 	" />
           </g>
         </svg>
-
-        <Router>
+        
+        {/*
+        Remember to set homepage: "https://www.yourserver.ca/path/subdirectory/project/" in package.json
+        links that helped: 
+          https://medium.com/@svinkle/how-to-deploy-a-react-app-to-a-subdirectory-f694d46427c1
+          https://muffinman.io/react-router-subfolder-on-server/
+          https://reacttraining.com/react-router/web/api/HashRouter
+        using HashRouter, look at import statement!!! 
+        base url is left empty for hashrouter since its history references its hash location already
+        if I were to use BrowserRouter, I should reference basename to be process.env.PUBLIC_HTML
+        */}
+        <HashRouter basename="">
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
-            <CustomLogoLink activeOnlyWhenExact={true} to="/" label="Home" handleLogoClick={this.containerClose}/>
+            <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose}/>
             <nav className="Navigation">
               <CustomMenuLink to="/about" label="About" handleMenuClick={this.containerOpen} />
               <CustomMenuLink to="/projects" label="Projects" handleMenuClick={this.containerOpen} />
@@ -153,7 +164,7 @@ class App extends React.Component {
               <Route exact path="/contact" component={ContactPage} />
             </Switch>
           </div>
-        </Router>
+        </HashRouter>
       </div >
     );
   }
@@ -179,6 +190,7 @@ class CustomMenuLink extends React.Component {
   // access props for definitions, parent container will open if click is handled
   // handleClick either triggers containerOpen or containerClosed in parent function
   // it sets state of headerExpand, if its true then container will open up, else it'll stay closed or close
+  // path defines its current public url + the url path passed in
   render() {
     return (
       <Route
