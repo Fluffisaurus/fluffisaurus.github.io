@@ -2,16 +2,30 @@
   STYLE GUIDE STYLING 
   Default styling for the style guide 
 */
+@import url('https://fonts.googleapis.com/css?family=Lato|Muli');
 body {
-  font-family: sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Lato', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   padding: 2rem;
+  background-color: #353639; 
 }
 
 .element {
   padding-bottom: 2rem;
   border-top-width: 0.15rem;
   border-top-style: solid;
-  border-top-color: black;
+  border-top-color: white;
+  background-color: #48494a;
+}
+
+h1, h2, h3, h4{
+  font-family: 'Muli', sans-serif;
+  color: #51eef7;
+}
+
+p, ul, ol, li, label{
+  color: white;
 }
 
 h2 {
@@ -36,6 +50,7 @@ nav a:hover, nav a:focus {
 }
 
 code {
+  font-family: 'Inconsolata', monospace;
   background-color: #EEE;
   padding: 0.5rem;
   display: block;
@@ -51,7 +66,7 @@ code {
 }
 
 .colour{
-  border: black;
+  border: white;
   border-style: solid;
   border-width: 1px;
   width: 200px;
@@ -60,39 +75,39 @@ code {
 }
 
 .colour:focus, .colour:hover{
-  transform: scale(1.025);
+  transform: scale(1.05);
 }
 
 .bgAlmostBlack{
-  background-color: #313535;
+  background-color: #353639;
 }
 
 .colAlmostBlack{
-  background-color: #313535;
+  background-color: #353639;
 }
 
 .bgGrey{
-  background-color: #425051;
+  background-color: #48494a;
 }
 
 .colGrey{
-  color: #425051;
+  color: #48494a;
 }
 
 .bgBlue{
-  background-color: #3899ed;
+  background-color: #338bd5;
 }
 
 .colBlue{
-  color: #3899ed;
+  color: #338bd5;
 }
 
 .bgNeonBlue{
-  background-color: #51eef7;
+  background-color: #4cdfe3;
 }
 
 .colNeonBlue{
-  color: #51eef7;
+  color: #4cdfe3;
 }
 
 .bgWhite{
@@ -103,7 +118,9 @@ code {
   color: white;
 }
 
-
+.projects, .bio{
+  width: 60%;
+}
 
 /* 
   INTERACTIVE ELEMENTS -------------------
@@ -118,7 +135,7 @@ a{
 
 a:hover, a:focus{
   text-decoration-line: underline;
-  color: #42ebf4;
+  color: #4cdfe3;
 }
 
 .button-nav {
@@ -138,6 +155,7 @@ a:hover, a:focus{
 button{
   display: inline-block;
   border: none;
+  border-radius: 0.25em;
   padding: 1rem 2rem;
   margin: 0;
   font-family: sans-serif;
@@ -160,14 +178,22 @@ button:active {
 
 input{
   border-color: #425051;
+  border-width: 0.1em;
+  border-radius: 1em;
+  transition: 0.3s ease;
+  padding-left: 1em;
+}
+
+textarea{
+  border-color: #425051;
   border-width: 0.2em;
-  border-radius: 2em;
+  border-radius: 0.5em;
   transition: 0.3s ease;
 }
 
-input:focus, input:hover{
+input:focus, input:hover, textarea:focus, textarea:hover{
   border-color: #313535;
-  transform: scale(1.03);
+  transform: scale(1.005);
   outline:none;
 }
 
@@ -178,32 +204,34 @@ a img{
 
 a img:hover, a img:focus{
   filter: opacity(0.8);
-  transform: scale(1.025);
+  transform: scale(1.05);
 }
 
 /* 
   TEXT ELEMENTS -------------------
 */
 
+#text_elements h1{
+  margin: 0;
+  font-size: 2em;
+  font-style: normal;
+  padding-bottom: 1em;
+} 
 
+#text_elements h2{
+  margin: 0;
+  font-size: 1.35em;
+  font-style: normal;
+} 
 
-
-/* 
-  COMBINED ELEMENTS -------------------
-*/
-
-nav{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly
+#text_elements h3{
+  margin: 0;
+  font-size: 1.1em;
+  font-style: normal;
 }
 
-nav a{
-  text-decoration: none;
-  transition: 0.3s ease-in-out;
-}
-
-nav a:hover, nav a:focus{
-  color: #42ebf4;
-  offset-position: 5px;
+#text_elements h4{
+  margin: 0;
+  font-size: 1em;
+  font-style: normal;
 }
