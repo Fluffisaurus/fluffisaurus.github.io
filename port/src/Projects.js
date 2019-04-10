@@ -51,10 +51,7 @@ export class ProjectWifiOptimization extends React.Component {
     return (
       <React.Fragment>
         <h2>Optimizaton of SFU Bennett Library's WIFI Coverage</h2>
-        <p>Optimization project within Operations Research (OR) done with Kaveh Alemi, David Ling and Anson Christo in
-        which we make
-        a mathematical model to optimize wi-fi coverage in population dense areas of SFU's main library. To do so, we
-        required data from SFU in regards to...
+        <p>Optimization project within Operations Research (OR) done with Kaveh Alemi, David Ling and Anson Christo in which we produce a mathematical model to optimize wi-fi coverage in population dense areas of SFU's main library. This project goes in depth in the model's development while taking into account different parameters:
         </p>
         <div className="Projects-gallery"></div>
         <ol>
@@ -65,9 +62,7 @@ export class ProjectWifiOptimization extends React.Component {
           <li>network speeds, </li>
           <li>and current coverage setup.</li>
         </ol>
-        <p>In an ideal world, all the data we require would be provided to us. However, as students we had limited access
-          to the
-          institution's data. With the help of SFU's IT and Network Services, we were able to obtain a sufficient amount.
+        <p>During its implementation, we were met with many barriers in regards to data collection. We managed to obtain library seating capacity per floor, the router in use and its specifications, and the current coverage layout. Unfortunately we were unable to obtain data on usage and instead had to resort to a more creative represenation which led to the development of an alternative approximation. With the data we need, we subdivided the library floors into sections. Each section is assigned an index value from [1, 5] which symbolizes their data requirement. This index is derived from a multitude of factors but is primarily influenced by population density and number of seats in their respective section. Finally we compute a binary coverage map for our optimized model. 
         </p>
       </React.Fragment>
     );
