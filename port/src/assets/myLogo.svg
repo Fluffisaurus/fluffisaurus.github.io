@@ -2,8 +2,8 @@
 <style type="text/css">
 	.st0{fill:none;stroke:#338BD5;stroke-width:3;stroke-miterlimit:10;}
 	.bg{fill:rgba(0, 255, 255, 0.75)}
-	.color{fill:rgba(255, 255, 255, 0.85)}
-	.colorSub{fill:#000}
+	.color{fill:rgba(45, 45, 45, 0.85)}
+	.colorSub{fill:rgba(35, 35, 35, 0.85)}
 	@keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

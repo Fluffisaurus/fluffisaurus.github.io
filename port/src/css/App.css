@@ -263,6 +263,12 @@ a span{
   .Container,.App-header, .App-header-compressed, .App-header-expanded{
     width: 100%;
   }
+
+  .App-logo{
+    width: 140px;
+    height: 140px;
+  }
+
   .App-logo-pin{
     width: 50px;
     height: 50px;
