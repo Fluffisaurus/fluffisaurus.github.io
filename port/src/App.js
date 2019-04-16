@@ -2,7 +2,8 @@ import React from 'react';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import{ HashRouter as HashRouter, Route, Link } from "react-router-dom";
 import { Switch } from "react-router";
-import myLogo from './assets/myLogo.svg';
+// import myLogo from './assets/myLogo.svg';
+import myLogo2 from './assets/myLogo2.svg';
 import './css/App.css';
 import './css/palette.css';
 import './css/hexagon.css';
@@ -178,7 +179,7 @@ class CustomLogoLink extends React.Component{
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
           <Link to={this.props.to} onClick={this.props.handleLogoClick}>
-            <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={myLogo} alt="temp react logo"/>
+            <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={myLogo2} alt="temp react logo"/>
           </Link>
         )}
       />

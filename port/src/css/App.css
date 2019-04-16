@@ -14,6 +14,10 @@
   margin-left: 2em;
 }
 
+/* .App-logo:hover, .App-logo:focus{
+  animation: App-logo-spin 0.5s linear;
+} */
+
 .App {
   display: flex;
   flex-direction: column;
@@ -265,8 +269,8 @@ a span{
   }
 
   .App-logo{
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
   }
 
   .App-logo-pin{
