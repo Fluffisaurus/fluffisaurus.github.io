@@ -83,11 +83,13 @@ a:hover, a:focus{
   text-decoration: none;
   transition-property: background-color; 
   transition-duration: 0.5s;
+  color: var(--primary-col);
+  background-color: var(--accent2-col);
 }
 
 .button-nav:hover, .button-nav:focus {
-  color: var(--accent-col);
-  background-color: var(--accent1-col);
+  color: var(--accent2-col);
+  background-color: var(--primary-col);
 }
 
 form button{

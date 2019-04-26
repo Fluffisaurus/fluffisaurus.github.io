@@ -18,6 +18,13 @@
   animation: App-logo-spin 0.5s linear;
 } */
 
+/* .Theme-button-expanded is in the media query for display sizes below 640px */
+.Theme-button{
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
 .App {
   display: flex;
   flex-direction: column;
@@ -262,6 +269,14 @@ a span{
   .Contact a{
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  /* class only exists during mobile view */
+  .Theme-button-expanded{
+    width: 100%;
+    position: relative;
+    top: 0;
+    right: 0;
   }
 }
 

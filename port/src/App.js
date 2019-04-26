@@ -18,13 +18,15 @@ class App extends React.Component {
     this.containerClose = this.containerClose.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.randomPos = this.randomPos.bind(this);
+    this.toggleTheme = this.toggleTheme.bind(this);
     this.state = {
       headerExpand: false,
       width: window.innerWidth,
       height: window.innerHeight,
       posx: [0, 0, 0],
       posy: [0, 0, 0],
-      rotate: 0
+      rotate: 0,
+      theme: "dark"
     }
   }
 
@@ -65,6 +67,20 @@ class App extends React.Component {
       rotate: Math.random() * 360
     });
     //console.log("i am triggered width: " + this.state.posx + ", height: " + this.state.posy + ", rotate: " + this.state.rotate);
+  }
+
+  // https://medium.com/@harishv6665_49536/theming-with-react-js-or-any-in-minutes-with-css-variables-11d4ebecdb41
+  toggleTheme(){
+    const theme = this.state.theme === "dark" ? "light" : "dark";
+    this.setState({ 
+      theme: theme 
+    });
+    console.log("changed theme to: " + theme);
+    document.documentElement.classList.add("theme-transition");
+    document.documentElement.setAttribute("data-theme", theme);
+    window.setTimeout(function() {
+      document.documentElement.classList.remove("theme-transition")
+    }, 1000);
   }
 
   //if headerexpand is set to true, opens container height > 0 to show components
@@ -137,6 +153,11 @@ class App extends React.Component {
           </g>
         </svg>
         
+        <button className={this.state.headerExpand ? "button-nav Theme-button Theme-button-expanded" : "button-nav Theme-button"} 
+          onClick={()=>this.toggleTheme()}>
+          {/* display the name of the theme to change to */}
+          {this.state.theme === "dark" ? "light" : "dark"} theme
+        </button>
         {/*
         Remember to set homepage: "https://www.yourserver.ca/path/subdirectory/project/" in package.json
         links that helped: 

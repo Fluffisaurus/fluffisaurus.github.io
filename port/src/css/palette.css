@@ -11,6 +11,28 @@
   --heading-col: #51eef7;
 }
 
+[data-theme="light"]{
+  --primary-col: #3899ed;
+  --secondary-col: #4cdfe3;
+  --accent-col: #51eef7;
+  --accent1-col: white;
+  --accent2-col: #e7e1d6;
+  --accent2-col-trans: #e7e1d6ea;
+  --accent3-col: black;
+
+  --font-col: black;
+  --heading-col: #3899ed;
+}
+
+:root.theme-transition,
+:root.theme-transition *,
+:root.theme-transition *:before,
+:root.theme-transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
+}
+
+
 .bgAccent{
   background-color: var(--accent-col);
 }
