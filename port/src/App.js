@@ -172,9 +172,9 @@ class App extends React.Component {
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
             <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose}/>
             <nav className="Navigation">
-              <CustomMenuLink to="/about" label="About" handleMenuClick={this.containerOpen} />
-              <CustomMenuLink to="/projects" label="Projects" handleMenuClick={this.containerOpen} />
-              <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/about" label="ABOUT" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/projects" label="PROJECTS" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/contact" label="CONTACT" handleMenuClick={this.containerOpen} />
             </nav>
           </header>
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
@@ -219,8 +219,8 @@ class CustomMenuLink extends React.Component {
         path={this.props.to}
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
-          <div className={match ? "colSecondary bgAccent1" : "colPrimary bgAccent1"}>
-            <Link to={this.props.to} onClick={this.props.handleMenuClick}>{this.props.label}</Link>
+          <div className="Nav-link">
+            <Link to={this.props.to} onClick={this.props.handleMenuClick} className={match ? "colSecondary bgAccent1" : "colPrimary bgAccent1"}>{this.props.label}</Link>
           </div>
         )}
       />

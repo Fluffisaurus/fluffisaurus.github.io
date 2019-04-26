@@ -65,6 +65,15 @@
   width: inherit;
 }
 
+.Nav-link{
+  width: 33.33%;
+}
+
+.Nav-link a{
+  width: max-content;
+  text-decoration: none;
+}
+
 .Container{
   width: 60%;
   padding-left: 1em;
