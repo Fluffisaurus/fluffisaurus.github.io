@@ -1,4 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Muli');
+@import url('../css/palette.css');
+
+/*#region Scrollbar Stuff */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--accent2-col-trans);
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--accent3-col);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-col); 
+}
+/*#endregion Scrollbar Stuff  */
 
 *{
   box-sizing: border-box;
@@ -39,22 +59,22 @@ h3{
 
 h1, h2, h3, h4{
   font-family: 'Muli', sans-serif;
-  color: #51eef7;
+  color: var(--heading-col);
 }
 
 p, ul, ol, li, label{
-  color: white;
+  color: var(--font-col);
 }
 
 a{
-  color: #3899ed;
+  color: var(--primary-col);
   text-decoration: none;
   transition: 0.3s ease-in;
 }
 
 a:hover, a:focus{
   text-decoration-line: underline;
-  color: #42ebf4;
+  color: var(--secondary-col);
 }
 
 .button-nav {
@@ -66,8 +86,8 @@ a:hover, a:focus{
 }
 
 .button-nav:hover, .button-nav:focus {
-  color: #51eef7;
-  background-color: #313535;
+  color: var(--accent-col);
+  background-color: var(--accent1-col);
 }
 
 form button{
@@ -92,7 +112,7 @@ button{
 }
 
 button:focus {
-  outline: 1px solid #fff;
+  outline: 1px solid var(--accent3-col);
   outline-offset: -4px;
 }
 
@@ -101,7 +121,7 @@ button:active {
 }
 
 input{
-  border-color: #425051;
+  border-color: var(--accent2-col);
   border-width: 0.1em;
   border-radius: 1em;
   transition: 0.3s ease;
@@ -109,14 +129,14 @@ input{
 }
 
 textarea{
-  border-color: #425051;
+  border-color: var(--accent2-col);
   border-width: 0.2em;
   border-radius: 0.5em;
   transition: 0.3s ease;
 }
 
 input:focus, input:hover, textarea:focus, textarea:hover{
-  border-color: #313535;
+  border-color: var(--accent1-col);
   transform: scale(1.005);
   outline:none;
 }

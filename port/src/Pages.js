@@ -18,7 +18,7 @@ export class AboutPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section className="About Page bgGrey">
+        <section className="About Page bgAccent2">
           <h1>5W + 1H = Angus H.</h1>
           <div className="About-info">
             <h2>Who is Angus?</h2>
@@ -85,15 +85,15 @@ export class ProjectsPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section className="Projects Page bgGrey">
+        <section className="Projects Page bgAccent2">
           <h1>Things I've worked on</h1>
           <div className="Project-icons-list">
-            <div className={this.state.currentProject === "MotionArt" ? "Project-icons Project-icons-selected bgAlmostBlack" : "Project-icons bgAlmostBlack"}
+            <div className={this.state.currentProject === "MotionArt" ? "Project-icons Project-icons-selected bgAccent1" : "Project-icons bgAccent1"}
               onClick={this.state.currentProject !== "MotionArt" ?
                 () => this.nextProject("MotionArt") : () => this.nextProject("Default")}>
               <p className="Project-name">MotionArt</p>
             </div>
-            <div className={this.state.currentProject === "WifiOptimization" ? "Project-icons Project-icons-selected bgAlmostBlack" : "Project-icons bgAlmostBlack"}
+            <div className={this.state.currentProject === "WifiOptimization" ? "Project-icons Project-icons-selected bgAccent1" : "Project-icons bgAccent1"}
               onClick={this.state.currentProject !== "WifiOptimization" ?
                 () => this.nextProject("WifiOptimization") : () => this.nextProject("Default")}>
               <p className="Project-name">Wifi Opt.</p>
@@ -134,7 +134,7 @@ export class ContactPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section className="Contact Page bgGrey">
+        <section className="Contact Page bgAccent2">
           <h1>Grab a hold of me!</h1>
           <a href="https://www.linkedin.com/in/angus-hon/" target="_blank" rel="noopener noreferrer">
             <img className="Contact-icons" src={linkedinIcon} alt="linkedin logo made by Freepik" />

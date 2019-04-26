@@ -203,7 +203,6 @@ form{
 .Icon-reference{
   display: flex;
   flex-wrap: wrap;
-  color: white;
 }
 
 .Icon-reference a{
@@ -215,25 +214,6 @@ a span{
 }
 /* #endregion Contact Page Stuff */
 
-
-/*#region Scrollbar Stuff */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #425051;
-}
- 
-::-webkit-scrollbar-thumb {
-  background: white;
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #3899ed; 
-}
-/*#endregion Scrollbar Stuff  */
 
 /* Animations */
 @keyframes slide-up{

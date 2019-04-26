@@ -103,7 +103,7 @@ class App extends React.Component {
       transform: 'rotate(' + this.state.rotate * 1 / 2 + 'deg)'
     };
     return (
-      <div className="App bgAlmostBlack">
+      <div className="App bgAccent1">
         <svg version="1.1" className="hexagon_formation" viewBox="0 0 503.7 522.6" id="hex1" style={hex1}>
           <g>
             <polygon className={this.state.headerExpand ? "hex" : "hex hex1"} points="201.7,434.5 151.7,347.9 201.7,261.3 301.7,261.3 351.7,347.9 301.7,434.5 	" />
@@ -198,7 +198,7 @@ class CustomMenuLink extends React.Component {
         path={this.props.to}
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
-          <div className={match ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"}>
+          <div className={match ? "colSecondary bgAccent1" : "colPrimary bgAccent1"}>
             <Link to={this.props.to} onClick={this.props.handleMenuClick}>{this.props.label}</Link>
           </div>
         )}
