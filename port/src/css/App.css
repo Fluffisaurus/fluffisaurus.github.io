@@ -250,6 +250,9 @@ a span{
 @media (max-width: 40em){
   .Container,.App-header, .App-header-compressed, .App-header-expanded{
     width: 100%;
+  }
+
+  .Container{
     text-align: left;
   }
 
