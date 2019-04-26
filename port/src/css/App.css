@@ -69,6 +69,7 @@
   width: 60%;
   padding-left: 1em;
   padding-right: 1em;
+  text-align: justify;
   overflow-y: auto;
   overflow-x: hidden;
   height: 0%;
@@ -102,7 +103,6 @@ form{
 /* #region About Page Stuff */
 .About{
   display: inline-block;
-  text-align: justify;
   padding: 1em;
   width: 100%;
 }
@@ -112,7 +112,6 @@ form{
 }
 
 .About-info p{
-  
   padding-left: 1.5em;
 }
 /* #endregion About Page Stuff */
@@ -121,7 +120,6 @@ form{
 .Projects{
   display: flex;
   flex-direction: column;
-  text-align: justify;
   padding: 1em;
   width: 100%;
 }
@@ -171,7 +169,6 @@ form{
 .Contact{
   display: flex;
   flex-direction: column;
-  text-align: justify;
   padding: 1em;
   width: 100%;
 }
@@ -253,6 +250,7 @@ a span{
 @media (max-width: 40em){
   .Container,.App-header, .App-header-compressed, .App-header-expanded{
     width: 100%;
+    text-align: left;
   }
 
   .App-logo{
@@ -273,10 +271,13 @@ a span{
 
   /* class only exists during mobile view */
   .Theme-button-expanded{
-    width: 100%;
+    /* width: 100%; */
     position: relative;
     top: 0;
     right: 0;
+    margin-left: auto;
+    margin-top: 0.25em;
+    margin-right: 0.25em;
   }
 }
 
