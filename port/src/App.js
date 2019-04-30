@@ -2,7 +2,8 @@ import React from 'react';
 // import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import{ HashRouter as HashRouter, Route, Link } from "react-router-dom";
 import { Switch } from "react-router";
-import myLogo from './assets/myLogo.svg';
+// import myLogo from './assets/myLogo.svg';
+import myLogo2 from './assets/myLogo2.svg';
 import './css/App.css';
 import './css/palette.css';
 import './css/hexagon.css';
@@ -17,13 +18,15 @@ class App extends React.Component {
     this.containerClose = this.containerClose.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.randomPos = this.randomPos.bind(this);
+    this.toggleTheme = this.toggleTheme.bind(this);
     this.state = {
       headerExpand: false,
       width: window.innerWidth,
       height: window.innerHeight,
       posx: [0, 0, 0],
       posy: [0, 0, 0],
-      rotate: 0
+      rotate: 0,
+      theme: "dark"
     }
   }
 
@@ -66,6 +69,20 @@ class App extends React.Component {
     //console.log("i am triggered width: " + this.state.posx + ", height: " + this.state.posy + ", rotate: " + this.state.rotate);
   }
 
+  // https://medium.com/@harishv6665_49536/theming-with-react-js-or-any-in-minutes-with-css-variables-11d4ebecdb41
+  toggleTheme(){
+    const theme = this.state.theme === "dark" ? "light" : "dark";
+    this.setState({ 
+      theme: theme 
+    });
+    console.log("changed theme to: " + theme);
+    document.documentElement.classList.add("theme-transition");
+    document.documentElement.setAttribute("data-theme", theme);
+    window.setTimeout(function() {
+      document.documentElement.classList.remove("theme-transition")
+    }, 1000);
+  }
+
   //if headerexpand is set to true, opens container height > 0 to show components
   containerOpen() {
     this.setState({
@@ -102,7 +119,7 @@ class App extends React.Component {
       transform: 'rotate(' + this.state.rotate * 1 / 2 + 'deg)'
     };
     return (
-      <div className="App bgAlmostBlack">
+      <div className="App bgAccent1">
         <svg version="1.1" className="hexagon_formation" viewBox="0 0 503.7 522.6" id="hex1" style={hex1}>
           <g>
             <polygon className={this.state.headerExpand ? "hex" : "hex hex1"} points="201.7,434.5 151.7,347.9 201.7,261.3 301.7,261.3 351.7,347.9 301.7,434.5 	" />
@@ -136,6 +153,11 @@ class App extends React.Component {
           </g>
         </svg>
         
+        <button className={this.state.headerExpand ? "button-nav Theme-button Theme-button-expanded" : "button-nav Theme-button"} 
+          onClick={()=>this.toggleTheme()}>
+          {/* display the name of the theme to change to */}
+          {this.state.theme === "dark" ? "light" : "dark"} theme
+        </button>
         {/*
         Remember to set homepage: "https://www.yourserver.ca/path/subdirectory/project/" in package.json
         links that helped: 
@@ -150,9 +172,9 @@ class App extends React.Component {
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
             <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose}/>
             <nav className="Navigation">
-              <CustomMenuLink to="/about" label="About" handleMenuClick={this.containerOpen} />
-              <CustomMenuLink to="/projects" label="Projects" handleMenuClick={this.containerOpen} />
-              <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/about" label="ABOUT" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/projects" label="PROJECTS" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/contact" label="CONTACT" handleMenuClick={this.containerOpen} />
             </nav>
           </header>
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
@@ -178,7 +200,7 @@ class CustomLogoLink extends React.Component{
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
           <Link to={this.props.to} onClick={this.props.handleLogoClick}>
-            <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={myLogo} alt="temp react logo"/>
+            <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={myLogo2} alt="temp react logo"/>
           </Link>
         )}
       />
@@ -197,8 +219,8 @@ class CustomMenuLink extends React.Component {
         path={this.props.to}
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
-          <div className={match ? "colNeonBlue bgAlmostBlack" : "colBlue bgAlmostBlack"}>
-            <Link to={this.props.to} onClick={this.props.handleMenuClick}>{this.props.label}</Link>
+          <div className="Nav-link">
+            <Link to={this.props.to} onClick={this.props.handleMenuClick} className={match ? "colSecondary bgAccent1" : "colPrimary bgAccent1"}>{this.props.label}</Link>
           </div>
         )}
       />

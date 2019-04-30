@@ -1,44 +1,78 @@
-/* dark palette */
-.bgAlmostBlack{
-  background-color: #353639;
+:root{
+  --primary-col: #3899ed;
+  --secondary-col: #4cdfe3;
+  --accent-col: #51eef7;
+  --accent1-col: #353639;
+  --accent2-col: #48494a;
+  --accent2-col-trans: #48494aea;
+  --accent3-col: white;
+
+  --font-col: white;
+  --heading-col: #51eef7;
 }
 
-.colAlmostBlack{
-  color: #353639;
+[data-theme="light"]{
+  --primary-col: #3899ed;
+  --secondary-col: #4cdfe3;
+  --accent-col: #51eef7;
+  --accent1-col: white;
+  --accent2-col: #e7e1d6;
+  --accent2-col-trans: #e7e1d6ea;
+  --accent3-col: black;
+
+  --font-col: black;
+  --heading-col: #3899ed;
 }
 
-.bgGrey{
-  background-color: #48494aea;
-}
-
-.colGrey{
-  color: #48494a;
-}
-
-.bgBlue{
-  background-color: #338bd5;
-}
-
-.colBlue{
-  color: #338bd5;
+:root.theme-transition,
+:root.theme-transition *,
+:root.theme-transition *:before,
+:root.theme-transition *:after {
+  transition: all 750ms !important;
+  transition-delay: 0 !important;
 }
 
 
-.bgNeonBlue{
-  background-color: #4cdfe3;
+.bgAccent{
+  background-color: var(--accent-col);
 }
 
-.colNeonBlue{
-  color: #4cdfe3;
+.colAccent{
+  color: var(--accent-col);
 }
 
-.bgWhite{
-  background-color: white;
+.bgAccent1{
+  background-color: var(--accent1-col);
 }
 
-.colWhite{
-  color: white;
+.colAccent1{
+  color: var(--accent1-col);
 }
+
+.bgAccent2{
+  background-color: var(--accent2-col-trans);
+}
+
+.colAccent2{
+  color: var(--accent2-col);
+}
+
+.bgPrimary{
+  background-color: var(--primary-col);
+}
+
+.colPrimary{
+  color: var(--primary-col);
+}
+
+.bgSecondary{
+  background-color: var(--secondary-col);
+}
+
+.colSecondary{
+  color: var(--secondary-col);
+}
+
 
 /* light palette */
 .bgLight{
