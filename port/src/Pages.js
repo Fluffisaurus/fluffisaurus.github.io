@@ -2,7 +2,7 @@ import React from 'react';
 import { DefaultProject, ProjectMotionArt, ProjectWifiOptimization } from './Projects.js'
 import linkedinIcon from './assets/linkedin.svg'
 import emailIcon from './assets/email.svg'
-import phoneIcon from './assets/chat.svg'
+import githubMark from './assets/GitHub-Mark.svg'
 
 export class DefaultPage extends React.Component {
   render() {
@@ -136,6 +136,10 @@ export class ContactPage extends React.Component {
       <React.Fragment>
         <section className="Contact Page bgAccent2">
           <h1>Grab a hold of me!</h1>
+          <a href="https://github.com/Fluffisaurus/" target="_blank" rel="noopener noreferrer">
+            <img className="Contact-icons" src={githubMark} alt="GitHub Mark by GitHub" />
+            <span>https://github.com/Fluffisaurus/</span>
+          </a>
           <a href="https://www.linkedin.com/in/angus-hon/" target="_blank" rel="noopener noreferrer">
             <img className="Contact-icons" src={linkedinIcon} alt="linkedin logo made by Freepik" />
             <span>https://www.linkedin.com/in/angus-hon/</span>
@@ -147,11 +151,7 @@ export class ContactPage extends React.Component {
           <div className={this.state.showEmailMe ? "Container-expanded Container Container-email" : "Container Container-email"}>
             {this.getComponent()}
           </div>
-          <a>
-            <img className="Contact-icons" src={phoneIcon} alt="phone icon made by Zurb" />
-            <span aria-label="phone number">+1 (778) 788 9168</span>
-          </a>
-          <p className="Icon-reference"> Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> and <a href="https://www.flaticon.com/<?=_('authors').'/'?>zurb" title="Zurb">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a> and editted by Angus Hon. </p>
+          <p className="Icon-reference"> GitHub logo from <a href="https://github.com/logos" title="GitHub" target="_blank" rel="noopener noreferrer">https://github.com/logos</a>. LinkedIn and Mail icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank" rel="noopener noreferrer">Freepik</a> and <a href="https://www.flaticon.com/<?=_('authors').'/'?>zurb" title="Zurb" target="_blank" rel="noopener noreferrer">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a> and is editted by Angus Hon.</p>
         </section>
       </React.Fragment>
     );
