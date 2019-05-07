@@ -14,38 +14,43 @@ export class DefaultPage extends React.Component {
   }
 }
 
+export class DNEPage extends React.Component{
+  render(){
+    return(
+      <React.Fragment>
+        <section className="Page bgAccent2">
+          <h1>Oops!</h1>
+          <p>The URL you typed in does not exist... yet? Who knows, maybe it will one day. Maybe you misspelled it? If not, I'm as lost as you are... Use the navigation above to go to an existing page!</p>
+        </section>
+      </React.Fragment>
+    );
+  }
+}
+
 export class AboutPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section className="About Page bgAccent2">
+        <section className="Page bgAccent2">
           <h1>5W + 1H = Angus H.</h1>
           <div className="About-info">
             <h2>Who is Angus?</h2>
             <p>He's a data scientist / software engineer to be.</p>
-          </div>
-          <div className="About-info">
+
             <h2>What is Angus?</h2>
-            <p>He is a human who is ethnically Chinese that was born / raised in Vancouver, Canada. Angus also happens to be a
-          type of beef.</p>
-          </div>
-          <div className="About-info">
+            <p>He is a human who is ethnically Chinese that was born / raised in Vancouver, Canada. Angus also happens to be a type of beef.</p>
+
             <h2>When is Angus?</h2>
             <p>Now.</p>
-          </div>
-          <div className="About-info">
+
             <h2>Where is Angus?</h2>
             <p>He is currently in Vancouver, BC, Canada.</p>
-          </div>
-          <div className="About-info">
+
             <h2>Why is Angus?</h2>
             <p>That is a question he asks himself too frequently.</p>
-          </div>
-          <div className="About-info">
+
             <h2>How is Angus?</h2>
-            <p>He is currently finishing his undergraduate studies at Simon Fraser University. In his spare time, he enjoys
-              hanging out with his friends, working on random projects, playing video games, and watching the NBA.
-        </p>
+            <p>He is currently finishing his undergraduate studies at Simon Fraser University. In his spare time, he enjoys hanging out with his friends, working on random projects, playing video games, and watching the NBA.</p>
           </div>
         </section>
       </React.Fragment>
@@ -85,7 +90,7 @@ export class ProjectsPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section className="Projects Page bgAccent2">
+        <section className="Page bgAccent2">
           <h1>Things I've worked on</h1>
           <div className="Project-icons-list">
             <div className={this.state.currentProject === "MotionArt" ? "Project-icons Project-icons-selected bgAccent1" : "Project-icons bgAccent1"}
@@ -134,7 +139,7 @@ export class ContactPage extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <section className="Contact Page bgAccent2">
+        <section className="Page bgAccent2">
           <h1>Grab a hold of me!</h1>
           <a href="https://github.com/Fluffisaurus/" target="_blank" rel="noopener noreferrer">
             <img className="Contact-icons" src={githubMark} alt="GitHub Mark by GitHub" />

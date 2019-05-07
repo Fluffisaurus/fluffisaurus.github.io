@@ -1,14 +1,12 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import{ HashRouter as HashRouter, Route, Link } from "react-router-dom";
+import{ HashRouter, Route } from "react-router-dom";
 import { Switch } from "react-router";
-// import myLogo from './assets/myLogo.svg';
-import myLogo2 from './assets/myLogo2.svg';
 import './css/App.css';
 import './css/palette.css';
 import './css/hexagon.css';
 
-import { DefaultPage, AboutPage, ProjectsPage, ContactPage } from './Pages.js';
+import { DefaultPage, AboutPage, ProjectsPage, ContactPage, DNEPage } from './Pages.js';
+import { CustomLogoLink, CustomMenuLink } from './RouterLinks.js';
 
 
 class App extends React.Component {
@@ -170,7 +168,7 @@ class App extends React.Component {
         */}
         <HashRouter basename="">
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
-            <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose}/>
+            <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
             <nav className="Navigation">
               <CustomMenuLink to="/about" label="ABOUT" handleMenuClick={this.containerOpen} />
               <CustomMenuLink to="/projects" label="PROJECTS" handleMenuClick={this.containerOpen} />
@@ -184,6 +182,7 @@ class App extends React.Component {
               <Route exact path="/about" component={AboutPage} />
               <Route exact path="/projects" component={ProjectsPage} />
               <Route exact path="/contact" component={ContactPage} />
+              <Route component={DNEPage} />
             </Switch>
           </div>
         </HashRouter>
@@ -191,42 +190,5 @@ class App extends React.Component {
     );
   }
 }
-
-class CustomLogoLink extends React.Component{
-  render(){
-    return(
-      <Route
-        path={this.props.to}
-        exact={this.props.activeOnlyWhenExact}
-        children={({ match }) => (
-          <Link to={this.props.to} onClick={this.props.handleLogoClick}>
-            <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={myLogo2} alt="temp react logo"/>
-          </Link>
-        )}
-      />
-    );
-  }
-}
-
-class CustomMenuLink extends React.Component {
-  // access props for definitions, parent container will open if click is handled
-  // handleClick either triggers containerOpen or containerClosed in parent function
-  // it sets state of headerExpand, if its true then container will open up, else it'll stay closed or close
-  // path defines its current public url + the url path passed in
-  render() {
-    return (
-      <Route
-        path={this.props.to}
-        exact={this.props.activeOnlyWhenExact}
-        children={({ match }) => (
-          <div className="Nav-link">
-            <Link to={this.props.to} onClick={this.props.handleMenuClick} className={match ? "colSecondary bgAccent1" : "colPrimary bgAccent1"}>{this.props.label}</Link>
-          </div>
-        )}
-      />
-    );
-  }
-}
-
 
 export default App;

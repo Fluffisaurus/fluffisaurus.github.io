@@ -104,36 +104,56 @@ form{
   flex-direction: column;
 }
 
+/* #region General Page Stuff */
 .Page{
   /* animation:  */
-  border-radius: 0.8em;
-}
-
-/* #region About Page Stuff */
-.About{
-  display: inline-block;
-  padding: 1em;
-  width: 100%;
-}
-
-.About-info{
-  margin-bottom: 2.5em;
-}
-
-.About-info p{
-  padding-left: 1.5em;
-}
-/* #endregion About Page Stuff */
-
-/* #region Projects Page Stuff */
-.Projects{
   display: flex;
   flex-direction: column;
   padding: 1em;
   width: 100%;
+  border-radius: 0.8em;
 }
 
-.Projects img{
+/* https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
+.Page a{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  justify-items: center;
+  align-items: center;
+  padding: 1em;
+  width: fit-content;
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+ 
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+ 
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+/* #endregion General Page Stuff */
+
+/* #region About Page Stuff */
+.About-info{
+  
+}
+
+.About-info p{
+  padding-left: 1.5em;
+  margin-bottom: 2.5em;
+}
+/* #endregion About Page Stuff */
+
+/* #region Projects Page Stuff */
+.Projects-gallery img{
   width: 50%;
   height: auto;
 }
@@ -175,43 +195,10 @@ form{
 /* #endregion Projects Page Stuff */
 
 /* #region Contact Page Stuff */
-.Contact{
-  display: flex;
-  flex-direction: column;
-  padding: 1em;
-  width: 100%;
-}
-
 .Contact-icons{
   width: 100px;
   height: 100px;
   filter: grayscale(100%);
-}
-
-/* https://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/ */
-.Contact a{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  justify-items: center;
-  align-items: center;
-  padding: 1em;
-  width: fit-content;
-  /* These are technically the same, but use both */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
- 
-  -ms-word-break: break-all;
-  /* This is the dangerous one in WebKit, as it breaks things wherever */
-  word-break: break-all;
-  /* Instead use this non-standard one: */
-  word-break: break-word;
- 
-  /* Adds a hyphen where the word breaks, if supported (No Blink) */
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
-  -webkit-hyphens: auto;
-  hyphens: auto;
 }
 
 .Icon-reference{
