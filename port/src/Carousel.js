@@ -15,8 +15,14 @@ export class CarouselCarousel extends React.Component {
       <React.Fragment >
         <Carousel
         showThumbs = {false}
+        useKeyboardArrows = {true}
+        infiniteLoop = {true}
         width="50%"
         className="Projects-gallery">
+        <div>
+          <img src={motionArt3} alt="MotionArt home page"/>
+          <p className="legend">Default screen.</p>
+        </div>
         <div>
           <img src={motionArt1} alt="MotionArt brush select"/>
           <p className="legend">Brush size select interface.</p>
@@ -24,10 +30,6 @@ export class CarouselCarousel extends React.Component {
         <div>
           <img src={motionArt2} alt="MotionArt palette changer" />
           <p className="legend">Demo of MotionArt's palette changer.</p>
-        </div>
-        <div>
-          <img src={motionArt3} alt="MotionArt home page"/>
-          <p className="legend">Default screen.</p>
         </div>
         <div>
           <img src={motionArt4} alt="MotionArt edit artboard name"/>
