@@ -1,9 +1,6 @@
 import React from 'react';
-import motionArt1 from './assets/motionart1.jpg'
-import motionArt2 from './assets/motionart2.jpg'
-import motionArt3 from './assets/motionart3.jpg'
-import motionArt4 from './assets/motionart4.jpg'
-import motionArt5 from './assets/motionart5.jpg'
+
+import { CarouselCarousel } from './Carousel.js'
 
 export class DefaultProject extends React.Component {
   render() {
@@ -24,11 +21,7 @@ export class ProjectMotionArt extends React.Component {
           This proved to be a limitation for what I had hoped to achieve.
         </p>
         <div className="Projects-gallery">
-          <img src={motionArt1} alt="pic of motionart's brush select" />
-          <img src={motionArt2} alt="pic of motionart's palette editor" />
-          <img src={motionArt3} alt="pic of motionart's base screen" />
-          <img src={motionArt4} alt="pic of motionart's artboard renaming" />
-          <img src={motionArt5} alt="pic of motionart with sample art" />
+          <CarouselCarousel/>
         </div>
         <p>The native sensors that I experimented with include the accelerometer, gyroscope, and GPS.</p>
         <ul>
