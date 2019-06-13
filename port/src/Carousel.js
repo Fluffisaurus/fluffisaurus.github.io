@@ -1,6 +1,8 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+
+//went into carousel.css and added padding-inline-start:0px; under .carousel .control-dots 
+import "react-responsive-carousel/lib/styles/carousel.css";
 import motionArt1 from './assets/motionart1.jpg'
 import motionArt2 from './assets/motionart2.jpg'
 import motionArt3 from './assets/motionart3.jpg'
@@ -17,7 +19,7 @@ export class CarouselCarousel extends React.Component {
         className="Projects-gallery">
         <div>
           <img src={motionArt1} alt="MotionArt brush select"/>
-          <p className="legend">Brush select interface.</p>
+          <p className="legend">Brush size select interface.</p>
         </div>
         <div>
           <img src={motionArt2} alt="MotionArt palette changer" />
