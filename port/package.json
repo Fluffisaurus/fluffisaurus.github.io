@@ -5,6 +5,7 @@
   "homepage": "http://www.sfu.ca/~achon/",
   "dependencies": {
     "react": "^16.8.4",
+    "react-copy-to-clipboard": "^5.0.1",
     "react-dom": "^16.8.4",
     "react-responsive-carousel": "^3.1.49",
     "react-router-dom": "^5.0.0",

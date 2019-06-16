@@ -1,4 +1,5 @@
 import React from 'react';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { DefaultProject, ProjectMotionArt, ProjectWifiOptimization } from './Projects.js'
 import linkedinIcon from './assets/linkedin.svg'
 import emailIcon from './assets/email.svg'
@@ -117,15 +118,17 @@ export class ContactPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showEmailMe: false
+      showEmailMe: false, 
+      myEmail: "angus_hon@sfu.ca"
     }
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.setState({
-      showEmailMe: !this.state.showEmailMe
-    });
+    // this.setState({
+    //   showEmailMe: !this.state.showEmailMe
+    // });
+
   }
 
   getComponent() {
@@ -149,13 +152,17 @@ export class ContactPage extends React.Component {
             <img className="Contact-icons" src={linkedinIcon} alt="linkedin logo made by Freepik" />
             <span>https://www.linkedin.com/in/angus-hon/</span>
           </a>
-          <a onClick={() => this.handleClick()}>
-            <img className="Contact-icons" src={emailIcon} alt="email icon made by Freepik" />
-            <span aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>angus_hon@sfu.ca</span>
-          </a>
+          <CopyToClipboard text={this.state.myEmail} onCopy={() => this.handleClick()}>
+            <a onClick={() => this.handleClick()}>
+              <img className="Contact-icons" src={emailIcon} alt="email icon made by Freepik" />            
+              <span id="myEmail" value="angus_hon@sfu.ca" aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>angus_hon@sfu.ca</span>          
+            </a>
+          </CopyToClipboard>
+          {/* 
           <div className={this.state.showEmailMe ? "Container-expanded Container Container-email" : "Container Container-email"}>
             {this.getComponent()}
           </div>
+           */}
           <p className="Icon-reference"> GitHub logo from <a href="https://github.com/logos" title="GitHub" target="_blank" rel="noopener noreferrer">https://github.com/logos</a>. LinkedIn and Mail icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank" rel="noopener noreferrer">Freepik</a> and <a href="https://www.flaticon.com/<?=_('authors').'/'?>zurb" title="Zurb" target="_blank" rel="noopener noreferrer">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a> and is editted by Angus Hon.</p>
         </section>
       </React.Fragment>
@@ -221,7 +228,8 @@ export class EmailMe extends React.Component {
         message: this.state.bodyValue
       }
     };
-    const url = 'http://www.sfu.ca/cgi-bin/mailto.pl'
+    const url = 'http://www.sfu.ca/cgi-bin/mailto.pl';
+    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
 
     fetch(url,{
         method: "POST",
