@@ -1,5 +1,8 @@
 import React from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { ToastContainer, toast, Slide } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
+
 import { DefaultProject, ProjectMotionArt, ProjectWifiOptimization } from './Projects.js'
 import linkedinIcon from './assets/linkedin.svg'
 import emailIcon from './assets/email.svg'
@@ -122,13 +125,26 @@ export class ContactPage extends React.Component {
       myEmail: "angus_hon@sfu.ca"
     }
     this.handleClick = this.handleClick.bind(this);
+    this.toastCopyClip = "copy2Clipboard";
   }
 
   handleClick() {
     // this.setState({
     //   showEmailMe: !this.state.showEmailMe
     // });
-
+    if(!toast.isActive(this.toastCopyClip)){
+      toast.info("Copied to clipboard!", 
+      {
+        toastId: this.toastCopyClip,
+        autoClose: 3000,
+        position: "bottom-center",
+        hideProgressBar: true,
+        closeOnClick: true,
+        draggable: true,
+        transition: Slide
+      });
+    }
+    
   }
 
   getComponent() {
@@ -153,11 +169,12 @@ export class ContactPage extends React.Component {
             <span>https://www.linkedin.com/in/angus-hon/</span>
           </a>
           <CopyToClipboard text={this.state.myEmail} onCopy={() => this.handleClick()}>
-            <a onClick={() => this.handleClick()}>
+            <a>
               <img className="Contact-icons" src={emailIcon} alt="email icon made by Freepik" />            
-              <span id="myEmail" value="angus_hon@sfu.ca" aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>angus_hon@sfu.ca</span>          
+              <span aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>angus_hon@sfu.ca</span>          
             </a>
           </CopyToClipboard>
+          <ToastContainer newestOnTop={true}/>
           {/* 
           <div className={this.state.showEmailMe ? "Container-expanded Container Container-email" : "Container Container-email"}>
             {this.getComponent()}
