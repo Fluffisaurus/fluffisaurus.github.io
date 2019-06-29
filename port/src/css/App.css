@@ -159,7 +159,7 @@ form{
   align-items: flex-start;
 }
 
-.Projects-col-left, .Projects-col-right{
+.Projects-col, .Projects-col-left, .Projects-col-right{
   margin-left: 0.5em;
   margin-right: 0.5em;
 }
