@@ -2,9 +2,9 @@ import React from 'react';
 
 import { CarouselCarousel } from './Carousel.js'
 
-export class DefaultProject extends React.Component {
-  render() {
-    return (
+export class ProjectDefault extends React.Component{
+  render(){
+    return(
       <React.Fragment></React.Fragment>
     );
   }

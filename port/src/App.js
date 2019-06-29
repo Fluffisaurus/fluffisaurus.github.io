@@ -5,8 +5,9 @@ import './css/App.css';
 import './css/palette.css';
 import './css/hexagon.css';
 
-import { DefaultPage, AboutPage, ProjectsPage, ContactPage, DNEPage } from './Pages.js';
-import { CustomLogoLink, CustomMenuLink } from './RouterLinks.js';
+import { DNEPage } from './Pages.js';
+import { CustomLogoLink, CustomMenuLink, RouteWithSubRoutes } from './RouterLinks.js';
+import { routes } from './Routes.js';
 
 
 class App extends React.Component {
@@ -36,11 +37,11 @@ class App extends React.Component {
     this.randomPos();
 
     //if header is expanded, stop animations
-    if(!this.state.headerExpand){
+    /*if(!this.state.headerExpand){
       this.timePassed = setInterval(()=>this.randomPos(), 6500);
-    }
+    }*/
 
-    //regex to check current url of router after "/"" if home page content isn't open
+    //regex to check current url of router after "/" if home page content isn't open
     //set container to open... this can probably be done better with react-router by checking
     //current location within router
     if((window.location.href).replace(/.*\//, "") !== ""){
@@ -50,7 +51,7 @@ class App extends React.Component {
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions);
-    clearInterval(this.timePassed);
+    // clearInterval(this.timePassed); //in conjunction with if statement in componentDidMount
   }
 
   updateWindowDimensions() {
@@ -85,13 +86,13 @@ class App extends React.Component {
   containerOpen() {
     this.setState({
       headerExpand: true
-    },() => {console.log("headerExpand: " + this.state.headerExpand)});
+    }/*,() => {console.log("headerExpand: " + this.state.headerExpand)}*/);
   }
 
   containerClose() {
     this.setState({
       headerExpand: false
-    },() => {console.log("headerExpand: " + this.state.headerExpand)});
+    }/*,() => {console.log("headerExpand: " + this.state.headerExpand)}*/);
   }
 
   render() {
@@ -156,6 +157,7 @@ class App extends React.Component {
           {/* display the name of the theme to change to */}
           {this.state.theme === "dark" ? "light" : "dark"} theme
         </button>
+        
         {/*
         Remember to set homepage: "https://www.yourserver.ca/path/subdirectory/project/" in package.json
         links that helped: 
@@ -171,19 +173,21 @@ class App extends React.Component {
             <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
             <nav className="Navigation">
               <CustomMenuLink to="/about" label="ABOUT" handleMenuClick={this.containerOpen} />
-              <CustomMenuLink to="/projects" label="PROJECTS" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/projects/motionart" label="PROJECTS" handleMenuClick={this.containerOpen} />
               <CustomMenuLink to="/contact" label="CONTACT" handleMenuClick={this.containerOpen} />
             </nav>
           </header>
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
-          {/* <div tabIndex="0" className={this.props.match.path != "/" ? "Container-expanded Container" : "Container"}> */}
             <Switch>
-              <Route exact path="/" component={DefaultPage} />
+              {/* <Route exact path="/" component={DefaultPage} />
               <Route exact path="/about" component={AboutPage} />
               <Route exact path="/projects" component={ProjectsPage} />
-              <Route exact path="/contact" component={ContactPage} />
+              <Route exact path="/contact" component={ContactPage} /> */}
+              {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route} />
+              ))}
               <Route component={DNEPage} />
-            </Switch>
+            </Switch> 
           </div>
         </HashRouter>
       </div >
