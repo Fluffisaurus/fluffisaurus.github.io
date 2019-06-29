@@ -3,7 +3,11 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-import { DefaultProject, ProjectMotionArt, ProjectWifiOptimization } from './Projects.js'
+import { CustomProjectLink } from './RouterLinks.js'
+import { RouteWithSubRoutes } from './RouterLinks.js';
+import { Route } from "react-router-dom";
+import { Switch } from "react-router";
+
 import linkedinIcon from './assets/linkedin.svg'
 import emailIcon from './assets/email.svg'
 import githubMark from './assets/GitHub-Mark.svg'
@@ -62,42 +66,63 @@ export class AboutPage extends React.Component {
   }
 }
 
+function DNEProject(){
+  return(
+    <React.Fragment>
+        <section className="Page bgAccent2">
+          <h1>Oops!</h1>
+          <p>The URL you typed in does not exist... yet? Who knows, maybe it will one day. Maybe you misspelled it? If not, I'm as lost as you are... Use the navigation above to go to an existing page!</p>
+        </section>
+      </React.Fragment>
+  );
+}
+
 export class ProjectsPage extends React.Component {
   constructor(props) {
     super(props);
-    this.nextProject = this.nextProject.bind(this);
+    // this.nextProject = this.nextProject.bind(this);
     this.state = {
-      currentProject: "MotionArt"
+      currentProject: "motionart"
     }
+    this.setCurrProject = this.setCurrProject.bind(this);
   }
-  getProject() {
-    let project;
-    switch (this.state.currentProject) {
-      case "MotionArt":
-        project = <ProjectMotionArt />;
-        break;
-      case "WifiOptimization":
-        project = <ProjectWifiOptimization />;
-        break;
-      default:
-        project = <DefaultProject />
-        break;
-    }
-    return project;
-  }
+  // getProject() {
+  //   let project;
+  //   switch (this.state.currentProject) {
+  //     case "MotionArt":
+  //       project = <ProjectMotionArt />;
+  //       break;
+  //     case "WifiOptimization":
+  //       project = <ProjectWifiOptimization />;
+  //       break;
+  //     default:
+  //       project = <DefaultProject />
+  //       break;
+  //   }
+  //   return project;
+  // }
 
-  nextProject(projectName) {
+  // nextProject(projectName) {
+  //   this.setState({
+  //     currentProject: projectName
+  //   });
+  // }
+
+  setCurrProject(projectName){
+    // console.log(this.props.match.url);
     this.setState({
       currentProject: projectName
-    });
+    },
+    ()=> console.log(this.state.currentProject));
   }
+
   render() {
     return (
       <React.Fragment>
         <section className="Page bgAccent2">
           <h1>Things I've worked on</h1>
           <div className="Project-icons-list">
-            <div className={this.state.currentProject === "MotionArt" ? "Project-icons Project-icons-selected bgAccent1" : "Project-icons bgAccent1"}
+            {/* <div className={this.state.currentProject === "MotionArt" ? "Project-icons Project-icons-selected bgAccent1" : "Project-icons bgAccent1"}
               onClick={this.state.currentProject !== "MotionArt" ?
                 () => this.nextProject("MotionArt") : () => this.nextProject("Default")}>
               <p className="Project-name">MotionArt</p>
@@ -106,10 +131,27 @@ export class ProjectsPage extends React.Component {
               onClick={this.state.currentProject !== "WifiOptimization" ?
                 () => this.nextProject("WifiOptimization") : () => this.nextProject("Default")}>
               <p className="Project-name">Wifi Opt.</p>
-            </div>
+            </div> */}
+
+            <CustomProjectLink to={"/projects/motionart"} label="MOTIONART" handleMenuClick={() => this.setCurrProject("motionart")} />
+            <CustomProjectLink to={"/projects/wifiopt"} label="WIFIOPT" handleMenuClick={() => this.setCurrProject("wifiopt")} />
+
+            {/* <Link to={`${this.props.match.url}/motionart`}>MotionArt</Link> */}
           </div>
           <div className={this.state.currentProject !== "Default" ? "Container Container-expanded" : "Container"}>
-            {this.getProject()}
+            {/* {this.getProject()} */}
+            {/* <Switch> */}
+              {/* <Route exact path={`${this.props.match.url}/motionart`} component={ProjectMotionArt} /> */}
+              {/* <Route exact path={"${this.props.match.url}/wifiopt"} component={ProjectMotionArt} /> */}
+              {/* <Route component={DefaultProject} /> */}
+            {/* </Switch> */}
+            <Switch>
+              {this.props.routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route} />
+              ))}
+              <Route component={DNEProject}/>
+            </Switch>
+            
           </div>
         </section>
       </React.Fragment>

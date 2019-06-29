@@ -5,8 +5,9 @@ import './css/App.css';
 import './css/palette.css';
 import './css/hexagon.css';
 
-import { DefaultPage, AboutPage, ProjectsPage, ContactPage, DNEPage } from './Pages.js';
-import { CustomLogoLink, CustomMenuLink } from './RouterLinks.js';
+import { DNEPage } from './Pages.js';
+import { CustomLogoLink, CustomMenuLink, RouteWithSubRoutes } from './RouterLinks.js';
+import { routes } from './Routes.js';
 
 
 class App extends React.Component {
@@ -178,12 +179,15 @@ class App extends React.Component {
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
           {/* <div tabIndex="0" className={this.props.match.path != "/" ? "Container-expanded Container" : "Container"}> */}
             <Switch>
-              <Route exact path="/" component={DefaultPage} />
+              {/* <Route exact path="/" component={DefaultPage} />
               <Route exact path="/about" component={AboutPage} />
               <Route exact path="/projects" component={ProjectsPage} />
-              <Route exact path="/contact" component={ContactPage} />
+              <Route exact path="/contact" component={ContactPage} /> */}
+              {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route} />
+              ))}
               <Route component={DNEPage} />
-            </Switch>
+            </Switch> 
           </div>
         </HashRouter>
       </div >
