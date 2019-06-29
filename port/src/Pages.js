@@ -80,40 +80,16 @@ function DNEProject(){
 export class ProjectsPage extends React.Component {
   constructor(props) {
     super(props);
-    // this.nextProject = this.nextProject.bind(this);
     this.state = {
       currentProject: "motionart"
     }
     this.setCurrProject = this.setCurrProject.bind(this);
   }
-  // getProject() {
-  //   let project;
-  //   switch (this.state.currentProject) {
-  //     case "MotionArt":
-  //       project = <ProjectMotionArt />;
-  //       break;
-  //     case "WifiOptimization":
-  //       project = <ProjectWifiOptimization />;
-  //       break;
-  //     default:
-  //       project = <DefaultProject />
-  //       break;
-  //   }
-  //   return project;
-  // }
-
-  // nextProject(projectName) {
-  //   this.setState({
-  //     currentProject: projectName
-  //   });
-  // }
 
   setCurrProject(projectName){
-    // console.log(this.props.match.url);
     this.setState({
       currentProject: projectName
-    },
-    ()=> console.log(this.state.currentProject));
+    }/*,()=> console.log(this.state.currentProject)*/);
   }
 
   render() {
@@ -122,36 +98,16 @@ export class ProjectsPage extends React.Component {
         <section className="Page bgAccent2">
           <h1>Things I've worked on</h1>
           <div className="Project-icons-list">
-            {/* <div className={this.state.currentProject === "MotionArt" ? "Project-icons Project-icons-selected bgAccent1" : "Project-icons bgAccent1"}
-              onClick={this.state.currentProject !== "MotionArt" ?
-                () => this.nextProject("MotionArt") : () => this.nextProject("Default")}>
-              <p className="Project-name">MotionArt</p>
-            </div>
-            <div className={this.state.currentProject === "WifiOptimization" ? "Project-icons Project-icons-selected bgAccent1" : "Project-icons bgAccent1"}
-              onClick={this.state.currentProject !== "WifiOptimization" ?
-                () => this.nextProject("WifiOptimization") : () => this.nextProject("Default")}>
-              <p className="Project-name">Wifi Opt.</p>
-            </div> */}
-
             <CustomProjectLink to={"/projects/motionart"} label="MOTIONART" handleMenuClick={() => this.setCurrProject("motionart")} />
             <CustomProjectLink to={"/projects/wifiopt"} label="WIFIOPT" handleMenuClick={() => this.setCurrProject("wifiopt")} />
-
-            {/* <Link to={`${this.props.match.url}/motionart`}>MotionArt</Link> */}
           </div>
-          <div className={this.state.currentProject !== "Default" ? "Container Container-expanded" : "Container"}>
-            {/* {this.getProject()} */}
-            {/* <Switch> */}
-              {/* <Route exact path={`${this.props.match.url}/motionart`} component={ProjectMotionArt} /> */}
-              {/* <Route exact path={"${this.props.match.url}/wifiopt"} component={ProjectMotionArt} /> */}
-              {/* <Route component={DefaultProject} /> */}
-            {/* </Switch> */}
+          <div className="Container Container-expanded">
             <Switch>
               {this.props.routes.map((route, i) => (
                 <RouteWithSubRoutes key={i} {...route} />
               ))}
               <Route component={DNEProject}/>
-            </Switch>
-            
+            </Switch>     
           </div>
         </section>
       </React.Fragment>
@@ -162,8 +118,7 @@ export class ProjectsPage extends React.Component {
 export class ContactPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showEmailMe: false, 
+    this.state = { 
       myEmail: "angus_hon@sfu.ca"
     }
     this.handleClick = this.handleClick.bind(this);
@@ -171,9 +126,6 @@ export class ContactPage extends React.Component {
   }
 
   handleClick() {
-    // this.setState({
-    //   showEmailMe: !this.state.showEmailMe
-    // });
     if(!toast.isActive(this.toastCopyClip)){
       toast.info("Copied to clipboard!", 
       {
@@ -185,16 +137,7 @@ export class ContactPage extends React.Component {
         draggable: true,
         transition: Slide
       });
-    }
-    
-  }
-
-  getComponent() {
-    if (this.state.showEmailMe === true) {
-      return <EmailMe />
-    } else {
-      return <React.Fragment></React.Fragment>
-    }
+    } //if
   }
 
   render() {
@@ -217,118 +160,9 @@ export class ContactPage extends React.Component {
             </a>
           </CopyToClipboard>
           <ToastContainer newestOnTop={true}/>
-          {/* 
-          <div className={this.state.showEmailMe ? "Container-expanded Container Container-email" : "Container Container-email"}>
-            {this.getComponent()}
-          </div>
-           */}
+
           <p className="Icon-reference"> GitHub logo from <a href="https://github.com/logos" title="GitHub" target="_blank" rel="noopener noreferrer">https://github.com/logos</a>. LinkedIn and Mail icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank" rel="noopener noreferrer">Freepik</a> and <a href="https://www.flaticon.com/<?=_('authors').'/'?>zurb" title="Zurb" target="_blank" rel="noopener noreferrer">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a> and is editted by Angus Hon.</p>
         </section>
-      </React.Fragment>
-    );
-  }
-}
-
-export class EmailMe extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      emailValue: '',
-      nameValue: '',
-      bodyValue:''
-    };
-
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleBodyChange = this.handleBodyChange.bind(this);
-    this.handleClear = this.handleClear.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleEmailChange(event) {
-    this.setState({ 
-      emailValue: event.target.value 
-    }/*,
-      ()=>console.log(this.state.emailValue)*/
-    );
-  }
-
-  handleNameChange(event){
-    this.setState({ 
-      nameValue: event.target.value 
-    }/*,
-      ()=>console.log(this.state.nameValue)*/
-    );
-  }
-
-  handleBodyChange(event){
-    this.setState({ 
-      bodyValue: event.target.value 
-    }/*,
-      ()=>console.log(this.state.bodyValue)*/
-    );
-  }
-
-  handleClear(event){
-    event.preventDefault();
-    this.setState({
-      emailValue: '',
-      nameValue: '',
-      bodyValue: ''
-    });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    let userData ={
-      newUser:{
-        email: this.state.emailValue,
-        name: this.state.nameValue,
-        message: this.state.bodyValue
-      }
-    };
-    const url = 'http://www.sfu.ca/cgi-bin/mailto.pl';
-    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-
-    fetch(url,{
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-        },
-      }).then(/*response => {
-        response.json().then(data =>{
-          console.log("Successful" + data);
-        })}*/
-        function(response) {
-          console.log(response);
-          return response.json();
-        }).catch(() => console.log("Can’t access " + url + " response. Blocked by browser?"))
-  }
-
-  render() {
-    return (
-      <React.Fragment>
-        <form onSubmit={this.handleSubmit}>
-          <label htmlFor="email">E-Mail Address</label>
-          <input name="email" placeholder="Your Email" value={this.state.emailValue} onChange={this.handleEmailChange}/>
-          
-          <label htmlFor="name">Name</label>
-          <input name="name" placeholder="Your name" value={this.state.nameValue} onChange={this.handleNameChange}/>
-
-          <label htmlFor="body">Send a greeting:</label>
-          <textarea name="body" rows="10" cols="60" placeholder="Send me a message!" value={this.state.bodyValue} onChange={this.handleBodyChange}/>
-          <p>
-            <input type="hidden" name="recipient" defaultValue="angus_hon@sfu.ca" />
-            <input type="hidden" name="subject" defaultValue="Sample web form" />
-            {/* <input type="hidden" name="redirect_url" defaultValue="<a href=index.html&gt; Home Page</a&gt;" /> */}
-            {/* <div className="Container-email-buttons"> */}
-              <button type="reset" value="Clear Form" className="button-nav" onClick={this.handleClear}>Clear</button>
-              <button type="submit" value="Send Form" className="button-nav">Send</button>
-            {/* </div> */}
-          </p>
-        </form>
       </React.Fragment>
     );
   }

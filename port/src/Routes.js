@@ -1,5 +1,5 @@
 import { DefaultPage, AboutPage, ProjectsPage, ContactPage } from './Pages.js';
-import { ProjectMotionArt, ProjectWifiOptimization } from './Projects.js'
+import { ProjectDefault, ProjectMotionArt, ProjectWifiOptimization } from './Projects.js'
 
 export const routes = [
   {
@@ -25,6 +25,11 @@ export const routes = [
       {
         path: "/projects/wifiopt",
         component: ProjectWifiOptimization,
+        exact: true
+      },
+      {
+        path: "/projects/",
+        component: ProjectDefault,
         exact: true
       }
     ]
