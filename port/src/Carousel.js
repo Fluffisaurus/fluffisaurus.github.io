@@ -17,7 +17,7 @@ export class CarouselCarousel extends React.Component {
         showThumbs = {false}
         useKeyboardArrows = {true}
         infiniteLoop = {true}
-        width="50%"
+        // width="50%"
         className="Projects-gallery">
         <div>
           <img src={motionArt3} alt="MotionArt home page"/>

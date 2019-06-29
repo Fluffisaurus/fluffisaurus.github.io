@@ -101,7 +101,7 @@ export class ProjectsPage extends React.Component {
             <CustomProjectLink to={"/projects/motionart"} label="MOTIONART" handleMenuClick={() => this.setCurrProject("motionart")} />
             <CustomProjectLink to={"/projects/wifiopt"} label="WIFIOPT" handleMenuClick={() => this.setCurrProject("wifiopt")} />
           </div>
-          <div className="Container Container-expanded">
+          <div>
             <Switch>
               {this.props.routes.map((route, i) => (
                 <RouteWithSubRoutes key={i} {...route} />

@@ -61,7 +61,7 @@ export class CustomProjectLink extends React.Component{
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
           <div className="Project-name">
-            <Link replace to={this.props.to} onClick={this.props.handleMenuClick} className={match ? "colSecondary bgAccent1" : "colPrimary bgAccent1"}>{this.props.label}</Link>
+            <Link replace to={this.props.to} onClick={this.props.handleMenuClick} className={match ? "Project-icons Project-icons-selected colSecondary bgAccent1" : "Project-icons colPrimary bgAccent1"}>{this.props.label}</Link>
           </div>
         )}
       />
