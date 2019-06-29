@@ -28,7 +28,8 @@ export class DNEPage extends React.Component{
       <React.Fragment>
         <section className="Page bgAccent2">
           <h1>Oops!</h1>
-          <p>The URL you typed in does not exist... yet? Who knows, maybe it will one day. Maybe you misspelled it? If not, I'm as lost as you are... Use the navigation above to go to an existing page!</p>
+          <p>The URL you typed in does not exist... yet? Who knows, maybe it will one day. Perhaps you misspelled it? If not, I'm as lost as you are.</p>
+          <p>Use the navigation above to go to an existing page!</p>
         </section>
       </React.Fragment>
     );
@@ -66,15 +67,18 @@ export class AboutPage extends React.Component {
   }
 }
 
-function DNEProject(){
+export class DNEProject extends React.Component{
+  render(){
   return(
     <React.Fragment>
         <section className="Page bgAccent2">
-          <h1>Oops!</h1>
-          <p>The URL you typed in does not exist... yet? Who knows, maybe it will one day. Maybe you misspelled it? If not, I'm as lost as you are... Use the navigation above to go to an existing page!</p>
+          <h1>Oops! The project "{(window.location.href).replace(/.*\//, "")}" does not exist!</h1>
+          <p>There may have been a typo in the URL you inputted. The naming convention I use for my project domains are ".../projects/projectname". You may have mistyped the project name if you are looking for a specific one!</p>
+          <p>Click any of the projects above to see my existing ones!</p>
         </section>
       </React.Fragment>
   );
+  }
 }
 
 export class ProjectsPage extends React.Component {

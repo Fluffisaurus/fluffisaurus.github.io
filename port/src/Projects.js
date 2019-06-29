@@ -48,7 +48,7 @@ export class ProjectWifiOptimization extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <h2>Optimizaton of SFU Bennett Library's WIFI Coverage</h2>
+        <h2>Optimization of SFU Bennett Library's WIFI Coverage</h2>
         <p>Optimization project within Operations Research (OR) done with Kaveh Alemi, David Ling and Anson Christo in which we produce a mathematical model to optimize wi-fi coverage in population dense areas of SFU's main library. This project goes in depth in the model's development while taking into account different parameters:
         </p>
         <div className="Projects-gallery"></div>
