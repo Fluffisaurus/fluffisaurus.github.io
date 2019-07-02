@@ -44,7 +44,7 @@ export class AboutPage extends React.Component {
           <h1>5W + 1H = Angus H.</h1>
           <div className="About-info">
             <h2>Who is Angus?</h2>
-            <p>He's a data scientist / software engineer to be.</p>
+            <p>He's a software engineer / data scientist to be.</p>
 
             <h2>What is Angus?</h2>
             <p>He is a human who is ethnically Chinese that was born / raised in Vancouver, Canada. Angus also happens to be a type of beef.</p>
@@ -73,7 +73,7 @@ export class DNEProject extends React.Component{
     <React.Fragment>
         <section className="Page bgAccent2">
           <h1>Oops! The project "{(window.location.href).replace(/.*\//, "")}" does not exist!</h1>
-          <p>There may have been a typo in the URL you inputted. The naming convention I use for my project domains are ".../projects/projectname". You may have mistyped the project name if you are looking for a specific one!</p>
+          <p>There may have been a typo in the URL you inputted. The naming convention I use for my project domains are ".../projects/project-name". You may have mistyped the project name if you are looking for a specific one!</p>
           <p>Click any of the projects above to see my existing ones!</p>
         </section>
       </React.Fragment>
@@ -85,7 +85,7 @@ export class ProjectsPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentProject: "motionart"
+      currentProject: "motion-art"
     }
     this.setCurrProject = this.setCurrProject.bind(this);
   }
@@ -102,8 +102,10 @@ export class ProjectsPage extends React.Component {
         <section className="Page bgAccent2">
           <h1>Things I've worked on</h1>
           <div className="Project-icons-list">
-            <CustomProjectLink to={"/projects/motionart"} label="MOTIONART" handleMenuClick={() => this.setCurrProject("motionart")} />
-            <CustomProjectLink to={"/projects/wifiopt"} label="WIFIOPT" handleMenuClick={() => this.setCurrProject("wifiopt")} />
+            <CustomProjectLink to={"/projects/motion-art"} label="MOTIONART" handleMenuClick={() => this.setCurrProject("motion-art")} />
+            <CustomProjectLink to={"/projects/ant-tower-defense"} label="ATD" handleMenuClick={() => this.setCurrProject("ant-tower-defense")} />
+            <CustomProjectLink to={"/projects/climate-analysis"} label="CLIMATEANALYSIS" handleMenuClick={() => this.setCurrProject("climate-analysis")} />
+            <CustomProjectLink to={"/projects/wifi-opt"} label="WIFIOPT" handleMenuClick={() => this.setCurrProject("wifi-opt")} />
           </div>
           <div>
             <Switch>

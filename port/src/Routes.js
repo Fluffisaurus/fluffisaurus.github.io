@@ -1,5 +1,5 @@
 import { DefaultPage, AboutPage, ProjectsPage, ContactPage } from './Pages.js';
-import { ProjectDefault, ProjectMotionArt, ProjectWifiOptimization } from './Projects.js'
+import { ProjectDefault, ProjectMotionArt, ProjectATD, ProjectClimateDataAnalysis, ProjectWifiOptimization } from './Projects.js'
 
 export const routes = [
   {
@@ -18,12 +18,22 @@ export const routes = [
     exact: false,
     routes:[
       {
-        path: "/projects/motionart",
+        path: "/projects/motion-art",
         component: ProjectMotionArt,
         exact: true
       },
       {
-        path: "/projects/wifiopt",
+        path: "/projects/ant-tower-defense",
+        component: ProjectATD,
+        exact: true
+      },
+      {
+        path: "/projects/climate-analysis",
+        component: ProjectClimateDataAnalysis,
+        exact: true
+      },
+      {
+        path: "/projects/wifi-opt",
         component: ProjectWifiOptimization,
         exact: true
       },

@@ -173,7 +173,7 @@ class App extends React.Component {
             <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
             <nav className="Navigation">
               <CustomMenuLink to="/about" label="ABOUT" handleMenuClick={this.containerOpen} />
-              <CustomMenuLink to="/projects/motionart" label="PROJECTS" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/projects/motion-art" label="PROJECTS" handleMenuClick={this.containerOpen} />
               <CustomMenuLink to="/contact" label="CONTACT" handleMenuClick={this.containerOpen} />
             </nav>
           </header>
