@@ -125,7 +125,7 @@ export class ContactPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      myEmail: "angus_hon@sfu.ca"
+      myEmail: "angushon96@gmail.ca"
     }
     this.handleClick = this.handleClick.bind(this);
     this.toastCopyClip = "copy2Clipboard";
@@ -162,7 +162,7 @@ export class ContactPage extends React.Component {
           <CopyToClipboard text={this.state.myEmail} onCopy={() => this.handleClick()}>
             <a>
               <img className="Contact-icons" src={emailIcon} alt="email icon made by Freepik" />            
-              <span aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>angus_hon@sfu.ca</span>          
+              <span aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>{this.state.myEmail}</span>          
             </a>
           </CopyToClipboard>
           <ToastContainer newestOnTop={true}/>
