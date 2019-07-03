@@ -1,6 +1,10 @@
 import React from 'react';
+import { BrowserView, MobileView } from 'react-device-detect';
 
-import { CarouselMotionArt, CarouselATD } from './Carousel.js'
+import { CarouselMotionArt, CarouselATD } from './Carousel.js';
+
+import SummarMaxTemp from './assets/shiny/summer-max.png';
+import SummerMinTemp from './assets/shiny/summer-min.png';
 
 export class ProjectMotionArt extends React.Component {
   render() {
@@ -82,8 +86,63 @@ export class ProjectClimateDataAnalysis extends React.Component{
         <h2>Canadian Climate Data Analysis</h2>
         <div className="Projects-col">
           <p>R, SQLite, R Studio, R Shiny</p>
-          <p>The detailed analysis is hosted at <a href="https://shiny.rcg.sfu.ca/u/achon/" target="_blank" rel="noopener noreferrer">https://shiny.rcg.sfu.ca/u/achon/</a>.</p>
-          <iframe className="Projects-iframe" src="https://shiny.rcg.sfu.ca/u/achon/" title="Climate Data Analysis"></iframe>
+          <p>The full detailed analysis is hosted at <a href="https://shiny.rcg.sfu.ca/u/achon/" target="_blank" rel="noopener noreferrer">https://shiny.rcg.sfu.ca/u/achon/</a>. It includes interactive graphs where you can manipulate the dataset with given parameters and variables.</p>
+          <BrowserView>
+            <iframe className="Projects-iframe" src="https://shiny.rcg.sfu.ca/u/achon/" title="Climate Data Analysis"></iframe>
+          </BrowserView>
+          <MobileView>
+            <h3>Correlation or Coincidence?</h3>
+            <p>Unnatural sources of CO2 emissions across the world have been steadily climbing over the past 100 years. Despite this, there has not been an equal increase in natural or unnatural means of CO2 removal to counter-balance the increasing production. With CO2 being a greenhouse gas, this imbalance contributes to overall increasing deposits of greenhouse gases in the atmosphere.</p>
+            <p>Locally in Vancouver, BC, denizens can note the noticable increase in temperatures over the past decade. Since Vancouver is a coastal city, the weather is typically milder and many houses do not come equipped with air conditioners. Unexpectedly warm weather can affect locals who are not properly prepared. This observational data is reflected in the empirical dataset of surface temperatures in Vancouver, BC.</p>
+            <figure>
+              <img src={SummarMaxTemp} alt="Graph of maximum temperature line of best fit"/>
+              <figcaption>Figure 1: Max temperature line of best fit; slight increase of ~1 degree</figcaption>
+            </figure>
+            <figure>
+              <img src={SummerMinTemp} alt="Graph of minimum temperature line of best fit"/>
+              <figcaption>Figure 2: Min temperature line of best fit; substantial increase of ~4 degrees</figcaption>
+            </figure>
+            <p>Looking at seasonal weather data in Vancouver, we can see some trends in the moving average (bandwidth = 50) of seasonal increases per dataset. The maximum temperatures by season experience increases by a slight margin (Figure 1). In comparision, minimum temperatures have a drastic increase (Figure 2). This is reflected in the overall mean where the minimum temperature is the greater contributer to the overall delta. With these results, we can infer that over the past century the seasonal range in temperatures are narrowing where the minimum value is slowly converging to the maximum.</p>
+            <table className='tableInfo'>
+              <thead>
+                <tr>
+                  <th colSpan='4' id='tableName'>Approximate Delta Increase in Temperature with Moving Average Bandwidth = 50</th>
+                </tr>
+                <tr>
+                  <th>Season</th>
+                  <th>Max Temperature</th>
+                  <th>Min Temperature</th>
+                  <th>Mean Temperature</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Spring</td>
+                  <td>+0.8</td>
+                  <td>+2.0</td>
+                  <td>+1.4</td>
+                </tr>
+                <tr>
+                  <td>Summer</td>
+                  <td>+1.1</td>
+                  <td>+3.1</td>
+                  <td>+2.1</td>
+                </tr>
+                <tr>
+                  <td>Autumn</td>
+                  <td>+0.6</td>
+                  <td>+1.7</td>
+                  <td>+1.2</td>
+                </tr>
+                <tr>
+                  <td>Winter</td>
+                  <td>+0.3</td>
+                  <td>+0.8</td>
+                  <td>+0.6</td>
+                  </tr>
+              </tbody>
+            </table>
+          </MobileView>
         </div>
 
       </React.Fragment>

@@ -184,6 +184,15 @@ form{
   width: 40%;
 }
 
+.tableInfo{
+  border-collapse: collapse;
+  margin: auto; /* center table */
+}
+  
+#tableName{
+  padding: 0.7em 0.2em 0.7em 0.2em;
+}
+
 .Projects-gallery{
   display: flex;
   flex-direction: column;
@@ -221,7 +230,6 @@ form{
 .Project-icons-selected{
   transform: scale(1.05);
 }
-
 
 .Project-icons:hover, .Project-icons:focus{
   transform: scale(1.05);

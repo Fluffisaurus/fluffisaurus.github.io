@@ -156,3 +156,29 @@ a img:hover, a img:focus{
   filter: opacity(0.8);
   transform: scale(1.025);
 }
+
+.tableInfo td, .tableInfo th{
+  padding: 0.2em;
+  color: var(--font-col);
+}
+  
+.tableInfo tr:nth-child(even){
+  background-color: var(--accent1-col);
+}
+                            
+.tableInfo tr:hover{
+  background-color: var(--primary-col);
+}
+
+figure{
+  display: flex;
+  flex-direction: column;
+}
+
+figure img{
+  width: 100%;
+}
+
+figure figcaption{
+  color: var(--font-col);
+}
