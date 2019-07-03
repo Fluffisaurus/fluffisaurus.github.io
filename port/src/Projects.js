@@ -86,7 +86,7 @@ export class ProjectClimateDataAnalysis extends React.Component{
         <h2>Canadian Climate Data Analysis</h2>
         <div className="Projects-col">
           <p>R, SQLite, R Studio, R Shiny</p>
-          <p>The full detailed analysis is hosted at <a href="https://shiny.rcg.sfu.ca/u/achon/" target="_blank" rel="noopener noreferrer">https://shiny.rcg.sfu.ca/u/achon/</a>. It includes interactive graphs where you can manipulate the dataset with given parameters and variables.</p>
+          <p>The full detailed analysis is hosted at <a href="https://shiny.rcg.sfu.ca/u/achon/" target="_blank" rel="noopener noreferrer">https://shiny.rcg.sfu.ca/u/achon/</a>. It includes interactive graphs where you can manipulate the given parameters and variables of the data shown.</p>
           <BrowserView>
             <iframe className="Projects-iframe" src="https://shiny.rcg.sfu.ca/u/achon/" title="Climate Data Analysis"></iframe>
           </BrowserView>
