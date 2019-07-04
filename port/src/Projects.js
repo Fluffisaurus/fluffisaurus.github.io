@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserView, MobileView } from 'react-device-detect';
 
 import { CarouselMotionArt, CarouselATD } from './Carousel.js';
 
@@ -13,7 +12,11 @@ export class ProjectMotionArt extends React.Component {
         <h2>Motion Art</h2>
         <div className="Projects-2-col">
           <div className="Projects-col-left">
-            <p>AndroidStudio, Java, Sensors</p>
+            <div className="Project-skills">
+              <p>AndroidStudio</p>
+              <p>Java</p>
+              <p>Sensors</p>
+            </div>
             <p>The idea for this mobile application comes from the attempt to enable a means of drawing through your body's movement. My goal was to map device position to a blank canvas (on the mobile device) in which the user's movement would translate as a drawing stroke. However, given that this was a project for school I was restricted to the use of sensors native to mobile devices. This proved to be a limitation for what I had hoped to achieve.
             </p>
             <p>The native sensors that I experimented with include the accelerometer, gyroscope, and GPS. I wanted to implement a mapping of user movement to a 2D space using these sensors. The several issues that I came upon include</p>
@@ -52,27 +55,33 @@ export class ProjectATD extends React.Component{
       <React.Fragment>
         <h2>Antlion Tower Defense</h2>
         <div className="Projects-col">
-            <p>Unity, C#, Game Mechanics, Pathfinding, Object Oriented Design, Modularity</p>
-            <p>This is a 2D tower defense game where the player commands a battalion of ants (towers) to defend against invading antlions. The player plays as the queen ant in which they deploy their troops and setup for the invasion.</p>
-            <p>In this project, my role and responsibilty as the game developer was to implement and create a system to that can manage </p>
-            <ul>
-              <li>a wave mechanic,</li>
-              <li>an economy system / management,</li>
-              <li>pathfinding for the antlion enemies,</li>
-              <li>tower and enemy interactions,</li>
-              <li>a spawner for enemies,</li>
-              <li>user tower placements,</li>
-              <li>and a node grid as the playing field.</li>
-            </ul>
-            <CarouselATD/>
-            <p>Roles and Contributions: </p>
-            <ul>
-              <li>Angus Hon: Developer and UI Designer</li>
-              <li>Vivian James: Character Design and Rigging, UI Designer</li>
-              <li>Sky Li: Antlion Design and Art Assets </li>
-              <li>Nijhum Mohammed: Ant Tower Design</li>
-            </ul>
-
+          <div className="Project-skills">
+            <p>Unity</p>
+            <p>C#</p>
+            <p>Game Mechanics</p>
+            <p>Pathfinding</p>
+            <p>Object Oriented Design</p>
+            <p>Modularity</p>
+          </div>
+          <p>This is a 2D tower defense game where the player commands a battalion of ants (towers) to defend against invading antlions. The player plays as the queen ant in which they deploy their troops and setup for the invasion.</p>
+          <p>In this project, my role and responsibilty as the game developer was to implement and create a system to that can manage </p>
+          <ul>
+            <li>a wave mechanic,</li>
+            <li>an economy system / management,</li>
+            <li>pathfinding for the antlion enemies,</li>
+            <li>tower and enemy interactions,</li>
+            <li>a spawner for enemies,</li>
+            <li>user tower placements,</li>
+            <li>and a node grid as the playing field.</li>
+          </ul>
+          <CarouselATD/>
+          <p>Roles and Contributions: </p>
+          <ul>
+            <li>Angus Hon: Developer and UI Designer</li>
+            <li>Vivian James: Character Design and Rigging, UI Designer</li>
+            <li>Sky Li: Antlion Design and Art Assets </li>
+            <li>Nijhum Mohammed: Ant Tower Design</li>
+          </ul>
         </div>
       </React.Fragment>
     );
@@ -85,66 +94,65 @@ export class ProjectClimateDataAnalysis extends React.Component{
       <React.Fragment>
         <h2>Canadian Climate Data Analysis</h2>
         <div className="Projects-col">
-          <p>R, SQLite, R Studio, R Shiny</p>
+          <div className="Project-skills">
+            <p>R</p>
+            <p>SQLite</p>
+            <p>R Studio</p>
+            <p>R Shiny</p>
+          </div>
           <p>The full detailed analysis is hosted at <a href="https://shiny.rcg.sfu.ca/u/achon/" target="_blank" rel="noopener noreferrer">https://shiny.rcg.sfu.ca/u/achon/</a>. It includes interactive graphs where you can manipulate the given parameters and variables of the data shown.</p>
-          <BrowserView>
-            <iframe className="Projects-iframe" src="https://shiny.rcg.sfu.ca/u/achon/" title="Climate Data Analysis"></iframe>
-          </BrowserView>
-          <MobileView>
-            <h3>Correlation or Coincidence?</h3>
-            <p>Unnatural sources of CO2 emissions across the world have been steadily climbing over the past 100 years. Despite this, there has not been an equal increase in natural or unnatural means of CO2 removal to counter-balance the increasing production. With CO2 being a greenhouse gas, this imbalance contributes to overall increasing deposits of greenhouse gases in the atmosphere.</p>
-            <p>Locally in Vancouver, BC, denizens can note the noticable increase in temperatures over the past decade. Since Vancouver is a coastal city, the weather is typically milder and many houses do not come equipped with air conditioners. Unexpectedly warm weather can affect locals who are not properly prepared. This observational data is reflected in the empirical dataset of surface temperatures in Vancouver, BC.</p>
-            <figure>
-              <img src={SummarMaxTemp} alt="Graph of maximum temperature line of best fit"/>
-              <figcaption>Figure 1: Max temperature line of best fit; slight increase of ~1 degree</figcaption>
-            </figure>
-            <figure>
-              <img src={SummerMinTemp} alt="Graph of minimum temperature line of best fit"/>
-              <figcaption>Figure 2: Min temperature line of best fit; substantial increase of ~4 degrees</figcaption>
-            </figure>
-            <p>Looking at seasonal weather data in Vancouver, we can see some trends in the moving average (bandwidth = 50) of seasonal increases per dataset. The maximum temperatures by season experience increases by a slight margin (Figure 1). In comparision, minimum temperatures have a drastic increase (Figure 2). This is reflected in the overall mean where the minimum temperature is the greater contributer to the overall delta. With these results, we can infer that over the past century the seasonal range in temperatures are narrowing where the minimum value is slowly converging to the maximum.</p>
-            <table className='tableInfo'>
-              <thead>
-                <tr>
-                  <th colSpan='4' id='tableName'>Approximate Delta Increase in Temperature with Moving Average Bandwidth = 50</th>
+          <h3>Correlation or Coincidence?</h3>
+          <p>Unnatural sources of CO2 emissions across the world have been steadily climbing over the past 100 years. Despite this, there has not been an equal increase in natural or unnatural means of CO2 removal to counter-balance the increasing production. With CO2 being a greenhouse gas, this imbalance contributes to overall increasing deposits of greenhouse gases in the atmosphere.</p>
+          <p>Locally in Vancouver, BC, denizens can note the noticable increase in temperatures over the past decade. Since Vancouver is a coastal city, the weather is typically milder and many houses do not come equipped with air conditioners. Unexpectedly warm weather can affect locals who are not properly prepared. This observational data is reflected in the empirical dataset of surface temperatures in Vancouver, BC.</p>
+          <figure>
+            <img src={SummarMaxTemp} alt="Graph of maximum temperature line of best fit"/>
+            <figcaption>Figure 1: Max temperature line of best fit; slight increase of ~1 degree</figcaption>
+          </figure>
+          <figure>
+            <img src={SummerMinTemp} alt="Graph of minimum temperature line of best fit"/>
+            <figcaption>Figure 2: Min temperature line of best fit; substantial increase of ~4 degrees</figcaption>
+          </figure>
+          <p>Looking at seasonal weather data in Vancouver, we can see some trends in the moving average (bandwidth = 50) of seasonal increases per dataset. The maximum temperatures by season experience increases by a slight margin (Figure 1). In comparision, minimum temperatures have a drastic increase (Figure 2). This is reflected in the overall mean where the minimum temperature is the greater contributer to the overall delta. With these results, we can infer that over the past century the seasonal range in temperatures are narrowing where the minimum value is slowly converging to the maximum.</p>
+          <table className='tableInfo'>
+            <thead>
+              <tr>
+                <th colSpan='4' id='tableName'>Approximate Delta Increase in Temperature (°C) with Moving Average Bandwidth = 50</th>
+              </tr>
+              <tr>
+                <th>Season</th>
+                <th>Max Temperature</th>
+                <th>Min Temperature</th>
+                <th>Mean Temperature</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Spring</td>
+                <td>+0.8</td>
+                <td>+2.0</td>
+                <td>+1.4</td>
+              </tr>
+              <tr>
+                <td>Summer</td>
+                <td>+1.1</td>
+                <td>+3.1</td>
+                <td>+2.1</td>
+              </tr>
+              <tr>
+                <td>Autumn</td>
+                <td>+0.6</td>
+                <td>+1.7</td>
+                <td>+1.2</td>
+              </tr>
+              <tr>
+                <td>Winter</td>
+                <td>+0.3</td>
+                <td>+0.8</td>
+                <td>+0.6</td>
                 </tr>
-                <tr>
-                  <th>Season</th>
-                  <th>Max Temperature</th>
-                  <th>Min Temperature</th>
-                  <th>Mean Temperature</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Spring</td>
-                  <td>+0.8</td>
-                  <td>+2.0</td>
-                  <td>+1.4</td>
-                </tr>
-                <tr>
-                  <td>Summer</td>
-                  <td>+1.1</td>
-                  <td>+3.1</td>
-                  <td>+2.1</td>
-                </tr>
-                <tr>
-                  <td>Autumn</td>
-                  <td>+0.6</td>
-                  <td>+1.7</td>
-                  <td>+1.2</td>
-                </tr>
-                <tr>
-                  <td>Winter</td>
-                  <td>+0.3</td>
-                  <td>+0.8</td>
-                  <td>+0.6</td>
-                  </tr>
-              </tbody>
-            </table>
-          </MobileView>
+            </tbody>
+          </table>
         </div>
-
       </React.Fragment>
     );
   }

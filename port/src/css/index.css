@@ -49,15 +49,17 @@ a span{
 
 h1{
   font-size: 2em;
-  padding-bottom: 0.25em;
+  margin-block-end: 0.5em;
 }
 
 h2{
   font-size: 1.35em;
+  margin-block-end: 0.5em;
 }
 
 h3{
   font-size: 1.1em;
+  margin-block-end: 0.5em;
 }
 
 h1, h2, h3, h4{
@@ -181,4 +183,8 @@ figure img{
 
 figure figcaption{
   color: var(--font-col);
+}
+
+.Project-skills p{
+  background-color: var(--primary-col);
 }

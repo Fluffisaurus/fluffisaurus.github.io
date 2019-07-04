@@ -11,7 +11,8 @@
   float: left;
   width: 80px;
   height: 80px;
-  margin-left: 2em;
+  left: 0.2em;
+  top: 0.1em;
 }
 
 /* .App-logo:hover, .App-logo:focus{
@@ -66,7 +67,7 @@
 }
 
 .Nav-link{
-  width: 33.33%;
+  width: 20%;
 }
 
 .Nav-link a{
@@ -169,13 +170,25 @@ form{
   padding: 0;
 }
 
+.Projects-2-col p, .Projects-col p{
+  margin-top: 0.4em;
+}
+
 .Projects-col-left{
   width:60%;
 }
 
-.Projects-iframe{
-  width:100%;
-  height: 600px;
+.Project-skills{
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.Project-skills p{
+  padding: 0.25em 0.5em 0.25em 0.5em;
+  margin-right: 0.5em;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .Projects-col-right{
@@ -185,8 +198,11 @@ form{
 }
 
 .tableInfo{
+  display: block;
   border-collapse: collapse;
   margin: auto; /* center table */
+  overflow-x: scroll;
+  white-space: nowrap;
 }
   
 #tableName{
@@ -203,6 +219,7 @@ form{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  margin-block-end: 1em;
 }
 
 .Projects-name a{
@@ -307,7 +324,6 @@ a span{
   .App-logo-pin{
     width: 50px;
     height: 50px;
-    margin-left: 0;
   }
   
   .Contact a{
@@ -334,6 +350,10 @@ a span{
   .Projects-gallery{
     width: 65%;
   }
+
+  figure{
+    margin: 1em 0em;
+  }
 }
 
 @media (max-width: 50em) and (min-width: 40em){ /* 800px */
@@ -350,10 +370,8 @@ a span{
 
 @media (max-width: 25.9375em){ /*415px, mobile*/
   .App-logo-pin{
-    width: 35px;
-    height: 35px;
-    margin-left: 0;
-    margin-top: 0.22em;
+    width: 43px;
+    height: 43px;
   }
   .Projects-2-col{
     flex-direction: column;
@@ -370,7 +388,6 @@ a span{
   .App-logo-pin{
     width: 65px;
     height: 65px;
-    margin-left: 1;
   }
 }
 
@@ -384,7 +401,9 @@ a span{
   .App-logo-pin{
     width: 80px;
     height: 80px;
-    margin-left: 2;
+  }
+  .Navigation{
+    width: 70%;
   }
 }
 
@@ -394,5 +413,8 @@ a span{
   }
   .Container{
     width: 60%;
+  }
+  .Navigation{
+    width: 50%;
   }
 }
