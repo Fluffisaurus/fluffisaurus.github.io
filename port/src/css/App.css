@@ -203,6 +203,7 @@ form{
   margin: auto; /* center table */
   overflow-x: scroll;
   white-space: nowrap;
+  width: max-content;
 }
   
 #tableName{
