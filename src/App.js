@@ -5,9 +5,9 @@ import './css/App.css';
 import './css/palette.css';
 import './css/hexagon.css';
 
-import { DNEPage } from './Pages.js';
-import { CustomLogoLink, CustomMenuLink, RouteWithSubRoutes } from './RouterLinks.js';
-import { routes } from './Routes.js';
+import { DNEPage } from './components/Pages.js';
+import { CustomLogoLink, CustomMenuLink, RouteWithSubRoutes } from './components/RouterLinks.js';
+import { routes } from './components/Routes.js';
 
 
 class App extends React.Component {

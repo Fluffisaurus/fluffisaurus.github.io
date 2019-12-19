@@ -3,19 +3,19 @@ import { Carousel } from 'react-responsive-carousel';
 
 //went into carousel.css and added padding-inline-start:0px; under .carousel .control-dots 
 import "react-responsive-carousel/lib/styles/carousel.css";
-import motionArt1 from './assets/motionart/motionart1.jpg';
-import motionArt2 from './assets/motionart/motionart2.jpg';
-import motionArt3 from './assets/motionart/motionart3.jpg';
-import motionArt4 from './assets/motionart/motionart4.jpg';
-import motionArt5 from './assets/motionart/motionart5.jpg';
+import motionArt1 from '../assets/motionart/motionart1.jpg';
+import motionArt2 from '../assets/motionart/motionart2.jpg';
+import motionArt3 from '../assets/motionart/motionart3.jpg';
+import motionArt4 from '../assets/motionart/motionart4.jpg';
+import motionArt5 from '../assets/motionart/motionart5.jpg';
 
-import atd1 from './assets/atd/atd-pathfinding.png';
-import atd2 from './assets/atd/atd-start-screen.png';
-import atd3 from './assets/atd/atd-story.png';
-import atd4 from './assets/atd/atd-level-select.png';
-import atd5 from './assets/atd/atd-gameplay.png';
-import atd6 from './assets/atd/atd-win-screen.png';
-import atd7 from './assets/atd/atd-lose-screen.png';
+import atd1 from '../assets/atd/atd-pathfinding.png';
+import atd2 from '../assets/atd/atd-start-screen.png';
+import atd3 from '../assets/atd/atd-story.png';
+import atd4 from '../assets/atd/atd-level-select.png';
+import atd5 from '../assets/atd/atd-gameplay.png';
+import atd6 from '../assets/atd/atd-win-screen.png';
+import atd7 from '../assets/atd/atd-lose-screen.png';
 
 export class CarouselMotionArt extends React.Component {
   render() {

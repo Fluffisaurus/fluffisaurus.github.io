@@ -8,9 +8,9 @@ import { RouteWithSubRoutes } from './RouterLinks.js';
 import { Route } from "react-router-dom";
 import { Switch } from "react-router";
 
-import linkedinIcon from './assets/linkedin.svg'
-import emailIcon from './assets/email.svg'
-import githubMark from './assets/GitHub-Mark.svg'
+import linkedinIcon from '../assets/linkedin.svg'
+import emailIcon from '../assets/email.svg'
+import githubMark from '../assets/GitHub-Mark.svg'
 
 export class DefaultPage extends React.Component {
   render() {

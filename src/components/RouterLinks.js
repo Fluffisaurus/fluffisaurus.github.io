@@ -1,6 +1,6 @@
 import React from 'react';
 import{ Route, Link } from "react-router-dom";
-import myLogo2 from './assets/myLogo2.svg';
+import myLogo2 from '../assets/myLogo2.svg';
 
 export class CustomLogoLink extends React.Component{
   render(){

@@ -2,8 +2,8 @@ import React from 'react';
 
 import { CarouselMotionArt, CarouselATD } from './Carousel.js';
 
-import SummarMaxTemp from './assets/shiny/summer-max.png';
-import SummerMinTemp from './assets/shiny/summer-min.png';
+import SummarMaxTemp from '../assets/shiny/summer-max.png';
+import SummerMinTemp from '../assets/shiny/summer-min.png';
 
 export class ProjectMotionArt extends React.Component {
   render() {
