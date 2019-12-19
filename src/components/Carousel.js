@@ -1,8 +1,7 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
+import "react-responsive-carousel/lib/styles/carousel.css"; //went into carousel.css and added padding-inline-start:0px; under .carousel .control-dots 
 
-//went into carousel.css and added padding-inline-start:0px; under .carousel .control-dots 
-import "react-responsive-carousel/lib/styles/carousel.css";
 import motionArt1 from '../assets/motionart/motionart1.jpg';
 import motionArt2 from '../assets/motionart/motionart2.jpg';
 import motionArt3 from '../assets/motionart/motionart3.jpg';

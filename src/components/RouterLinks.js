@@ -1,5 +1,5 @@
 import React from 'react';
-import{ Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import myLogo2 from '../assets/myLogo2.svg';
 
 export class CustomLogoLink extends React.Component{
@@ -11,6 +11,7 @@ export class CustomLogoLink extends React.Component{
         children={({ match }) => (
           <Link to={this.props.to} onClick={this.props.handleLogoClick}>
             <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={myLogo2} alt="my logo"/>
+            {/* <h1>Angus Hon</h1> */}
           </Link>
         )}
       />
