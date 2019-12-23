@@ -1,6 +1,7 @@
 /* @import url('https://fonts.googleapis.com/css?family=Lato|Muli'); */
-@import url('https://fonts.googleapis.com/css?family=Play|Exo+2');
+/* @import url('https://fonts.googleapis.com/css?family=Play|Exo+2'); */
 @import url('../css/palette.css');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata|Open+Sans|Roboto+Mono|Source+Code+Pro&display=swap');
 
 /*#region Scrollbar Stuff */
 ::-webkit-scrollbar {
@@ -32,15 +33,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
   /* font-family: 'Inconsolata', monospace; */
-  font-family: 'Exo 2', sans-serif;
 }
 
 code {
   font-family: 'Inconsolata', monospace;
 }
 
-nav a, nav a:focus{
+nav a, nav a:focus, .title, .title:focus, .title:hover{
   text-decoration: none;
+}
+
+.title, .title:focus, .title:hover{
+  color: var(--primary-col);
 }
 
 a span{
@@ -48,32 +52,37 @@ a span{
 }
 
 h1{
-  font-size: 2em;
+  font-size: 1.75em;
   margin-block-end: 0.5em;
+  font-family: 'Source Code Pro', monospace;
 }
 
 h2{
-  font-size: 1.35em;
+  font-size: 1.25em;
   margin-block-end: 0.5em;
+  font-family: 'Inconsolata', monospace;
 }
 
 h3{
   font-size: 1.1em;
   margin-block-end: 0.5em;
+  font-family: 'Roboto Mono', monospace;
 }
 
 h1, h2, h3, h4{
   /* font-family: 'Muli', sans-serif; */
-  font-family: 'Play', sans-serif;
+  /* font-family: 'Play', sans-serif; */
   color: var(--heading-col);
 }
 
 p, ul, ol, li, label{
   color: var(--font-col);
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
 }
 
 a{
-  font-family: 'Play', sans-serif;
+  font-family: 'Inconsolata', monospace;
   color: var(--primary-col);
   text-decoration: none;
   transition: 0.3s ease-in;
@@ -111,7 +120,7 @@ button{
   border-radius: 0.25em;
   padding: 1rem 2rem;
   margin: 0;
-  font-family: 'Play', sans-serif;
+  font-family: 'Inconsolata', monospace;
   font-size: 1rem;
   cursor: pointer;
   text-align: center;

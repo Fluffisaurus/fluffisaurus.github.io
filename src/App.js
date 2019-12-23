@@ -149,7 +149,7 @@ class App extends React.Component {
         <button className={this.state.headerExpand ? "button-nav Theme-button Theme-button-expanded" : "button-nav Theme-button"} 
           onClick={()=>this.toggleTheme()}>
           {/* display the name of the theme to change to */}
-          {this.state.theme === "dark" ? "light" : "dark"} theme
+          switch to: {this.state.theme === "dark" ? "light" : "dark"} theme
         </button>
         
         {/*
@@ -166,9 +166,9 @@ class App extends React.Component {
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
             <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
             <nav className="Navigation">
-              <CustomMenuLink to="/about" label="ABOUT" handleMenuClick={this.containerOpen} />
-              <CustomMenuLink to="/projects/motion-art" label="PROJECTS" handleMenuClick={this.containerOpen} />
-              <CustomMenuLink to="/contact" label="CONTACT" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/about" label="About" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/projects/motion-art" label="Projects" handleMenuClick={this.containerOpen} />
+              <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} />
             </nav>
           </header>
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>

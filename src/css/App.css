@@ -9,8 +9,8 @@
 .App-logo-pin{
   position: absolute;
   float: left;
-  width: 80px;
-  height: 80px;
+  width: 65px;
+  height: 65px;
   left: 0.2em;
   top: 0.1em;
 }
@@ -53,6 +53,14 @@
 .App-header-expanded{
   display: flex;
   width: 80%;
+}
+
+.title{
+  font-size: 3em;
+  margin-block-end: 0.5em;
+  font-family: 'Source Code Pro', monospace;
+  text-decoration: none;
+  pointer-events: none;
 }
 
 .Navigation{
@@ -387,8 +395,8 @@ a span{
     width: 90%;
   }
   .App-logo-pin{
-    width: 65px;
-    height: 65px;
+    width: 55px;
+    height: 55px;
   }
 }
 

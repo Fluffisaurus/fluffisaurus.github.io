@@ -9,9 +9,10 @@ export class CustomLogoLink extends React.Component{
         path={this.props.to}
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
-          <Link to={this.props.to} onClick={this.props.handleLogoClick}>
-            <img className={match ? "App-logo" : "App-logo App-logo-pin"} src={myLogo2} alt="my logo"/>
-            {/* <h1>Angus Hon</h1> */}
+          <Link to={this.props.to} onClick={this.props.handleLogoClick} className={(match)? "title colPrimary bgAccent1" : ""}>
+            {
+              (match) ? (">Angus Hon") : <img className={"App-logo App-logo-pin"} src={myLogo2} alt="my logo"/>
+            }
           </Link>
         )}
       />

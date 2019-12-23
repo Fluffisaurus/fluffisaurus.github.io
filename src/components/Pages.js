@@ -102,10 +102,10 @@ export class ProjectsPage extends React.Component {
         <section className="Page bgAccent2">
           <h1>Things I've worked on</h1>
           <div className="Project-icons-list">
-            <CustomProjectLink to={"/projects/motion-art"} label="MOTIONART" handleMenuClick={() => this.setCurrProject("motion-art")} />
+            <CustomProjectLink to={"/projects/motion-art"} label="MotionArt" handleMenuClick={() => this.setCurrProject("motion-art")} />
             <CustomProjectLink to={"/projects/ant-tower-defense"} label="ATD" handleMenuClick={() => this.setCurrProject("ant-tower-defense")} />
-            <CustomProjectLink to={"/projects/climate-analysis"} label="CLIMATEANALYSIS" handleMenuClick={() => this.setCurrProject("climate-analysis")} />
-            <CustomProjectLink to={"/projects/wifi-opt"} label="WIFIOPT" handleMenuClick={() => this.setCurrProject("wifi-opt")} />
+            <CustomProjectLink to={"/projects/climate-analysis"} label="ClimateAnalysis" handleMenuClick={() => this.setCurrProject("climate-analysis")} />
+            <CustomProjectLink to={"/projects/wifi-opt"} label="WifiOpt" handleMenuClick={() => this.setCurrProject("wifi-opt")} />
           </div>
           <div>
             <Switch>
