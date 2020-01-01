@@ -82,3 +82,9 @@
 .bgLight2{
   background-color:#e7e1d6; 
 }
+
+.svgPrimary{
+  fill: var(--primary-col);
+  fill-rule:evenodd;
+  clip-rule:evenodd;
+}

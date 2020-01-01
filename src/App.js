@@ -1,6 +1,8 @@
 import React from 'react';
 import { HashRouter, Route } from "react-router-dom";
 import { Switch } from "react-router";
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { ToastContainer, toast, Slide } from 'react-toastify';
 
 import './css/App.css';
 import './css/palette.css';
@@ -9,6 +11,9 @@ import './css/hexagon.css';
 import { DNEPage } from './components/Pages.js';
 import { CustomLogoLink, CustomMenuLink, RouteWithSubRoutes } from './components/RouterLinks.js';
 import { routes } from './components/Routes.js';
+import linkedinIcon from './assets/linkedin.svg';
+import emailIcon from './assets/email.svg';
+import githubMark from './assets/GitHub-Mark.svg';
 
 
 class App extends React.Component {
@@ -26,8 +31,11 @@ class App extends React.Component {
       posx: [0, 0, 0],
       posy: [0, 0, 0],
       rotate: 0,
-      theme: "dark"
+      theme: "dark",
+      myEmail: "angushon96@gmail.ca"
     }
+    this.handleClick = this.handleClick.bind(this);
+    this.toastCopyClip = "copy2Clipboard";
   }
 
   // grab window dimensions on load https://stackoverflow.com/a/42141641
@@ -36,7 +44,7 @@ class App extends React.Component {
     window.addEventListener('resize', this.updateWindowDimensions);
 
     this.randomPos(); //initial randomize
-    this.timePassed = setInterval(()=>this.randomPos(), 1500);
+    this.timePassed = setInterval(()=>this.randomPos(), 6500);
 
     //can probably be done better with react-router by checking current location within router
     if((window.location.href).replace(/.*\//, "") !== ""){
@@ -86,6 +94,23 @@ class App extends React.Component {
     this.setState({
       headerExpand: false
     }/*,() => {console.log("headerExpand: " + this.state.headerExpand)}*/);
+  }
+
+  handleClick() {
+    if(!toast.isActive(this.toastCopyClip)){
+      toast.info(`email copied to clipboard!`, 
+      {
+        bodyClassName: "Toast-container",
+        toastId: this.toastCopyClip,
+        autoClose: 2000,
+        position: "bottom-center",
+        hideProgressBar: true,
+        closeOnClick: true,
+        draggable: true,
+        transition: Slide,
+        newestOnTop: true,
+      });
+    } //if
   }
 
   render() {
@@ -164,11 +189,28 @@ class App extends React.Component {
         */}
         <HashRouter basename="">
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
-            <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
+            <div className="Logo-group">
+              <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
+              <div className="Contact-group">
+                <a href="https://github.com/Fluffisaurus/" target="_blank" rel="noopener noreferrer">
+                  <img className="Contact-icons bgAccent1" src={githubMark} alt="GitHub Mark by GitHub" />
+                </a>
+                <a href="https://www.linkedin.com/in/angus-hon/" target="_blank" rel="noopener noreferrer">
+                  <img className="Contact-icons bgAccent1" src={linkedinIcon} alt="linkedin logo made by Freepik" />
+                </a>
+                <CopyToClipboard text={this.state.myEmail} onCopy={() => this.handleClick()}>
+                  {/* eslint-disable-next-line */}
+                  <a>
+                    <img className="Contact-icons bgAccent1" src={emailIcon} alt="email icon made by Freepik" onKeyPress={() => this.handleClick()}/>        
+                  </a>
+                </CopyToClipboard>
+                <ToastContainer/>
+              </div>
+            </div>
             <nav className="Navigation">
               <CustomMenuLink to="/about" label="About" handleMenuClick={this.containerOpen} />
               <CustomMenuLink to="/projects/motion-art" label="Projects" handleMenuClick={this.containerOpen} />
-              <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} />
+              {/* <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} /> */}
             </nav>
           </header>
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>

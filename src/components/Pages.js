@@ -44,10 +44,10 @@ export class AboutPage extends React.Component {
           <h1>5W + 1H = Angus H.</h1>
           <div className="About-info">
             <h2>Who is Angus?</h2>
-            <p>He's a software engineer / data scientist to be.</p>
+            <p>He's a software engineer to be.</p>
 
             <h2>What is Angus?</h2>
-            <p>He is a human who is ethnically Chinese that was born / raised in Vancouver, Canada. Angus also happens to be a type of beef.</p>
+            <p>He is a human who is ethnically Chinese that was born / raised in Vancouver, Canada. As noted by many, Angus also happens to be a type of beef.</p>
 
             <h2>When is Angus?</h2>
             <p>Now.</p>
@@ -56,7 +56,7 @@ export class AboutPage extends React.Component {
             <p>He is currently in Vancouver, BC, Canada.</p>
 
             <h2>Why is Angus?</h2>
-            <p>That is a question he asks himself too frequently.</p>
+            <p>That is a question he frequently asks himself.</p>
 
             <h2>How is Angus?</h2>
             <p>He is currently finishing his undergraduate studies at Simon Fraser University. In his spare time, he enjoys hanging out with his friends, working on random projects, playing video games, and watching the NBA.</p>
@@ -160,14 +160,13 @@ export class ContactPage extends React.Component {
             <span>https://www.linkedin.com/in/angus-hon/</span>
           </a>
           <CopyToClipboard text={this.state.myEmail} onCopy={() => this.handleClick()}>
+            {/* eslint-disable-next-line */}
             <a>
               <img className="Contact-icons" src={emailIcon} alt="email icon made by Freepik" />            
               <span aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>{this.state.myEmail}</span>          
             </a>
           </CopyToClipboard>
           <ToastContainer newestOnTop={true}/>
-
-          <p className="Icon-reference"> GitHub logo from <a href="https://github.com/logos" title="GitHub" target="_blank" rel="noopener noreferrer">https://github.com/logos</a>. LinkedIn and Mail icon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank" rel="noopener noreferrer">Freepik</a> and <a href="https://www.flaticon.com/<?=_('authors').'/'?>zurb" title="Zurb" target="_blank" rel="noopener noreferrer">Zurb</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank" rel="noopener noreferrer">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank" rel="noopener noreferrer">CC 3.0 BY</a> and is editted by Angus Hon.</p>
         </section>
       </React.Fragment>
     );

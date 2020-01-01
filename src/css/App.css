@@ -56,15 +56,17 @@
 }
 
 .title{
-  font-size: 3em;
-  margin-block-end: 0.5em;
+  /* font-size: 2.5em; */
+  font-size: calc(2.5em + 2vmin);
+  /* margin-block-end: 0.5em; */
   font-family: 'Source Code Pro', monospace;
   text-decoration: none;
   pointer-events: none;
 }
 
 .Navigation{
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
+  font-size: 1.5em;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -95,7 +97,7 @@
 }
 
 .Container-expanded{
-  height: 100%;
+  height: 90%;
   transition: 0.2s ease-in;
   animation: fade 0.2s ease-in;
 }
@@ -263,10 +265,24 @@ form{
 /* #endregion Projects Page Stuff */
 
 /* #region Contact Page Stuff */
+.Logo-group{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Contact-group{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 .Contact-icons{
-  width: 100px;
-  height: 100px;
-  filter: grayscale(100%);
+  width: 40px;
+  height: 40px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  /* filter: grayscale(100%); */
 }
 
 .Icon-reference{
@@ -284,6 +300,10 @@ a img, a span{
 
 a span{
   padding-left: 0.5em;
+}
+
+.Toast-container{
+  width: fit-content;
 }
 /* #endregion Contact Page Stuff */
 
