@@ -15,6 +15,8 @@ import { routes } from './components/Routes.js';
 import linkedinIcon from './assets/linkedin.svg';
 import emailIcon from './assets/email.svg';
 import githubMark from './assets/GitHub-Mark.svg';
+import lightBulb from './assets/lightbulb.svg';
+import lightBulbOff from './assets/lightbulb-off.svg';
 
 
 class App extends React.Component {
@@ -34,6 +36,7 @@ class App extends React.Component {
       rotate: 0,
       theme: "dark",
       checked: false,
+      bulb: lightBulbOff,
       myEmail: "angushon96@gmail.ca"
     }
     this.handleClick = this.handleClick.bind(this);
@@ -76,15 +79,18 @@ class App extends React.Component {
   toggleTheme(){
     const theme = this.state.theme === "dark" ? "light" : "dark";
     const checked = this.state.checked === false ? true : false;
+    const bulb = this.state.bulb === lightBulbOff ? lightBulb : lightBulbOff;
     this.setState({ 
       checked: checked,
-      theme: theme 
+      theme: theme,
+      bulb: bulb,
     });
     console.log("changed theme to: " + theme);
     document.documentElement.classList.add("theme-transition");
     document.documentElement.setAttribute("data-theme", theme);
+    document.getElementById("theme-bulb").src = bulb;
     window.setTimeout(function() {
-      document.documentElement.classList.remove("theme-transition")
+      document.documentElement.classList.remove("theme-transition");
     }, 1000);
   }
 
@@ -187,26 +193,31 @@ class App extends React.Component {
         */}
         <HashRouter basename="">
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
-            <button className={this.state.headerExpand ? "button-nav Theme-button Theme-button-expanded" : "button-nav Theme-button"} 
-              onClick={()=>this.toggleTheme()}>
+            {/* <button className={this.state.headerExpand ? "button-nav Theme-button Theme-button-expanded" : "button-nav Theme-button"} 
+              onClick={()=>this.toggleTheme()}> */}
               {/* display the name of the theme to change to */}
-              switch to: {this.state.theme === "dark" ? "light" : "dark"} theme
-            </button>
-            <Switch
-              checked={this.state.checked}
-              onChange={this.toggleTheme}
-              onColor="#86d3ff"
-              onHandleColor="#2693e6"
-              handleDiameter={30}
-              uncheckedIcon={false}
-              checkedIcon={false}
-              boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
-              activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-              height={20}
-              width={48}
-              className="react-switch"
-              id="material-switch"
-            />
+              {/* switch to: {this.state.theme === "dark" ? "light" : "dark"} theme
+            </button> */}
+            <div className={this.state.headerExpand ? "Theme-button Theme-button-expanded" : "Theme-button"}>
+              <Switch
+                checked={this.state.checked}
+                onChange={this.toggleTheme}
+                onColor="#86d3ff"
+                onHandleColor="#3899ed"
+                offColor="#515151"
+                offHandleColor="#999999"
+                handleDiameter={30*5/6}
+                uncheckedIcon={false}
+                checkedIcon={false}
+                boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                height={20*5/6}
+                width={48*5/6}
+                id="material-switch"
+              />
+              <img src={(this.state.theme) ? lightBulbOff : lightBulb} id="theme-bulb" className="Lightbulb bgAccent1" alt="lightbulb icon designed by 'Vector Market' and obtained from Freepik"/>
+
+            </div>
             <div className={this.state.headerExpand ? "Logo-group Logo-group-pinned" : "Logo-group"}>
               <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
               <div className="Contact-group">
@@ -214,12 +225,12 @@ class App extends React.Component {
                   <img className="Contact-icons bgAccent1" src={githubMark} alt="GitHub Mark by GitHub" />
                 </a>
                 <a href="https://www.linkedin.com/in/angus-hon/" target="_blank" rel="noopener noreferrer">
-                  <img className="Contact-icons bgAccent1" src={linkedinIcon} alt="linkedin logo made by Freepik" />
+                  <img className="Contact-icons bgAccent1" src={linkedinIcon} alt="linkedin icon made by 'Zurb' and obtained from Freepik" />
                 </a>
                 <CopyToClipboard text={this.state.myEmail} onCopy={() => this.handleClick()}>
                   {/* eslint-disable-next-line */}
                   <a>
-                    <img className="Contact-icons bgAccent1" src={emailIcon} alt="email icon made by Freepik" onKeyPress={() => this.handleClick()}/>        
+                    <img className="Contact-icons bgAccent1" src={emailIcon} alt="email icon made by 'Zurb' and obtained from Freepik" onKeyPress={() => this.handleClick()}/>        
                   </a>
                 </CopyToClipboard>
                 <ToastContainer/>
