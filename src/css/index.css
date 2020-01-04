@@ -165,7 +165,7 @@ a img{
 
 a img:hover, a img:focus{
   /* filter: opacity(0.8); */
-  transform: scale(1.025);
+  transform: scale(1.1);
 }
 
 .tableInfo td, .tableInfo th{

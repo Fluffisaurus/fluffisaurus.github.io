@@ -215,7 +215,8 @@ class App extends React.Component {
                 width={48*5/6}
                 id="material-switch"
               />
-              <img src={(this.state.theme) ? lightBulbOff : lightBulb} id="theme-bulb" className="Lightbulb bgAccent1" alt="lightbulb icon designed by 'Vector Market' and obtained from Freepik"/>
+              <img src={(this.state.theme) ? lightBulbOff : lightBulb} id="theme-bulb" className="Lightbulb bgAccent1" onClick={this.toggleTheme}
+                alt="lightbulb icon designed by 'Vector Market' and obtained from Freepik"/>
 
             </div>
             <div className={this.state.headerExpand ? "Logo-group Logo-group-pinned" : "Logo-group"}>
