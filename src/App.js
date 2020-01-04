@@ -171,12 +171,6 @@ class App extends React.Component {
           </svg>
         </div>
         
-        <button className={this.state.headerExpand ? "button-nav Theme-button Theme-button-expanded" : "button-nav Theme-button"} 
-          onClick={()=>this.toggleTheme()}>
-          {/* display the name of the theme to change to */}
-          switch to: {this.state.theme === "dark" ? "light" : "dark"} theme
-        </button>
-        
         {/*
         Remember to set homepage: "https://www.yourserver.ca/path/subdirectory/project/" in package.json
         links that helped: 
@@ -189,7 +183,12 @@ class App extends React.Component {
         */}
         <HashRouter basename="">
           <header className={this.state.headerExpand ? "App-header App-header-expanded" : "App-header App-header-compressed"}>
-            <div className="Logo-group">
+            <button className={this.state.headerExpand ? "button-nav Theme-button Theme-button-expanded" : "button-nav Theme-button"} 
+              onClick={()=>this.toggleTheme()}>
+              {/* display the name of the theme to change to */}
+              switch to: {this.state.theme === "dark" ? "light" : "dark"} theme
+            </button>
+            <div className={this.state.headerExpand ? "Logo-group Logo-group-pinned" : "Logo-group"}>
               <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
               <div className="Contact-group">
                 <a href="https://github.com/Fluffisaurus/" target="_blank" rel="noopener noreferrer">

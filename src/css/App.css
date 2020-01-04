@@ -1,18 +1,9 @@
 .App-logo{
-  width: 180px;
-  height: 180px;
+  width: 65px;
+  height: 65px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   /* animation: App-logo-spin infinite 20s linear; */
-}
-
-.App-logo-pin{
-  position: absolute;
-  float: left;
-  width: 65px;
-  height: 65px;
-  left: 0.2em;
-  top: 0.1em;
 }
 
 /* .App-logo:hover, .App-logo:focus{
@@ -62,6 +53,8 @@
   font-family: 'Source Code Pro', monospace;
   text-decoration: none;
   pointer-events: none;
+  width: fit-content;
+  align-self: center;
 }
 
 .Navigation{
@@ -70,14 +63,14 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 0.7em;
   margin: 0 auto;
   width: inherit;
 }
 
 .Nav-link{
-  width: 20%;
+  margin: 0 1.5em 0 1.5em;
 }
 
 .Nav-link a{
@@ -269,6 +262,12 @@ form{
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+.Logo-group-pinned{
+  flex-direction: row;
+  position: absolute;
 }
 
 .Contact-group{
@@ -340,30 +339,32 @@ a span{
   .Container,.App-header, .App-header-compressed, .App-header-expanded{
     width: 100%;
   }
-
   .Container{
     text-align: left;
   }
-
   .App-logo{
-    width: 130px;
-    height: 130px;
-  }
-
-  .App-logo-pin{
     width: 50px;
     height: 50px;
   }
-  
+  .Logo-group-pinned{
+    top: 0;
+    left: 0;
+    margin-top: 0.25em;
+    margin-right: 0.25em;
+  }
   .Contact a{
     align-items: flex-start;
     flex-direction: column;
   }
-
+  .Navigation{
+    padding: 2.25em 0.7em 0.7em 0.7em;
+    justify-content: flex-start;
+  }
+  .Nav-link{
+    margin: 0 1.5em 0 0;
+  }
   /* class only exists during mobile view */
   .Theme-button-expanded{
-    /* width: 100%; */
-    position: relative;
     top: 0;
     right: 0;
     margin-left: auto;
@@ -379,7 +380,6 @@ a span{
   .Projects-gallery{
     width: 65%;
   }
-
   figure{
     margin: 1em 0em;
   }
@@ -398,7 +398,7 @@ a span{
 }
 
 @media (max-width: 25.9375em){ /*415px, mobile*/
-  .App-logo-pin{
+  .App-logo{
     width: 43px;
     height: 43px;
   }
@@ -414,7 +414,7 @@ a span{
   .Container,.App-header, .App-header-compressed, .App-header-expanded{
     width: 90%;
   }
-  .App-logo-pin{
+  .App-logo{
     width: 55px;
     height: 55px;
   }
@@ -427,7 +427,7 @@ a span{
   .Container{
     width: 70%;
   }
-  .App-logo-pin{
+  .App-logo{
     width: 80px;
     height: 80px;
   }
