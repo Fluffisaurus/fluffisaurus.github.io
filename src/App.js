@@ -1,8 +1,9 @@
 import React from 'react';
 import { HashRouter, Route } from "react-router-dom";
-import { Switch } from "react-router";
+import * as Router from "react-router";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer, toast, Slide } from 'react-toastify';
+import Switch from "react-switch";
 
 import './css/App.css';
 import './css/palette.css';
@@ -32,6 +33,7 @@ class App extends React.Component {
       posy: [0, 0, 0],
       rotate: 0,
       theme: "dark",
+      checked: false,
       myEmail: "angushon96@gmail.ca"
     }
     this.handleClick = this.handleClick.bind(this);
@@ -73,7 +75,9 @@ class App extends React.Component {
   // https://medium.com/@harishv6665_49536/theming-with-react-js-or-any-in-minutes-with-css-variables-11d4ebecdb41
   toggleTheme(){
     const theme = this.state.theme === "dark" ? "light" : "dark";
+    const checked = this.state.checked === false ? true : false;
     this.setState({ 
+      checked: checked,
       theme: theme 
     });
     console.log("changed theme to: " + theme);
@@ -188,6 +192,21 @@ class App extends React.Component {
               {/* display the name of the theme to change to */}
               switch to: {this.state.theme === "dark" ? "light" : "dark"} theme
             </button>
+            <Switch
+              checked={this.state.checked}
+              onChange={this.toggleTheme}
+              onColor="#86d3ff"
+              onHandleColor="#2693e6"
+              handleDiameter={30}
+              uncheckedIcon={false}
+              checkedIcon={false}
+              boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+              activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+              height={20}
+              width={48}
+              className="react-switch"
+              id="material-switch"
+            />
             <div className={this.state.headerExpand ? "Logo-group Logo-group-pinned" : "Logo-group"}>
               <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
               <div className="Contact-group">
@@ -213,14 +232,14 @@ class App extends React.Component {
             </nav>
           </header>
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
-            <Switch>
+            <Router.Switch>
               {
                 routes.map((route, i) => (
                   <RouteWithSubRoutes key={i} {...route} />
                 ))
               }
               <Route component={DNEPage} />
-            </Switch> 
+            </Router.Switch> 
           </div>
         </HashRouter>
       </div >
