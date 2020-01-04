@@ -364,15 +364,14 @@ a span{
     align-items: flex-start;
     flex-direction: column;
   }
-  .Navigation{
+  .Navigation-pinned{ /* class only exists during mobile view */
     padding: 2.25em 0.7em 0.7em 0.7em;
     justify-content: flex-start;
   }
-  .Nav-link{
+  .Nav-link-pinned{ /* class only exists during mobile view */
     margin: 0 1.5em 0 0;
   }
-  /* class only exists during mobile view */
-  .Theme-button-expanded{
+  .Theme-button-expanded{ /* class only exists during mobile view */
     top: 0;
     right: 0;
     margin-left: auto;

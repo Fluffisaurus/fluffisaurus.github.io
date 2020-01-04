@@ -31,7 +31,7 @@ export class CustomMenuLink extends React.Component {
         path={this.props.to}
         exact={this.props.activeOnlyWhenExact}
         children={({ match }) => (
-          <div className="Nav-link">
+          <div className={(this.props.headerState) ? "Nav-link Nav-link-pinned" : "Nav-link"}>
             <Link to={this.props.to} onClick={this.props.handleMenuClick} className={match ? "colSecondary bgAccent1" : "colPrimary bgAccent1"}>{this.props.label}</Link>
           </div>
         )}
