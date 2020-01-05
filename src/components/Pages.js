@@ -49,17 +49,17 @@ export class AboutPage extends React.Component {
             <h2>What is Angus?</h2>
             <p>He is a human who is ethnically Chinese that was born / raised in Vancouver, Canada. As noted by many, Angus also happens to be a type of beef.</p>
 
-            <h2>When is Angus?</h2>
-            <p>Now.</p>
-
             <h2>Where is Angus?</h2>
             <p>He is currently in Vancouver, BC, Canada.</p>
+
+            <h2>When is Angus?</h2>
+            <p>Now.</p>
 
             <h2>Why is Angus?</h2>
             <p>That is a question he frequently asks himself.</p>
 
             <h2>How is Angus?</h2>
-            <p>He is currently finishing his undergraduate studies at Simon Fraser University. In his spare time, he enjoys hanging out with his friends, working on random projects, playing video games, and watching the NBA.</p>
+            <p>He's doing fine, thanks. He is currently finishing his undergraduate studies at Simon Fraser University. In his spare time, he enjoys hanging out with his friends, working on random projects, playing video games, and watching the NBA.</p>
           </div>
         </section>
       </React.Fragment>
