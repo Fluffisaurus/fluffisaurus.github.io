@@ -149,8 +149,14 @@
 .Card-info{
   flex-basis: 40%;
 }
-
 /* #endregion PROJECTS */
+
+/* #region CAROUSEL */
+.Carousel-placeholder img{
+  max-width: 100%;
+  height: auto;
+}
+/* #endregion CAROUSEL */
 
 /* #region CONTACT ICONS */
 .App-logo{

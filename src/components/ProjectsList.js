@@ -24,7 +24,7 @@ const template = {
                     "src" : "",
                     "alt" : "",
                     "description" : "", 
-                }
+                },
             },
         },
     },
@@ -172,7 +172,33 @@ export const projects = {
 
                 }
             },
-            "images" : "",
+            "images" : {
+                0 : {
+                    "src" : "motionart/motionart1.jpg",
+                    "alt" : "MotionArt: Home Screen",
+                    "description" : "Default screen.", 
+                },
+                1 : {
+                    "src" : "motionart/motionart2.jpg",
+                    "alt" : "MotionArt: Brush Select ",
+                    "description" : "Brush size select interface.", 
+                },
+                2 : {
+                    "src" : "motionart/motionart3.jpg",
+                    "alt" : "MotionArt: Palette Changer",
+                    "description" : "Demo of MotionArt's palette changer.", 
+                },
+                3 : {
+                    "src" : "motionart/motionart4.jpg",
+                    "alt" : "MotionArt: Edit Artboard Name",
+                    "description" : "Renaming the current artboard.", 
+                },
+                4 : {
+                    "src" : "motionart/motionart5.jpg",
+                    "alt" : "Made with MotionArt app",
+                    "description" : "A sample drawing done on the app.", 
+                },
+            },
         },
         3 : {
             "abbr": "kingdom-of-helios",
@@ -212,7 +238,43 @@ export const projects = {
 
                 }
             },
-            "images" : "",
+            "images" : {
+                0 : {
+                    "src" : "atd/atd-pathfinding.png",
+                    "alt" : "ATD: A* Pathfinding",
+                    "description" : "Enemy AI with A* Pathfinding shown by lines and points.", 
+                },
+                1 : {
+                    "src" : "atd/atd-start-screen.png",
+                    "alt" : "ATD: Start Screen",
+                    "description" : "Start screen for the game.", 
+                },
+                2 : {
+                    "src" : "atd/atd-story.png",
+                    "alt" : "ATD: Story Screen",
+                    "description" : "Scrollable story and narrative screen.", 
+                },
+                3 : {
+                    "src" : "atd/atd-level-select.png",
+                    "alt" : "ATD: Level Select Screen",
+                    "description" : "Level select screen.", 
+                },
+                4 : {
+                    "src" : "atd/atd-gameplay.png",
+                    "alt" : "ATD: Gameplay Screenshot",
+                    "description" : "Gameplay screenshot.", 
+                },
+                5 : {
+                    "src" : "atd/atd-win-screen.png",
+                    "alt" : "ATD: Win Screen",
+                    "description" : "Win screen", 
+                },
+                6 : {
+                    "src" : "atd/atd-lose-screen.png",
+                    "alt" : "ATD: Lose Screen",
+                    "description" : "Lose screen", 
+                },
+            },
         },
     },
 };

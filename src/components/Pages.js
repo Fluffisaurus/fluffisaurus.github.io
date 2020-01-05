@@ -7,7 +7,8 @@ import 'react-toastify/dist/ReactToastify.min.css';
 
 import { CustomProjectLink } from './RouterLinks.js'
 import { RouteWithSubRoutes } from './RouterLinks.js';
-import {projects} from "./ProjectsList.js";
+import { CarouselMaker } from './Carousel.js';
+import { projects } from "./ProjectsList.js";
 
 import linkedinIcon from '../assets/linkedin.svg';
 import emailIcon from '../assets/email.svg';
@@ -99,9 +100,9 @@ export class Projects extends React.Component {
           <div className="Card-gallery">
             {
               this.state.personal.map((curr) => (
-                <div className="Card">
+                <div className="Card" key={curr.abbr}>
                   <div className="Card-carousel">
-                    
+                    <p></p>
                   </div>
                   <div className="Card-info">
                     <h2>{curr.name}</h2>
@@ -123,9 +124,9 @@ export class Projects extends React.Component {
             <div className="Card-gallery">
             {
               this.state.academic.map((curr) => (
-                <div className="Card">
+                <div className="Card" key={curr.abbr}>
                   <div className="Card-carousel">
-                    
+                    <CarouselMaker info={Object.values(curr.images)}/>
                   </div>
                   <div className="Card-info">
                     <h2>{curr.name}</h2>
