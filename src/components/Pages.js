@@ -1,16 +1,17 @@
 import React from 'react';
+import { Route } from "react-router-dom";
+import { Switch } from "react-router";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import { CustomProjectLink } from './RouterLinks.js'
 import { RouteWithSubRoutes } from './RouterLinks.js';
-import { Route } from "react-router-dom";
-import { Switch } from "react-router";
+import {projects} from "./ProjectsList.js";
 
-import linkedinIcon from '../assets/linkedin.svg'
-import emailIcon from '../assets/email.svg'
-import githubMark from '../assets/GitHub-Mark.svg'
+import linkedinIcon from '../assets/linkedin.svg';
+import emailIcon from '../assets/email.svg';
+import githubMark from '../assets/GitHub-Mark.svg';
 
 export class Default extends React.Component {
   render() {
@@ -85,7 +86,8 @@ export class Projects extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-
+      personal : Object.values(projects.personal), // get values as array
+      academic : Object.values(projects.academic),
     }
   }
 
@@ -93,17 +95,54 @@ export class Projects extends React.Component {
     return(
       <React.Fragment>
         <section className="Page bgAccent2">
-          <div>
-            {/* carousel, temp div for now for size */}
-            <div>
-              
+          <h1>Personal</h1>
+          <div className="Card-gallery">
+            {
+              this.state.personal.map((curr) => (
+                <div className="Card">
+                  <div className="Card-carousel">
+                    
+                  </div>
+                  <div className="Card-info">
+                    <h2>{curr.name}</h2>
+                    <p>{curr.date}</p>
+                    <div className="Card-tags">
+                      {
+                        <p>
+                        {curr.tags.map((tag) => (tag + " "))}
+                        </p>
+                      }
+                    </div>
+                    <p>{Object.values(curr.detail.short)}</p>
+                  </div>
+                </div>
+              ))
+            }
             </div>
-            <div>
-              <h2>Title</h2>
-              <h3>tag</h3>
-              <p>sentence description</p>
+            <h1>Academic</h1>
+            <div className="Card-gallery">
+            {
+              this.state.academic.map((curr) => (
+                <div className="Card">
+                  <div className="Card-carousel">
+                    
+                  </div>
+                  <div className="Card-info">
+                    <h2>{curr.name}</h2>
+                    <p>{curr.date}</p>
+                    <div className="Card-tags">
+                      {
+                        <p>
+                        {curr.tags.map((tag) => (tag + " "))}
+                        </p>
+                      }
+                    </div>
+                    <p>{Object.values(curr.detail.short)}</p>
+                  </div>
+                </div>
+              ))
+            }
             </div>
-          </div>
         </section>
       </React.Fragment>
     );

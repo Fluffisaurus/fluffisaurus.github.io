@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 const template = {
     "template" : {
         0 : {
@@ -17,7 +18,14 @@ const template = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : {
+                0 : {
+                    "src" : "",
+                    "alt" : "",
+                    "description" : "", 
+                }
+            },
         },
     },
 }
@@ -41,7 +49,8 @@ export const projects = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : "",
         },
         1 : {
             "abbr": "website",
@@ -60,7 +69,8 @@ export const projects = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : "",
         },
         2 : {
             "abbr": "foodpick",
@@ -79,7 +89,8 @@ export const projects = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : "",
         },
         3 : {
             "abbr": "falling-blocks",
@@ -98,7 +109,8 @@ export const projects = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : "",
         },
     },
     "academic" : {
@@ -119,7 +131,8 @@ export const projects = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : "",
         },
         1 : {
             "abbr": "player-performance-projection",
@@ -138,7 +151,8 @@ export const projects = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : "",
         },
         2 : {
             "abbr": "motion-art",
@@ -157,7 +171,8 @@ export const projects = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : "",
         },
         3 : {
             "abbr": "kingdom-of-helios",
@@ -176,7 +191,8 @@ export const projects = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : "",
         },
         4 : {
             "abbr": "antlion-td",
@@ -195,7 +211,8 @@ export const projects = {
                 "long" : { //two paragraph summary
 
                 }
-            }
+            },
+            "images" : "",
         },
     },
 };

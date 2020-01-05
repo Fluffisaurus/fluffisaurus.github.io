@@ -193,7 +193,3 @@ figure img{
 figure figcaption{
   color: var(--font-col);
 }
-
-.Project-skills p{
-  background-color: var(--primary-col);
-}

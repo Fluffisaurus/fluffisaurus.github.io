@@ -128,7 +128,27 @@
 /* #endregion ABOUT */
 
 /* #region PROJECTS */
+.Card-gallery{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
+.Card{
+  display: flex;
+  flex-direction: column;
+  border: 1px red solid;
+  width: 300px;
+  height: 400px;
+}
+
+.Card-carousel{
+  flex-basis: 60%;
+}
+
+.Card-info{
+  flex-basis: 40%;
+}
 
 /* #endregion PROJECTS */
 
