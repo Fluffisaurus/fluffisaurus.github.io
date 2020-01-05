@@ -1,52 +1,51 @@
-import { DefaultPage, AboutPage, ProjectsPage, ContactPage } from './Pages.js';
-import { ProjectDefault, ProjectMotionArt, ProjectATD, ProjectClimateDataAnalysis, ProjectWifiOptimization } from './Projects.js'
+import { Default, About, Projects, Contact } from './Pages.js';
 
 export const routes = [
   {
     path: "/",
-    component: DefaultPage,
+    component: Default,
     exact: true
   },
   {
     path: "/about",
-    component: AboutPage,
+    component: About,
     exact: false
   },
   {
     path: "/projects",
-    component: ProjectsPage,
+    component: Projects,
     exact: false,
     routes:[
       {
         path: "/projects/motion-art",
-        component: ProjectMotionArt,
+        // component: ProjectMotionArt,
         exact: true
       },
       {
         path: "/projects/ant-tower-defense",
-        component: ProjectATD,
+        // component: ProjectATD,
         exact: true
       },
       {
         path: "/projects/climate-analysis",
-        component: ProjectClimateDataAnalysis,
+        // component: ProjectClimateDataAnalysis,
         exact: true
       },
       {
         path: "/projects/wifi-opt",
-        component: ProjectWifiOptimization,
+        // component: ProjectWifiOptimization,
         exact: true
       },
       {
         path: "/projects/",
-        component: ProjectDefault,
+        // component: ProjectDefault,
         exact: true
       }
     ]
   },
   {
     path: "/contact",
-    component: ContactPage,
+    component: Contact,
     exact: false
   }
 ]

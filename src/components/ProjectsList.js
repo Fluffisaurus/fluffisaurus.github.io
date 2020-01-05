@@ -1,4 +1,4 @@
-export const projects = {
+const template = {
     "template" : {
         0 : {
             "abbr": "",
@@ -20,6 +20,9 @@ export const projects = {
             }
         },
     },
+}
+
+export const projects = {
     "personal": {
         0 : {
             "abbr": "nba-data-viz",

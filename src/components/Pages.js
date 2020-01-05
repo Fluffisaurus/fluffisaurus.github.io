@@ -12,7 +12,7 @@ import linkedinIcon from '../assets/linkedin.svg'
 import emailIcon from '../assets/email.svg'
 import githubMark from '../assets/GitHub-Mark.svg'
 
-export class DefaultPage extends React.Component {
+export class Default extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -22,7 +22,7 @@ export class DefaultPage extends React.Component {
   }
 }
 
-export class DNEPage extends React.Component{
+export class DNE extends React.Component{
   render(){
     return(
       <React.Fragment>
@@ -36,7 +36,7 @@ export class DNEPage extends React.Component{
   }
 }
 
-export class AboutPage extends React.Component {
+export class About extends React.Component {
   render() {
     return (
       <React.Fragment>
@@ -81,6 +81,36 @@ export class DNEProject extends React.Component{
   }
 }
 
+export class Projects extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+
+    }
+  }
+
+  render() { 
+    return(
+      <React.Fragment>
+        <section className="Page bgAccent2">
+          <div>
+            {/* carousel, temp div for now for size */}
+            <div>
+              
+            </div>
+            <div>
+              <h2>Title</h2>
+              <h3>tag</h3>
+              <p>sentence description</p>
+            </div>
+          </div>
+        </section>
+      </React.Fragment>
+    );
+  }
+
+}
+
 export class ProjectsPage extends React.Component {
   constructor(props) {
     super(props);
@@ -121,7 +151,8 @@ export class ProjectsPage extends React.Component {
   }
 }
 
-export class ContactPage extends React.Component {
+// link disabled in App.js, uncomment it to show
+export class Contact extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 

@@ -1,25 +1,5 @@
-.App-logo{
-  width: 65px;
-  height: 65px;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  /* animation: App-logo-spin infinite 20s linear; */
-}
 
-/* .App-logo:hover, .App-logo:focus{
-  animation: App-logo-spin 0.5s linear;
-} */
-
-/* .Theme-button-expanded is in the media query for display sizes below 640px */
-.Theme-button{
-  position: absolute;
-  top: 1em;
-  right: 1em;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-}
-
+/* #region LANDING PAGE, NAVIGATION, HEADER */
 .App {
   display: flex;
   flex-direction: column;
@@ -80,7 +60,9 @@
   width: max-content;
   text-decoration: none;
 }
+/* #endregion */
 
+/* #region GENERAL */
 .Container{
   width: 60%;
   padding-left: 1em;
@@ -98,20 +80,6 @@
   animation: fade 0.2s ease-in;
 }
 
-.Container-email{
-  margin-left: 0.5em;
-}
-
-.Container-email-buttons{
-  align-self: flex-end;
-}
-
-form{
-  display: flex;
-  flex-direction: column;
-}
-
-/* #region General Page Stuff */
 .Page{
   /* animation:  */
   display: flex;
@@ -146,9 +114,9 @@ form{
   -webkit-hyphens: auto;
   hyphens: auto;
 }
-/* #endregion General Page Stuff */
+/* #endregion GENERAL */
 
-/* #region About Page Stuff */
+/* #region ABOUT */
 .About-info{
   
 }
@@ -157,110 +125,36 @@ form{
   padding-left: 1.5em;
   margin-bottom: 2.5em;
 }
-/* #endregion About Page Stuff */
+/* #endregion ABOUT */
 
-/* #region Projects Page Stuff */
-.Projects-2-col{
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
+/* #region PROJECTS */
 
-.Projects-col, .Projects-col-left, .Projects-col-right{
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-}
 
-.Projects-col a{
-  display: inline-block;
-  padding: 0;
-}
+/* #endregion PROJECTS */
 
-.Projects-2-col p, .Projects-col p{
-  margin-top: 0.4em;
-}
-
-.Projects-col-left{
-  width:60%;
-}
-
-.Project-skills{
-  display: flex; 
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-
-.Project-skills p{
-  padding: 0.25em 0.5em 0.25em 0.5em;
-  margin-right: 0.5em;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.Projects-col-right{
-  display: flex;
-  justify-content: center;
-  width: 40%;
-}
-
-.tableInfo{
-  display: block;
-  border-collapse: collapse;
-  margin: auto; /* center table */
-  overflow-x: scroll;
-  white-space: nowrap;
-  width: max-content;
-}
-  
-#tableName{
-  padding: 0.7em 0.2em 0.7em 0.2em;
-}
-
-.Projects-gallery{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.Project-icons-list{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-block-end: 1em;
-}
-
-.Projects-name a{
-  min-width: 125px;
-  justify-content: center;
-}
-
-.Project-icons{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 55px;
-  border-radius: 8px;
-  margin-right: 0.5em;
+/* #region CONTACT ICONS */
+.App-logo{
+  width: 65px;
+  height: 65px;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
+  /* animation: App-logo-spin infinite 20s linear; */
 }
 
-.Project-icons:hover .Project-name{
-  color: #51eef7;
-  background-color: #313535;
+/* .App-logo:hover, .App-logo:focus{
+  animation: App-logo-spin 0.5s linear;
+} */
+
+/* .Theme-button-expanded is in the media query for display sizes below 640px */
+.Theme-button{
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
 }
 
-.Project-icons-selected{
-  transform: scale(1.05);
-}
-
-.Project-icons:hover, .Project-icons:focus{
-  transform: scale(1.05);
-}
-/* #endregion Projects Page Stuff */
-
-/* #region Contact Page Stuff */
 .Logo-group{
   display: flex;
   flex-direction: column;
@@ -317,10 +211,9 @@ a span{
 .Toast-container{
   width: fit-content;
 }
-/* #endregion Contact Page Stuff */
+/* #endregion CONTACT ICONS */
 
-
-/* Animations */
+/* #region LOGO ANIMATIONS */
 @keyframes slide-up{
   from{
     translate: -20px;
@@ -347,7 +240,9 @@ a span{
     transform: rotate(360deg);
   }
 }
+/* #endregion LOGO ANIMATIONS */
 
+/* #region MEDIA QUERIES AND RESIZING */
 @media (max-width: 40em){
   .Container,.App-header, .App-header-compressed, .App-header-expanded{
     width: 100%;
@@ -383,39 +278,14 @@ a span{
     margin-top: 0.25em;
     margin-right: 0.25em;
   }
-  .Projects-2-col{
-    flex-direction: column;
-  }
-  .Projects-col-left, .Projects-col-right{
-    width: 100%;
-  }
-  .Projects-gallery{
-    width: 65%;
-  }
-  figure{
-    margin: 1em 0em;
-  }
 }
 
 @media (max-width: 50em) and (min-width: 40em){ /* 800px */
-  .Projects-2-col{
-    flex-direction: column;
-  }
-  .Projects-col-left, .Projects-col-right{
-    width: 100%;
-  }
-  .Projects-gallery{
-    width: 60%;
-  }
+
 }
 
 @media (max-width: 25.9375em){ /*415px, mobile*/
-  .Projects-2-col{
-    flex-direction: column;
-  }
-  .Projects-col-left, .Projects-col-right, .Projects-gallery{
-    width: 100%;
-  }
+
 }
 
 @media (min-width: 40em){ /*640px*/
@@ -455,3 +325,4 @@ a span{
     width: 50%;
   }
 }
+/* #endregion MEDIA QUERIES AND RESIZING */

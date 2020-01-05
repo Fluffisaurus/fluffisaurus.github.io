@@ -9,7 +9,7 @@ import './css/App.css';
 import './css/palette.css';
 import './css/hexagon.css';
 
-import { DNEPage } from './components/Pages.js';
+import { DNE } from './components/Pages.js';
 import { CustomLogoLink, CustomMenuLink, RouteWithSubRoutes } from './components/RouterLinks.js';
 import { routes } from './components/Routes.js';
 import linkedinIcon from './assets/linkedin.svg';
@@ -240,7 +240,7 @@ class App extends React.Component {
             <nav className={(this.state.headerExpand) ? "Navigation Navigation-pinned" : "Navigation"}>
               <CustomMenuLink to="/about" label="About" handleMenuClick={this.containerOpen} headerState={this.state.headerExpand}/>
               <CustomMenuLink to="/projects/motion-art" label="Projects" handleMenuClick={this.containerOpen} headerState={this.state.headerExpand}/>
-              {/* <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} /> */}
+              {/* <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} headerState={this.state.headerExpand}/> */}
             </nav>
           </header>
           <div tabIndex="0" className={this.state.headerExpand ? "Container-expanded Container" : "Container"}>
@@ -250,7 +250,7 @@ class App extends React.Component {
                   <RouteWithSubRoutes key={i} {...route} />
                 ))
               }
-              <Route component={DNEPage} />
+              <Route component={DNE} />
             </Router.Switch> 
           </div>
         </HashRouter>
