@@ -287,9 +287,13 @@ form{
   /* filter: grayscale(100%); */
 }
 
+.Contact-icons-pinned{
+  margin-right: 0em;
+}
+
 .Lightbulb{
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
 }
 
@@ -352,8 +356,8 @@ a span{
     text-align: left;
   }
   .App-logo{
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
   }
   .Logo-group-pinned{
     top: 0;
@@ -406,10 +410,6 @@ a span{
 }
 
 @media (max-width: 25.9375em){ /*415px, mobile*/
-  .App-logo{
-    width: 43px;
-    height: 43px;
-  }
   .Projects-2-col{
     flex-direction: column;
   }
@@ -436,8 +436,8 @@ a span{
     width: 70%;
   }
   .App-logo{
-    width: 80px;
-    height: 80px;
+    width: 65px;
+    height: 65px;
   }
   .Navigation{
     width: 70%;

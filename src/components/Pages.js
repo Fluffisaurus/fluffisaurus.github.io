@@ -125,7 +125,7 @@ export class ContactPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = { 
-      myEmail: "angushon96@gmail.ca"
+      myEmail: "angushon96@gmail.com"
     }
     this.handleClick = this.handleClick.bind(this);
     this.toastCopyClip = "copy2Clipboard";

@@ -37,7 +37,7 @@ class App extends React.Component {
       theme: "dark",
       checked: false,
       bulb: lightBulbOff,
-      myEmail: "angushon96@gmail.ca"
+      myEmail: "angushon96@gmail.com"
     }
     this.handleClick = this.handleClick.bind(this);
     this.toastCopyClip = "copy2Clipboard";
@@ -206,13 +206,13 @@ class App extends React.Component {
                 onHandleColor="#3899ed"
                 offColor="#515151"
                 offHandleColor="#999999"
-                handleDiameter={30*5/6}
+                handleDiameter={30*7/9}
                 uncheckedIcon={false}
                 checkedIcon={false}
                 boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
                 activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
-                height={20*5/6}
-                width={48*5/6}
+                height={20*7/9}
+                width={48*7/9}
                 id="material-switch"
               />
               <img src={(this.state.theme) ? lightBulbOff : lightBulb} id="theme-bulb" className="Lightbulb bgAccent1" onClick={this.toggleTheme}
@@ -223,15 +223,15 @@ class App extends React.Component {
               <CustomLogoLink activeOnlyWhenExact={true} to= "/" label="Home" handleLogoClick={this.containerClose} headerExpand={this.state.headerExpand}/>
               <div className="Contact-group">
                 <a href="https://github.com/Fluffisaurus/" target="_blank" rel="noopener noreferrer">
-                  <img className="Contact-icons bgAccent1" src={githubMark} alt="GitHub Mark by GitHub" />
+                  <img className={this.state.headerExpand ? "Contact-icons bgAccent1 Contact-icons-pinned": "Contact-icons bgAccent1"} src={githubMark} alt="GitHub Mark by GitHub" />
                 </a>
                 <a href="https://www.linkedin.com/in/angus-hon/" target="_blank" rel="noopener noreferrer">
-                  <img className="Contact-icons bgAccent1" src={linkedinIcon} alt="linkedin icon made by 'Zurb' and obtained from Freepik" />
+                  <img className={this.state.headerExpand ? "Contact-icons bgAccent1 Contact-icons-pinned": "Contact-icons bgAccent1"} src={linkedinIcon} alt="linkedin icon made by 'Zurb' and obtained from Freepik" />
                 </a>
                 <CopyToClipboard text={this.state.myEmail} onCopy={() => this.handleClick()}>
                   {/* eslint-disable-next-line */}
                   <a>
-                    <img className="Contact-icons bgAccent1" src={emailIcon} alt="email icon made by 'Zurb' and obtained from Freepik" onKeyPress={() => this.handleClick()}/>        
+                    <img className={this.state.headerExpand ? "Contact-icons bgAccent1 Contact-icons-pinned": "Contact-icons bgAccent1"} src={emailIcon} alt="email icon made by 'Zurb' and obtained from Freepik" onKeyPress={() => this.handleClick()}/>        
                   </a>
                 </CopyToClipboard>
                 <ToastContainer/>
