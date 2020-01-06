@@ -23,7 +23,7 @@ const template = {
                 0 : {
                     "src" : "",
                     "alt" : "",
-                    "description" : "", 
+                    "description" : "",
                 },
             },
         },
@@ -36,7 +36,7 @@ export const projects = {
             "abbr": "nba-data-viz",
             "name": "NBA Data Visualization",
             "date" : "Aug 2019 - Present",
-            "tags" : ["D3", "React", "Python", "Flask", "Javascript", "CSS", "Git"],
+            "tags" : ["D3", "React", "Python", "Flask", "JS", "CSS", "Git"],
             "category" : "Web App / Tool",
             "link": {
                 "repo" : "",
@@ -56,7 +56,7 @@ export const projects = {
             "abbr": "website",
             "name": "Personal Website",
             "date" : "Mar 2019 - Present",
-            "tags" : ["React", "Javascript", "CSS", "Git"],
+            "tags" : ["React", "JS", "CSS", "Git"],
             "category" : "Single-Page Web Application",
             "link": {
                 "repo" : "",
@@ -76,7 +76,7 @@ export const projects = {
             "abbr": "foodpick",
             "name": "FoodPick",
             "date" : "Jun 2018 - Mar 2019",
-            "tags" : ["React", "Redux", "Javascript", "NodeJS", "CSS", "Git"],
+            "tags" : ["React", "Redux", "JS", "NodeJS", "CSS", "Git"],
             "category" : "Web and Mobile App",
             "link": {
                 "repo" : "https://github.com/kca99/foodpick",
@@ -118,7 +118,7 @@ export const projects = {
             "abbr": "bobbys-breakout",
             "name": "Bobby's Breakout",
             "date" : "Sep 2019 - Dec 2019",
-            "tags" : ["Agile", "Full Stack", "NodeJS", "Heroku", "Object Oriented Design", "Game Engine", "System Architecture", "Git"],
+            "tags" : ["Agile", "Full Stack", "NodeJS", "Heroku", "OOD", "Game Engine", "Sys Design", "Git"],
             "category" : "Top Down RPG",
             "link" : {
                 "repo"  : "https://github.com/abhatthal/Bobby-Breakout",
@@ -138,7 +138,7 @@ export const projects = {
             "abbr": "player-performance-projection",
             "name": "Player Performance Projection",
             "date" : "Sep 2019 - Dec 2019",
-            "tags" : ["Python", "Machine Learning", "ANOVA", "Regression", "Data Science", "Data Cleaning", "Data Preprocessing"],
+            "tags" : ["Python", "ML", "ANOVA", "Regression", "Data Science", "Data Analysis"],
             "category" : "Statistical Analysis",
             "link": {
                 "repo" : "https://github.com/Fluffisaurus/player-performance-projection",
@@ -176,27 +176,27 @@ export const projects = {
                 0 : {
                     "src" : "motionart/motionart1.jpg",
                     "alt" : "MotionArt: Home Screen",
-                    "description" : "Default screen.", 
+                    "description" : "Default screen.",
                 },
                 1 : {
                     "src" : "motionart/motionart2.jpg",
                     "alt" : "MotionArt: Brush Select ",
-                    "description" : "Brush size select interface.", 
+                    "description" : "Brush size select interface.",
                 },
                 2 : {
                     "src" : "motionart/motionart3.jpg",
                     "alt" : "MotionArt: Palette Changer",
-                    "description" : "Demo of MotionArt's palette changer.", 
+                    "description" : "Demo of MotionArt's palette changer.",
                 },
                 3 : {
                     "src" : "motionart/motionart4.jpg",
                     "alt" : "MotionArt: Edit Artboard Name",
-                    "description" : "Renaming the current artboard.", 
+                    "description" : "Renaming the current artboard.",
                 },
                 4 : {
                     "src" : "motionart/motionart5.jpg",
                     "alt" : "Made with MotionArt app",
-                    "description" : "A sample drawing done on the app.", 
+                    "description" : "A sample drawing done on the app.",
                 },
             },
         },
@@ -224,7 +224,7 @@ export const projects = {
             "abbr": "antlion-td",
             "name": "Antlion Tower Defense",
             "date" : "Oct 2018 - Dec 2018",
-            "tags" : ["Unity", "C#", "Pathfinding", "Wave Spawner System", "Game Design", "Game Dev", "Git"],
+            "tags" : ["Unity", "C#", "Pathfinding", "ECS", "Game Design", "Game Dev", "Git"],
             "category" : "Tower Defense Game",
             "link": {
                 "repo" : "https://github.com/Fluffisaurus/ATD",
@@ -242,37 +242,37 @@ export const projects = {
                 0 : {
                     "src" : "atd/atd-pathfinding.png",
                     "alt" : "ATD: A* Pathfinding",
-                    "description" : "Enemy AI with A* Pathfinding shown by lines and points.", 
+                    "description" : "Enemy AI with A* Pathfinding shown by lines and points.",
                 },
                 1 : {
                     "src" : "atd/atd-start-screen.png",
                     "alt" : "ATD: Start Screen",
-                    "description" : "Start screen for the game.", 
+                    "description" : "Start screen for the game.",
                 },
                 2 : {
                     "src" : "atd/atd-story.png",
                     "alt" : "ATD: Story Screen",
-                    "description" : "Scrollable story and narrative screen.", 
+                    "description" : "Scrollable story and narrative screen.",
                 },
                 3 : {
                     "src" : "atd/atd-level-select.png",
                     "alt" : "ATD: Level Select Screen",
-                    "description" : "Level select screen.", 
+                    "description" : "Level select screen.",
                 },
                 4 : {
                     "src" : "atd/atd-gameplay.png",
                     "alt" : "ATD: Gameplay Screenshot",
-                    "description" : "Gameplay screenshot.", 
+                    "description" : "Gameplay screenshot.",
                 },
                 5 : {
                     "src" : "atd/atd-win-screen.png",
                     "alt" : "ATD: Win Screen",
-                    "description" : "Win screen", 
+                    "description" : "Win screen",
                 },
                 6 : {
                     "src" : "atd/atd-lose-screen.png",
                     "alt" : "ATD: Lose Screen",
-                    "description" : "Lose screen", 
+                    "description" : "Lose screen",
                 },
             },
         },

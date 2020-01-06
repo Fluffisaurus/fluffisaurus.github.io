@@ -166,6 +166,7 @@
 
 .Card-info-date {
   opacity: 70%;
+  font-size: 0.8em;
 }
 
 .Card-tag-group{
@@ -175,7 +176,7 @@
 }
 
 .Card-tag{
-  font-size: 1em;
+  font-size: 0.9em;
   margin: 0 0.5em 0.5em 0;
   padding: 0.1em 0.5em;
   border-left: 0.2em #4cdfe3 solid;
