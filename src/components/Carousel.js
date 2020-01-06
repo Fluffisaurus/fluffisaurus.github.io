@@ -1,6 +1,6 @@
 import React from 'react';
 import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.css"; //went into carousel.css and added padding-inline-start:0px; under .carousel .control-dots 
+import "react-responsive-carousel/lib/styles/carousel.css"; //went into carousel.css and added padding-inline-start:0px; under .carousel .control-dots
 import placeholder from "../assets/placeholderGallery.png";
 
 export class CarouselMaker extends React.Component {
@@ -19,14 +19,14 @@ export class CarouselMaker extends React.Component {
     else{
       return (
         <React.Fragment>
-          <Carousel 
+          <Carousel
             showThumbs = {false}
             useKeyboardArrows = {true}
             infiniteLoop = {true}
-            className="Carousel">
+            className="Carousel-container">
             {
               this.props.info.map((curr) => (
-                <div key={curr.src}>
+                <div key={curr.src} className="Carousel-container-item">
                   <img src={require(`../assets/${curr.src}`)} alt={curr.alt}/>
                   <p>{curr.description}</p>
                 </div>

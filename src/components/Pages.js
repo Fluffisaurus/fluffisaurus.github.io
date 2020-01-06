@@ -92,7 +92,7 @@ export class Projects extends React.Component {
     }
   }
 
-  render() { 
+  render() {
     return(
       <React.Fragment>
         <section className="Page bgAccent2">
@@ -100,18 +100,18 @@ export class Projects extends React.Component {
           <div className="Card-gallery">
             {
               this.state.personal.map((curr) => (
-                <div className="Card" key={curr.abbr}>
+                <div className="Card bgCardPrimary" key={curr.abbr}>
                   <div className="Card-carousel">
-                    <p></p>
+                    <CarouselMaker info={Object.values(curr.images)}/>
                   </div>
                   <div className="Card-info">
                     <h2>{curr.name}</h2>
                     <p>{curr.date}</p>
                     <div className="Card-tags">
                       {
-                        <p>
-                        {curr.tags.map((tag) => (tag + " "))}
-                        </p>
+                        curr.tags.map((tag) => (
+                          <h3 key={tag}>{tag}</h3>
+                        ))
                       }
                     </div>
                     <p>{Object.values(curr.detail.short)}</p>
@@ -124,7 +124,7 @@ export class Projects extends React.Component {
             <div className="Card-gallery">
             {
               this.state.academic.map((curr) => (
-                <div className="Card" key={curr.abbr}>
+                <div className="Card bgCardPrimary" key={curr.abbr}>
                   <div className="Card-carousel">
                     <CarouselMaker info={Object.values(curr.images)}/>
                   </div>
@@ -133,9 +133,9 @@ export class Projects extends React.Component {
                     <p>{curr.date}</p>
                     <div className="Card-tags">
                       {
-                        <p>
-                        {curr.tags.map((tag) => (tag + " "))}
-                        </p>
+                        curr.tags.map((tag) => (
+                          <h3 key={tag}>{tag}</h3>
+                        ))
                       }
                     </div>
                     <p>{Object.values(curr.detail.short)}</p>
@@ -183,7 +183,7 @@ export class ProjectsPage extends React.Component {
                 <RouteWithSubRoutes key={i} {...route} />
               ))}
               <Route component={DNEProject}/>
-            </Switch>     
+            </Switch>
           </div>
         </section>
       </React.Fragment>
@@ -195,7 +195,7 @@ export class ProjectsPage extends React.Component {
 export class Contact extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       myEmail: "angushon96@gmail.com"
     }
     this.handleClick = this.handleClick.bind(this);
@@ -204,7 +204,7 @@ export class Contact extends React.Component {
 
   handleClick() {
     if(!toast.isActive(this.toastCopyClip)){
-      toast.info("Copied to clipboard!", 
+      toast.info("Copied to clipboard!",
       {
         toastId: this.toastCopyClip,
         autoClose: 3000,
@@ -233,8 +233,8 @@ export class Contact extends React.Component {
           <CopyToClipboard text={this.state.myEmail} onCopy={() => this.handleClick()}>
             {/* eslint-disable-next-line */}
             <a>
-              <img className="Contact-icons" src={emailIcon} alt="email icon made by Freepik" />            
-              <span aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>{this.state.myEmail}</span>          
+              <img className="Contact-icons" src={emailIcon} alt="email icon made by Freepik" />
+              <span aria-label="email" tabIndex="0" onKeyPress={() => this.handleClick()}>{this.state.myEmail}</span>
             </a>
           </CopyToClipboard>
           <ToastContainer newestOnTop={true}/>
