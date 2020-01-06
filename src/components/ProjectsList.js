@@ -36,16 +36,14 @@ export const projects = {
             "abbr": "nba-data-viz",
             "name": "NBA Data Visualization",
             "date" : "Aug 2019 - Present",
-            "tags" : ["D3", "React", "Python", "Flask", "JS", "CSS", "Git"],
+            "tags" : ["D3", "React", "Python", "Flask", "JS"],
             "category" : "Web App / Tool",
             "link": {
                 "repo" : "",
                 "host" : "",
             },
             "detail": {
-                "short" : { //one to two sentence summary, concise!
-
-                },
+                "short" : "Full-stack data visualization tool - analyze NBA player's stats!",
                 "long" : { //two paragraph summary
 
                 }
@@ -56,16 +54,14 @@ export const projects = {
             "abbr": "website",
             "name": "Personal Website",
             "date" : "Mar 2019 - Present",
-            "tags" : ["React", "JS", "CSS", "Git"],
+            "tags" : ["React", "JS", "CSS"],
             "category" : "Single-Page Web Application",
             "link": {
                 "repo" : "",
                 "host" : "",
             },
             "detail": {
-                "short" : { //one to two sentence summary, concise!
-
-                },
+                "short" : "Single page web app - my online portfolio.",
                 "long" : { //two paragraph summary
 
                 }
@@ -76,16 +72,14 @@ export const projects = {
             "abbr": "foodpick",
             "name": "FoodPick",
             "date" : "Jun 2018 - Mar 2019",
-            "tags" : ["React", "Redux", "JS", "NodeJS", "CSS", "Git"],
+            "tags" : ["React", "Redux", "JS", "NodeJS", "CSS"],
             "category" : "Web and Mobile App",
             "link": {
                 "repo" : "https://github.com/kca99/foodpick",
                 "host" : "",
             },
             "detail": {
-                "short" : { //one to two sentence summary, concise!
-
-                },
+                "short" : "Multiplatform random cuisine picker.",
                 "long" : { //two paragraph summary
 
                 }
@@ -103,9 +97,7 @@ export const projects = {
                 "host" : "",
             },
             "detail": {
-                "short" : { //one to two sentence summary, concise!
-
-                },
+                "short" : "Endless 2D game - evade the blocks!",
                 "long" : { //two paragraph summary
 
                 }
@@ -118,16 +110,14 @@ export const projects = {
             "abbr": "bobbys-breakout",
             "name": "Bobby's Breakout",
             "date" : "Sep 2019 - Dec 2019",
-            "tags" : ["Agile", "Full Stack", "NodeJS", "Heroku", "OOD", "Game Engine", "Sys Design", "Git"],
+            "tags" : ["Agile", "Game Dev", "NodeJS", "Full Stack", "Heroku", "OOD", "Sys Design"],
             "category" : "Top Down RPG",
             "link" : {
                 "repo"  : "https://github.com/abhatthal/Bobby-Breakout",
                 "host" : "https://project-276.herokuapp.com/",
             },
             "detail": {
-                "short" : { //one to two sentence summary, concise!
-
-                },
+                "short" : "Full stack browser RPG - play as SFU's Dr. Bobby Chan!",
                 "long" : { //two paragraph summary
 
                 }
@@ -138,21 +128,40 @@ export const projects = {
             "abbr": "player-performance-projection",
             "name": "Player Performance Projection",
             "date" : "Sep 2019 - Dec 2019",
-            "tags" : ["Python", "ML", "ANOVA", "Regression", "Data Science", "Data Analysis"],
+            "tags" : ["Python", "ML", "ANOVA", "Regression", "Data Science"],
             "category" : "Statistical Analysis",
             "link": {
                 "repo" : "https://github.com/Fluffisaurus/player-performance-projection",
                 "host" : "https://github.com/Fluffisaurus/player-performance-projection/blob/master/report.md",
             },
             "detail": {
-                "short" : { //one to two sentence summary, concise!
-
-                },
+                "short" : "ML algo to analyze Steph Curry's performance stats.",
                 "long" : { //two paragraph summary
 
                 }
             },
-            "images" : "",
+            "images" : {
+                0 : {
+                    "src" : "ppp/all-3-def-tiers-train-vs-predict.png",
+                    "alt" : "Training vs predicted",
+                    "description" : "Training points vs Predicted points and Regression Line against three defenisve tiers.",
+                },
+                1 : {
+                    "src" : "ppp/curry-shots-made-by-minutes.png",
+                    "alt" : "Steph Curry's shots made by minutes passed in the game",
+                    "description" : "Steph Curry's shots made by minutes passed in the game.",
+                },
+                2 : {
+                    "src" : "ppp/plot-nba-def-rating.png",
+                    "alt" : "2009-2019 Aggregated Defensive Ratings of all 30 NBA teams",
+                    "description" : "2009-2019 Aggregated Defensive Ratings of all 30 NBA teams.",
+                },
+                3 : {
+                    "src" : "ppp/variance-shot-defs.png",
+                    "alt" : "Frequency of shots made vs different tiers of deffense",
+                    "description" : "Steph's shots made vs different tiers of defense.",
+                },
+            },
         },
         2 : {
             "abbr": "motion-art",
@@ -165,26 +174,24 @@ export const projects = {
                 "host" : "",
             },
             "detail": {
-                "short" : { //one to two sentence summary, concise!
-
-                },
+                "short" : "Android drawing application.",
                 "long" : { //two paragraph summary
 
                 }
             },
             "images" : {
                 0 : {
-                    "src" : "motionart/motionart1.jpg",
+                    "src" : "motionart/motionart3.jpg",
                     "alt" : "MotionArt: Home Screen",
                     "description" : "Default screen.",
                 },
                 1 : {
-                    "src" : "motionart/motionart2.jpg",
+                    "src" : "motionart/motionart1.jpg",
                     "alt" : "MotionArt: Brush Select ",
                     "description" : "Brush size select interface.",
                 },
                 2 : {
-                    "src" : "motionart/motionart3.jpg",
+                    "src" : "motionart/motionart2.jpg",
                     "alt" : "MotionArt: Palette Changer",
                     "description" : "Demo of MotionArt's palette changer.",
                 },
@@ -204,36 +211,58 @@ export const projects = {
             "abbr": "kingdom-of-helios",
             "name": "Kingdom of Helios",
             "date" : "Oct 2018 - Dec 2018",
-            "tags" : ["Unity", "C#", "Game Dev", "Game Design", "Git"],
+            "tags" : ["Unity", "C#", "Game Dev", "Game Design"],
             "category" : "2D Side-Scrolling Platformer Game",
             "link": {
                 "repo" : "https://github.com/Fluffisaurus/kingdom-of-helios",
                 "host" : "",
             },
             "detail": {
-                "short" : { //one to two sentence summary, concise!
-
-                },
+                "short" : "2D side-scrolling platformer RPG - play as two protagonists.",
                 "long" : { //two paragraph summary
 
                 }
             },
-            "images" : "",
+            "images" : {
+                0 : {
+                    "src" : "helios/main-screen.png",
+                    "alt" : "Helios: Main Screen",
+                    "description" : "Start screen.",
+                },
+                1 : {
+                    "src" : "helios/char-x.PNG",
+                    "alt" : "Helios: Protagonist",
+                    "description" : "Main protagonist with distinct skill set.",
+                },
+                2 : {
+                    "src" : "helios/char-y.PNG",
+                    "alt" : "Helios: Protagonist's younger brother",
+                    "description" : "Protagonist's younger brother with a different skill set.",
+                },
+                3 : {
+                    "src" : "helios/scene-flow-chart.png",
+                    "alt" : "Helios: Scene Flow Chart",
+                    "description" : "Game's main scene flow chart.",
+                },
+                4 : {
+                    "src" : "helios/story-map.png",
+                    "alt" : "Helios: Story map of the game",
+                    "description" : "Game's story map and progression.",
+                },
+            },
         },
         4 : {
             "abbr": "antlion-td",
             "name": "Antlion Tower Defense",
             "date" : "Oct 2018 - Dec 2018",
-            "tags" : ["Unity", "C#", "Pathfinding", "ECS", "Game Design", "Game Dev", "Git"],
+            "tags" : ["Unity", "C#", "Pathfinding", "ECS", "Game Dev", "Game Design"],
             "category" : "Tower Defense Game",
             "link": {
                 "repo" : "https://github.com/Fluffisaurus/ATD",
                 "host" : "",
             },
             "detail": {
-                "short" : { //one to two sentence summary, concise!
-
-                },
+                "short" : "Tower Defense game - build an army to fend off invaders!",
                 "long" : { //two paragraph summary
 
                 }

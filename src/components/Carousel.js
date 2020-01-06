@@ -17,7 +17,7 @@ export class CarouselMaker extends React.Component {
           className="Carousel-container">
             <div className="Carousel-placeholder bgAccent2">
               <img src={placeholder} alt="placeholder image"></img>
-              <p>Nothing here yet, images to come!</p>
+              <p className="legend legend-position">Nothing here yet, images to come!</p>
             </div>
           </Carousel>
         </React.Fragment>
@@ -35,7 +35,7 @@ export class CarouselMaker extends React.Component {
               this.props.info.map((curr) => (
                 <div key={curr.src} className="Carousel-container-item bgAccent2">
                   <img src={require(`../assets/${curr.src}`)} alt={curr.alt}/>
-                  <p>{curr.description}</p>
+                  <p className="legend legend-position">{curr.description}</p>
                 </div>
               ))
             }
