@@ -105,16 +105,18 @@ export class Projects extends React.Component {
                     <CarouselMaker info={Object.values(curr.images)}/>
                   </div>
                   <div className="Card-info">
-                    <h2>{curr.name}</h2>
-                    <p className="Card-info-date">{curr.date}</p>
+                    <div>
+                      <h2>{curr.name}</h2>
+                      <p className="Card-info-date">{curr.date}</p>
+                      <p>{Object.values(curr.detail.short)}</p>
+                    </div>
                     <div className="Card-tag-group">
                       {
-                        curr.tags.map((tag) => (
+                        curr.tags.slice(0, 3).map((tag) => (
                           <h3 key={tag} className="Card-tag bgAccent1 colPrimary">{tag}</h3>
                         ))
                       }
                     </div>
-                    <p>{Object.values(curr.detail.short)}</p>
                   </div>
                 </div>
               ))
@@ -129,16 +131,18 @@ export class Projects extends React.Component {
                     <CarouselMaker info={Object.values(curr.images)}/>
                   </div>
                   <div className="Card-info">
-                    <h2>{curr.name}</h2>
-                    <p className="Card-info-date">{curr.date}</p>
+                    <div>
+                      <h2>{curr.name}</h2>
+                      <p className="Card-info-date">{curr.date}</p>
+                      <p>{Object.values(curr.detail.short)}</p>
+                    </div>
                     <div className="Card-tag-group">
                       {
-                        curr.tags.map((tag) => (
+                        curr.tags.slice(0, 3).map((tag) => (
                           <h3 key={tag} className="Card-tag bgAccent1 colPrimary">{tag}</h3>
                         ))
                       }
                     </div>
-                    <p>{Object.values(curr.detail.short)}</p>
                   </div>
                 </div>
               ))
