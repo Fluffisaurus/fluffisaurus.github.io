@@ -106,11 +106,11 @@ export class Projects extends React.Component {
                   </div>
                   <div className="Card-info">
                     <h2>{curr.name}</h2>
-                    <p>{curr.date}</p>
-                    <div className="Card-tags">
+                    <p className="Card-info-date">{curr.date}</p>
+                    <div className="Card-tag-group">
                       {
                         curr.tags.map((tag) => (
-                          <h3 key={tag}>{tag}</h3>
+                          <h3 key={tag} className="Card-tag bgAccent1 colPrimary">{tag}</h3>
                         ))
                       }
                     </div>
@@ -130,11 +130,11 @@ export class Projects extends React.Component {
                   </div>
                   <div className="Card-info">
                     <h2>{curr.name}</h2>
-                    <p>{curr.date}</p>
-                    <div className="Card-tags">
+                    <p className="Card-info-date">{curr.date}</p>
+                    <div className="Card-tag-group">
                       {
                         curr.tags.map((tag) => (
-                          <h3 key={tag}>{tag}</h3>
+                          <h3 key={tag} className="Card-tag bgAccent1 colPrimary">{tag}</h3>
                         ))
                       }
                     </div>

@@ -9,10 +9,17 @@ export class CarouselMaker extends React.Component {
     if(this.props.info.length === 0){
       return(
         <React.Fragment>
-          <div className="Carousel-placeholder">
-            <img src={placeholder} alt="placeholder image"></img>
-            <p>Nothing here yet, images to come!</p>
-          </div>
+          <Carousel
+          showThumbs = {false}
+          useKeyboardArrows = {true}
+          infiniteLoop = {true}
+          showIndicators = {false}
+          className="Carousel-container">
+            <div className="Carousel-placeholder bgAccent2">
+              <img src={placeholder} alt="placeholder image"></img>
+              <p>Nothing here yet, images to come!</p>
+            </div>
+          </Carousel>
         </React.Fragment>
       );
     }
@@ -26,7 +33,7 @@ export class CarouselMaker extends React.Component {
             className="Carousel-container">
             {
               this.props.info.map((curr) => (
-                <div key={curr.src} className="Carousel-container-item">
+                <div key={curr.src} className="Carousel-container-item bgAccent2">
                   <img src={require(`../assets/${curr.src}`)} alt={curr.alt}/>
                   <p>{curr.description}</p>
                 </div>
