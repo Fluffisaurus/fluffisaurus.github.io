@@ -103,20 +103,25 @@ export const projects = {
                     "alt" : "Website: Mobile - About Page",
                     "description" : "Different hierarchy and layout for mobile view.",
                 },
-                2 : {
+                2: {
+                    "src" : "website/mobile-projects.jpg",
+                    "alt" : "Website: Mobile - Projects Page",
+                    "description" : "Vertical card layout and swipable carousel to view images.",
+                },
+                3 : {
                     "src" : "website/mobile-light.jpg",
                     "alt" : "Website: Mobile - Light Theme",
                     "description" : "Light themed version.",
                 },
-                3 : {
+                4 : {
                     "src" : "website/mobile-light-about.jpg",
                     "alt" : "Website: Mobile - Light Theme About Page",
                     "description" : "Brighter colour palette for outdoor environments.",
                 },
-                4 : {
+                5 : {
                     "src" : "website/mobile-light-projects.jpg",
                     "alt" : "Website: Mobile - Light Theme Projects Page",
-                    "description" : "Vertical card layout.",
+                    "description" : "Light themed version of the projects page.",
                 },
             },
         },
