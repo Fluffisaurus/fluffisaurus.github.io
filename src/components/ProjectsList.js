@@ -43,12 +43,38 @@ export const projects = {
                 "host" : "",
             },
             "detail": {
-                "short" : "Full-stack data visualization tool - analyze NBA player's stats!",
+                "short" : "[In Progress] Full-stack data visualization tool - analyze NBA player's stats!",
                 "long" : { //two paragraph summary
 
                 }
             },
-            "images" : "",
+            "images" : {
+                0 : {
+                    "src" : "fbdv/fbdv-brush.png",
+                    "alt" : "NBA Data Viz: Brush Selection",
+                    "description" : "User can brush select data - in the future user will be able to further interact with this selection, ie. visualize subset with another graph.",
+                },
+                1 : {
+                    "src" : "fbdv/fbdv-zoom.png",
+                    "alt" : "NBA Data Viz: Zoom",
+                    "description" : "Zooming at different levels with history being saved. User can undo, redo, and reset.",
+                },
+                2 : {
+                    "src" : "fbdv/fbdv-zoom-1.png",
+                    "alt" : "NBA Data Viz: Zoom",
+                    "description" : "Zooming further to subset the data seen.",
+                },
+                3 : {
+                    "src" : "fbdv/fbdv-assists.png",
+                    "alt" : "NBA Data Viz: Assists - Different Stats",
+                    "description" : "Visualize different box score metrics - in future iterations, the user will be able to graph and tabularize all box score data.",
+                },
+                4 : {
+                    "src" : "fbdv/fbdv-tooltip.png",
+                    "alt" : "NBA Data Viz: Tooltip",
+                    "description" : "Tooltip to show respective data of the point - in the future will include more detail and will be interactable.",
+                },
+            },
         },
         1 : {
             "abbr": "website",
