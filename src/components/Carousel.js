@@ -12,7 +12,7 @@ export class CarouselMaker extends React.Component {
           <Carousel
           showThumbs = {false}
           useKeyboardArrows = {true}
-          infiniteLoop = {true}
+          infiniteLoop = {false}
           showIndicators = {false}
           className="Carousel-container">
             <div className="Carousel-placeholder bgAccent2">
@@ -29,7 +29,7 @@ export class CarouselMaker extends React.Component {
           <Carousel
             showThumbs = {false}
             useKeyboardArrows = {true}
-            infiniteLoop = {true}
+            infiniteLoop = {false}
             className="Carousel-container">
             {
               this.props.info.map((curr) => (

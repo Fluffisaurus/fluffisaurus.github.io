@@ -239,7 +239,7 @@ class App extends React.Component {
             </div>
             <nav className={(this.state.headerExpand) ? "Navigation Navigation-pinned" : "Navigation"}>
               <CustomMenuLink to="/about" label="About" handleMenuClick={this.containerOpen} headerState={this.state.headerExpand}/>
-              <CustomMenuLink to="/projects/motion-art" label="Projects" handleMenuClick={this.containerOpen} headerState={this.state.headerExpand}/>
+              <CustomMenuLink to="/projects" label="Projects" handleMenuClick={this.containerOpen} headerState={this.state.headerExpand}/>
               {/* <CustomMenuLink to="/contact" label="Contact" handleMenuClick={this.containerOpen} headerState={this.state.headerExpand}/> */}
             </nav>
           </header>
