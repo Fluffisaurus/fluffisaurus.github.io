@@ -122,7 +122,48 @@ export const projects = {
 
                 }
             },
-            "images" : "",
+            "images" : {
+                0 : {
+                    "src" : "bobby/bobby-breakout-map.png",
+                    "alt" : "Bobby Breakout: Map",
+                    "description" : "In-game screenshot of the map - SFU's CS lab blueprint.",
+                },
+                1 : {
+                    "src" : "bobby/bobby-breakout-inventory.png",
+                    "alt" : "Bobby Breakout: Inventory",
+                    "description" : "Player (Bobby's) inventory of picked up loot - user can swap loadouts and equipped items.",
+                },
+                2 : {
+                    "src" : "bobby/bobby-breakout-fight.png",
+                    "alt" : "Bobby Breakout: Fight Scene",
+                    "description" : "Pokemon style fight scene!",
+                },
+                3 : {
+                    "src" : "bobby/bobby-breakout-fight-1.png",
+                    "alt" : "Bobby Breakout: Fight Scene Player Ability",
+                    "description" : "Player using an ability - pokemon style combat dialogue.",
+                },
+                4 : {
+                    "src" : "bobby/bobby-breakout-fight-2.png",
+                    "alt" : "Bobby Breakout: Fight Scene Enemy Ability",
+                    "description" : "Enemy retaliating with their custom skills.",
+                },
+                5 : {
+                    "src" : "bobby/bobby-breakout-item.png",
+                    "alt" : "Bobby Breakout: Funny Items",
+                    "description" : "In-game items user can pick up.",
+                },
+                6 : {
+                    "src" : "bobby/bobby-breakout-achievement.png",
+                    "alt" : "Bobby Breakout: Achievement",
+                    "description" : "Dynamic and persistent achievements screen (stored in database by account session).",
+                },
+                7 : {
+                    "src" : "bobby/bobby-breakout-login.png",
+                    "alt" : "Bobby Breakout: Login and Signup",
+                    "description" : "Login and signup screen for the user to register.",
+                },
+            },
         },
         1 : {
             "abbr": "player-performance-projection",
