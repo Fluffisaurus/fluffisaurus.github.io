@@ -56,6 +56,7 @@ module.exports = {
     minimizer: [new CssMinimizerPlugin()],
   },
   devServer: {
+    historyApiFallback: true,
     compress: true,
     port: 3000,
     allowedHosts: "auto",
