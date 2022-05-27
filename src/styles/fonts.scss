@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&family=Karla:wght@400;700&family=Source+Code+Pro:wght@400;500;600&display=swap");
+
+$font-heading: "Inconsolata", monospace;
+$font-sub-heading: "Source Code Pro", monospace;
+$font-body: "Karla", sans-serif;
+
+span {
+  h1 {
+    font-family: $font-heading;
+    font-weight: 700;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: $font-sub-heading;
+  font-weight: 400;
+}
+
+p {
+  font-family: $font-body;
+  font-weight: 400;
+}

@@ -1,18 +1,44 @@
-@import url("https://fonts.googleapis.com/css?family=Karla:weight@400;700&display=swap");
+@import "./palette.scss";
+@import "./fonts.scss";
 
-$font: "Karla", sans-serif;
-$primary-color: #5399da;
-
-html {
+* {
   box-sizing: border-box;
 }
 
-body {
-  font-family: $font;
-  color: $primary-color;
-}
-
+body,
+html,
 #root {
+  margin: 0;
   padding: 0;
   height: 100%;
+  width: 100%;
+}
+
+.App {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Container {
+  width: fit-content;
+
+  * {
+    width: fit-content;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
 }
