@@ -1,6 +1,6 @@
 import React from "react";
 
-export const AboutMe: React.FunctionComponent = () => {
+const AboutMe: React.FunctionComponent = () => {
   return (
     <section className="Page bgAccent2">
       <h1>angus_hon@5w+1h</h1>
@@ -47,3 +47,5 @@ export const AboutMe: React.FunctionComponent = () => {
     </section>
   );
 };
+
+export default AboutMe;
