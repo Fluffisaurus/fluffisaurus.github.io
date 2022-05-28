@@ -1,1 +1,34 @@
-$primary-color: #5399da;
+$dark-theme: false !default;
+
+$primary-color: #5399da !default;
+$secondary-color: #4cdfe3 !default;
+$accent-color-1: #aa51f7 !default;
+$accent-color-2: #ffab19 !default;
+$accent-color-3: #48494a !default;
+
+$background-color: #282828 !default;
+$font-color: white !default;
+
+@if $dark-theme == false {
+  $primary-color: darken($primary-color, 30%);
+  $secondary-color: darken($secondary-color, 30%);
+  $accent-color-1: darken($accent-color-1, 30%);
+  $accent-color-2: darken($accent-color-2, 30%);
+  $accent-color-3: darken($accent-color-3, 30%);
+
+  $background-color: #fff3de;
+  $font-color: black;
+}
+
+$heading-color: $primary-color !default;
+$subheading-color: $secondary-color !default;
+$body-color: $font-color !default;
+$link-color: $secondary-color !default;
+
+@media (prefers-color-scheme: dark) {
+  $dark-theme: true;
+}
+
+@media (prefers-color-scheme: light) {
+  $dark-theme: false;
+}
