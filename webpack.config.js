@@ -11,7 +11,7 @@ module.exports = {
   devtool: "inline-source-map",
   entry: "./src/index.tsx",
   output: {
-    path: path.resolve(__dirname, "static/"),
+    path: path.resolve(__dirname, "build/"),
     publicPath: "/",
     filename: devMode ? "[name].js" : "[name].[hash].js",
   },
