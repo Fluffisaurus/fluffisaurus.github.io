@@ -1,0 +1,55 @@
+@import "./palette.scss";
+
+.Container {
+  width: fit-content;
+
+  * {
+    width: fit-content;
+  }
+
+  &__greeting {
+    color: $body-color;
+  }
+
+  &__name {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__name__fullname,
+  &__name__at,
+  &__name__title {
+    padding: 16px 0px 16px 0px;
+  }
+
+  &__name__fullname,
+  &__name__at {
+    color: $body-color;
+  }
+
+  &__name__title {
+    color: $body-color;
+  }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+
+    span {
+      a {
+        color: $body-color;
+      }
+
+      a:hover,
+      a:active {
+        color: $accent-color-1;
+      }
+
+      a:visited {
+        color: $accent-color-1;
+      }
+    }
+  }
+}
