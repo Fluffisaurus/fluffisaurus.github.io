@@ -12,7 +12,7 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build/"),
-    publicPath: "/",
+    publicPath: devMode === "production" ? "./" : "/",
     filename: devMode ? "[name].js" : "[name].[hash].js",
   },
   resolve: {
