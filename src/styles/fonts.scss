@@ -5,9 +5,33 @@ $font-sub-heading: "Source Code Pro", monospace;
 $font-body: "Karla", sans-serif;
 
 span {
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    margin: 0;
+  }
+
   h1 {
     font-family: $font-heading;
     font-weight: 700;
+    font-size: 72px;
+  }
+
+  p {
+    font-family: $font-body;
+    font-weight: 700;
+    font-size: 32px;
+  }
+
+  a {
+    font-family: $font-sub-heading;
+    font-weight: 600;
+    font-size: 24px;
+
+    text-decoration: none;
   }
 }
 
