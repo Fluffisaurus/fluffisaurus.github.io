@@ -17,7 +17,7 @@ const ContentBlock = ({ heading, body }: ContentBlockProps) => {
   }, [body, heading]);
 
   return (
-    <div className="Content-Block">
+    <div className="Content-block">
       <h2>{headingText}</h2>
       {bodyText.map((body, i) => {
         return <p key={i}>{body}</p>;

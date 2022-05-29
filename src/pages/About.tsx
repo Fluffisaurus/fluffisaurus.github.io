@@ -12,7 +12,7 @@ const AboutMe: React.FunctionComponent = () => {
 
   return (
     <>
-      <section className="Page bgAccent2">
+      <section>
         <h1>5w1h</h1>
         {contentData?.map((cntBlk, i) => {
           return (
