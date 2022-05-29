@@ -1,6 +1,7 @@
-.Nav-colors {
+.nav-links {
   span {
     a {
+      padding: 0px 5px 0px 5px;
       color: $font-color;
     }
 
@@ -8,6 +9,7 @@
     a:focus,
     a:active {
       color: $secondary-color !important;
+      background-color: $highlight-color-2;
     }
   }
 }

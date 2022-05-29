@@ -1,5 +1,5 @@
 @import "./palette.scss";
-@import "./nav-colors.scss";
+@import "./nav-links.scss";
 
 $fixed-nav-width: 400px;
 
@@ -19,7 +19,7 @@ $fixed-nav-width: 400px;
     width: $fixed-nav-width;
   }
 
-  @extend .Nav-colors;
+  @extend .nav-links;
 
   nav {
     width: calc(100% - $fixed-nav-width);

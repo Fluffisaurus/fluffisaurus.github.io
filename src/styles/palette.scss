@@ -1,11 +1,18 @@
-$dark-theme: false !default;
+$dark-theme: true !default;
+// $dark-theme: false !default;
 
 $primary-color: #5399da !default;
 $secondary-color: #4cdfe3 !default;
+
 $accent-color-1: #aa51f7 !default;
 $accent-color-2: #ffab19 !default;
-$accent-color-3: #48494a !default;
-$highlight-color: #ffe41647 !default;
+$accent-color-3: #ffe416 !default;
+$accent-color-4: #48494a !default;
+
+$highlight-color-1: scale-color($accent-color-3, $alpha: -88%) !default;
+$highlight-color-2: scale-color($accent-color-1, $alpha: -88%) !default;
+$highlight-color-3: scale-color($accent-color-2, $alpha: -88%) !default;
+$highlight-color-4: scale-color($accent-color-4, $alpha: -88%) !default;
 
 $background-color: #282828 !default;
 $nav-color: darken($background-color, 10%) !default;
@@ -18,7 +25,12 @@ $font-color: white !default;
   $accent-color-1: darken($accent-color-1, 30%);
   $accent-color-2: darken($accent-color-2, 30%);
   $accent-color-3: darken($accent-color-3, 30%);
-  $highlight-color: #fbe750a6;
+  $accent-color-4: darken($accent-color-4, 30%);
+
+  $highlight-color-1: scale-color($accent-color-3, $alpha: -40%) !default;
+  $highlight-color-2: scale-color($accent-color-1, $alpha: -40%) !default;
+  $highlight-color-3: scale-color($accent-color-2, $alpha: -40%) !default;
+  $highlight-color-4: scale-color($accent-color-4, $alpha: -40%) !default;
 
   $background-color: #fff3de;
   $nav-color: lighten($background-color, 10%);

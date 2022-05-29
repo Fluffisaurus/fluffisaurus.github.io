@@ -1,5 +1,5 @@
 @import "./palette.scss";
-@import "./nav-colors.scss";
+@import "./nav-links.scss";
 
 .Container {
   width: fit-content;
@@ -26,7 +26,7 @@
 
     &__fullname {
       color: $primary-color;
-      background-color: $highlight-color;
+      background-color: $highlight-color-1;
       padding-left: 8px;
       padding-right: 8px;
     }
@@ -43,7 +43,7 @@
     flex-wrap: wrap;
     gap: 24px;
 
-    @extend .Nav-colors;
+    @extend .nav-links;
   }
 }
 
