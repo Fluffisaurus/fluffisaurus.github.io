@@ -1,4 +1,4 @@
-$dark-theme: false !default;
+$dark-theme: true !default;
 
 $primary-color: #5399da !default;
 $secondary-color: #4cdfe3 !default;
@@ -7,6 +7,8 @@ $accent-color-2: #ffab19 !default;
 $accent-color-3: #48494a !default;
 
 $background-color: #282828 !default;
+$nav-color: darken($background-color, 10%) !default;
+$nav-border-color: darken($nav-color, 50%) !default;
 $font-color: white !default;
 
 @if $dark-theme == false {
@@ -17,13 +19,10 @@ $font-color: white !default;
   $accent-color-3: darken($accent-color-3, 30%);
 
   $background-color: #fff3de;
+  $nav-color: lighten($background-color, 10%);
+  $nav-border-color: lighten($nav-color, 10%);
   $font-color: black;
 }
-
-$heading-color: $primary-color !default;
-$subheading-color: $secondary-color !default;
-$body-color: $font-color !default;
-$link-color: $secondary-color !default;
 
 @media (prefers-color-scheme: dark) {
   $dark-theme: true;

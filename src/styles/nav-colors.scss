@@ -1,0 +1,13 @@
+.Nav-colors {
+  span {
+    a {
+      color: $font-color;
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
+      color: $secondary-color !important;
+    }
+  }
+}

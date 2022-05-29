@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Cloudinary } from "@cloudinary/url-gen";
 // import { AdvancedImage } from "@cloudinary/react";
 
+import GlobalNav from "../components/GlobalNav";
 import Landing from "../pages/Landing";
 import AboutMe from "../pages/About";
 import Contact from "../pages/Contact";
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
+        <GlobalNav />
         <Routes>
           <Route path="/" element={<Landing />} />
           <Route path="/default" element={<Default />} />

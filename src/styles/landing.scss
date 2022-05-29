@@ -1,4 +1,5 @@
 @import "./palette.scss";
+@import "./nav-colors.scss";
 
 .Container {
   width: fit-content;
@@ -8,7 +9,7 @@
   }
 
   &__greeting {
-    color: $body-color;
+    color: $font-color;
   }
 
   &__name {
@@ -19,37 +20,24 @@
   &__name__fullname,
   &__name__at,
   &__name__title {
-    padding: 16px 0px 16px 0px;
+    padding: 0px 0px 24px 0px;
   }
 
   &__name__fullname,
   &__name__at {
-    color: $body-color;
+    color: $primary-color;
   }
 
   &__name__title {
-    color: $body-color;
+    color: $primary-color;
   }
 
   &__nav {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 24px;
 
-    span {
-      a {
-        color: $body-color;
-      }
-
-      a:hover,
-      a:active {
-        color: $accent-color-1;
-      }
-
-      a:visited {
-        color: $accent-color-2;
-      }
-    }
+    @extend .Nav-colors;
   }
 }

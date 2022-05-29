@@ -1,0 +1,36 @@
+@import "./palette.scss";
+@import "./nav-colors.scss";
+
+$fixed-nav-width: 400px;
+
+.Global-nav {
+  position: absolute;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  padding: 5px;
+
+  display: flex;
+  background-color: $nav-color;
+  border-bottom: 3px solid $nav-border-color;
+
+  &__root {
+    align-self: center;
+    width: $fixed-nav-width;
+
+    text-decoration: none;
+  }
+
+  @extend .Nav-colors;
+
+  nav {
+    width: calc(100% - $fixed-nav-width);
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  span a {
+    font-size: 18px;
+  }
+}
