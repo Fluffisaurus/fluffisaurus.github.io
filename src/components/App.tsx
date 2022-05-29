@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Cloudinary } from "@cloudinary/url-gen";
+import { AdvancedImage } from "@cloudinary/react";
 
 import Landing from "../pages/Landing";
 import AboutMe from "../pages/About";
@@ -11,9 +12,11 @@ import { Default, DoesNotExist } from "../pages/Defaults";
 const App = () => {
   const cld = new Cloudinary({
     cloud: {
-      cloudName: "djlcricbu",
+      cloudName: process.env.CLOUDINARY_CLOUD_NAME,
     },
   });
+
+  // const testImg = cld.image("portfolio/placeholderGallery")
 
   return (
     <div className="App">
@@ -26,6 +29,7 @@ const App = () => {
           <Route path="*" element={<DoesNotExist />} />
         </Routes>
       </BrowserRouter>
+      {/* <AdvancedImage cldImg={testImg}/> */}
     </div>
   );
 };
