@@ -8,7 +8,7 @@ const Landing: React.FunctionComponent = () => {
     <div className="Container">
       <div className="Container__greeting">
         <span>
-          <p>Hi there fellow human! I am</p>
+          <p>Hi there fellow human! Welcome to</p>
         </span>
       </div>
       <div className="Container__name">
@@ -19,7 +19,7 @@ const Landing: React.FunctionComponent = () => {
           <h1>@</h1>
         </span>
         <span className="Container__name__title">
-          <h1>software_engineer</h1>
+          <h1>website</h1>
         </span>
       </div>
       <nav className="Container__nav">
