@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { Cloudinary } from "@cloudinary/url-gen";
-import { AdvancedImage } from "@cloudinary/react";
+// import { AdvancedImage } from "@cloudinary/react";
 
 import Landing from "../pages/Landing";
 import AboutMe from "../pages/About";
