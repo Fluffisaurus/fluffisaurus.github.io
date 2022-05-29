@@ -30,8 +30,6 @@ span {
     font-family: $font-sub-heading;
     font-weight: 600;
     font-size: 24px;
-
-    text-decoration: none;
   }
 }
 
@@ -47,4 +45,8 @@ h5 {
 p {
   font-family: $font-body;
   font-weight: 400;
+}
+
+a {
+  text-decoration: none;
 }

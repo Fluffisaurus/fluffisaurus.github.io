@@ -17,8 +17,6 @@ $fixed-nav-width: 400px;
   &__root {
     align-self: center;
     width: $fixed-nav-width;
-
-    text-decoration: none;
   }
 
   @extend .Nav-colors;
