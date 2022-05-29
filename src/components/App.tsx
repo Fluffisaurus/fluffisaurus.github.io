@@ -9,15 +9,15 @@ import AboutMe from "../pages/About";
 import Contact from "../pages/Contact";
 import { Default, DoesNotExist } from "../pages/Defaults";
 
+export const cld = new Cloudinary({
+  cloud: {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+  },
+});
+
+// const testImg = cld.image("portfolio/placeholderGallery")
+
 const App = () => {
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-    },
-  });
-
-  // const testImg = cld.image("portfolio/placeholderGallery")
-
   return (
     <div className="App">
       <BrowserRouter>
