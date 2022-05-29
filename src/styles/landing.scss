@@ -15,21 +15,26 @@
   &__name {
     display: flex;
     flex-direction: row;
-  }
+    flex-wrap: wrap;
+    margin: 0px 0px 24px 0px;
 
-  &__name__fullname,
-  &__name__at,
-  &__name__title {
-    padding: 0px 0px 24px 0px;
-  }
+    &__fullname,
+    &__at,
+    &__title {
+      padding: 8px 0px 8px 0px;
+    }
 
-  &__name__fullname,
-  &__name__at {
-    color: $primary-color;
-  }
+    &__fullname {
+      color: $primary-color;
+      background-color: $highlight-color;
+      padding-left: 8px;
+      padding-right: 8px;
+    }
 
-  &__name__title {
-    color: $primary-color;
+    &__title,
+    &__at {
+      color: $primary-color;
+    }
   }
 
   &__nav {
@@ -39,5 +44,15 @@
     gap: 24px;
 
     @extend .Nav-colors;
+  }
+}
+
+@media (max-width: 650) {
+  .Container__name {
+    &__fullname,
+    &__at,
+    &__title {
+      padding: 0;
+    }
   }
 }

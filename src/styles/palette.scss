@@ -1,10 +1,11 @@
-$dark-theme: true !default;
+$dark-theme: false !default;
 
 $primary-color: #5399da !default;
 $secondary-color: #4cdfe3 !default;
 $accent-color-1: #aa51f7 !default;
 $accent-color-2: #ffab19 !default;
 $accent-color-3: #48494a !default;
+$highlight-color: #ffe41647 !default;
 
 $background-color: #282828 !default;
 $nav-color: darken($background-color, 10%) !default;
@@ -17,6 +18,7 @@ $font-color: white !default;
   $accent-color-1: darken($accent-color-1, 30%);
   $accent-color-2: darken($accent-color-2, 30%);
   $accent-color-3: darken($accent-color-3, 30%);
+  $highlight-color: #fbe750a6;
 
   $background-color: #fff3de;
   $nav-color: lighten($background-color, 10%);
