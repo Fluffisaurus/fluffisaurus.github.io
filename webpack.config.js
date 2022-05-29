@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 const devMode = process.env.NODE_ENV !== "production";
 
@@ -28,6 +29,7 @@ module.exports = {
       template: "public/index.html",
       // favicon: 'public/favicon.ico'
     }),
+    new Dotenv(),
   ],
   module: {
     rules: [
