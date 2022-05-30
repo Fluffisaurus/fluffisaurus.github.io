@@ -3,9 +3,13 @@ import { Outlet, Link, useLocation } from "react-router-dom";
 
 import "../styles/global-nav.scss";
 
-const GlobalNav = () => {
+interface GlobalNavProps {
+  toggleNav: boolean;
+  setToggleNav: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
   const location = useLocation();
-  const [toggleNav, setToggleNav] = useState<boolean>(false);
   const [currPage, setCurrPage] = useState<string>("");
 
   useEffect(() => {

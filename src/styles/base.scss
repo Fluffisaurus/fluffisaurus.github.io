@@ -1,5 +1,6 @@
 @import "./palette.scss";
 @import "./fonts.scss";
+@import "./global-nav.scss";
 
 * {
   box-sizing: border-box;
@@ -22,6 +23,17 @@ html,
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+
+.Container {
+  overflow: scroll;
+
+  &--open {
+    padding-top: $global-nav-height;
+    height: 100%;
+    width: 80%;
+  }
 }
 
 section {

@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Cloudinary } from "@cloudinary/url-gen";
@@ -25,11 +25,13 @@ export const cld = new Cloudinary({
 // const testImg = cld.image("portfolio/placeholderGallery")
 
 const App = () => {
+  const [toggleNav, setToggleNav] = useState<boolean>(false);
+
   return (
     <div className="App">
       <Suspense fallback={<Loading />}>
-        <GlobalNav />
-        <div className="Container">
+        <GlobalNav toggleNav={toggleNav} setToggleNav={setToggleNav} />
+        <div className={!toggleNav ? "Container" : "Container Container--open"}>
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="default" element={<Default />} />

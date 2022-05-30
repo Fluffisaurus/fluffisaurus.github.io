@@ -1,6 +1,7 @@
 @import "./palette.scss";
 @import "./nav-links.scss";
 
+$global-nav-height: 40px;
 $fixed-nav-width: 400px;
 
 .Global-nav {
@@ -8,7 +9,8 @@ $fixed-nav-width: 400px;
   top: 0;
   z-index: 9999;
   width: 100%;
-  padding: 5px;
+  height: $global-nav-height;
+  padding: 0px 5px 0px 5px;
 
   display: flex;
   background-color: $nav-color;
@@ -25,6 +27,7 @@ $fixed-nav-width: 400px;
     width: calc(100% - $fixed-nav-width);
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 24px;
   }
 
