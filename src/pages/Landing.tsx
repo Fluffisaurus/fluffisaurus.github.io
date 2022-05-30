@@ -30,7 +30,7 @@ const Landing: React.FunctionComponent = () => {
           <Link to="/default">default</Link>
         </span>
         <span>
-          <Link to="/project">projects</Link>
+          <Link to="/projects">projects</Link>
         </span>
         <span>
           <Link to="/about">about</Link>
@@ -39,7 +39,6 @@ const Landing: React.FunctionComponent = () => {
           <Link to="/contact">contact</Link>
         </span>
       </nav>
-      <Outlet />
     </div>
   );
 };
