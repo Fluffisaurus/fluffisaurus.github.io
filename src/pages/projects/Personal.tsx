@@ -1,11 +1,15 @@
 import React from "react";
 
+import ProjectBlock from "../../components/ProjectBlock";
+import PersonalProjects from "../../content/projects/personal-list";
+
 const Personal = () => {
   return (
     <>
-      <section>
-        <h1>Personal projects my dood</h1>
-      </section>
+      <h1>Personal_projects</h1>
+      {PersonalProjects.map((proj, i) => {
+        return <ProjectBlock proj={proj} key={i} />;
+      })}
     </>
   );
 };

@@ -1,11 +1,15 @@
 import React from "react";
 
+import ProjectBlock from "../../components/ProjectBlock";
+import AcademicProjects from "../../content/projects/academic-list";
+
 const Academic = () => {
   return (
     <>
-      <section>
-        <h1>Academic projects be here</h1>
-      </section>
+      <h1>Academic_projects</h1>
+      {AcademicProjects.map((proj, i) => {
+        return <ProjectBlock proj={proj} key={i} />;
+      })}
     </>
   );
 };
