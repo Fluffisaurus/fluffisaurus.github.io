@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import { Cloudinary } from "@cloudinary/url-gen";
 // import { AdvancedImage } from "@cloudinary/react";
@@ -10,7 +10,9 @@ const DoesNotExist = lazy(() => import("../pages/DoesNotExist"));
 
 const GlobalNav = lazy(() => import("../components/GlobalNav"));
 const Landing = lazy(() => import("../pages/Landing"));
-const Projects = lazy(() => import("../pages/Projects"));
+const Projects = lazy(() => import("../pages/projects/Projects"));
+const Academic = lazy(() => import("../pages/projects/Academic"));
+const Personal = lazy(() => import("../pages/projects/Personal"));
 const AboutMe = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
 
@@ -25,22 +27,23 @@ export const cld = new Cloudinary({
 const App = () => {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Suspense fallback={<Loading />}>
-          <GlobalNav />
+      <Suspense fallback={<Loading />}>
+        <GlobalNav />
+        <div className="Container">
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="default" element={<Default />} />
             <Route path="projects" element={<Projects />}>
-              <Route path="personal"></Route>
-              <Route path="academic"></Route>
+              <Route index element={<Personal />} />
+              <Route path="personal" element={<Personal />}></Route>
+              <Route path="academic" element={<Academic />}></Route>
             </Route>
             <Route path="about" element={<AboutMe />} />
             <Route path="contact" element={<Contact />} />
             <Route path="*" element={<DoesNotExist />} />
           </Routes>
-        </Suspense>
-      </BrowserRouter>
+        </div>
+      </Suspense>
       {/* <AdvancedImage cldImg={testImg}/> */}
     </div>
   );

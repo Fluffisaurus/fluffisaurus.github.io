@@ -18,7 +18,7 @@ const GlobalNav = () => {
       {toggleNav && (
         <div className="Global-nav">
           <span className="Global-nav__root">
-            <Link to="/">angus_hon@website:/root/{currPage}~$</Link>
+            <Link to="/">ah@site:/root/{currPage}~$</Link>
           </span>
           <nav>
             <span>
