@@ -1,14 +1,18 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { Suspense, lazy } from "react";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 import { Cloudinary } from "@cloudinary/url-gen";
 // import { AdvancedImage } from "@cloudinary/react";
 
-import GlobalNav from "../components/GlobalNav";
-import Landing from "../pages/Landing";
-import AboutMe from "../pages/About";
-import Contact from "../pages/Contact";
-import { Default, DoesNotExist } from "../pages/Defaults";
+const Loading = lazy(() => import("../pages/Loading"));
+const Default = lazy(() => import("../pages/Default"));
+const DoesNotExist = lazy(() => import("../pages/DoesNotExist"));
+
+const GlobalNav = lazy(() => import("../components/GlobalNav"));
+const Landing = lazy(() => import("../pages/Landing"));
+const Projects = lazy(() => import("../pages/Projects"));
+const AboutMe = lazy(() => import("../pages/About"));
+const Contact = lazy(() => import("../pages/Contact"));
 
 export const cld = new Cloudinary({
   cloud: {
@@ -22,14 +26,20 @@ const App = () => {
   return (
     <div className="App">
       <BrowserRouter>
-        <GlobalNav />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/default" element={<Default />} />
-          <Route path="/about" element={<AboutMe />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<DoesNotExist />} />
-        </Routes>
+        <Suspense fallback={<Loading />}>
+          <GlobalNav />
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="default" element={<Default />} />
+            <Route path="projects" element={<Projects />}>
+              <Route path="personal"></Route>
+              <Route path="academic"></Route>
+            </Route>
+            <Route path="about" element={<AboutMe />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="*" element={<DoesNotExist />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
       {/* <AdvancedImage cldImg={testImg}/> */}
     </div>

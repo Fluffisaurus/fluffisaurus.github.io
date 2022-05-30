@@ -25,13 +25,15 @@ const GlobalNav = () => {
               <Link to="/default">default</Link>
             </span>
             <span>
+              <Link to="/projects">projects</Link>
+            </span>
+            <span>
               <Link to="/about">about</Link>
             </span>
             <span>
               <Link to="/contact">contact</Link>
             </span>
           </nav>
-          <Outlet />
         </div>
       )}
     </>
