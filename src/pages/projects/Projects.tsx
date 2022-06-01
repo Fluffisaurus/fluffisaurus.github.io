@@ -8,8 +8,6 @@ const Projects: React.FunctionComponent = () => {
     <>
       <section>
         <h1>Projects</h1>
-        <Link to="personal">personal</Link>
-        <Link to="academic">academic</Link>
         <div className="Projects-container">
           <Outlet />
         </div>
