@@ -19,6 +19,9 @@ $fixed-nav-width: 400px;
   &__root {
     align-self: center;
     width: $fixed-nav-width;
+    a {
+      padding: 0 !important;
+    }
   }
 
   &__parent,

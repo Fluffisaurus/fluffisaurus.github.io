@@ -17,7 +17,8 @@ const GlobalNav = ({
   setOpenSubLinks,
 }: GlobalNavProps) => {
   const location = useLocation();
-  const [currPage, setCurrPage] = useState<string>("");
+  const [currPath, setCurrPath] = useState<string>("");
+  const [subPath, setSubPath] = useState<string | null>();
   const [isOpen, setIsOpen] = useState<boolean>(openSubLinks);
 
   useEffect(() => {
@@ -25,8 +26,15 @@ const GlobalNav = ({
   }, [openSubLinks]);
 
   useEffect(() => {
-    setCurrPage(location.pathname.substring(1));
     location.pathname === "/" ? setToggleNav(false) : setToggleNav(true);
+
+    if (location.pathname.substring(1).includes("/")) {
+      setCurrPath(location.pathname.substring(1).split("/")[0]);
+      setSubPath(location.pathname.substring(1).split("/")[1]);
+    } else {
+      setCurrPath(location.pathname.substring(1));
+      setSubPath(null);
+    }
   }, [location]);
 
   return (
@@ -37,9 +45,11 @@ const GlobalNav = ({
             className="Global-nav__root"
             onClick={() => setOpenSubLinks(false)}
           >
-            <Link to="/">
-              ah@site:/root/<span>{currPage}</span>~$
-            </Link>
+            <Link to="/">ah@site:/root</Link>
+            <Link to={currPath}>{"/" + currPath}</Link>
+            {subPath && (
+              <Link to={currPath + "/" + subPath}>{"/" + subPath}</Link>
+            )}
           </span>
           <nav>
             <span>
