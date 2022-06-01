@@ -1,4 +1,8 @@
 .Nav-links {
+  &__no-events {
+    pointer-events: none;
+  }
+
   &--active {
     color: $secondary-color !important;
     background-color: $highlight-color-2;
