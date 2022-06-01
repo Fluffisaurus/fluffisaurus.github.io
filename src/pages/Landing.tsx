@@ -29,7 +29,7 @@ const Landing = ({ openSubLinks, setOpenSubLinks }: LandingProps) => {
       </div>
       <nav className="Landing-container__nav">
         <span>
-          <a className="Nav-links__no-events">~$</a>
+          <a className="Nav-link__no-events">~$</a>
         </span>
         <span>
           <Link to="/default">default</Link>

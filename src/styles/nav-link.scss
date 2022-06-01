@@ -1,4 +1,4 @@
-.Nav-links {
+.Nav-link {
   &__no-events {
     pointer-events: none;
   }
@@ -17,7 +17,7 @@
     a:hover,
     a:focus,
     a:active {
-      @extend .Nav-links--active;
+      @extend .Nav-link--active;
     }
   }
 }

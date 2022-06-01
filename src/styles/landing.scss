@@ -1,5 +1,5 @@
 @import "./palette.scss";
-@import "./nav-links.scss";
+@import "./nav-link.scss";
 
 .Landing-container {
   width: fit-content;
@@ -46,7 +46,7 @@
     flex-wrap: wrap;
     gap: 24px;
 
-    @extend .Nav-links;
+    @extend .Nav-link;
   }
 }
 

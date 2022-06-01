@@ -1,5 +1,5 @@
 @import "./palette.scss";
-@import "./nav-links.scss";
+@import "./nav-link.scss";
 
 $global-nav-height: 40px;
 $fixed-nav-width: 400px;
@@ -56,7 +56,7 @@ $fixed-nav-width: 400px;
     flex-direction: column;
   }
 
-  @extend .Nav-links;
+  @extend .Nav-link;
 
   nav {
     width: calc(100% - $fixed-nav-width);
