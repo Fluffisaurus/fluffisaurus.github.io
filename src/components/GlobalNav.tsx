@@ -50,6 +50,7 @@ const GlobalNav = ({
             {subPath && (
               <Link to={currPath + "/" + subPath}>{"/" + subPath}</Link>
             )}
+            <a className="Nav-link__no-events">~$</a>
           </span>
           <nav>
             <span>
