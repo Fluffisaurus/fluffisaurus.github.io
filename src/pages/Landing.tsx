@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 import "../styles/landing.scss";
 
-const Landing: React.FunctionComponent = () => {
+interface LandingProps {
+  openSubLinks: boolean;
+  setOpenSubLinks: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Landing = ({ openSubLinks, setOpenSubLinks }: LandingProps) => {
   return (
     <div className="Landing-container">
       <div className="Landing-container__greeting">
@@ -29,8 +34,30 @@ const Landing: React.FunctionComponent = () => {
         <span>
           <Link to="/default">default</Link>
         </span>
-        <span>
-          <Link to="/projects">projects</Link>
+        <span
+          className={
+            openSubLinks
+              ? "Global-nav__parent-landing Global-nav__parent-landing--open"
+              : "Global-nav__parent-landing"
+          }
+          onMouseEnter={() => setOpenSubLinks(true)}
+          onMouseLeave={() => setOpenSubLinks(false)}
+          onClick={() => setOpenSubLinks(true)}
+        >
+          <Link
+            to="/projects"
+            className={openSubLinks ? "Nav-link--active" : ""}
+          >
+            projects
+          </Link>
+          <div>
+            <span>
+              <Link to="/projects/personal">personal</Link>
+            </span>
+            <span>
+              <Link to="/projects/academic">academic</Link>
+            </span>
+          </div>
         </span>
         <span>
           <Link to="/about">about</Link>

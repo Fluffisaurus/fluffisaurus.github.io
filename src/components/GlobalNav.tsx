@@ -6,11 +6,23 @@ import "../styles/global-nav.scss";
 interface GlobalNavProps {
   toggleNav: boolean;
   setToggleNav: React.Dispatch<React.SetStateAction<boolean>>;
+  openSubLinks: boolean;
+  setOpenSubLinks: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
+const GlobalNav = ({
+  toggleNav,
+  setToggleNav,
+  openSubLinks,
+  setOpenSubLinks,
+}: GlobalNavProps) => {
   const location = useLocation();
   const [currPage, setCurrPage] = useState<string>("");
+  const [isOpen, setIsOpen] = useState<boolean>(openSubLinks);
+
+  useEffect(() => {
+    if (openSubLinks) setIsOpen(true);
+  }, [openSubLinks]);
 
   useEffect(() => {
     setCurrPage(location.pathname.substring(1));
@@ -21,15 +33,39 @@ const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
     <>
       {toggleNav && (
         <div className="Global-nav">
-          <span className="Global-nav__root">
-            <Link to="/">ah@site:/root/{currPage}~$</Link>
+          <span
+            className="Global-nav__root"
+            onClick={() => setOpenSubLinks(false)}
+          >
+            <Link to="/">
+              ah@site:/root/<span>{currPage}</span>~$
+            </Link>
           </span>
           <nav>
             <span>
               <Link to="/default">default</Link>
             </span>
-            <span>
-              <Link to="/projects">projects</Link>
+            <span
+              className={
+                isOpen
+                  ? "Global-nav__parent Global-nav__parent--open"
+                  : "Global-nav__parent"
+              }
+            >
+              <Link
+                to="/projects"
+                onClick={() => setIsOpen((isOpen) => !isOpen)}
+              >
+                projects
+              </Link>
+              <div>
+                <span>
+                  <Link to="/projects/personal">personal</Link>
+                </span>
+                <span>
+                  <Link to="/projects/academic">academic</Link>
+                </span>
+              </div>
             </span>
             <span>
               <Link to="/about">about</Link>

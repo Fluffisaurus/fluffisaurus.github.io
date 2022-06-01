@@ -26,14 +26,28 @@ export const cld = new Cloudinary({
 
 const App = () => {
   const [toggleNav, setToggleNav] = useState<boolean>(false);
+  const [openSubLinks, setOpenSubLinks] = useState<boolean>(false);
 
   return (
     <div className="App">
       <Suspense fallback={<Loading />}>
-        <GlobalNav toggleNav={toggleNav} setToggleNav={setToggleNav} />
+        <GlobalNav
+          toggleNav={toggleNav}
+          setToggleNav={setToggleNav}
+          openSubLinks={openSubLinks}
+          setOpenSubLinks={setOpenSubLinks}
+        />
         <div className={!toggleNav ? "Container" : "Container Container--open"}>
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route
+              path="/"
+              element={
+                <Landing
+                  openSubLinks={openSubLinks}
+                  setOpenSubLinks={setOpenSubLinks}
+                />
+              }
+            />
             <Route path="default" element={<Default />} />
             <Route path="projects" element={<Projects />}>
               <Route index element={<Personal />} />

@@ -1,4 +1,9 @@
-.nav-links {
+.Nav-links {
+  &--active {
+    color: $secondary-color !important;
+    background-color: $highlight-color-2;
+  }
+
   span {
     a {
       padding: 0px 5px 0px 5px;
@@ -8,8 +13,7 @@
     a:hover,
     a:focus,
     a:active {
-      color: $secondary-color !important;
-      background-color: $highlight-color-2;
+      @extend .Nav-links--active;
     }
   }
 }
