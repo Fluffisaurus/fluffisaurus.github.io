@@ -46,15 +46,24 @@ const GlobalNav = ({
             onClick={() => setOpenSubLinks(false)}
           >
             <Link to="/">ah@site:/root</Link>
-            <Link to={currPath}>{"/" + currPath}</Link>
+            <Link to={currPath} className="Nav-link--active">
+              {"/" + currPath}
+            </Link>
             {subPath && (
-              <Link to={currPath + "/" + subPath}>{"/" + subPath}</Link>
+              <Link to={currPath + "/" + subPath} className="Nav-link--active">
+                {"/" + subPath}
+              </Link>
             )}
             <a className="Nav-link__no-events">~$</a>
           </span>
           <nav>
             <span>
-              <Link to="/about">about</Link>
+              <Link
+                to="/about"
+                className={"about" === currPath ? "Nav-link--active" : ""}
+              >
+                about
+              </Link>
             </span>
             <span
               className={
@@ -65,21 +74,37 @@ const GlobalNav = ({
             >
               <Link
                 to="/projects"
+                className={"projects" === currPath ? "Nav-link--active" : ""}
                 onClick={() => setIsOpen((isOpen) => !isOpen)}
               >
                 projects
               </Link>
               <div>
                 <span>
-                  <Link to="/projects/personal">personal</Link>
+                  <Link
+                    to="/projects/personal"
+                    className={"personal" === subPath ? "Nav-link--active" : ""}
+                  >
+                    personal
+                  </Link>
                 </span>
                 <span>
-                  <Link to="/projects/academic">academic</Link>
+                  <Link
+                    to="/projects/academic"
+                    className={"academic" === subPath ? "Nav-link--active" : ""}
+                  >
+                    academic
+                  </Link>
                 </span>
               </div>
             </span>
             <span>
-              <Link to="/contact">contact</Link>
+              <Link
+                to="/contact"
+                className={"contact" === currPath ? "Nav-link--active" : ""}
+              >
+                contact
+              </Link>
             </span>
           </nav>
         </div>

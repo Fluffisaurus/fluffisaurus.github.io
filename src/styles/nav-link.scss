@@ -4,7 +4,6 @@
   }
 
   &--active {
-    color: $secondary-color !important;
     background-color: $highlight-color-2;
   }
 
@@ -17,7 +16,8 @@
     a:hover,
     a:focus,
     a:active {
-      @extend .Nav-link--active;
+      color: $secondary-color !important;
+      background-color: $highlight-color-2;
     }
   }
 }
