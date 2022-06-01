@@ -28,6 +28,8 @@ html,
 
 .Container {
   overflow: scroll;
+  height: 100%;
+  display: flex;
 
   &--open {
     padding-top: $global-nav-height;
