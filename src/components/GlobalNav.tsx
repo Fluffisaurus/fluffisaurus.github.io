@@ -26,6 +26,10 @@ const GlobalNav = ({
   }, [openSubLinks]);
 
   useEffect(() => {
+    currPath === "projects" ? setIsOpen(true) : setIsOpen(false);
+  }, [currPath]);
+
+  useEffect(() => {
     location.pathname === "/" ? setToggleNav(false) : setToggleNav(true);
 
     if (location.pathname.substring(1).includes("/")) {
@@ -71,11 +75,14 @@ const GlobalNav = ({
                   ? "Global-nav__parent Global-nav__parent--open"
                   : "Global-nav__parent"
               }
+              onMouseEnter={() => setIsOpen(true)}
+              onMouseLeave={() =>
+                currPath !== "projects" && !subPath && setIsOpen(false)
+              }
             >
               <Link
                 to="/projects"
                 className={"projects" === currPath ? "Nav-link--active" : ""}
-                onClick={() => setIsOpen((isOpen) => !isOpen)}
               >
                 projects
               </Link>
