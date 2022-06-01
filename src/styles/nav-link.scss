@@ -1,6 +1,7 @@
 .Nav-link {
   &__no-events {
     pointer-events: none;
+    user-select: none;
   }
 
   &--active {
