@@ -3,6 +3,9 @@
 
 .Landing-container {
   width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
 
   * {
     width: fit-content;
@@ -43,7 +46,7 @@
     flex-wrap: wrap;
     gap: 24px;
 
-    @extend .nav-links;
+    @extend .Nav-links;
   }
 }
 
