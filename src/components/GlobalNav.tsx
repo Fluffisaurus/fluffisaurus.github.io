@@ -54,7 +54,7 @@ const GlobalNav = ({
           </span>
           <nav>
             <span>
-              <Link to="/default">default</Link>
+              <Link to="/about">about</Link>
             </span>
             <span
               className={
@@ -77,9 +77,6 @@ const GlobalNav = ({
                   <Link to="/projects/academic">academic</Link>
                 </span>
               </div>
-            </span>
-            <span>
-              <Link to="/about">about</Link>
             </span>
             <span>
               <Link to="/contact">contact</Link>

@@ -48,14 +48,14 @@ const App = () => {
                 />
               }
             />
-            <Route path="default" element={<Default />} />
+            <Route path="about" element={<AboutMe />} />
             <Route path="projects" element={<Projects />}>
               <Route index element={<Personal />} />
               <Route path="personal" element={<Personal />}></Route>
               <Route path="academic" element={<Academic />}></Route>
             </Route>
-            <Route path="about" element={<AboutMe />} />
             <Route path="contact" element={<Contact />} />
+            <Route path="default" element={<Default />} />
             <Route path="*" element={<DoesNotExist />} />
           </Routes>
         </div>

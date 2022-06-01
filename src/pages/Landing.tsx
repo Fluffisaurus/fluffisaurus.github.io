@@ -32,7 +32,7 @@ const Landing = ({ openSubLinks, setOpenSubLinks }: LandingProps) => {
           <a className="Nav-link__no-events">~$</a>
         </span>
         <span>
-          <Link to="/default">default</Link>
+          <Link to="/about">about</Link>
         </span>
         <span
           className={
@@ -58,9 +58,6 @@ const Landing = ({ openSubLinks, setOpenSubLinks }: LandingProps) => {
               <Link to="/projects/academic">academic</Link>
             </span>
           </div>
-        </span>
-        <span>
-          <Link to="/about">about</Link>
         </span>
         <span>
           <Link to="/contact">contact</Link>
