@@ -1,24 +1,24 @@
-$dark-theme: true !default;
-// $dark-theme: false !default;
+// $dark-theme: true !default;
+$dark-theme: false;
 
-$primary-color: #5399da !default;
-$secondary-color: #4cdfe3 !default;
+$primary-color: #5399da;
+$secondary-color: #4cdfe3;
 
-$accent-color-1: #aa51f7 !default;
-$accent-color-2: #ffab19 !default;
-$accent-color-3: #ffe416 !default;
-$accent-color-4: #48494a !default;
+$accent-color-1: #aa51f7;
+$accent-color-2: #ffab19;
+$accent-color-3: #ffe416;
+$accent-color-4: #48494a;
 
-$highlight-color-1: scale-color($secondary-color, $alpha: -83%) !default;
-$highlight-color-2: scale-color($accent-color-1, $alpha: -70%) !default;
-$highlight-color-3: scale-color($accent-color-2, $alpha: -88%) !default;
-$highlight-color-4: scale-color($accent-color-3, $alpha: -70%) !default;
-$highlight-color-5: scale-color($accent-color-4, $alpha: -30%) !default;
+$highlight-color-1: scale-color($secondary-color, $alpha: -83%);
+$highlight-color-2: scale-color($accent-color-1, $alpha: -70%);
+$highlight-color-3: scale-color($accent-color-2, $alpha: -88%);
+$highlight-color-4: scale-color($accent-color-3, $alpha: -70%);
+$highlight-color-5: scale-color($accent-color-4, $alpha: -30%);
 
-$background-color: #282828 !default;
-$nav-color: darken($background-color, 10%) !default;
-$nav-border-color: darken($nav-color, 50%) !default;
-$font-color: white !default;
+$background-color: #282828;
+$nav-color: darken($background-color, 10%);
+$nav-border-color: darken($nav-color, 50%);
+$font-color: white;
 
 @if $dark-theme == false {
   $primary-color: darken($primary-color, 30%);
@@ -28,7 +28,7 @@ $font-color: white !default;
   $accent-color-3: darken($accent-color-3, 30%);
   $accent-color-4: darken($accent-color-4, 30%);
 
-  $highlight-color-1: scale-color($secondary-color, $alpha: -65%) !default;
+  $highlight-color-1: scale-color($secondary-color, $alpha: -65%);
   $highlight-color-2: scale-color($accent-color-1, $alpha: -75%);
   $highlight-color-3: scale-color($accent-color-2, $alpha: -40%);
   $highlight-color-4: scale-color($accent-color-3, $alpha: -40%);
