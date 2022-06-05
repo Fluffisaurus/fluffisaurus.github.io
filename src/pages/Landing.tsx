@@ -1,14 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import NavLinks, { NavLinksProps } from "../components/NavLinks";
 
 import "../styles/landing.scss";
 
-interface LandingProps {
-  openSubLinks: boolean;
-  setOpenSubLinks: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-const Landing = ({ openSubLinks, setOpenSubLinks }: LandingProps) => {
+const Landing = ({ openSubLinks, setOpenSubLinks }: NavLinksProps) => {
   return (
     <div className="Landing-container">
       <div className="Landing-container__greeting">
@@ -31,37 +26,10 @@ const Landing = ({ openSubLinks, setOpenSubLinks }: LandingProps) => {
         <span>
           <a className="Nav-link__no-events">~$</a>
         </span>
-        <span>
-          <Link to="/about">about</Link>
-        </span>
-        <span
-          className={
-            openSubLinks
-              ? "Global-nav__parent-landing Global-nav__parent-landing--open"
-              : "Global-nav__parent-landing"
-          }
-          onMouseEnter={() => setOpenSubLinks(true)}
-          onMouseLeave={() => setOpenSubLinks(false)}
-          onClick={() => setOpenSubLinks(true)}
-        >
-          <Link
-            to="/projects"
-            className={openSubLinks ? "Nav-link--active" : ""}
-          >
-            projects
-          </Link>
-          <div>
-            <span>
-              <Link to="/projects/personal">personal</Link>
-            </span>
-            <span>
-              <Link to="/projects/academic">academic</Link>
-            </span>
-          </div>
-        </span>
-        <span>
-          <Link to="/contact">contact</Link>
-        </span>
+        <NavLinks
+          openSubLinks={openSubLinks}
+          setOpenSubLinks={setOpenSubLinks}
+        />
       </nav>
     </div>
   );
