@@ -1,9 +1,6 @@
 import React, { Suspense, lazy, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Cloudinary } from "@cloudinary/url-gen";
-// import { AdvancedImage } from "@cloudinary/react";
-
 const Loading = lazy(() => import("../pages/Loading"));
 const Default = lazy(() => import("../pages/Default"));
 const DoesNotExist = lazy(() => import("../pages/DoesNotExist"));
@@ -16,14 +13,6 @@ const Personal = lazy(() => import("../pages/projects/Personal"));
 const Selection = lazy(() => import("../pages/projects/Selection"));
 const AboutMe = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
-
-export const cld = new Cloudinary({
-  cloud: {
-    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-  },
-});
-
-// const testImg = cld.image("portfolio/placeholderGallery")
 
 const App = () => {
   const [toggleNav, setToggleNav] = useState<boolean>(false);
@@ -61,7 +50,6 @@ const App = () => {
           </Routes>
         </div>
       </Suspense>
-      {/* <AdvancedImage cldImg={testImg}/> */}
     </div>
   );
 };
