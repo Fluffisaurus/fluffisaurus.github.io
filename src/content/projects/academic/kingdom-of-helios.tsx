@@ -17,27 +17,27 @@ const kingdomOfHelios: Project = {
   },
   images: [
     {
-      src: "helios/main-screen.png",
+      src: "helios/main-screen_eutlnh.png",
       alt: "Helios: Main Screen",
       description: "Start screen.",
     },
     {
-      src: "helios/char-x.PNG",
+      src: "helios/char-x_v28nxl.PNG",
       alt: "Helios: Protagonist",
       description: "Main protagonist with distinct skill set.",
     },
     {
-      src: "helios/char-y.PNG",
+      src: "helios/char-y_atx5aa.PNG",
       alt: "Helios: Protagonist's younger brother",
       description: "Protagonist's younger brother with a different skill set.",
     },
     {
-      src: "helios/scene-flow-chart.png",
+      src: "helios/scene-flow-chart_vfmnj1.png",
       alt: "Helios: Scene Flow Chart",
       description: "Game's main scene flow chart.",
     },
     {
-      src: "helios/story-map.png",
+      src: "helios/story-map_djrgbx.png",
       alt: "Helios: Story map of the game",
       description: "Game's story map and progression.",
     },

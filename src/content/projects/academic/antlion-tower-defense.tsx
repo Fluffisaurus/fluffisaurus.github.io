@@ -25,37 +25,37 @@ const antlionTowerDefense: Project = {
   },
   images: [
     {
-      src: "atd/atd-pathfinding.png",
+      src: "atd/atd-pathfinding_muihab.png",
       alt: "ATD: A* Pathfinding",
       description: "Enemy AI with A* Pathfinding shown by lines and points.",
     },
     {
-      src: "atd/atd-start-screen.png",
+      src: "atd/atd-start-screen_mus0ji.png",
       alt: "ATD: Start Screen",
       description: "Start screen for the game.",
     },
     {
-      src: "atd/atd-story.png",
+      src: "atd/atd-story_xms5lc.png",
       alt: "ATD: Story Screen",
       description: "Scrollable story and narrative screen.",
     },
     {
-      src: "atd/atd-level-select.png",
+      src: "atd/atd-level-select_nnigcj.png",
       alt: "ATD: Level Select Screen",
       description: "Level select screen.",
     },
     {
-      src: "atd/atd-gameplay.png",
+      src: "atd/atd-gameplay_xaxpcl.png",
       alt: "ATD: Gameplay Screenshot",
       description: "Gameplay screenshot.",
     },
     {
-      src: "atd/atd-win-screen.png",
+      src: "atd/atd-win-screen_vwnbfe.png",
       alt: "ATD: Win Screen",
       description: "Win screen",
     },
     {
-      src: "atd/atd-lose-screen.png",
+      src: "atd/atd-lose-screen_tebbl0.png",
       alt: "ATD: Lose Screen",
       description: "Lose screen",
     },

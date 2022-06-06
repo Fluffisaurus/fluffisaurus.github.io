@@ -26,44 +26,44 @@ const bobbysBreakout: Project = {
   },
   images: [
     {
-      src: "bobby/bobby-breakout-map.png",
+      src: "bobby/bobby-breakout-map_qex5d0.png",
       alt: "Bobby Breakout: Map",
       description: "In-game screenshot of the map - SFU's CS lab blueprint.",
     },
     {
-      src: "bobby/bobby-breakout-inventory.png",
+      src: "bobby/bobby-breakout-inventory_zgwqu1.png",
       alt: "Bobby Breakout: Inventory",
       description:
         "Player (Bobby's) inventory of picked up loot - user can swap loadouts and equipped items.",
     },
     {
-      src: "bobby/bobby-breakout-fight.png",
+      src: "bobby/bobby-breakout-fight_ccgkbs.png",
       alt: "Bobby Breakout: Fight Scene",
       description: "Pokemon style fight scene!",
     },
     {
-      src: "bobby/bobby-breakout-fight-1.png",
+      src: "bobby/bobby-breakout-fight-1_hg4lcd.png",
       alt: "Bobby Breakout: Fight Scene Player Ability",
       description: "Player using an ability - pokemon style combat dialogue.",
     },
     {
-      src: "bobby/bobby-breakout-fight-2.png",
+      src: "bobby/bobby-breakout-fight-2_g29dzy.png",
       alt: "Bobby Breakout: Fight Scene Enemy Ability",
       description: "Enemy retaliating with their custom skills.",
     },
     {
-      src: "bobby/bobby-breakout-item.png",
+      src: "bobby/bobby-breakout-item_o1u8vm.png",
       alt: "Bobby Breakout: Funny Items",
       description: "In-game items user can pick up.",
     },
     {
-      src: "bobby/bobby-breakout-achievement.png",
+      src: "bobby/bobby-breakout-achievement_tvbixc.png",
       alt: "Bobby Breakout: Achievement",
       description:
         "Dynamic and persistent achievements screen (stored in database by account session).",
     },
     {
-      src: "bobby/bobby-breakout-login.png",
+      src: "bobby/bobby-breakout-login_ewahwv.png",
       alt: "Bobby Breakout: Login and Signup",
       description: "Login and signup screen for the user to register.",
     },
