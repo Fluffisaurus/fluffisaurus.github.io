@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import { Cloudinary } from "@cloudinary/url-gen";
 // import { AdvancedImage } from "@cloudinary/react";
@@ -13,7 +13,6 @@ const Landing = lazy(() => import("../pages/Landing"));
 const Projects = lazy(() => import("../pages/projects/Projects"));
 const Academic = lazy(() => import("../pages/projects/Academic"));
 const Personal = lazy(() => import("../pages/projects/Personal"));
-const Selection = lazy(() => import("../pages/projects/Selection"));
 const AboutMe = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
 
@@ -51,7 +50,7 @@ const App = () => {
             />
             <Route path="about" element={<AboutMe />} />
             <Route path="projects" element={<Projects />}>
-              <Route index element={<Selection />} />
+              <Route index element={<Navigate to="personal" replace={true} />} />
               <Route path="personal" element={<Personal />}></Route>
               <Route path="academic" element={<Academic />}></Route>
             </Route>
