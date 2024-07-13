@@ -19,7 +19,7 @@ const Landing = ({ openSubLinks, setOpenSubLinks }: NavLinksProps) => {
           <h1>@</h1>
         </span>
         <span className="Landing-container__name__title">
-          <h1>website</h1>
+          <h1>🏠</h1>
         </span>
       </div>
       <nav className="Landing-container__nav">

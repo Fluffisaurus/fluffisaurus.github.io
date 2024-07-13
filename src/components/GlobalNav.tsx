@@ -49,7 +49,7 @@ const GlobalNav = ({
             className="Global-nav__root"
             onClick={() => setOpenSubLinks(false)}
           >
-            <Link to="/">ah@site:/root</Link>
+            <Link to="/">🏠:</Link>
             <Link to={currPath} className="Nav-link--active">
               {"/" + currPath}
             </Link>
