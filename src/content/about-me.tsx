@@ -4,7 +4,7 @@ const AboutMeContent: Array<ContentBlockProps> = [
   {
     heading: "Who is Angus?",
     body: [
-      "He is a software engineer who also happens to be a data scientist. He is also an avid computer & keyboard builder and amateur basketball analyst.",
+      "He is a software engineer who also happens to be a data scientist. He is an avid computer & keyboard builder, amateur basketball analyst, and casual volleyball player.",
     ],
   },
   {
@@ -28,8 +28,9 @@ const AboutMeContent: Array<ContentBlockProps> = [
   {
     heading: "How is Angus?",
     body: [
-      "He is very busy splitting his time as a Software Engineer at Sokanu and an undergrad student at Simon Fraser University.",
-      "He is currently finishing his last semester of school - main'ing in Data Science and alt'ing Interactive Arts and Technology (Game Design and Interaction Design).",
+      "He is taking a break from work to explore his other passions.",
+      "Previously, he worked as a software engineer at Amazon Web Services and Sokanu.",
+      "Angus graduated from Simon Fraser University - main'ing in Data Science and alt'ing Interactive Arts and Technology (Game Design and Interaction Design).",
       "In his spare time, Angus enjoys hanging out with his friends, playing video games, and watching the NBA.",
     ],
   },
