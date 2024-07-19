@@ -22,8 +22,7 @@
     margin: 0px 0px 24px 0px;
 
     &__fullname,
-    &__at,
-    &__title {
+    &__at {
       padding: 8px 0px 8px 0px;
     }
 
@@ -34,7 +33,6 @@
       padding-right: 8px;
     }
 
-    &__title,
     &__at {
       color: $primary-color;
     }
@@ -50,12 +48,25 @@
   }
 }
 
-@media (max-width: 650) {
-  .Landing-container__name {
-    &__fullname,
-    &__at,
-    &__title {
-      padding: 0;
+@media (max-width: 650px) {
+  .Landing-container {
+    padding: 15px;
+
+    &__name {
+      &__fullname,
+      &__at{
+        padding: 0;
+      }
     }
+    
+    &__nav {
+      flex-direction: column;
+      align-content: end;
+      align-items: end;
+    }
+  }
+
+  .Nav-link__no-events {
+    display: none;
   }
 }

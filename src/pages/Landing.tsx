@@ -8,7 +8,7 @@ const Landing = ({ openSubLinks, setOpenSubLinks }: NavLinksProps) => {
     <div className="Landing-container">
       <div className="Landing-container__greeting">
         <span>
-          <p>Hi there fellow human! Welcome to</p>
+          <p>Hi there! Welcome to</p>
         </span>
       </div>
       <div className="Landing-container__name">
@@ -16,10 +16,7 @@ const Landing = ({ openSubLinks, setOpenSubLinks }: NavLinksProps) => {
           <h1>angus_hon</h1>
         </span>
         <span className="Landing-container__name__at">
-          <h1>@</h1>
-        </span>
-        <span className="Landing-container__name__title">
-          <h1>🏠</h1>
+          <h1>@🏠</h1>
         </span>
       </div>
       <nav className="Landing-container__nav">
