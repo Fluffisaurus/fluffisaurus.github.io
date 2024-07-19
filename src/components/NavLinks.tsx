@@ -30,7 +30,7 @@ const paths = [
 const NavLinks = ({ openSubLinks, setOpenSubLinks }: NavLinksProps) => {
   return (
     <>
-      {paths.map((path) => {
+      {paths.map((path, index) => {
         return (
           <>
             {path.subpaths.length !== 0 ? (
@@ -48,14 +48,15 @@ const NavLinks = ({ openSubLinks, setOpenSubLinks }: NavLinksProps) => {
                   <Link
                     to={path.path}
                     className={openSubLinks ? "Nav-link--active" : ""}
+                    key={`${path.text}-${index}`}
                   >
                     {path.text}
                   </Link>
                   <div>
-                    {path.subpaths.map((subPath) => {
+                    {path.subpaths.map((subPath, index) => {
                       return (
                         <span>
-                          <Link to={path.path + subPath.path}>
+                          <Link to={path.path + subPath.path} key={`${path.text}-${index}`}  >
                             {subPath.text}
                           </Link>
                         </span>
