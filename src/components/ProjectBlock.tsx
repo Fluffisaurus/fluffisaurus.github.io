@@ -2,7 +2,7 @@ import React from "react";
 
 import { Project } from "../content/projects/interfaces";
 
-import "../styles/project-block.scss";
+// import "../styles/project-block.scss";
 
 interface ProjectBlockProps {
   proj: Project;
