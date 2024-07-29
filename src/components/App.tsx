@@ -50,7 +50,10 @@ const App = () => {
             />
             <Route path="about" element={<AboutMe />} />
             <Route path="projects" element={<Projects />}>
-              <Route index element={<Navigate to="personal" replace={true} />} />
+              <Route
+                index
+                element={<Navigate to="personal" replace={true} />}
+              />
               <Route path="personal" element={<Personal />}></Route>
               <Route path="academic" element={<Academic />}></Route>
             </Route>

@@ -56,7 +56,10 @@ const NavLinks = ({ openSubLinks, setOpenSubLinks }: NavLinksProps) => {
                     {path.subpaths.map((subPath, index) => {
                       return (
                         <span>
-                          <Link to={path.path + subPath.path} key={`${path.text}-${index}`}  >
+                          <Link
+                            to={path.path + subPath.path}
+                            key={`${path.text}-${index}`}
+                          >
                             {subPath.text}
                           </Link>
                         </span>
