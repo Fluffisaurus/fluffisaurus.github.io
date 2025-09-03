@@ -10,7 +10,7 @@ const DoesNotExist = lazy(() => import("../pages/DoesNotExist"));
 
 const GlobalNav = lazy(() => import("../components/GlobalNav"));
 const Landing = lazy(() => import("../pages/Landing"));
-const Projects = lazy(() => import("../pages/projects/Projects"));
+const Projects = lazy(() => import("../pages/Projects"));
 const Selection = lazy(() => import("../pages/projects/Selection"));
 const Academic = lazy(() => import("../pages/projects/Academic"));
 const Personal = lazy(() => import("../pages/projects/Personal"));

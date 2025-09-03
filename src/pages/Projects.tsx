@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-import "../../styles/projects-container.scss";
+import "../styles/projects.scss";
 
 const Projects: React.FunctionComponent = () => {
   return (

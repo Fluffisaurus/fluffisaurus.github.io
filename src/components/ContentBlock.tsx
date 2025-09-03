@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
 
 import "../styles/content-block.scss";
+import Grid from "@mui/material/Grid";
 
 export interface ContentBlockProps {
   heading: string;
@@ -17,12 +21,22 @@ const ContentBlock = ({ heading, body }: ContentBlockProps) => {
   }, [body, heading]);
 
   return (
-    <div className="Content-block">
-      <h2>{headingText}</h2>
-      {bodyText.map((body, i) => {
-        return <p key={i}>{body}</p>;
-      })}
-    </div>
+    <>
+      <Grid size={{ xs: 15, md: 20 }}>
+        <Card variant="outlined">
+          <CardContent>
+            <Typography variant="h5" component="div" sx={{ mb: 2 }}>
+              {headingText}
+            </Typography>
+            <Typography variant="body2">
+              {bodyText.map((body, i) => {
+                return <Typography key={i}>{body}</Typography>;
+              })}
+            </Typography>
+          </CardContent>
+        </Card>
+      </Grid>
+    </>
   );
 };
 
