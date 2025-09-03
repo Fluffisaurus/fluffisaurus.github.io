@@ -1,13 +1,13 @@
 import React from "react";
 
 import ProjectBlock from "../../components/ProjectBlock";
-import AcademicProjects from "../../content/projects/academic-list";
+import { ProjectCategories, ProjectList } from "../../content/projects/project-list";
 
 const Academic = () => {
   return (
     <>
       <h1>Academic_projects</h1>
-      {AcademicProjects.map((proj, i) => {
+      {ProjectList[ProjectCategories.ACADEMIC].map((proj, i) => {
         return <ProjectBlock proj={proj} key={i} />;
       })}
     </>
