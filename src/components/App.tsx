@@ -11,6 +11,7 @@ const DoesNotExist = lazy(() => import("../pages/DoesNotExist"));
 const GlobalNav = lazy(() => import("../components/GlobalNav"));
 const Landing = lazy(() => import("../pages/Landing"));
 const Projects = lazy(() => import("../pages/projects/Projects"));
+const Selection = lazy(() => import("../pages/projects/Selection"));
 const Academic = lazy(() => import("../pages/projects/Academic"));
 const Personal = lazy(() => import("../pages/projects/Personal"));
 const AboutMe = lazy(() => import("../pages/About"));
@@ -50,12 +51,9 @@ const App = () => {
             />
             <Route path="about" element={<AboutMe />} />
             <Route path="projects" element={<Projects />}>
-              <Route
-                index
-                element={<Navigate to="personal" replace={true} />}
-              />
-              <Route path="personal" element={<Personal />}></Route>
-              <Route path="academic" element={<Academic />}></Route>
+              <Route index element={<Selection />} />
+              <Route path="personal" element={<Personal />} />
+              <Route path="academic" element={<Academic />} />
             </Route>
             <Route path="contact" element={<Contact />} />
             <Route path="default" element={<Default />} />
