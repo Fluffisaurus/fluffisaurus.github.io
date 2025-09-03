@@ -1,7 +1,10 @@
 import React from "react";
 
 import ProjectBlock from "../../components/ProjectBlock";
-import { ProjectCategories, ProjectList } from "../../content/projects/project-list";
+import {
+  ProjectCategories,
+  ProjectList,
+} from "../../content/projects/project-list";
 
 const Academic = () => {
   return (

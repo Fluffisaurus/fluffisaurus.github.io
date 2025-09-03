@@ -28,19 +28,16 @@ const AcademicProjects: Array<Project> = [
   antlionTowerDefense,
 ];
 
-type ProjectGroupArray = Array<Project>
+type ProjectGroupArray = Array<Project>;
 enum ProjectCategories {
-  PERSONAL = 'personal',
-  ACADEMIC = 'academic'
-};
-
-const ProjectList: Record<ProjectCategories, ProjectGroupArray> = {
-  'personal': PersonalProjects,
-  'academic': AcademicProjects
+  PERSONAL = "personal",
+  ACADEMIC = "academic",
 }
 
-export {
-    ProjectList,
-    ProjectCategories
-};export type { ProjectGroupArray };
+const ProjectList: Record<ProjectCategories, ProjectGroupArray> = {
+  personal: PersonalProjects,
+  academic: AcademicProjects,
+};
 
+export { ProjectList, ProjectCategories };
+export type { ProjectGroupArray };
