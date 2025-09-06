@@ -3,9 +3,6 @@ import { Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 
-import { Cloudinary } from "@cloudinary/url-gen";
-// import { AdvancedImage } from "@cloudinary/react";
-
 const Loading = lazy(() => import("../pages/Loading"));
 const Default = lazy(() => import("../pages/Default"));
 const DoesNotExist = lazy(() => import("../pages/DoesNotExist"));
@@ -18,14 +15,6 @@ const Academic = lazy(() => import("../pages/projects/Academic"));
 const Personal = lazy(() => import("../pages/projects/Personal"));
 const AboutMe = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
-
-export const cld = new Cloudinary({
-  cloud: {
-    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-  },
-});
-
-// const testImg = cld.image("portfolio/placeholderGallery")
 
 const App = () => {
   const [toggleNav, setToggleNav] = useState<boolean>(false);
@@ -66,7 +55,6 @@ const App = () => {
             </Routes>
           </div>
         </Suspense>
-        {/* <AdvancedImage cldImg={testImg}/> */}
       </div>
     </ThemeProvider>
   );
