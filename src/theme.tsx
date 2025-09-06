@@ -35,6 +35,11 @@ let theme = createTheme({
       fontWeight: 400,
       fontStyle: "italic",
     },
+    caption: {
+      fontFamily: "Karla",
+      fontWeight: 400,
+      fontStyle: "italic",
+    },
     h1: undefined,
     h2: undefined,
     h6: undefined,
