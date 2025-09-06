@@ -16,7 +16,23 @@ const fallingBlocks: Project = {
       "Endless 2D game - evade the blocks! Was completed to practice Unity basics after a long hiatus from the game engine.",
     long: [],
   },
-  images: [],
+  images: [
+    {
+      src: "fallingblocks/home_g0izls",
+      alt: "Falling Blocks: Home Screen",
+      description: "Instructional home screen.",
+    },
+    {
+      src: "fallingblocks/in-game_d4a9hc",
+      alt: "Falling Blocks: In-Game",
+      description: "In game screenshot.",
+    },
+    {
+      src: "fallingblocks/game-over_skfeve",
+      alt: "Falling Blocks: Game Over Screen",
+      description: "Game over screen with highscore and play-again prompt.",
+    },
+  ],
 };
 
 export default fallingBlocks;

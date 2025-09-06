@@ -17,12 +17,12 @@ const ggj2020: Project = {
   },
   images: [
     {
-      src: "ggj/title-screen.png",
+      src: "ggj/title-screen_v9zvyj",
       alt: "GGJ-2020 I Was Never Here: Title Screen",
       description: "Game's title screen.",
     },
     {
-      src: "ggj/the-squad.png",
+      src: "ggj/the-squad_fesuum",
       alt: "GGJ-2020 I Was Never Here: Team Photo",
       description:
         "The Squad! From left to right: Angus Hon, Ahmed Abuzuraiq, Anson Christo, Jordan Watterson, Lily Zarif",
