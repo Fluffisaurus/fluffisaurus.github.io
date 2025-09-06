@@ -1,12 +1,17 @@
+import { Typography } from "@mui/material";
 import React from "react";
 
 const DoesNotExist: React.FunctionComponent = () => {
   return (
     <>
       <section>
-        <h1>Oops!</h1>
-        <p>The page you're looking for does not exist (yet?)!</p>
-        <p>Click the links above to teleport back!</p>
+        <Typography variant="h3">Oops!</Typography>
+        <Typography variant="body1">
+          The page you're looking for does not exist (yet?)!
+        </Typography>
+        <Typography variant="body1">
+          Click the links above to teleport back!
+        </Typography>
       </section>
     </>
   );

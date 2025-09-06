@@ -5,14 +5,17 @@ import {
   ProjectCategories,
   ProjectList,
 } from "../../content/projects/project-list";
+import { Grid, Typography } from "@mui/material";
 
 const Personal = () => {
   return (
     <>
-      <h1>Personal_projects</h1>
-      {ProjectList[ProjectCategories.PERSONAL].map((proj, i) => {
-        return <ProjectBlock proj={proj} key={i} />;
-      })}
+      <Typography variant="h4">Personal_projects</Typography>
+      <Grid container spacing={2} alignItems="flex-start">
+        {ProjectList[ProjectCategories.PERSONAL].map((proj, i) => {
+          return <ProjectBlock proj={proj} key={i} />;
+        })}
+      </Grid>
     </>
   );
 };

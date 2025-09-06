@@ -28,7 +28,7 @@ const ContentBlock = ({ heading, body }: ContentBlockProps) => {
             <Typography variant="h5" component="div" sx={{ mb: 2 }}>
               {headingText}
             </Typography>
-            <Typography variant="body2">
+            <Typography variant="body1">
               {bodyText.map((body, i) => {
                 return <Typography key={i}>{body}</Typography>;
               })}

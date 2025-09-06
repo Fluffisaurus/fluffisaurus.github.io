@@ -2,12 +2,13 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 
 import "../styles/projects.scss";
+import { Typography } from "@mui/material";
 
 const Projects: React.FunctionComponent = () => {
   return (
     <>
       <section className="Projects-container">
-        <h1>Projects</h1>
+        <Typography variant="h3">Projects</Typography>
         <Outlet />
       </section>
     </>
