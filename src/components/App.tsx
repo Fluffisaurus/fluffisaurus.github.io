@@ -1,5 +1,7 @@
 import React, { Suspense, lazy, useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "../theme";
 
 import { Cloudinary } from "@cloudinary/url-gen";
 // import { AdvancedImage } from "@cloudinary/react";
@@ -30,39 +32,43 @@ const App = () => {
   const [openSubLinks, setOpenSubLinks] = useState<boolean>(false);
 
   return (
-    <div className="App">
-      <Suspense fallback={<Loading />}>
-        <GlobalNav
-          toggleNav={toggleNav}
-          setToggleNav={setToggleNav}
-          openSubLinks={openSubLinks}
-          setOpenSubLinks={setOpenSubLinks}
-        />
-        <div className={!toggleNav ? "Container" : "Container Container--open"}>
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <Landing
-                  openSubLinks={openSubLinks}
-                  setOpenSubLinks={setOpenSubLinks}
-                />
-              }
-            />
-            <Route path="about" element={<AboutMe />} />
-            <Route path="projects" element={<Projects />}>
-              <Route index element={<Selection />} />
-              <Route path="personal" element={<Personal />} />
-              <Route path="academic" element={<Academic />} />
-            </Route>
-            <Route path="contact" element={<Contact />} />
-            <Route path="default" element={<Default />} />
-            <Route path="*" element={<DoesNotExist />} />
-          </Routes>
-        </div>
-      </Suspense>
-      {/* <AdvancedImage cldImg={testImg}/> */}
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Suspense fallback={<Loading />}>
+          <GlobalNav
+            toggleNav={toggleNav}
+            setToggleNav={setToggleNav}
+            openSubLinks={openSubLinks}
+            setOpenSubLinks={setOpenSubLinks}
+          />
+          <div
+            className={!toggleNav ? "Container" : "Container Container--open"}
+          >
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <Landing
+                    openSubLinks={openSubLinks}
+                    setOpenSubLinks={setOpenSubLinks}
+                  />
+                }
+              />
+              <Route path="about" element={<AboutMe />} />
+              <Route path="projects" element={<Projects />}>
+                <Route index element={<Selection />} />
+                <Route path="personal" element={<Personal />} />
+                <Route path="academic" element={<Academic />} />
+              </Route>
+              <Route path="contact" element={<Contact />} />
+              <Route path="default" element={<Default />} />
+              <Route path="*" element={<DoesNotExist />} />
+            </Routes>
+          </div>
+        </Suspense>
+        {/* <AdvancedImage cldImg={testImg}/> */}
+      </div>
+    </ThemeProvider>
   );
 };
 
