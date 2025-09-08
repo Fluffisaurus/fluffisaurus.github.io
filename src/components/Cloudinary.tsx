@@ -2,11 +2,18 @@ import React from "react";
 
 import { Cloudinary } from "@cloudinary/url-gen";
 
-const cld = new Cloudinary({
-  cloud: {
-    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
-  },
-  url: { secure: true },
-});
+let cldInstance: Cloudinary | null = null;
 
-export default cld;
+function getCloudinaryInstance() {
+  if (!cldInstance) {
+    cldInstance = new Cloudinary({
+      cloud: {
+        cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+      },
+      url: { secure: true },
+    });
+  }
+  return cldInstance;
+}
+
+export default getCloudinaryInstance();
