@@ -6,6 +6,7 @@ import {
   ProjectList,
 } from "../../content/projects/project-list";
 import { Grid, Typography } from "@mui/material";
+import { Outlet } from "react-router-dom";
 
 const Personal = () => {
   return (
@@ -16,6 +17,7 @@ const Personal = () => {
           return <ProjectBlock proj={proj} key={i} />;
         })}
       </Grid>
+      <Outlet />
     </>
   );
 };

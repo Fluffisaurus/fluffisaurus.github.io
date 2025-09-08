@@ -14,23 +14,23 @@ import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRigh
 import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftTwoTone";
 
 import { Project } from "../content/projects/interfaces";
-import cld from "./Cloudinary";
-import { Link } from "react-router-dom";
+import getCloudinaryInstance from "./Cloudinary";
+import { Link, useLocation } from "react-router-dom";
 import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
 
 interface ProjectCarouselProps {
   proj: Project;
-  width: number;
-  height: number;
+  width: number | string;
+  height: number | string;
 }
 
-const styles = {
+export const carouselStyles = {
   card: {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    margin: "5px 5px 0 5px",
+    margin: "5px",
   },
   outerBox: {
     position: "relative",
@@ -49,14 +49,19 @@ const styles = {
 };
 
 const PlaceholderCard = ({ proj, width, height }: ProjectCarouselProps) => {
+  const location = useLocation();
   return (
-    <Card sx={{ minHeight: height, ...styles.card }}>
-      <CardActionArea component={Link} to={proj.abbr}>
-        <Box sx={{ width: width, ...styles.outerBox }}>
+    <Card sx={{ minHeight: height, ...carouselStyles.card }}>
+      <CardActionArea
+        component={Link}
+        to={proj.abbr}
+        state={{ background: location }}
+      >
+        <Box sx={{ width: width, ...carouselStyles.outerBox }}>
           <CardMedia>
             <PhotoLibraryTwoToneIcon sx={{ width, height }} />
           </CardMedia>
-          <Box sx={{ ...styles.textOverlay }}>
+          <Box sx={{ ...carouselStyles.textOverlay }}>
             <Typography variant="caption">
               Photo unavailable at the moment.
             </Typography>
@@ -88,7 +93,9 @@ const PlaceholderCarousel = ({ proj, width, height }: ProjectCarouselProps) => {
 };
 
 const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
+  const location = useLocation();
   const images = proj.images;
+  const cld = getCloudinaryInstance;
   return (
     <Carousel
       stopAutoPlayOnHover={true}
@@ -101,9 +108,13 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
       PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
     >
       {images.map((item, i) => (
-        <Card key={i} sx={{ minHeight: height, ...styles.card }}>
-          <CardActionArea component={Link} to={proj.abbr}>
-            <Box sx={{ width: width, ...styles.outerBox }}>
+        <Card key={i} sx={{ minHeight: height, ...carouselStyles.card }}>
+          <CardActionArea
+            component={Link}
+            to={proj.abbr}
+            state={{ background: location }}
+          >
+            <Box sx={{ width: width, ...carouselStyles.outerBox }}>
               <CardMedia>
                 <AdvancedImage
                   cldImg={cld
@@ -111,7 +122,7 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
                     .resize(fit(width, height))}
                 />
               </CardMedia>
-              <Box sx={{ ...styles.textOverlay }}>
+              <Box sx={{ ...carouselStyles.textOverlay }}>
                 <Typography variant="caption">{item.description}</Typography>
               </Box>
             </Box>

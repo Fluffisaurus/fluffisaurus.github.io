@@ -7,6 +7,7 @@ import {
 } from "../../content/projects/project-list";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
+import { Outlet } from "react-router-dom";
 
 const Academic = () => {
   return (
@@ -17,6 +18,7 @@ const Academic = () => {
           return <ProjectBlock proj={proj} key={i} />;
         })}
       </Grid>
+      <Outlet />
     </>
   );
 };

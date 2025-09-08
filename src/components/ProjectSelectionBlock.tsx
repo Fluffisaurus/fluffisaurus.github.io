@@ -2,7 +2,7 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
 import FaceTwoToneIcon from "@mui/icons-material/FaceTwoTone";
@@ -23,9 +23,10 @@ const iconStyling = {
 };
 
 const ProjectSelectionBlock = ({ cat, data }: ProjectSelectionBlockProps) => {
+  const location = useLocation();
   return (
     <Card sx={{ maxWidth: 300 }}>
-      <CardActionArea component={Link} to={cat}>
+      <CardActionArea component={Link} to={cat} state={location}>
         {cat == ProjectCategories.PERSONAL ? (
           <FaceTwoToneIcon sx={iconStyling} />
         ) : (
