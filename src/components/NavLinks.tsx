@@ -1,10 +1,10 @@
+import { Button, MenuItem } from "@mui/material";
+import { bindHover, bindMenu, usePopupState } from "material-ui-popup-state/hooks";
+
+import HoverMenu from 'material-ui-popup-state/HoverMenu'
 import React from "react";
 import { Link } from "react-router-dom";
-
-export interface NavLinksProps {
-  openSubLinks: boolean;
-  setOpenSubLinks: React.Dispatch<React.SetStateAction<boolean>>;
-}
+import { muiButtonNavlinkFontSizes } from "../mui/components/muiButton";
 
 const paths = [
   {
@@ -16,8 +16,8 @@ const paths = [
     path: "/projects",
     text: "projects",
     subpaths: [
-      { path: "/personal", text: "personal" },
-      { path: "/academic", text: "academic" },
+      { path: "projects/personal", text: "personal" },
+      { path: "projects/academic", text: "academic" },
     ],
   },
   {
@@ -27,7 +27,12 @@ const paths = [
   },
 ];
 
-const NavLinks = ({ openSubLinks, setOpenSubLinks }: NavLinksProps) => {
+const NavLinks = () => {
+  const popupState = usePopupState({
+    variant: 'popover',
+    popupId: 'subPathMenu',
+  })
+
   return (
     <>
       {paths.map((path, index) => {
@@ -35,43 +40,37 @@ const NavLinks = ({ openSubLinks, setOpenSubLinks }: NavLinksProps) => {
           <>
             {path.subpaths.length !== 0 ? (
               <>
-                <span
-                  className={
-                    openSubLinks
-                      ? "Global-nav__parent-landing Global-nav__parent-landing--open"
-                      : "Global-nav__parent-landing"
-                  }
-                  onMouseEnter={() => setOpenSubLinks(true)}
-                  onMouseLeave={() => setOpenSubLinks(false)}
-                  onClick={() => setOpenSubLinks(true)}
+                <Button 
+                  key={`${path.text}`}
+                  component={Link} 
+                  to={path.path} 
+                  size="large" 
+                  variant="navlink"
+                  {...bindHover(popupState)}
+                  sx={{...muiButtonNavlinkFontSizes}}
                 >
-                  <Link
-                    to={path.path}
-                    className={openSubLinks ? "Nav-link--active" : ""}
-                    key={`${path.text}-${index}`}
-                  >
-                    {path.text}
-                  </Link>
-                  <div>
-                    {path.subpaths.map((subPath, index) => {
-                      return (
-                        <span>
-                          <Link
-                            to={path.path + subPath.path}
-                            key={`${path.text}-${index}`}
-                          >
-                            {subPath.text}
-                          </Link>
-                        </span>
-                      );
-                    })}
-                  </div>
-                </span>
+                  {path.text}
+                </Button>
+                <HoverMenu
+                  {...bindMenu(popupState)}
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                  transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                >
+                  {path.subpaths.map((subPath, i) => {
+                    return(
+                      <MenuItem>
+                        <Button key={`${subPath.text}-${i}`} component={Link} to={subPath.path} size="large" variant="navlink" sx={{...muiButtonNavlinkFontSizes}}>
+                          {subPath.text}
+                        </Button>
+                      </MenuItem>
+                    );
+                  })}
+                </HoverMenu>
               </>
             ) : (
-              <span>
-                <Link to={path.path}>{path.text}</Link>
-              </span>
+              <Button key={`${path.text}-${index}`} component={Link} to={path.path} size="large" variant="navlink" sx={{...muiButtonNavlinkFontSizes}}>
+                {path.text}
+              </Button>
             )}
           </>
         );

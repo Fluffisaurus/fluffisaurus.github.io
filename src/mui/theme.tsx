@@ -3,14 +3,24 @@ import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import muiPalette from "./muiPalette"
 import muiTypography from "./muiTypography";
 import muiButtonStyles from './components/muiButton'
+import muiList from "./components/muiList"
+import muiMenuItem from "./components/muiMenuItem"
 import muiCssBaseline from "./components/muiCssBaseline"
+
+declare module '@mui/material/Button' {
+  interface ButtonPropsVariantOverrides {
+    navlink: true;
+  }
+}
 
 let theme = createTheme({
   ...muiPalette,
   ...muiTypography,
   components: {
     ...muiButtonStyles,
-    ...muiCssBaseline,
+    ...muiList,
+    ...muiMenuItem,
+    ...muiCssBaseline
   },
 });
 

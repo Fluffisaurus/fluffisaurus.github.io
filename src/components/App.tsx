@@ -47,10 +47,7 @@ const App = () => {
               <Route
                 path="/"
                 element={
-                  <Landing
-                    openSubLinks={openSubLinks}
-                    setOpenSubLinks={setOpenSubLinks}
-                  />
+                  <Landing />
                 }
               />
               <Route path="about" element={<AboutMe />} />
