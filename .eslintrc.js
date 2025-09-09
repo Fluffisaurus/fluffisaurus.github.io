@@ -19,4 +19,9 @@ module.exports = {
     "react/jsx-indent": ["error", 2], // Indent JSX with 2 spaces
     "react/jsx-indent-props": ["error", 2], // Indent props with 2 spaces
   },
+  settings: {
+    "import/resolver": {
+      "babel-module": {}
+    }
+  }
 };
