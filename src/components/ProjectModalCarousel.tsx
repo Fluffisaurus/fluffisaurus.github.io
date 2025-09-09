@@ -22,8 +22,8 @@ const styles = {
     top: "calc(50% + 20px)", // global nav bar is 40px tall
     left: "50%",
     transform: "translate(-50%, -50%)",
-    width: `90%`,
-    height: `90%`,
+    width: "87%",
+    height: "87%",
     bgcolor: "background.paper",
     boxShadow: 24,
     p: 2,
