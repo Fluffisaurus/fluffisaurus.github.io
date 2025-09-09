@@ -3,8 +3,8 @@ import React, { useCallback, useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import { useNavigate } from "react-router-dom";
-import { Card, CardContent, Grid } from "@mui/material";
+import { To, useNavigate } from "react-router-dom";
+import { Card, CardContent, Grid, useMediaQuery, useTheme } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import { AdvancedImage } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
@@ -13,19 +13,20 @@ import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftT
 import getCloudinaryInstance from "./Cloudinary";
 import { carouselStyles } from "./ProjectCarousel";
 import { Project } from "../content/projects/interfaces";
+import { ScrollArea } from "@blur-ui/scroll-area";
 
 const styles = {
   ...carouselStyles,
   modalBox: {
     position: "absolute",
-    top: "50%",
+    top: "calc(50% + 20px)", // global nav bar is 40px tall
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: `90%`,
-    height: `80%`,
+    height: `90%`,
     bgcolor: "background.paper",
     boxShadow: 24,
-    p: 4,
+    p: 2,
     display: "flex",
   },
 };
@@ -38,6 +39,8 @@ export default function ProjectModalCarousel({
   proj,
 }: ProjectModalCarouselProps) {
   const navigate = useNavigate();
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
   const cld = getCloudinaryInstance;
 
   const [dims, setDims] = useState({ width: 0, height: 0 });
@@ -60,13 +63,13 @@ export default function ProjectModalCarousel({
 
       setDims({
         width: node.offsetWidth - margin.width - padding.width,
-        height: node.offsetHeight - margin.height - padding.height,
+        height: node.offsetHeight - margin.height - padding.height - 40, // 40px for indicators
       });
     }
   }, []);
 
   const handleClose = () => {
-    navigate(-1 as any, { replace: true });
+    navigate("-1" as To, { replace: true });
   };
 
   return (
@@ -76,50 +79,72 @@ export default function ProjectModalCarousel({
       aria-labelledby={`modal-modal-title-${proj.abbr}`}
       aria-describedby={`modal-modal-description-${proj.abbr}`}
     >
-      <Box sx={styles.modalBox}>
-        <Box sx={{ display: "flex", flexDirection: "column", width: "30%" }}>
-          <CardContent sx={{ flex: "1 0 auto" }}>
-            <Box />
-            <Typography
-              id={`modal-modal-title-${proj.abbr}`}
-              component="div"
-              variant="h5"
-            >
-              {proj.name}
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              component="div"
-              sx={{ color: "text.secondary" }}
-            >
-              {proj.category}
-            </Typography>
-            <Grid
-              container
-              display="flex"
-              flexDirection="row"
-              spacing={2}
-              rowSpacing={0}
-              width="90%"
-            >
-              {proj.tags.map((tag, i) => (
-                <Typography
-                  key={i}
-                  variant="subtitle2"
-                  component="div"
-                  sx={{ color: "text.secondary" }}
-                >
-                  {tag}
-                </Typography>
-              ))}
-            </Grid>
-            <Box sx={{ paddingTop: `10px` }}>
-              <Typography variant="body2">{proj.date}</Typography>
-              <Typography variant="body1">{proj.detail.short}</Typography>
-            </Box>
-          </CardContent>
+      <Box sx={{ ...styles.modalBox, flexDirection: isSmallScreen ? 'column-reverse' : 'row'}}>
+        <Box sx={{ 
+          display: "flex", 
+          flexDirection: "column", 
+          width: isSmallScreen ? "100%" : "30%",
+          height: isSmallScreen ? "40%" : "100%",
+          overflow: "hidden"
+         }}>
+          <ScrollArea
+            classNames={{
+              horizontalScrollbar: 'h-2.5',
+              root: 'w-60 h-60 text-black dark:text-white',
+              scrollbar: 'p-[1px]',
+              thumb: 'bg-neutral-800 dark:bg-neutral-100 rounded-full opacity-30 hover:opacity-40 transition-opacity',
+              verticalScrollbar: 'w-2.5'
+            }}
+            dir="ltr"
+            orientation="vertical"
+            scrollHideDelay={600}
+            shadowSize={50}
+            type="always"
+          >
+            <CardContent sx={{ 
+              flex: "1 0 auto"
+            }}>
+              <Typography
+                id={`modal-modal-title-${proj.abbr}`}
+                component="div"
+                variant="h5"
+              >
+                {proj.name}
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                component="div"
+                sx={{ color: "text.secondary" }}
+              >
+                {proj.category}
+              </Typography>
+              <Grid
+                container
+                display="flex"
+                flexDirection="row"
+                spacing={2}
+                rowSpacing={0}
+                width="90%"
+              >
+                {proj.tags.map((tag, i) => (
+                  <Typography
+                    key={i}
+                    variant="subtitle2"
+                    component="div"
+                    sx={{ color: "text.secondary" }}
+                  >
+                    {tag}
+                  </Typography>
+                ))}
+              </Grid>
+              <Box sx={{ paddingTop: `10px` }}>
+                <Typography variant="body2">{proj.date}</Typography>
+                <Typography variant="body1">{proj.detail.short}</Typography>
+              </Box>
+            </CardContent>
+          </ScrollArea>
         </Box>
-        <Box ref={modalRef} sx={{ width: `70%` }}>
+        <Box ref={modalRef} sx={{ width: isSmallScreen ? "100%" : "70%", height: "100%" }}>
           <Carousel
             stopAutoPlayOnHover
             fullHeightHover

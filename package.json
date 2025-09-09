@@ -29,6 +29,7 @@
   },
   "homepage": "https://fluffisaurus.github.io",
   "dependencies": {
+    "@blur-ui/scroll-area": "^1.0.1",
     "@cloudinary/react": "1.4.0",
     "@cloudinary/url-gen": "1.8.0",
     "@emotion/react": "^11.14.0",

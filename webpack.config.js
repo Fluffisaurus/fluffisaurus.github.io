@@ -17,7 +17,10 @@ module.exports = {
     filename: devMode ? "[name].js" : "[name].[hash].js",
   },
   resolve: {
-    extensions: [".tsx", ".ts", ".js", ".jsx"],
+    extensions: [".tsx", ".ts", ".js", ".jsx", "..."],
+    alias: {
+      "@blur-ui": path.resolve(__dirname, "./node_modules/@blur-ui")
+    }
   },
   plugins: [
     new CleanWebpackPlugin(),
