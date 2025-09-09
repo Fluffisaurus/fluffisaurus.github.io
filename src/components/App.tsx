@@ -55,12 +55,12 @@ const App = () => {
                 <Route index element={<Selection />} />
                 <Route path="personal" element={<Personal />} />
                 <Route
-                  path="*"
+                  path="personal/*"
                   element={<Navigate to="/projects/personal" replace />}
                 />
                 <Route path="academic" element={<Academic />} />
                 <Route
-                  path="*"
+                  path="academic/*"
                   element={<Navigate to="/projects/academic" replace />}
                 />
               </Route>
