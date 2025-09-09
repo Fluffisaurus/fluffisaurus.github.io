@@ -31,7 +31,7 @@ const App = () => {
   const background = location.state && (location.state as any).background;
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme} defaultMode="light" noSsr >
       <div className="App">
         <Suspense fallback={<Loading />}>
           <GlobalNav

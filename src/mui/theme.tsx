@@ -14,6 +14,10 @@ declare module '@mui/material/Button' {
 }
 
 let theme = createTheme({
+  colorSchemes:{
+    dark: true,
+    light: true,
+  },
   ...muiPalette,
   ...muiTypography,
   components: {
