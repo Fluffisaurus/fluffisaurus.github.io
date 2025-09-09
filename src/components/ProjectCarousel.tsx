@@ -6,6 +6,8 @@ import {
   CardActionArea,
   CardMedia,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import { AdvancedImage } from "@cloudinary/react";
@@ -20,7 +22,7 @@ import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
 
 interface ProjectCarouselProps {
   proj: Project;
-  width: number | string;
+  width: Record<string, Record<string, number>>;
   height: number | string;
 }
 
@@ -57,9 +59,9 @@ const PlaceholderCard = ({ proj, width, height }: ProjectCarouselProps) => {
         to={proj.abbr}
         state={{ background: location }}
       >
-        <Box sx={{ width: width, ...carouselStyles.outerBox }}>
+        <Box sx={{ ...width, ...carouselStyles.outerBox }}>
           <CardMedia>
-            <PhotoLibraryTwoToneIcon sx={{ width, height }} />
+            <PhotoLibraryTwoToneIcon sx={{ ...width, height }} />
           </CardMedia>
           <Box sx={{ ...carouselStyles.textOverlay }}>
             <Typography variant="caption">
@@ -74,6 +76,8 @@ const PlaceholderCard = ({ proj, width, height }: ProjectCarouselProps) => {
 
 const PlaceholderCarousel = ({ proj, width, height }: ProjectCarouselProps) => {
   const placeholders = [1, 2];
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   return (
     <Carousel
       stopAutoPlayOnHover={true}
@@ -84,6 +88,7 @@ const PlaceholderCarousel = ({ proj, width, height }: ProjectCarouselProps) => {
       height={height}
       NextIcon={<KeyboardArrowRightTwoToneIcon />}
       PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
+      navButtonsAlwaysVisible={isMobile ? true: false}
     >
       {placeholders.map((item, i) => (
         <PlaceholderCard key={i} proj={proj} width={width} height={height} />
@@ -96,6 +101,9 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
   const location = useLocation();
   const images = proj.images;
   const cld = getCloudinaryInstance;
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const imgWidth = isMobile ? width.width.xs : width.width.md
   return (
     <Carousel
       stopAutoPlayOnHover={true}
@@ -106,6 +114,7 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
       height={height}
       NextIcon={<KeyboardArrowRightTwoToneIcon />}
       PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
+      navButtonsAlwaysVisible={isMobile ? true: false}
     >
       {images.map((item, i) => (
         <Card key={i} sx={{ minHeight: height, ...carouselStyles.card }}>
@@ -119,7 +128,7 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
                 <AdvancedImage
                   cldImg={cld
                     .image(`portfolio/${item.src}`)
-                    .resize(fit(width, height))}
+                    .resize(fit(imgWidth, height))}
                 />
               </CardMedia>
               <Box sx={{ ...carouselStyles.textOverlay }}>
@@ -134,7 +143,7 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
 };
 
 const ProjectCarousel = (props: ProjectCarouselProps) => {
-  const { proj, width, height, ...other } = props;
+  const { proj, width, height } = props;
 
   return proj.images.length == 0 ? (
     <PlaceholderCarousel proj={proj} width={width} height={height} />

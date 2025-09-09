@@ -58,13 +58,17 @@ const ProjectBlock = ({ proj }: ProjectBlockProps) => {
    */
   const location = useLocation();
 
+  const cardWidth = {
+    width: { xs: 300, md: 400}
+  }
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
   return (
-    <Card sx={{ width: 400 }}>
+    <Card sx={{ ...cardWidth }}>
       <CardMedia sx={{ minHeight: 200 }}>
-        <ProjectCarousel key={location.pathname} proj={proj} width={400} height={200} />
+        <ProjectCarousel key={location.pathname} proj={proj} width={{...cardWidth}} height={200} />
       </CardMedia>
       <CardContent sx={{ position: "relative" }}>
         <Typography component="div" variant="h5">
