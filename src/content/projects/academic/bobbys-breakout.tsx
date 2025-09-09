@@ -57,7 +57,7 @@ const bobbysBreakout: Project = {
       description: "In-game items user can pick up.",
     },
     {
-      src: "bobby/bobby-bobby-breakout-achievement_tvbixc",
+      src: "bobby/bobby-breakout-achievement_tvbixc",
       alt: "Bobby Breakout: Achievement",
       description:
         "Dynamic and persistent achievements screen (stored in database by account session).",
