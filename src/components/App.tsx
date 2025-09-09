@@ -24,7 +24,6 @@ import { Project } from "../content/projects/interfaces";
 
 const App = () => {
   const [toggleNav, setToggleNav] = useState<boolean>(false);
-  const [openSubLinks, setOpenSubLinks] = useState<boolean>(false);
 
   const location = useLocation();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -37,8 +36,6 @@ const App = () => {
           <GlobalNav
             toggleNav={toggleNav}
             setToggleNav={setToggleNav}
-            openSubLinks={openSubLinks}
-            setOpenSubLinks={setOpenSubLinks}
           />
           <div
             className={!toggleNav ? "Container" : "Container Container--open"}

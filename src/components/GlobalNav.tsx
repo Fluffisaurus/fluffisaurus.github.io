@@ -2,35 +2,39 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import "../styles/global-nav.scss";
+import { Box, Button, Menu, useMediaQuery, useTheme } from "@mui/material";
+import { globalNavButtonProps } from "../mui/components/muiButton";
+import { bindMenu } from "material-ui-popup-state";
+import { bindTrigger, usePopupState } from "material-ui-popup-state/hooks";
 
 interface GlobalNavProps {
   toggleNav: boolean;
   setToggleNav: React.Dispatch<React.SetStateAction<boolean>>;
-  openSubLinks: boolean;
-  setOpenSubLinks: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const GlobalNav = ({
   toggleNav,
   setToggleNav,
-  openSubLinks,
-  setOpenSubLinks,
 }: GlobalNavProps) => {
   const location = useLocation();
   const [currPath, setCurrPath] = useState<string>("");
   const [subPath, setSubPath] = useState<string | null>();
-  const [isOpen, setIsOpen] = useState<boolean>(openSubLinks);
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const popupState = usePopupState({
+    variant: 'popover',
+    popupId: 'globalNavPopup',
+  })
 
   useEffect(() => {
-    if (openSubLinks) setIsOpen(true);
-  }, [openSubLinks]);
-
-  useEffect(() => {
-    currPath === "projects" ? setIsOpen(true) : setIsOpen(false);
-  }, [currPath]);
-
-  useEffect(() => {
-    location.pathname === "/" ? setToggleNav(false) : setToggleNav(true);
+    if (location.pathname === "/") {
+      setToggleNav(false);
+      popupState.close();
+    } else{
+      setToggleNav(true);
+    } 
 
     if (location.pathname.substring(1).includes("/")) {
       setCurrPath(location.pathname.substring(1).split("/")[0]);
@@ -44,77 +48,40 @@ const GlobalNav = ({
   return (
     <>
       {toggleNav && (
-        <div className="Global-nav">
-          <span
-            className="Global-nav__root"
-            onClick={() => setOpenSubLinks(false)}
-          >
-            <Link to="/">🏠:</Link>
-            <Link to={currPath} className="Nav-link--active">
-              {"/" + currPath}
-            </Link>
+        <Box className="Global-nav">
+          <Box className="Global-nav__root">
+            <Button component={Link} to={"/"} {...globalNavButtonProps}>🏠:/</Button>
+            <Button className="Nav-link--active" component={Link} to={currPath} {...globalNavButtonProps}>
+              {currPath + "/"}
+            </Button>
             {subPath && (
-              <Link to={currPath + "/" + subPath} className="Nav-link--active">
-                {"/" + subPath}
-              </Link>
+              <Button className="Nav-link--active" component={Link} to={currPath + "/" + subPath} {...globalNavButtonProps}>
+                {subPath + "/"}
+              </Button>
             )}
-            <a className="Nav-link__no-events">~$</a>
-          </span>
-          <nav>
-            <span>
-              <Link
-                to="/about"
-                className={"about" === currPath ? "Nav-link--active" : ""}
-              >
-                about
-              </Link>
-            </span>
-            <span
-              className={
-                isOpen
-                  ? "Global-nav__parent Global-nav__parent--open"
-                  : "Global-nav__parent"
-              }
-              onMouseEnter={() => setIsOpen(true)}
-              onMouseLeave={() =>
-                currPath !== "projects" && !subPath && setIsOpen(false)
-              }
-            >
-              <Link
-                to="/projects"
-                className={"projects" === currPath ? "Nav-link--active" : ""}
-              >
-                projects
-              </Link>
-              <div>
-                <span>
-                  <Link
-                    to="/projects/personal"
-                    className={"personal" === subPath ? "Nav-link--active" : ""}
-                  >
-                    personal
-                  </Link>
-                </span>
-                <span>
-                  <Link
-                    to="/projects/academic"
-                    className={"academic" === subPath ? "Nav-link--active" : ""}
-                  >
-                    academic
-                  </Link>
-                </span>
-              </div>
-            </span>
-            <span>
-              <Link
-                to="/contact"
-                className={"contact" === currPath ? "Nav-link--active" : ""}
-              >
-                contact
-              </Link>
-            </span>
-          </nav>
-        </div>
+            <Button className="Nav-link__no-events" {...globalNavButtonProps}>~$</Button>
+          </Box>
+          <Box className="Global-nav__options">
+            {
+              isMobile 
+              ? (
+                <></>
+              ) 
+              : (
+                <>
+                  <Button component={Link} to={"/about"} {...globalNavButtonProps}> about</Button>
+                  <Button {...globalNavButtonProps} {...bindTrigger(popupState)}> projects/</Button>
+                  <Menu {...bindMenu(popupState)} anchorOrigin={{vertical: 'bottom', horizontal: "left"}} transformOrigin={{ vertical: 'top', horizontal: 'left' }} >
+                    <Button component={Link} to={"/projects"} {...globalNavButtonProps}>./</Button>
+                    <Button component={Link} to={"/projects/personal"} {...globalNavButtonProps}>personal</Button>
+                    <Button component={Link} to={"/projects/academic"} {...globalNavButtonProps}>academic</Button>
+                  </Menu>
+                  <Button component={Link} to={"/contact"} {...globalNavButtonProps}> contact</Button>
+                </>
+              )
+            }
+          </Box>
+        </Box>
       )}
     </>
   );

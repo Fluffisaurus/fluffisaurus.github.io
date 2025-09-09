@@ -12,16 +12,22 @@ $fixed-nav-width: 400px;
   height: $global-nav-height;
   padding: 0px 5px 0px 5px;
 
-  display: flex;
   background-color: $nav-color;
   border-bottom: 3px solid $nav-border-color;
 
+  display: flex;
+  align-items: center;
+
   &__root {
     align-self: center;
-    width: $fixed-nav-width;
+    // width: $fixed-nav-width;
     a {
       padding: 0 !important;
     }
+  }
+
+  &__options {
+    margin: auto;
   }
 
   &__parent,

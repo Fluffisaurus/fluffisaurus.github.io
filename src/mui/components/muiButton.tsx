@@ -11,6 +11,16 @@ export const navLinkButtonProps: ButtonProps = {
   sx: {...muiButtonNavlinkFontSizes}
 }
 
+const muiButtonGlobalNavFontSizes = {
+  fontSize: { xs: 18, sm: 18, md: 19, lg: 20 }
+}
+
+export const globalNavButtonProps: ButtonProps = {
+  size: "medium", 
+  variant:"navlink", 
+  sx: {...muiButtonGlobalNavFontSizes}
+}
+
 const muiButtonStyles = {
     MuiButton: {
       variants:[
