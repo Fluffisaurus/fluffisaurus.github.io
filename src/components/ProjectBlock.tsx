@@ -11,6 +11,7 @@ import { CardActions, Collapse, Grid } from "@mui/material";
 
 import { Project } from "../content/projects/interfaces";
 import ProjectCarousel from "./ProjectCarousel";
+import { useLocation } from "react-router-dom";
 
 interface ProjectBlockProps {
   proj: Project;
@@ -21,7 +22,7 @@ interface ExpandMoreProps extends IconButtonProps {
 }
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
+  const { expand, ...other } = props; //eslint-disable-line @typescript-eslint/no-unused-vars
   return <IconButton {...other} />;
 })(({ theme }) => ({
   marginLeft: "auto",
@@ -46,6 +47,16 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 
 const ProjectBlock = ({ proj }: ProjectBlockProps) => {
   const [expanded, setExpanded] = React.useState(false);
+  /*
+   * location as a key here helps react recognize which is parent vs child
+   * when path updates, the state of the parent is preserved since React can keep track
+   * of which is the parent via it's location.pathname.
+   * in this case, fullscreen modal carousel is the child, forcing project block to 
+   * rerender or preserve its state
+   *
+   * search: "react rerender with key location" or "react rerender parent with child key location"
+   */
+  const location = useLocation();
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -53,7 +64,7 @@ const ProjectBlock = ({ proj }: ProjectBlockProps) => {
   return (
     <Card sx={{ width: 400 }}>
       <CardMedia sx={{ minHeight: 200 }}>
-        <ProjectCarousel proj={proj} width={400} height={200} />
+        <ProjectCarousel key={location.pathname} proj={proj} width={400} height={200} />
       </CardMedia>
       <CardContent sx={{ position: "relative" }}>
         <Typography component="div" variant="h5">
