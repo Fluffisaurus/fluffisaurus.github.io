@@ -1,7 +1,14 @@
+import { ButtonProps } from "@mui/material";
 import { CSSObject, Theme } from "@mui/material/styles";
 
-export const muiButtonNavlinkFontSizes = {
+const muiButtonNavlinkFontSizes = {
   fontSize: { xs: 18, sm: 20, md: 24, lg: 26 }
+}
+
+export const navLinkButtonProps: ButtonProps = {
+  size: "large",
+  variant: "navlink",
+  sx: {...muiButtonNavlinkFontSizes}
 }
 
 const muiButtonStyles = {

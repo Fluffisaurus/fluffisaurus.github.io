@@ -4,7 +4,7 @@ import { bindHover, bindMenu, usePopupState } from "material-ui-popup-state/hook
 import HoverMenu from 'material-ui-popup-state/HoverMenu'
 import React from "react";
 import { Link } from "react-router-dom";
-import { muiButtonNavlinkFontSizes } from "../mui/components/muiButton";
+import { navLinkButtonProps } from "../mui/components/muiButton";
 
 const paths = [
   {
@@ -44,10 +44,8 @@ const NavLinks = () => {
                   key={`${path.text}`}
                   component={Link} 
                   to={path.path} 
-                  size="large" 
-                  variant="navlink"
+                  {...navLinkButtonProps}
                   {...bindHover(popupState)}
-                  sx={{...muiButtonNavlinkFontSizes}}
                 >
                   {path.text}
                 </Button>
@@ -59,7 +57,7 @@ const NavLinks = () => {
                   {path.subpaths.map((subPath, i) => {
                     return(
                       <MenuItem>
-                        <Button key={`${subPath.text}-${i}`} component={Link} to={subPath.path} size="large" variant="navlink" sx={{...muiButtonNavlinkFontSizes}}>
+                        <Button key={`${subPath.text}-${i}`} component={Link} to={subPath.path} {...navLinkButtonProps}>
                           {subPath.text}
                         </Button>
                       </MenuItem>
@@ -68,7 +66,7 @@ const NavLinks = () => {
                 </HoverMenu>
               </>
             ) : (
-              <Button key={`${path.text}-${index}`} component={Link} to={path.path} size="large" variant="navlink" sx={{...muiButtonNavlinkFontSizes}}>
+              <Button key={`${path.text}-${index}`} component={Link} to={path.path} {...navLinkButtonProps}>
                 {path.text}
               </Button>
             )}

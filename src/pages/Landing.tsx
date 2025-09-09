@@ -3,7 +3,7 @@ import NavLinks from "../components/NavLinks";
 
 import "../styles/landing.scss";
 import { Box, Button, Typography } from "@mui/material";
-import { muiButtonNavlinkFontSizes } from "../mui/components/muiButton";
+import { navLinkButtonProps } from "../mui/components/muiButton";
 
 const Landing = () => {
   return (
@@ -22,7 +22,7 @@ const Landing = () => {
         </Typography>
       </Box>
       <Box className="Landing-container__nav">
-        <Button className="Nav-link__no-events" size="large" variant="navlink" sx={{ paddingLeft: 0, ...muiButtonNavlinkFontSizes }}>
+        <Button className="Nav-link__no-events" {...navLinkButtonProps} sx={{ paddingLeft: 0, ...navLinkButtonProps.sx }}>
           ~$
         </Button>
         <NavLinks />
