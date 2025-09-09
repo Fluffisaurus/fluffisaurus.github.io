@@ -2,7 +2,8 @@ const muiMenuItem = {
   MuiMenuItem:{
     styleOverrides:{
       root:{
-        padding: 0
+        padding: 0,
+        minHeight: 0
       }
     }
   }
