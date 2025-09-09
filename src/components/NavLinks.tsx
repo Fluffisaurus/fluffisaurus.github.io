@@ -1,4 +1,4 @@
-import { Button, MenuItem } from "@mui/material";
+import { Button, MenuItem, useMediaQuery, useTheme } from "@mui/material";
 import { bindHover, bindMenu, usePopupState } from "material-ui-popup-state/hooks";
 
 import HoverMenu from 'material-ui-popup-state/HoverMenu'
@@ -28,6 +28,8 @@ const paths = [
 ];
 
 const NavLinks = () => {
+  const theme = useTheme()
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
   const popupState = usePopupState({
     variant: 'popover',
     popupId: 'subPathMenu',
@@ -51,7 +53,11 @@ const NavLinks = () => {
                 </Button>
                 <HoverMenu
                   {...bindMenu(popupState)}
-                  anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+                  anchorOrigin={
+                    isMobile 
+                    ? { vertical: 'top', horizontal: 'right' } 
+                    : { vertical: 'bottom', horizontal: 'left'}
+                  }
                   transformOrigin={{ vertical: 'top', horizontal: 'left' }}
                 >
                   {path.subpaths.map((subPath, i) => {
