@@ -1,7 +1,7 @@
 import React, { Suspense, lazy, useState } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "../theme";
+import theme from "../mui/theme";
 
 const Loading = lazy(() => import("../pages/Loading"));
 const Default = lazy(() => import("../pages/Default"));
@@ -27,6 +27,7 @@ const App = () => {
   const [openSubLinks, setOpenSubLinks] = useState<boolean>(false);
 
   const location = useLocation();
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const background = location.state && (location.state as any).background;
 
   return (
