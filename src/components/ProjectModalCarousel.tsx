@@ -20,6 +20,7 @@ import getCloudinaryInstance from "./Cloudinary";
 import { carouselStyles } from "./ProjectCarousel";
 import { Project } from "../content/projects/interfaces";
 import { ScrollArea } from "@blur-ui/scroll-area";
+import computeNodeStyle from "../utils/computeNodeStyle";
 
 const styles = {
   ...carouselStyles,
@@ -56,20 +57,10 @@ export default function ProjectModalCarousel({
   // solution from: https://stackoverflow.com/a/67906087
   const modalRef = useCallback((node: HTMLDivElement | null) => {
     if (node !== null) {
-      const cmpStyle = getComputedStyle(node);
-      const margin = {
-        width: parseInt(cmpStyle.marginLeft) + parseInt(cmpStyle.marginRight),
-        height: parseInt(cmpStyle.marginTop) + parseInt(cmpStyle.marginBottom),
-      };
-      const padding = {
-        width: parseInt(cmpStyle.paddingLeft) + parseInt(cmpStyle.paddingRight),
-        height:
-          parseInt(cmpStyle.paddingTop) + parseInt(cmpStyle.paddingBottom),
-      };
-
+      const nodeDims = computeNodeStyle(node);
       setDims({
-        width: node.offsetWidth - margin.width - padding.width,
-        height: node.offsetHeight - margin.height - padding.height - 40, // 40px for indicators
+        width: nodeDims.width,
+        height: nodeDims.height - 40, // 40px for indicators
       });
     }
   }, []);
