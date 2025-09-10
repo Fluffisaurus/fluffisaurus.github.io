@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky",
     "lint-staged": "lint-staged",
+    "pre-commit": "pre-commit run",
     "dev": "NODE_ENV=development webpack serve",
     "start": "NODE_ENV=development webpack serve",
     "build": "NODE_ENV=production webpack",
