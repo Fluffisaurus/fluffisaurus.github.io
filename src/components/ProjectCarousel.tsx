@@ -77,7 +77,7 @@ const PlaceholderCard = ({ proj, width, height }: ProjectCarouselProps) => {
 const PlaceholderCarousel = ({ proj, width, height }: ProjectCarouselProps) => {
   const placeholders = [1, 2];
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <Carousel
       stopAutoPlayOnHover={true}
@@ -88,7 +88,7 @@ const PlaceholderCarousel = ({ proj, width, height }: ProjectCarouselProps) => {
       height={height}
       NextIcon={<KeyboardArrowRightTwoToneIcon />}
       PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
-      navButtonsAlwaysVisible={isMobile ? true: false}
+      navButtonsAlwaysVisible={isMobile ? true : false}
     >
       {placeholders.map((item, i) => (
         <PlaceholderCard key={i} proj={proj} width={width} height={height} />
@@ -102,8 +102,8 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
   const images = proj.images;
   const cld = getCloudinaryInstance;
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
-  const imgWidth = isMobile ? width.width.xs : width.width.md
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const imgWidth = isMobile ? width.width.xs : width.width.md;
   return (
     <Carousel
       stopAutoPlayOnHover={true}
@@ -114,7 +114,7 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
       height={height}
       NextIcon={<KeyboardArrowRightTwoToneIcon />}
       PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
-      navButtonsAlwaysVisible={isMobile ? true: false}
+      navButtonsAlwaysVisible={isMobile ? true : false}
     >
       {images.map((item, i) => (
         <Card key={i} sx={{ minHeight: height, ...carouselStyles.card }}>

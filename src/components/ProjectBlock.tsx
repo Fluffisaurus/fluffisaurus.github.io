@@ -51,7 +51,7 @@ const ProjectBlock = ({ proj }: ProjectBlockProps) => {
    * location as a key here helps react recognize which is parent vs child
    * when path updates, the state of the parent is preserved since React can keep track
    * of which is the parent via it's location.pathname.
-   * in this case, fullscreen modal carousel is the child, forcing project block to 
+   * in this case, fullscreen modal carousel is the child, forcing project block to
    * rerender or preserve its state
    *
    * search: "react rerender with key location" or "react rerender parent with child key location"
@@ -59,8 +59,8 @@ const ProjectBlock = ({ proj }: ProjectBlockProps) => {
   const location = useLocation();
 
   const cardWidth = {
-    width: { xs: 300, md: 400}
-  }
+    width: { xs: 300, md: 400 },
+  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -68,7 +68,12 @@ const ProjectBlock = ({ proj }: ProjectBlockProps) => {
   return (
     <Card sx={{ ...cardWidth }}>
       <CardMedia sx={{ minHeight: 200 }}>
-        <ProjectCarousel key={location.pathname} proj={proj} width={{...cardWidth}} height={200} />
+        <ProjectCarousel
+          key={location.pathname}
+          proj={proj}
+          width={{ ...cardWidth }}
+          height={200}
+        />
       </CardMedia>
       <CardContent sx={{ position: "relative" }}>
         <Typography component="div" variant="h5">

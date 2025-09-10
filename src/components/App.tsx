@@ -31,23 +31,15 @@ const App = () => {
   const background = location.state && (location.state as any).background;
 
   return (
-    <ThemeProvider theme={theme} defaultMode="light" noSsr >
+    <ThemeProvider theme={theme} defaultMode="light" noSsr>
       <Box className="App">
         <Suspense fallback={<Loading />}>
-          <GlobalNav
-            toggleNav={toggleNav}
-            setToggleNav={setToggleNav}
-          />
+          <GlobalNav toggleNav={toggleNav} setToggleNav={setToggleNav} />
           <Box
             className={!toggleNav ? "Container" : "Container Container--open"}
           >
             <Routes location={background || location}>
-              <Route
-                path="/"
-                element={
-                  <Landing />
-                }
-              />
+              <Route path="/" element={<Landing />} />
               <Route path="about" element={<AboutMe />} />
               <Route path="projects" element={<Projects />}>
                 <Route index element={<Selection />} />

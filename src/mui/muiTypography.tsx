@@ -41,11 +41,11 @@ const muiTypography = {
     // used in landing page only
     h1: {
       fontFamily: "Inconsolata",
-      fontWeight: 700
+      fontWeight: 700,
     },
     h2: undefined,
     h6: undefined,
-  }
-}
+  },
+};
 
 export default muiTypography;

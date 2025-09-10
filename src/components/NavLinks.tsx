@@ -1,7 +1,11 @@
 import { Button, MenuItem, useMediaQuery, useTheme } from "@mui/material";
-import { bindHover, bindMenu, usePopupState } from "material-ui-popup-state/hooks";
+import {
+  bindHover,
+  bindMenu,
+  usePopupState,
+} from "material-ui-popup-state/hooks";
 
-import HoverMenu from 'material-ui-popup-state/HoverMenu'
+import HoverMenu from "material-ui-popup-state/HoverMenu";
 import React from "react";
 import { Link } from "react-router-dom";
 import { navLinkButtonProps } from "../mui/components/muiButton";
@@ -28,12 +32,12 @@ const paths = [
 ];
 
 const NavLinks = () => {
-  const theme = useTheme()
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'))
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const popupState = usePopupState({
-    variant: 'popover',
-    popupId: 'subPathMenu',
-  })
+    variant: "popover",
+    popupId: "subPathMenu",
+  });
 
   return (
     <>
@@ -42,10 +46,10 @@ const NavLinks = () => {
           <>
             {path.subpaths.length !== 0 ? (
               <>
-                <Button 
+                <Button
                   key={`${path.text}`}
-                  component={Link} 
-                  to={path.path} 
+                  component={Link}
+                  to={path.path}
                   {...navLinkButtonProps}
                   {...bindHover(popupState)}
                 >
@@ -54,16 +58,21 @@ const NavLinks = () => {
                 <HoverMenu
                   {...bindMenu(popupState)}
                   anchorOrigin={
-                    isMobile 
-                    ? { vertical: 'top', horizontal: 'right' } 
-                    : { vertical: 'bottom', horizontal: 'left'}
+                    isMobile
+                      ? { vertical: "top", horizontal: "right" }
+                      : { vertical: "bottom", horizontal: "left" }
                   }
-                  transformOrigin={{ vertical: 'top', horizontal: 'left' }}
+                  transformOrigin={{ vertical: "top", horizontal: "left" }}
                 >
                   {path.subpaths.map((subPath, i) => {
-                    return(
+                    return (
                       <MenuItem>
-                        <Button key={`${subPath.text}-${i}`} component={Link} to={subPath.path} {...navLinkButtonProps}>
+                        <Button
+                          key={`${subPath.text}-${i}`}
+                          component={Link}
+                          to={subPath.path}
+                          {...navLinkButtonProps}
+                        >
                           {subPath.text}
                         </Button>
                       </MenuItem>
@@ -72,7 +81,12 @@ const NavLinks = () => {
                 </HoverMenu>
               </>
             ) : (
-              <Button key={`${path.text}-${index}`} component={Link} to={path.path} {...navLinkButtonProps}>
+              <Button
+                key={`${path.text}-${index}`}
+                component={Link}
+                to={path.path}
+                {...navLinkButtonProps}
+              >
                 {path.text}
               </Button>
             )}

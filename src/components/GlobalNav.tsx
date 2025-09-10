@@ -12,29 +12,26 @@ interface GlobalNavProps {
   setToggleNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const GlobalNav = ({
-  toggleNav,
-  setToggleNav,
-}: GlobalNavProps) => {
+const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
   const location = useLocation();
   const [currPath, setCurrPath] = useState<string>("");
   const [subPath, setSubPath] = useState<string | null>();
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const popupState = usePopupState({
-    variant: 'popover',
-    popupId: 'globalNavPopup',
-  })
+    variant: "popover",
+    popupId: "globalNavPopup",
+  });
 
   useEffect(() => {
     if (location.pathname === "/") {
       setToggleNav(false);
       popupState.close();
-    } else{
+    } else {
       setToggleNav(true);
-    } 
+    }
 
     if (location.pathname.substring(1).includes("/")) {
       setCurrPath(location.pathname.substring(1).split("/")[0]);
@@ -50,36 +47,85 @@ const GlobalNav = ({
       {toggleNav && (
         <Box className="Global-nav">
           <Box className="Global-nav__root">
-            <Button component={Link} to={"/"} {...globalNavButtonProps}>🏠:/</Button>
-            <Button className="Nav-link--active" component={Link} to={currPath} {...globalNavButtonProps}>
+            <Button component={Link} to={"/"} {...globalNavButtonProps}>
+              🏠:/
+            </Button>
+            <Button
+              className="Nav-link--active"
+              component={Link}
+              to={currPath}
+              {...globalNavButtonProps}
+            >
               {currPath + "/"}
             </Button>
             {subPath && (
-              <Button className="Nav-link--active" component={Link} to={currPath + "/" + subPath} {...globalNavButtonProps}>
+              <Button
+                className="Nav-link--active"
+                component={Link}
+                to={currPath + "/" + subPath}
+                {...globalNavButtonProps}
+              >
                 {subPath + "/"}
               </Button>
             )}
-            <Button className="Nav-link__no-events" {...globalNavButtonProps}>~$</Button>
+            <Button className="Nav-link__no-events" {...globalNavButtonProps}>
+              ~$
+            </Button>
           </Box>
           <Box className="Global-nav__options">
-            {
-              isMobile 
-              ? (
-                <></>
-              ) 
-              : (
-                <>
-                  <Button component={Link} to={"/about"} {...globalNavButtonProps}> about</Button>
-                  <Button {...globalNavButtonProps} {...bindTrigger(popupState)}> projects/</Button>
-                  <Menu {...bindMenu(popupState)} anchorOrigin={{vertical: 'bottom', horizontal: "left"}} transformOrigin={{ vertical: 'top', horizontal: 'left' }} >
-                    <Button component={Link} to={"/projects"} {...globalNavButtonProps}>./</Button>
-                    <Button component={Link} to={"/projects/personal"} {...globalNavButtonProps}>personal</Button>
-                    <Button component={Link} to={"/projects/academic"} {...globalNavButtonProps}>academic</Button>
-                  </Menu>
-                  <Button component={Link} to={"/contact"} {...globalNavButtonProps}> contact</Button>
-                </>
-              )
-            }
+            {isMobile ? (
+              <></>
+            ) : (
+              <>
+                <Button
+                  component={Link}
+                  to={"/about"}
+                  {...globalNavButtonProps}
+                >
+                  {" "}
+                  about
+                </Button>
+                <Button {...globalNavButtonProps} {...bindTrigger(popupState)}>
+                  {" "}
+                  projects/
+                </Button>
+                <Menu
+                  {...bindMenu(popupState)}
+                  anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                  transformOrigin={{ vertical: "top", horizontal: "left" }}
+                >
+                  <Button
+                    component={Link}
+                    to={"/projects"}
+                    {...globalNavButtonProps}
+                  >
+                    ./
+                  </Button>
+                  <Button
+                    component={Link}
+                    to={"/projects/personal"}
+                    {...globalNavButtonProps}
+                  >
+                    personal
+                  </Button>
+                  <Button
+                    component={Link}
+                    to={"/projects/academic"}
+                    {...globalNavButtonProps}
+                  >
+                    academic
+                  </Button>
+                </Menu>
+                <Button
+                  component={Link}
+                  to={"/contact"}
+                  {...globalNavButtonProps}
+                >
+                  {" "}
+                  contact
+                </Button>
+              </>
+            )}
           </Box>
         </Box>
       )}

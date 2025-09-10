@@ -9,7 +9,7 @@ const Landing = () => {
   return (
     <Box className="Landing-container">
       <Box className="Landing-container__greeting">
-        <Typography variant="h5" sx={{ fontFamily: "Karla", fontWeight: 700}}>
+        <Typography variant="h5" sx={{ fontFamily: "Karla", fontWeight: 700 }}>
           Hi there! Welcome to
         </Typography>
       </Box>
@@ -22,7 +22,11 @@ const Landing = () => {
         </Typography>
       </Box>
       <Box className="Landing-container__nav">
-        <Button className="Nav-link__no-events" {...navLinkButtonProps} sx={{ paddingLeft: 0, ...navLinkButtonProps.sx }}>
+        <Button
+          className="Nav-link__no-events"
+          {...navLinkButtonProps}
+          sx={{ paddingLeft: 0, ...navLinkButtonProps.sx }}
+        >
           ~$
         </Button>
         <NavLinks />

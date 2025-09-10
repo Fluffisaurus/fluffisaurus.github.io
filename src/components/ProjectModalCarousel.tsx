@@ -4,7 +4,13 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { To, useNavigate } from "react-router-dom";
-import { Card, CardContent, Grid, useMediaQuery, useTheme } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Grid,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import Carousel from "react-material-ui-carousel";
 import { AdvancedImage } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
@@ -40,7 +46,7 @@ export default function ProjectModalCarousel({
 }: ProjectModalCarouselProps) {
   const navigate = useNavigate();
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'))
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
   const cld = getCloudinaryInstance;
 
   const [dims, setDims] = useState({ width: 0, height: 0 });
@@ -79,21 +85,29 @@ export default function ProjectModalCarousel({
       aria-labelledby={`modal-modal-title-${proj.abbr}`}
       aria-describedby={`modal-modal-description-${proj.abbr}`}
     >
-      <Box sx={{ ...styles.modalBox, flexDirection: isSmallScreen ? 'column-reverse' : 'row'}}>
-        <Box sx={{ 
-          display: "flex", 
-          flexDirection: "column", 
-          width: isSmallScreen ? "100%" : "30%",
-          height: isSmallScreen ? "40%" : "100%",
-          overflow: "hidden"
-         }}>
+      <Box
+        sx={{
+          ...styles.modalBox,
+          flexDirection: isSmallScreen ? "column-reverse" : "row",
+        }}
+      >
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "column",
+            width: isSmallScreen ? "100%" : "30%",
+            height: isSmallScreen ? "40%" : "100%",
+            overflow: "hidden",
+          }}
+        >
           <ScrollArea
             classNames={{
-              horizontalScrollbar: 'h-2.5',
-              root: 'w-60 h-60 text-black dark:text-white',
-              scrollbar: 'p-[1px]',
-              thumb: 'bg-neutral-800 dark:bg-neutral-100 rounded-full opacity-30 hover:opacity-40 transition-opacity',
-              verticalScrollbar: 'w-2.5'
+              horizontalScrollbar: "h-2.5",
+              root: "w-60 h-60 text-black dark:text-white",
+              scrollbar: "p-[1px]",
+              thumb:
+                "bg-neutral-800 dark:bg-neutral-100 rounded-full opacity-30 hover:opacity-40 transition-opacity",
+              verticalScrollbar: "w-2.5",
             }}
             dir="ltr"
             orientation="vertical"
@@ -101,9 +115,11 @@ export default function ProjectModalCarousel({
             shadowSize={50}
             type="always"
           >
-            <CardContent sx={{ 
-              flex: "1 0 auto"
-            }}>
+            <CardContent
+              sx={{
+                flex: "1 0 auto",
+              }}
+            >
               <Typography
                 id={`modal-modal-title-${proj.abbr}`}
                 component="div"
@@ -144,7 +160,10 @@ export default function ProjectModalCarousel({
             </CardContent>
           </ScrollArea>
         </Box>
-        <Box ref={modalRef} sx={{ width: isSmallScreen ? "100%" : "70%", height: "100%" }}>
+        <Box
+          ref={modalRef}
+          sx={{ width: isSmallScreen ? "100%" : "70%", height: "100%" }}
+        >
           <Carousel
             stopAutoPlayOnHover
             fullHeightHover

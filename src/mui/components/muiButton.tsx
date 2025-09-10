@@ -2,64 +2,63 @@ import { ButtonProps } from "@mui/material";
 import { CSSObject, Theme } from "@mui/material/styles";
 
 const muiButtonNavlinkFontSizes = {
-  fontSize: { xs: 18, sm: 20, md: 24, lg: 26 }
-}
+  fontSize: { xs: 18, sm: 20, md: 24, lg: 26 },
+};
 
 export const navLinkButtonProps: ButtonProps = {
   size: "large",
   variant: "navlink",
-  sx: {...muiButtonNavlinkFontSizes}
-}
+  sx: { ...muiButtonNavlinkFontSizes },
+};
 
 const muiButtonGlobalNavFontSizes = {
-  fontSize: { xs: 18, sm: 18, md: 19, lg: 20 }
-}
+  fontSize: { xs: 18, sm: 18, md: 19, lg: 20 },
+};
 
 export const globalNavButtonProps: ButtonProps = {
-  size: "medium", 
-  variant:"navlink", 
-  sx: {...muiButtonGlobalNavFontSizes}
-}
+  size: "medium",
+  variant: "navlink",
+  sx: { ...muiButtonGlobalNavFontSizes },
+};
 
 const muiButtonStyles = {
-    MuiButton: {
-      variants:[
-        {
-          props: {variant:"navlink" as const},
-          style:{
-            fontFamily: "Source Code Pro",
-            fontWeight: 600,
-            minWidth: 0
-          }
-        }
-      ],
-      styleOverrides: {
-        root: (props: { theme: Theme })  => ({
+  MuiButton: {
+    variants: [
+      {
+        props: { variant: "navlink" as const },
+        style: {
+          fontFamily: "Source Code Pro",
+          fontWeight: 600,
+          minWidth: 0,
+        },
+      },
+    ],
+    styleOverrides: {
+      root: (props: { theme: Theme }) =>
+        ({
           fontFamily: "Source Code Pro",
           fontWeight: 600,
           textTransform: "none",
           padding: "0px 5px 0px 5px",
           color: props.theme.palette.secondary.contrastText,
           backgroundColor: "transparent",
-          '&:active': {
-            boxShadow: 'none',
+          "&:active": {
+            boxShadow: "none",
             backgroundColor: props.theme.palette.secondary.main,
           },
-          '&:hover':{
-            boxShadow: 'none',
+          "&:hover": {
+            boxShadow: "none",
             backgroundColor: props.theme.palette.secondary.main,
           },
-          '&:focus': {
-
-          }
-        }) as CSSObject,
-      },
-      defaultProps: {
-        style: { 
-          textDecoration: "none",
-        },
+          "&:focus": {},
+        } as CSSObject),
+    },
+    defaultProps: {
+      style: {
+        textDecoration: "none",
       },
     },
-}
+  },
+};
 
 export default muiButtonStyles;

@@ -19,8 +19,8 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx", "..."],
     alias: {
-      "@blur-ui": path.resolve(__dirname, "./node_modules/@blur-ui")
-    }
+      "@blur-ui": path.resolve(__dirname, "./node_modules/@blur-ui"),
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),
