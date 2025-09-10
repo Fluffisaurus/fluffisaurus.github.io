@@ -16,6 +16,7 @@ import { AdvancedImage } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
 import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRightTwoTone";
 import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftTwoTone";
+import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
 import getCloudinaryInstance from "./Cloudinary";
 import { carouselStyles } from "./ProjectCarousel";
 import { Project } from "../content/projects/interfaces";
@@ -166,25 +167,43 @@ export default function ProjectModalCarousel({
             NextIcon={<KeyboardArrowRightTwoToneIcon />}
             PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
           >
-            {proj.images.map((item, i) => (
-              <Card
-                key={i}
-                sx={{ height: dims.height, ...carouselStyles.card }}
-              >
-                <Box sx={{ width: dims.width, ...carouselStyles.outerBox }}>
-                  <AdvancedImage
-                    cldImg={cld
-                      .image(`portfolio/${item.src}`)
-                      .resize(fit(dims.width, dims.height))}
-                  />
-                  <Box sx={{ ...carouselStyles.textOverlay }}>
-                    <Typography variant="caption">
-                      {item.description}
-                    </Typography>
-                  </Box>
-                </Box>
-              </Card>
-            ))}
+            {proj.images.length >= 1
+              ? proj.images.map((item, i) => (
+                  <Card
+                    key={i}
+                    sx={{ height: dims.height, ...carouselStyles.card }}
+                  >
+                    <Box sx={{ width: dims.width, ...carouselStyles.outerBox }}>
+                      <AdvancedImage
+                        cldImg={cld
+                          .image(`portfolio/${item.src}`)
+                          .resize(fit(dims.width, dims.height))}
+                      />
+                      <Box sx={{ ...carouselStyles.textOverlay }}>
+                        <Typography variant="caption">
+                          {item.description}
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Card>
+                ))
+              : [1, 2].map((i) => (
+                  <Card
+                    key={i}
+                    sx={{ height: dims.height, ...carouselStyles.card }}
+                  >
+                    <Box sx={{ width: dims.width, ...carouselStyles.outerBox }}>
+                      <PhotoLibraryTwoToneIcon
+                        sx={{ width: dims.width, height: dims.height }}
+                      />
+                      <Box sx={{ ...carouselStyles.textOverlay }}>
+                        <Typography variant="caption">
+                          Photo unavailable at the moment.
+                        </Typography>
+                      </Box>
+                    </Box>
+                  </Card>
+                ))}
           </Carousel>
         </Box>
       </Box>
