@@ -5,6 +5,7 @@ import muiTypography from "./muiTypography";
 import muiButtonStyles from "./components/muiButton";
 import muiList from "./components/muiList";
 import muiMenuItem from "./components/muiMenuItem";
+import muiDrawer from "./components/muiDrawer";
 import muiCssBaseline from "./components/muiCssBaseline";
 
 declare module "@mui/material/Button" {
@@ -24,6 +25,7 @@ let theme = createTheme({
     ...muiButtonStyles,
     ...muiList,
     ...muiMenuItem,
+    ...muiDrawer,
     ...muiCssBaseline,
   },
 });
