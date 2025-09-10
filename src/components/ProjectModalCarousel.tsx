@@ -12,7 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
-import { AdvancedImage } from "@cloudinary/react";
+import { AdvancedImage, placeholder, responsive } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
 import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRightTwoTone";
 import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftTwoTone";
@@ -178,6 +178,7 @@ export default function ProjectModalCarousel({
                         cldImg={cld
                           .image(`portfolio/${item.src}`)
                           .resize(fit(dims.width, dims.height))}
+                        plugins={[placeholder({ mode: "blur" }), responsive()]}
                       />
                       <Box sx={{ ...carouselStyles.textOverlay }}>
                         <Typography variant="caption">

@@ -10,7 +10,7 @@ import {
   useTheme,
 } from "@mui/material";
 import Carousel from "react-material-ui-carousel";
-import { AdvancedImage } from "@cloudinary/react";
+import { AdvancedImage, placeholder, responsive } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
 import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRightTwoTone";
 import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftTwoTone";
@@ -129,6 +129,7 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
                   cldImg={cld
                     .image(`portfolio/${item.src}`)
                     .resize(fit(imgWidth, height))}
+                  plugins={[placeholder({ mode: "blur" }), responsive()]}
                 />
               </CardMedia>
               <Box sx={{ ...carouselStyles.textOverlay }}>
