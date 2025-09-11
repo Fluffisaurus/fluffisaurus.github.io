@@ -1,6 +1,3 @@
-@import "./palette.scss";
-@import "./nav-link.scss";
-
 .Landing-container {
   width: fit-content;
   display: flex;
@@ -9,10 +6,6 @@
 
   * {
     width: fit-content;
-  }
-
-  &__greeting {
-    color: $font-color;
   }
 
   &__name {
@@ -27,14 +20,8 @@
     }
 
     &__fullname {
-      color: $primary-color;
-      background-color: $highlight-color-1;
       padding-left: 8px;
       padding-right: 8px;
-    }
-
-    &__at {
-      color: $primary-color;
     }
   }
 
@@ -43,8 +30,6 @@
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-
-    @extend .Nav-link;
   }
 }
 
@@ -65,9 +50,5 @@
       align-items: start;
       gap: 10px;
     }
-  }
-
-  .Nav-link__no-events {
-    display: none;
   }
 }

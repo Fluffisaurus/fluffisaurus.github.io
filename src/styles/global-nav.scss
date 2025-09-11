@@ -1,10 +1,10 @@
-@import "./palette.scss";
 @import "./nav-link.scss";
 
 $global-nav-height: 40px;
-$fixed-nav-width: 400px;
 
 .Global-nav {
+  @extend .Nav-link;
+
   position: absolute;
   top: 0;
   z-index: 9999;
@@ -12,70 +12,11 @@ $fixed-nav-width: 400px;
   height: $global-nav-height;
   padding: 0px 5px 0px 5px;
 
-  background-color: $nav-color;
-  border-bottom: 3px solid $nav-border-color;
-
   display: flex;
   align-items: center;
 
   &__root {
     align-self: center;
     width: 100%;
-    // width: $fixed-nav-width;
-    a {
-      padding: 0 !important;
-    }
-  }
-
-  &__options {
-    margin: auto;
-  }
-
-  &__parent,
-  &__parent-landing {
-    display: flex;
-    flex-direction: row;
-
-    div {
-      display: none;
-      span a {
-        font-weight: 400;
-      }
-    }
-  }
-
-  &__parent--open,
-  &__parent-landing--open {
-    background-color: $highlight-color-5;
-
-    div {
-      display: block;
-    }
-  }
-
-  &__parent-landing {
-    position: relative;
-  }
-
-  &__parent-landing--open div {
-    background-color: $highlight-color-5;
-    position: absolute;
-    top: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-
-  @extend .Nav-link;
-
-  nav {
-    width: calc(100% - $fixed-nav-width);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 24px;
-  }
-
-  span a {
-    font-size: 18px;
   }
 }

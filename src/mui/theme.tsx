@@ -14,11 +14,14 @@ declare module "@mui/material/Button" {
   }
 }
 
+declare module "@mui/material/styles" {
+  interface TypeBackground {
+    highlight: string;
+    globalNav: string;
+  }
+}
+
 let theme = createTheme({
-  colorSchemes: {
-    dark: true,
-    light: true,
-  },
   ...muiPalette,
   ...muiTypography,
   components: {

@@ -143,7 +143,14 @@ const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
   return (
     <>
       {toggleNav && (
-        <Box className="Global-nav">
+        <Box
+          className="Global-nav"
+          sx={{
+            backgroundColor: theme.palette.background.globalNav,
+            borderBottom: "3px solid",
+            borderBottomColor: theme.palette.background.globalNav,
+          }}
+        >
           <Box className="Global-nav__root">
             <Button
               onClick={toggleDrawer}
@@ -157,25 +164,26 @@ const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
               component={Link}
               to={"/"}
               {...globalNavButtonProps}
+              sx={{ ...globalNavButtonProps.sx, padding: 0 }}
               onMouseEnter={() => setHoverPath("~")}
             >
               🏠:/
             </Button>
             <Button
-              className="Nav-link--active"
               component={Link}
               to={currPath}
               {...globalNavButtonProps}
+              sx={{ ...globalNavButtonProps.sx, padding: 0 }}
               onMouseEnter={() => setHoverPath("/" + currPath)}
             >
               {currPath + "/"}
             </Button>
             {subPath && (
               <Button
-                className="Nav-link--active"
                 component={Link}
                 to={currPath + "/" + subPath}
                 {...globalNavButtonProps}
+                sx={{ ...globalNavButtonProps.sx, padding: 0 }}
                 onMouseEnter={() =>
                   setHoverPath("/" + currPath + "/" + subPath)
                 }
@@ -191,10 +199,10 @@ const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
                 className="Nav-link__no-events"
                 {...globalNavButtonProps}
                 sx={{
+                  ...globalNavButtonProps.sx,
                   color: theme.palette.primary.light,
                   justifyContent: "flex-start",
                   padding: "0 5px 0 25px",
-                  ...globalNavButtonProps.sx,
                 }}
               >
                 {hoverText}

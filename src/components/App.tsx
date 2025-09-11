@@ -21,7 +21,7 @@ const ProjectModalCarousel = lazy(
 );
 import { ProjectList } from "../content/projects/project-list";
 import { Project } from "../content/projects/interfaces";
-import { Box } from "@mui/material";
+import { Box, CssBaseline } from "@mui/material";
 
 const App = () => {
   const [toggleNav, setToggleNav] = useState<boolean>(false);
@@ -32,6 +32,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme} defaultMode="light" noSsr>
+      <CssBaseline />
       <Box className="App">
         <Suspense fallback={<Loading />}>
           <GlobalNav toggleNav={toggleNav} setToggleNav={setToggleNav} />

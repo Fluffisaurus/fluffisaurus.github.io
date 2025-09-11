@@ -4,17 +4,20 @@ import NavLinks from "../components/NavLinks";
 import "../styles/landing.scss";
 import { Box, Button, Typography } from "@mui/material";
 import { navLinkButtonProps } from "../mui/components/muiButton";
+import theme from "../mui/theme";
 
 const Landing = () => {
   return (
     <Box className="Landing-container">
-      <Box className="Landing-container__greeting">
-        <Typography variant="h5" sx={{ fontFamily: "Karla", fontWeight: 700 }}>
-          Hi there! Welcome to
-        </Typography>
-      </Box>
+      <Typography variant="h5" sx={{ fontFamily: "Karla", fontWeight: 700 }}>
+        Hi there! Welcome to
+      </Typography>
       <Box className="Landing-container__name">
-        <Typography className="Landing-container__name__fullname" variant="h1">
+        <Typography
+          className="Landing-container__name__fullname"
+          variant="h1"
+          sx={{ backgroundColor: theme.palette.background.highlight }}
+        >
           angus_hon
         </Typography>
         <Typography className="Landing-container__name__at" variant="h1">
