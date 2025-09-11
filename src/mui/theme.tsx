@@ -36,6 +36,9 @@ let theme = createTheme({
   },
   cssVariables: {
     colorSchemeSelector: "class",
+    // generated stylesheet:
+    // --custom-mui-theme-primary-main: ...;
+    cssVarPrefix: "custom-mui-theme",
   },
 });
 
