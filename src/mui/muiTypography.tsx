@@ -1,12 +1,11 @@
-import { Palette } from "@mui/material";
-
 const muiTypography = {
-  typography: (palette: Palette) => ({
+  typography: {
     fontFamily: ["Inconsolata, Source Code Pro, Karla"].join(","),
     h3: {
       fontFamily: "Source Code Pro",
       fontWeight: 400,
       marginBottom: 15,
+      marginTop: 20,
     },
     h4: {
       fontFamily: "Source Code Pro",
@@ -44,11 +43,10 @@ const muiTypography = {
     h1: {
       fontFamily: "Inconsolata",
       fontWeight: 700,
-      color: palette.primary.dark,
     },
     h2: undefined,
     h6: undefined,
-  }),
+  },
 };
 
 export default muiTypography;
