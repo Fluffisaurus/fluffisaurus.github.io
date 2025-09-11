@@ -1,4 +1,4 @@
-const muiPalette = {
+const muiColorSchemes = {
   colorSchemes: {
     light: {
       palette: {
@@ -23,4 +23,4 @@ const muiPalette = {
   },
 };
 
-export default muiPalette;
+export default muiColorSchemes;

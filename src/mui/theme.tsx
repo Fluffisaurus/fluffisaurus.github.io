@@ -1,6 +1,6 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
-import muiPalette from "./muiPalette";
+import muiColorSchemes from "./muiColorSchemes";
 import muiTypography from "./muiTypography";
 import muiButtonStyles from "./components/muiButton";
 import muiList from "./components/muiList";
@@ -22,7 +22,7 @@ declare module "@mui/material/styles" {
 }
 
 let theme = createTheme({
-  ...muiPalette,
+  ...muiColorSchemes,
   ...muiTypography,
   components: {
     ...muiButtonStyles,
