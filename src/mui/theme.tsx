@@ -6,6 +6,7 @@ import muiButtonStyles from "./components/muiButton";
 import muiList from "./components/muiList";
 import muiMenuItem from "./components/muiMenuItem";
 import muiDrawer from "./components/muiDrawer";
+import { muiSpeedDial, muiSpeedDialAction } from "./components/muiSpeedDial";
 import muiCssBaseline from "./components/muiCssBaseline";
 
 declare module "@mui/material/Button" {
@@ -29,7 +30,12 @@ let theme = createTheme({
     ...muiList,
     ...muiMenuItem,
     ...muiDrawer,
+    ...muiSpeedDial,
+    ...muiSpeedDialAction,
     ...muiCssBaseline,
+  },
+  cssVariables: {
+    colorSchemeSelector: "class",
   },
 });
 
