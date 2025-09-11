@@ -1,3 +1,4 @@
+import type {} from "@mui/material/themeCssVarsAugmentation";
 import { ButtonProps } from "@mui/material";
 import { CSSObject, Theme } from "@mui/material/styles";
 
@@ -40,15 +41,15 @@ const muiButtonStyles = {
           fontWeight: 600,
           textTransform: "none",
           padding: "0px 5px 0px 5px",
-          color: props.theme.palette.secondary.contrastText,
+          color: props.theme.vars.palette.secondary.contrastText,
           backgroundColor: "transparent",
           "&:active": {
             boxShadow: "none",
-            backgroundColor: props.theme.palette.secondary.main,
+            backgroundColor: props.theme.vars.palette.secondary.main,
           },
           "&:hover": {
             boxShadow: "none",
-            backgroundColor: props.theme.palette.secondary.main,
+            backgroundColor: props.theme.vars.palette.secondary.main,
           },
           "&:focus": {},
         } as CSSObject),

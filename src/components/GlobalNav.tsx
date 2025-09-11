@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-import "../styles/global-nav.scss";
+import type {} from "@mui/material/themeCssVarsAugmentation";
 import {
   Box,
   Button,
@@ -10,26 +10,29 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { globalNavButtonProps } from "../mui/components/muiButton";
 import { bindTrigger, usePopupState } from "material-ui-popup-state/hooks";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 import MenuOpenTwoToneIcon from "@mui/icons-material/MenuOpenTwoTone";
 import SubdirectoryArrowRightTwoToneIcon from "@mui/icons-material/SubdirectoryArrowRightTwoTone";
-import { grey } from "@mui/material/colors";
 
 import computeNodeStyle from "../utils/computeNodeStyle";
+import { globalNavButtonProps } from "../mui/components/muiButton";
+import "../styles/global-nav.scss";
 
 interface GlobalNavProps {
   toggleNav: boolean;
   setToggleNav: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const StyledBox = styled("div")(({ theme }) => ({
-  backgroundColor: "#fff",
-  ...theme.applyStyles("dark", {
-    backgroundColor: grey[800],
+const StyledBox = styled("div")(({ theme }) => [
+  {
+    backgroundColor: theme.vars.palette.background.globalNav,
+    paddingBottom: "3px",
+  },
+  theme.applyStyles("dark", {
+    backgroundColor: theme.vars.palette.background.globalNav,
   }),
-}));
+]);
 
 const globalNavDrawerButtonStyles = {
   width: "min-content",
@@ -143,14 +146,7 @@ const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
   return (
     <>
       {toggleNav && (
-        <Box
-          className="Global-nav"
-          sx={{
-            backgroundColor: theme.palette.background.globalNav,
-            borderBottom: "3px solid",
-            borderBottomColor: theme.palette.background.globalNav,
-          }}
-        >
+        <StyledBox className="Global-nav">
           <Box className="Global-nav__root">
             <Button
               onClick={toggleDrawer}
@@ -200,7 +196,7 @@ const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
                 {...globalNavButtonProps}
                 sx={{
                   ...globalNavButtonProps.sx,
-                  color: theme.palette.primary.light,
+                  color: theme.vars.palette.primary.light,
                   justifyContent: "flex-start",
                   padding: "0 5px 0 25px",
                 }}
@@ -209,7 +205,7 @@ const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
               </Button>
             )}
           </Box>
-        </Box>
+        </StyledBox>
       )}
       <SwipeableDrawer
         anchor="top"
@@ -252,7 +248,7 @@ const GlobalNav = ({ toggleNav, setToggleNav }: GlobalNavProps) => {
               sx={{
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
-                color: theme.palette.primary.dark,
+                color: theme.vars.palette.primary.dark,
               }}
               onMouseEnter={() => setHoverPath("/projects")}
             >

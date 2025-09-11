@@ -3,6 +3,7 @@ import NavLinks from "../components/NavLinks";
 
 import "../styles/landing.scss";
 import { Box, Button, Typography } from "@mui/material";
+import type {} from "@mui/material/themeCssVarsAugmentation";
 import { navLinkButtonProps } from "../mui/components/muiButton";
 import theme from "../mui/theme";
 
@@ -16,11 +17,18 @@ const Landing = () => {
         <Typography
           className="Landing-container__name__fullname"
           variant="h1"
-          sx={{ backgroundColor: theme.palette.background.highlight }}
+          sx={{
+            color: theme.vars.palette.primary.main,
+            backgroundColor: theme.vars.palette.background.highlight,
+          }}
         >
           angus_hon
         </Typography>
-        <Typography className="Landing-container__name__at" variant="h1">
+        <Typography
+          className="Landing-container__name__at"
+          variant="h1"
+          sx={{ color: theme.vars.palette.primary.main }}
+        >
           @🏠
         </Typography>
       </Box>
