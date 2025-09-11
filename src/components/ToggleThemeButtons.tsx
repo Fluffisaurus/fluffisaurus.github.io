@@ -19,10 +19,10 @@ function ToggleThemeButtons() {
   return (
     <ToggleButtonGroup
       value={mode}
+      defaultValue={mode} // currently set in themeprovider to light
       exclusive
       onChange={handleToggleTheme}
       aria-label="theme mode toggle"
-      defaultValue={mode}
     >
       <ToggleButton value="system" aria-label="light mode">
         <SettingsSystemDaydreamTwoToneIcon />
