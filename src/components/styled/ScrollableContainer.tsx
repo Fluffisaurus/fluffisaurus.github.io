@@ -5,17 +5,19 @@ import { ScrollArea } from "@blur-ui/scroll-area";
 
 interface ScrollableContainerProps {
   children: React.ReactNode;
+  ref?: React.RefObject<HTMLDivElement>;
   sx?: SxProps<Theme>;
   className?: string | undefined;
 }
 
 const ScrollableContainer = ({
   children,
+  ref,
   sx,
   className,
 }: ScrollableContainerProps) => {
   return (
-    <Container sx={sx} className={className}>
+    <Container sx={sx} className={className} ref={ref}>
       <ScrollArea
         classNames={{
           horizontalScrollbar: "h-2.5",

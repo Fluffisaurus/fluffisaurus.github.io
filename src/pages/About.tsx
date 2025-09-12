@@ -1,30 +1,36 @@
-import React from "react";
+import React, { useRef } from "react";
 
 import { Grid, Typography } from "@mui/material";
 
 import AboutMeContent from "../content/about-me";
 import ContentBlock from "../components/ContentBlock";
 import ScrollableContainer from "../components/styled/ScrollableContainer";
-import GrowWrapper from "../components/styled/GrowWrapper";
+import SlideWrapper from "../components/styled/SlideWrapper";
+import { ANI_CONST } from "../components/styled/constants";
 
 const AboutMe: React.FunctionComponent = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   return (
     <>
-      <ScrollableContainer>
+      <ScrollableContainer ref={containerRef}>
         <Typography variant="h3">5w1h</Typography>
-        <GrowWrapper>
-          <Grid container spacing={2}>
-            {AboutMeContent?.map((cntBlk, i) => {
-              return (
+        <Grid container spacing={2} flexDirection={"column"}>
+          {AboutMeContent?.map((cntBlk, i) => {
+            return (
+              <SlideWrapper
+                slideFromRef={containerRef}
+                delay={i * ANI_CONST.ABOUT_CARD_DELAY}
+                direction="up"
+              >
                 <ContentBlock
                   key={i}
                   heading={cntBlk.heading}
                   body={cntBlk.body}
                 />
-              );
-            })}
-          </Grid>
-        </GrowWrapper>
+              </SlideWrapper>
+            );
+          })}
+        </Grid>
       </ScrollableContainer>
     </>
   );
