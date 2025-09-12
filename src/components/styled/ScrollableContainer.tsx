@@ -30,6 +30,7 @@ const ScrollableContainer = ({
         scrollHideDelay={600}
         shadowSize={50}
         type="always"
+        style={{ width: "100%", height: "100%" }}
       >
         {children}
       </ScrollArea>
