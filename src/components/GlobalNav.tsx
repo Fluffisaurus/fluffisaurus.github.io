@@ -19,6 +19,7 @@ import SubdirectoryArrowRightTwoToneIcon from "@mui/icons-material/SubdirectoryA
 import computeNodeStyle from "../utils/computeNodeStyle";
 import { globalNavButtonProps } from "../mui/components/muiButton";
 import "../styles/global-nav.scss";
+import { ANI_CONST } from "./styled/constants";
 
 const StyledBox = styled("div")(({ theme }) => [
   {
@@ -44,11 +45,15 @@ const GlobalNav = () => {
 
   const [showContent, setShowContent] = useState(false);
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowContent(true);
-    }, 1500);
+    if (location.pathname == "/") {
+      const timer = setTimeout(() => {
+        setShowContent(true);
+      }, ANI_CONST.GLOBAL_NAV_LANDING_DELAY);
 
-    return () => clearTimeout(timer);
+      return () => clearTimeout(timer);
+    } else {
+      setShowContent(true);
+    }
   }, []);
 
   const [openDrawer, setOpenDrawer] = React.useState(false);
@@ -116,9 +121,6 @@ const GlobalNav = () => {
       setHoverText("ls -R ~");
       return;
     }
-    // console.log(
-    //   `currPath: ${currPath}, subPath: ${subPath}, hoverPath: ${hoverPath}, fullPath: ${fullPath}`
-    // );
     if (!hoverPath) {
       setHoverText("");
       return;
@@ -136,18 +138,16 @@ const GlobalNav = () => {
         setHoverText("cd " + hoverPath);
         return;
       }
-      // console.warn(`WARNING: no matched path, values are...\nsubPath: ${subPath}, hoverPath: ${hoverPath}, fullPath: ${fullPath}`)
     } else if (hoverPath == fullPath) {
       setHoverText("cd ./");
     } else {
       setHoverText("cd " + hoverPath);
-      // console.log("last option")
     }
   }, [hoverPath]);
 
   return (
     <>
-      <Slide in={showContent} direction="down" timeout={500}>
+      <Slide in={showContent} timeout={ANI_CONST.GLOBAL_NAV_DELAY}>
         <StyledBox className="Global-nav">
           <Box className="Global-nav__root">
             <Button
