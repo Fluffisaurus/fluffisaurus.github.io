@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import Grid from "@mui/material/Grid";
 
 import {
@@ -6,22 +6,27 @@ import {
   ProjectList,
 } from "../../content/projects/project-list";
 import ProjectSelectionBlock from "../../components/ProjectSelectionBlock";
-import GrowWrapper from "../../components/styled/GrowWrapper";
+import SlideWrapper from "../../components/styled/SlideWrapper";
 
 const Selection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
   return (
-    <GrowWrapper>
+    <div ref={containerRef}>
       <Grid container direction="row" spacing={2} size={{ xs: 6, md: 8 }}>
-        <ProjectSelectionBlock
-          cat={ProjectCategories.PERSONAL}
-          data={ProjectList[ProjectCategories.PERSONAL]}
-        />
-        <ProjectSelectionBlock
-          cat={ProjectCategories.ACADEMIC}
-          data={ProjectList[ProjectCategories.ACADEMIC]}
-        />
+        <SlideWrapper slideFromRef={containerRef} delay={500} direction="up">
+          <ProjectSelectionBlock
+            cat={ProjectCategories.PERSONAL}
+            data={ProjectList[ProjectCategories.PERSONAL]}
+          />
+        </SlideWrapper>
+        <SlideWrapper slideFromRef={containerRef} delay={1000} direction="up">
+          <ProjectSelectionBlock
+            cat={ProjectCategories.ACADEMIC}
+            data={ProjectList[ProjectCategories.ACADEMIC]}
+          />
+        </SlideWrapper>
       </Grid>
-    </GrowWrapper>
+    </div>
   );
 };
 

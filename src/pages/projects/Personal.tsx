@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 
-import { Grid, Typography } from "@mui/material";
+import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
 import ProjectBlock from "../../components/ProjectBlock";
@@ -8,19 +8,35 @@ import {
   ProjectCategories,
   ProjectList,
 } from "../../content/projects/project-list";
-import GrowWrapper from "../../components/styled/GrowWrapper";
+import SlideWrapper from "../../components/styled/SlideWrapper";
+import { ANI_CONST } from "../../components/styled/constants";
 
 const Personal = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const theme = useTheme();
+  const animationBreakpoint = useMediaQuery(
+    theme.breakpoints.down(ANI_CONST.PROJ_ROW_BREAKPOINT)
+  );
   return (
-    <GrowWrapper>
-      <Typography variant="h4">Personal_projects</Typography>
-      <Grid container spacing={2} alignItems="flex-start">
-        {ProjectList[ProjectCategories.PERSONAL].map((proj, i) => {
-          return <ProjectBlock proj={proj} key={i} />;
-        })}
-      </Grid>
+    <>
+      <div ref={containerRef}>
+        <Typography variant="h4">Personal_projects</Typography>
+        <Grid container spacing={2} alignItems="flex-start">
+          {ProjectList[ProjectCategories.PERSONAL].map((proj, i) => {
+            return (
+              <SlideWrapper
+                slideFromRef={containerRef}
+                delay={i * ANI_CONST.PROJ_CARDS_DELAY}
+                direction={animationBreakpoint ? "up" : "left"}
+              >
+                <ProjectBlock proj={proj} key={i} />
+              </SlideWrapper>
+            );
+          })}
+        </Grid>
+      </div>
       <Outlet />
-    </GrowWrapper>
+    </>
   );
 };
 
