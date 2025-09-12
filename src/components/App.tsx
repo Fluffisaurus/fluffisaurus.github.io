@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from "react";
+import React, { Suspense, lazy, useEffect } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Box } from "@mui/material";
 
@@ -26,6 +26,10 @@ const App = () => {
   const location = useLocation();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const background = location.state && (location.state as any).background;
+
+  useEffect(() => {
+    localStorage.removeItem("animatedOnLoad");
+  }, []);
 
   return (
     <Box className="App">

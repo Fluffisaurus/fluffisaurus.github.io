@@ -6,19 +6,22 @@ import {
   ProjectList,
 } from "../../content/projects/project-list";
 import ProjectSelectionBlock from "../../components/ProjectSelectionBlock";
+import GrowWrapper from "../../components/styled/GrowWrapper";
 
 const Selection = () => {
   return (
-    <Grid container direction="row" spacing={2} size={{ xs: 6, md: 8 }}>
-      <ProjectSelectionBlock
-        cat={ProjectCategories.PERSONAL}
-        data={ProjectList[ProjectCategories.PERSONAL]}
-      />
-      <ProjectSelectionBlock
-        cat={ProjectCategories.ACADEMIC}
-        data={ProjectList[ProjectCategories.ACADEMIC]}
-      />
-    </Grid>
+    <GrowWrapper>
+      <Grid container direction="row" spacing={2} size={{ xs: 6, md: 8 }}>
+        <ProjectSelectionBlock
+          cat={ProjectCategories.PERSONAL}
+          data={ProjectList[ProjectCategories.PERSONAL]}
+        />
+        <ProjectSelectionBlock
+          cat={ProjectCategories.ACADEMIC}
+          data={ProjectList[ProjectCategories.ACADEMIC]}
+        />
+      </Grid>
+    </GrowWrapper>
   );
 };
 
