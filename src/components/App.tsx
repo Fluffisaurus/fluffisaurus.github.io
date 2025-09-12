@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from "react";
+import React, { Suspense, lazy } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Box } from "@mui/material";
 
@@ -23,8 +23,6 @@ import { ProjectList } from "../content/projects/project-list";
 import { Project } from "../content/projects/interfaces";
 
 const App = () => {
-  const [toggleNav, setToggleNav] = useState<boolean>(false);
-
   const location = useLocation();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const background = location.state && (location.state as any).background;
@@ -33,8 +31,12 @@ const App = () => {
     <Box className="App">
       <CustomOptionsDial />
       <Suspense fallback={<Loading />}>
-        <GlobalNav toggleNav={toggleNav} setToggleNav={setToggleNav} />
-        <Box className={!toggleNav ? "Container" : "Container Container--open"}>
+        <GlobalNav />
+        <Box
+          className={
+            location.pathname == "/" ? "Container" : "Container Container--open"
+          }
+        >
           <Routes location={background || location}>
             <Route path="/" element={<Landing />} />
             <Route path="about" element={<AboutMe />} />
