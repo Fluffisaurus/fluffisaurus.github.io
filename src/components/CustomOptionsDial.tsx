@@ -21,6 +21,7 @@ export default function CustomOptionsDial() {
           height: 320,
           transform: "translateZ(0px)",
           flexGrow: 1,
+          zIndex: 999,
         }}
       >
         <SpeedDial

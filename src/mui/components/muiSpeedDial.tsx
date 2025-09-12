@@ -19,7 +19,7 @@ export const muiSpeedDialAction = {
       fab: {
         width: "fit-content",
         height: "fit-content",
-        borderRadius: "var(--mui-shape-borderRadius)",
+        borderRadius: "var(--custom-mui-theme-shape-borderRadius)",
         justifyContent: "right",
       },
     },
