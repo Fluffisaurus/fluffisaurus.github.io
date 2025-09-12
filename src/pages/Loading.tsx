@@ -1,9 +1,13 @@
 import React from "react";
+import FadeWrapper from "../components/styled/FadeWrapper";
+import { Typography } from "@mui/material";
 
 const Loading: React.FunctionComponent = () => {
   return (
     <>
-      <div>Loading...</div>
+      <FadeWrapper>
+        <Typography variant="h5">loading...</Typography>
+      </FadeWrapper>
     </>
   );
 };

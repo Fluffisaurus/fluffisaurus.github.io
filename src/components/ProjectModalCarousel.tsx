@@ -23,6 +23,7 @@ import { carouselStyles } from "./ProjectCarousel";
 import { Project } from "../content/projects/interfaces";
 import computeNodeStyle from "../utils/computeNodeStyle";
 import ScrollableContainer from "./styled/ScrollableContainer";
+import FadeWrapper from "./styled/FadeWrapper";
 
 const styles = {
   ...carouselStyles,
@@ -78,119 +79,128 @@ export default function ProjectModalCarousel({
       aria-labelledby={`modal-modal-title-${proj.abbr}`}
       aria-describedby={`modal-modal-description-${proj.abbr}`}
     >
-      <Box
-        sx={{
-          ...styles.modalBox,
-          flexDirection: isSmallScreen ? "column-reverse" : "row",
-        }}
-      >
-        <ScrollableContainer
+      <FadeWrapper>
+        <Box
           sx={{
-            flexDirection: "column",
-            width: isSmallScreen ? "100%" : "30%",
-            height: isSmallScreen ? "40%" : "100%",
+            ...styles.modalBox,
+            flexDirection: isSmallScreen ? "column-reverse" : "row",
           }}
         >
-          <CardContent
+          <ScrollableContainer
             sx={{
-              flex: "1 0 auto",
+              flexDirection: "column",
+              width: isSmallScreen ? "100%" : "30%",
+              height: isSmallScreen ? "40%" : "100%",
             }}
           >
-            <Typography
-              id={`modal-modal-title-${proj.abbr}`}
-              component="div"
-              variant="h5"
+            <CardContent
+              sx={{
+                flex: "1 0 auto",
+              }}
             >
-              {proj.name}
-            </Typography>
-            <Typography
-              variant="subtitle1"
-              component="div"
-              sx={{ color: "text.secondary" }}
-            >
-              {proj.category}
-            </Typography>
-            <Grid
-              container
-              display="flex"
-              flexDirection="row"
-              spacing={2}
-              rowSpacing={0}
-              width="90%"
-            >
-              {proj.tags.map((tag, i) => (
-                <Typography
-                  key={i}
-                  variant="subtitle2"
-                  component="div"
-                  sx={{ color: "text.secondary" }}
-                >
-                  {tag}
-                </Typography>
-              ))}
-            </Grid>
-            <Box sx={{ paddingTop: `10px` }}>
-              <Typography variant="body2">{proj.date}</Typography>
-              <Typography variant="body1">{proj.detail.short}</Typography>
-            </Box>
-          </CardContent>
-        </ScrollableContainer>
-        <Box
-          ref={modalRef}
-          sx={{ width: isSmallScreen ? "100%" : "70%", height: "100%" }}
-        >
-          <Carousel
-            stopAutoPlayOnHover
-            fullHeightHover
-            autoPlay={false}
-            interval={5000}
-            animation="slide"
-            indicators
-            navButtonsAlwaysVisible
-            NextIcon={<KeyboardArrowRightTwoToneIcon />}
-            PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
-          >
-            {proj.images.length >= 1
-              ? proj.images.map((item, i) => (
-                  <Card
+              <Typography
+                id={`modal-modal-title-${proj.abbr}`}
+                component="div"
+                variant="h5"
+              >
+                {proj.name}
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                component="div"
+                sx={{ color: "text.secondary" }}
+              >
+                {proj.category}
+              </Typography>
+              <Grid
+                container
+                display="flex"
+                flexDirection="row"
+                spacing={2}
+                rowSpacing={0}
+                width="90%"
+              >
+                {proj.tags.map((tag, i) => (
+                  <Typography
                     key={i}
-                    sx={{ height: dims.height, ...carouselStyles.card }}
+                    variant="subtitle2"
+                    component="div"
+                    sx={{ color: "text.secondary" }}
                   >
-                    <Box sx={{ width: dims.width, ...carouselStyles.outerBox }}>
-                      <AdvancedImage
-                        cldImg={cld
-                          .image(`portfolio/${item.src}`)
-                          .resize(fit(dims.width, dims.height))}
-                        plugins={[placeholder({ mode: "blur" }), responsive()]}
-                      />
-                      <Box sx={{ ...carouselStyles.textOverlay }}>
-                        <Typography variant="caption">
-                          {item.description}
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </Card>
-                ))
-              : [1, 2].map((i) => (
-                  <Card
-                    key={i}
-                    sx={{ height: dims.height, ...carouselStyles.card }}
-                  >
-                    <Box sx={{ width: dims.width, ...carouselStyles.outerBox }}>
-                      <PhotoLibraryTwoToneIcon
-                        sx={{ width: dims.width, height: dims.height }}
-                      />
-                      <Box sx={{ ...carouselStyles.textOverlay }}>
-                        <Typography variant="caption">
-                          Photo unavailable at the moment.
-                        </Typography>
-                      </Box>
-                    </Box>
-                  </Card>
+                    {tag}
+                  </Typography>
                 ))}
-          </Carousel>
+              </Grid>
+              <Box sx={{ paddingTop: `10px` }}>
+                <Typography variant="body2">{proj.date}</Typography>
+                <Typography variant="body1">{proj.detail.short}</Typography>
+              </Box>
+            </CardContent>
+          </ScrollableContainer>
+          <Box
+            ref={modalRef}
+            sx={{ width: isSmallScreen ? "100%" : "70%", height: "100%" }}
+          >
+            <Carousel
+              stopAutoPlayOnHover
+              fullHeightHover
+              autoPlay={false}
+              interval={5000}
+              animation="slide"
+              indicators
+              navButtonsAlwaysVisible
+              NextIcon={<KeyboardArrowRightTwoToneIcon />}
+              PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
+            >
+              {proj.images.length >= 1
+                ? proj.images.map((item, i) => (
+                    <Card
+                      key={i}
+                      sx={{ height: dims.height, ...carouselStyles.card }}
+                    >
+                      <Box
+                        sx={{ width: dims.width, ...carouselStyles.outerBox }}
+                      >
+                        <AdvancedImage
+                          cldImg={cld
+                            .image(`portfolio/${item.src}`)
+                            .resize(fit(dims.width, dims.height))}
+                          plugins={[
+                            placeholder({ mode: "blur" }),
+                            responsive(),
+                          ]}
+                        />
+                        <Box sx={{ ...carouselStyles.textOverlay }}>
+                          <Typography variant="caption">
+                            {item.description}
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Card>
+                  ))
+                : [1, 2].map((i) => (
+                    <Card
+                      key={i}
+                      sx={{ height: dims.height, ...carouselStyles.card }}
+                    >
+                      <Box
+                        sx={{ width: dims.width, ...carouselStyles.outerBox }}
+                      >
+                        <PhotoLibraryTwoToneIcon
+                          sx={{ width: dims.width, height: dims.height }}
+                        />
+                        <Box sx={{ ...carouselStyles.textOverlay }}>
+                          <Typography variant="caption">
+                            Photo unavailable at the moment.
+                          </Typography>
+                        </Box>
+                      </Box>
+                    </Card>
+                  ))}
+            </Carousel>
+          </Box>
         </Box>
-      </Box>
+      </FadeWrapper>
     </Modal>
   );
 }
