@@ -11,6 +11,7 @@ import { CardActions, Collapse, Grid } from "@mui/material";
 
 import { Project } from "../content/projects/interfaces";
 import ProjectCarousel from "./ProjectCarousel";
+import { ANI_CONST } from "./styled/constants";
 import { useLocation } from "react-router-dom";
 
 interface ProjectBlockProps {
@@ -59,7 +60,7 @@ const ProjectBlock = ({ proj }: ProjectBlockProps) => {
   const location = useLocation();
 
   const cardWidth = {
-    width: { xs: 300, md: 400 },
+    width: ANI_CONST.PROJ_CARD_WIDTH,
   };
 
   const handleExpandClick = () => {
