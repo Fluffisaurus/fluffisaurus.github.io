@@ -17,11 +17,12 @@ import { fit } from "@cloudinary/url-gen/actions/resize";
 import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRightTwoTone";
 import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftTwoTone";
 import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
+
 import getCloudinaryInstance from "./Cloudinary";
 import { carouselStyles } from "./ProjectCarousel";
 import { Project } from "../content/projects/interfaces";
-import { ScrollArea } from "@blur-ui/scroll-area";
 import computeNodeStyle from "../utils/computeNodeStyle";
+import ScrollableContainer from "./styled/ScrollableContainer";
 
 const styles = {
   ...carouselStyles,
@@ -83,75 +84,57 @@ export default function ProjectModalCarousel({
           flexDirection: isSmallScreen ? "column-reverse" : "row",
         }}
       >
-        <Box
+        <ScrollableContainer
           sx={{
-            display: "flex",
             flexDirection: "column",
             width: isSmallScreen ? "100%" : "30%",
             height: isSmallScreen ? "40%" : "100%",
-            overflow: "hidden",
           }}
         >
-          <ScrollArea
-            classNames={{
-              horizontalScrollbar: "h-2.5",
-              root: "w-60 h-60 text-black dark:text-white",
-              scrollbar: "p-[1px]",
-              thumb:
-                "bg-neutral-800 dark:bg-neutral-100 rounded-full opacity-30 hover:opacity-40 transition-opacity",
-              verticalScrollbar: "w-2.5",
+          <CardContent
+            sx={{
+              flex: "1 0 auto",
             }}
-            dir="ltr"
-            orientation="vertical"
-            scrollHideDelay={600}
-            shadowSize={50}
-            type="always"
           >
-            <CardContent
-              sx={{
-                flex: "1 0 auto",
-              }}
+            <Typography
+              id={`modal-modal-title-${proj.abbr}`}
+              component="div"
+              variant="h5"
             >
-              <Typography
-                id={`modal-modal-title-${proj.abbr}`}
-                component="div"
-                variant="h5"
-              >
-                {proj.name}
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                component="div"
-                sx={{ color: "text.secondary" }}
-              >
-                {proj.category}
-              </Typography>
-              <Grid
-                container
-                display="flex"
-                flexDirection="row"
-                spacing={2}
-                rowSpacing={0}
-                width="90%"
-              >
-                {proj.tags.map((tag, i) => (
-                  <Typography
-                    key={i}
-                    variant="subtitle2"
-                    component="div"
-                    sx={{ color: "text.secondary" }}
-                  >
-                    {tag}
-                  </Typography>
-                ))}
-              </Grid>
-              <Box sx={{ paddingTop: `10px` }}>
-                <Typography variant="body2">{proj.date}</Typography>
-                <Typography variant="body1">{proj.detail.short}</Typography>
-              </Box>
-            </CardContent>
-          </ScrollArea>
-        </Box>
+              {proj.name}
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              component="div"
+              sx={{ color: "text.secondary" }}
+            >
+              {proj.category}
+            </Typography>
+            <Grid
+              container
+              display="flex"
+              flexDirection="row"
+              spacing={2}
+              rowSpacing={0}
+              width="90%"
+            >
+              {proj.tags.map((tag, i) => (
+                <Typography
+                  key={i}
+                  variant="subtitle2"
+                  component="div"
+                  sx={{ color: "text.secondary" }}
+                >
+                  {tag}
+                </Typography>
+              ))}
+            </Grid>
+            <Box sx={{ paddingTop: `10px` }}>
+              <Typography variant="body2">{proj.date}</Typography>
+              <Typography variant="body1">{proj.detail.short}</Typography>
+            </Box>
+          </CardContent>
+        </ScrollableContainer>
         <Box
           ref={modalRef}
           sx={{ width: isSmallScreen ? "100%" : "70%", height: "100%" }}

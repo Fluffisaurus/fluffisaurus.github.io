@@ -1,10 +1,12 @@
-import { Typography } from "@mui/material";
 import React from "react";
+
+import { Typography } from "@mui/material";
+import ScrollableContainer from "../components/styled/ScrollableContainer";
 
 const DoesNotExist: React.FunctionComponent = () => {
   return (
     <>
-      <section>
+      <ScrollableContainer>
         <Typography variant="h3">Oops!</Typography>
         <Typography variant="body1">
           The page you're looking for does not exist (yet?)!
@@ -12,7 +14,7 @@ const DoesNotExist: React.FunctionComponent = () => {
         <Typography variant="body1">
           Click the links above to teleport back!
         </Typography>
-      </section>
+      </ScrollableContainer>
     </>
   );
 };

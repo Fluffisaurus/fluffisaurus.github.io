@@ -1,13 +1,15 @@
 import React from "react";
 
+import { Grid, Typography } from "@mui/material";
+
 import AboutMeContent from "../content/about-me";
 import ContentBlock from "../components/ContentBlock";
-import { Grid, Typography } from "@mui/material";
+import ScrollableContainer from "../components/styled/ScrollableContainer";
 
 const AboutMe: React.FunctionComponent = () => {
   return (
     <>
-      <section>
+      <ScrollableContainer>
         <Typography variant="h3">5w1h</Typography>
         <Grid container spacing={2}>
           {AboutMeContent?.map((cntBlk, i) => {
@@ -20,7 +22,7 @@ const AboutMe: React.FunctionComponent = () => {
             );
           })}
         </Grid>
-      </section>
+      </ScrollableContainer>
     </>
   );
 };

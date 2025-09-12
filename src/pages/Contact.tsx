@@ -1,10 +1,12 @@
-import { Typography } from "@mui/material";
 import React from "react";
+
+import { Typography } from "@mui/material";
+import ScrollableContainer from "../components/styled/ScrollableContainer";
 
 const Contact: React.FunctionComponent = () => {
   return (
     <>
-      <section>
+      <ScrollableContainer>
         <Typography variant="h3">Contact_info</Typography>
         <Typography variant="body1">
           linkedin:{" "}
@@ -13,7 +15,7 @@ const Contact: React.FunctionComponent = () => {
           </a>
         </Typography>
         <Typography variant="body1">email: angushon96@gmail.com</Typography>
-      </section>
+      </ScrollableContainer>
     </>
   );
 };

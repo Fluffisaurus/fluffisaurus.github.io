@@ -1,12 +1,14 @@
-import { Typography } from "@mui/material";
 import React from "react";
+
+import { Typography } from "@mui/material";
+import ScrollableContainer from "../components/styled/ScrollableContainer";
 
 const Default: React.FunctionComponent = () => {
   return (
     <>
-      <section>
+      <ScrollableContainer>
         <Typography variant="body1">much wow, such empty</Typography>
-      </section>
+      </ScrollableContainer>
     </>
   );
 };

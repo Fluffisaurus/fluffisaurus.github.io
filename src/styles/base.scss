@@ -24,13 +24,12 @@ html,
 }
 
 .Container {
-  overflow: scroll;
   height: 100%;
   display: flex;
 
   &--open {
-    padding-top: $global-nav-height;
+    padding: $global-nav-height 5% $global-nav-height 5%;
     height: 100%;
-    width: 80%;
+    width: 100%;
   }
 }
