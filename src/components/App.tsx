@@ -28,7 +28,9 @@ const App = () => {
   const background = location.state && (location.state as any).background;
 
   useEffect(() => {
-    localStorage.removeItem("animatedOnLoad"); // clean up on unmount
+    // clean up on unmount
+    localStorage.removeItem("--grow-animatedOnLoad");
+    localStorage.removeItem("--slide-animatedOnLoad");
   }, []);
 
   return (
