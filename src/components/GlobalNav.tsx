@@ -5,6 +5,7 @@ import type {} from "@mui/material/themeCssVarsAugmentation";
 import {
   Box,
   Button,
+  Slide,
   styled,
   SwipeableDrawer,
   useMediaQuery,
@@ -40,6 +41,15 @@ const GlobalNav = () => {
   const [hoverPath, setHoverPath] = useState<string | null>();
   const [hoverText, setHoverText] = useState<string>("cd ");
   const [fullPath, setFullPath] = useState<string | null>();
+
+  const [showContent, setShowContent] = useState(false);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowContent(true);
+    }, 1500);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const [openDrawer, setOpenDrawer] = React.useState(false);
   const toggleDrawer = () => setOpenDrawer(!openDrawer);
@@ -106,9 +116,9 @@ const GlobalNav = () => {
       setHoverText("ls -R ~");
       return;
     }
-    console.log(
-      `currPath: ${currPath}, subPath: ${subPath}, hoverPath: ${hoverPath}, fullPath: ${fullPath}`
-    );
+    // console.log(
+    //   `currPath: ${currPath}, subPath: ${subPath}, hoverPath: ${hoverPath}, fullPath: ${fullPath}`
+    // );
     if (!hoverPath) {
       setHoverText("");
       return;
@@ -137,64 +147,68 @@ const GlobalNav = () => {
 
   return (
     <>
-      <StyledBox className="Global-nav">
-        <Box className="Global-nav__root">
-          <Button
-            onClick={toggleDrawer}
-            {...globalNavButtonProps}
-            onMouseEnter={() => setHoverPath("menu")}
-          >
-            {openDrawer ? <MenuOpenTwoToneIcon /> : <MenuTwoToneIcon />}
-          </Button>
-          <Button
-            ref={homeIconButtonRef}
-            component={Link}
-            to={"/"}
-            {...globalNavButtonProps}
-            sx={{ ...globalNavButtonProps.sx, padding: 0 }}
-            onMouseEnter={() => setHoverPath("~")}
-          >
-            🏠:/
-          </Button>
-          <Button
-            component={Link}
-            to={currPath}
-            {...globalNavButtonProps}
-            sx={{ ...globalNavButtonProps.sx, padding: 0 }}
-            onMouseEnter={() => setHoverPath("/" + currPath)}
-          >
-            {currPath == "" ? "" : currPath + "/"}
-          </Button>
-          {subPath && (
+      <Slide in={showContent} direction="down" timeout={500}>
+        <StyledBox className="Global-nav">
+          <Box className="Global-nav__root">
             <Button
+              onClick={toggleDrawer}
+              {...globalNavButtonProps}
+              onMouseEnter={() => setHoverPath("menu")}
+            >
+              {openDrawer ? <MenuOpenTwoToneIcon /> : <MenuTwoToneIcon />}
+            </Button>
+            <Button
+              ref={homeIconButtonRef}
               component={Link}
-              to={currPath + "/" + subPath}
+              to={"/"}
               {...globalNavButtonProps}
               sx={{ ...globalNavButtonProps.sx, padding: 0 }}
-              onMouseEnter={() => setHoverPath("/" + currPath + "/" + subPath)}
+              onMouseEnter={() => setHoverPath("~")}
             >
-              {subPath + "/"}
+              🏠:/
             </Button>
-          )}
-          <Button className="Nav-link__no-events" {...globalNavButtonProps}>
-            ~$
-          </Button>
-          {!isMobile && (
             <Button
-              className="Nav-link__no-events"
+              component={Link}
+              to={currPath}
               {...globalNavButtonProps}
-              sx={{
-                ...globalNavButtonProps.sx,
-                color: theme.vars.palette.primary.light,
-                justifyContent: "flex-start",
-                padding: "0 5px 0 25px",
-              }}
+              sx={{ ...globalNavButtonProps.sx, padding: 0 }}
+              onMouseEnter={() => setHoverPath("/" + currPath)}
             >
-              {hoverText}
+              {currPath == "" ? "" : currPath + "/"}
             </Button>
-          )}
-        </Box>
-      </StyledBox>
+            {subPath && (
+              <Button
+                component={Link}
+                to={currPath + "/" + subPath}
+                {...globalNavButtonProps}
+                sx={{ ...globalNavButtonProps.sx, padding: 0 }}
+                onMouseEnter={() =>
+                  setHoverPath("/" + currPath + "/" + subPath)
+                }
+              >
+                {subPath + "/"}
+              </Button>
+            )}
+            <Button className="Nav-link__no-events" {...globalNavButtonProps}>
+              ~$
+            </Button>
+            {!isMobile && (
+              <Button
+                className="Nav-link__no-events"
+                {...globalNavButtonProps}
+                sx={{
+                  ...globalNavButtonProps.sx,
+                  color: theme.vars.palette.primary.light,
+                  justifyContent: "flex-start",
+                  padding: "0 5px 0 25px",
+                }}
+              >
+                {hoverText}
+              </Button>
+            )}
+          </Box>
+        </StyledBox>
+      </Slide>
       <SwipeableDrawer
         anchor="top"
         open={openDrawer}
