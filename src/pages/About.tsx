@@ -7,13 +7,16 @@ import ContentBlock from "../components/ContentBlock";
 import ScrollableContainer from "../components/styled/ScrollableContainer";
 import SlideWrapper from "../components/styled/SlideWrapper";
 import { ANI_CONST } from "../components/styled/constants";
+import FadeWrapper from "../components/styled/FadeWrapper";
 
 const AboutMe: React.FunctionComponent = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   return (
     <>
       <ScrollableContainer ref={containerRef}>
-        <Typography variant="h3">5w1h</Typography>
+        <FadeWrapper>
+          <Typography variant="h3">5w1h</Typography>
+        </FadeWrapper>
         <Grid container spacing={2} flexDirection={"column"}>
           {AboutMeContent?.map((cntBlk, i) => {
             return (

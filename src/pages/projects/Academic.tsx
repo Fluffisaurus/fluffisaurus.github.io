@@ -11,6 +11,7 @@ import {
 } from "../../content/projects/project-list";
 import SlideWrapper from "../../components/styled/SlideWrapper";
 import { ANI_CONST } from "../../components/styled/constants";
+import FadeWrapper from "../../components/styled/FadeWrapper";
 
 const Academic = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -21,7 +22,9 @@ const Academic = () => {
   return (
     <>
       <div ref={containerRef}>
-        <Typography variant="h4">Academic_projects</Typography>
+        <FadeWrapper delay={ANI_CONST.PROJ_SUBHEADING_DELAY}>
+          <Typography variant="h4">Academic_projects</Typography>
+        </FadeWrapper>
         <Grid container spacing={2} alignItems="flex-start">
           {ProjectList[ProjectCategories.ACADEMIC].map((proj, i) => {
             return (

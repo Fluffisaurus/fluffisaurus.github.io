@@ -10,6 +10,7 @@ import {
 } from "../../content/projects/project-list";
 import SlideWrapper from "../../components/styled/SlideWrapper";
 import { ANI_CONST } from "../../components/styled/constants";
+import FadeWrapper from "../../components/styled/FadeWrapper";
 
 const Personal = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -20,7 +21,9 @@ const Personal = () => {
   return (
     <>
       <div ref={containerRef}>
-        <Typography variant="h4">Personal_projects</Typography>
+        <FadeWrapper delay={ANI_CONST.PROJ_SUBHEADING_DELAY}>
+          <Typography variant="h4">Personal_projects</Typography>
+        </FadeWrapper>
         <Grid container spacing={2} alignItems="flex-start">
           {ProjectList[ProjectCategories.PERSONAL].map((proj, i) => {
             return (
