@@ -1,5 +1,5 @@
 {
-  "name": "mesite",
+  "name": "fluffisaurus.github.io",
   "version": "2.0.0",
   "description": "my updated personal website",
   "main": "./src/index.tsx",
@@ -11,6 +11,7 @@
     "dev": "NODE_ENV=development webpack serve",
     "start": "NODE_ENV=development webpack serve",
     "build": "NODE_ENV=production webpack",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "lint-staged": {
@@ -21,12 +22,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Fluffisaurus/mesite.git"
+    "url": "git+https://github.com/Fluffisaurus/fluffisaurus.github.io.git"
   },
   "author": "Angus Hon",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Fluffisaurus/mesite/issues"
+    "url": "https://github.com/Fluffisaurus/fluffisaurus.github.io/issues"
   },
   "homepage": "https://fluffisaurus.github.io",
   "dependencies": {
