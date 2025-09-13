@@ -20,6 +20,7 @@ import computeNodeStyle from "../utils/computeNodeStyle";
 import { globalNavButtonProps } from "../mui/components/muiButton";
 import "../styles/global-nav.scss";
 import { ANI_CONST } from "./styled/constants";
+import { TypeAnimation } from "react-type-animation";
 
 const StyledBox = styled("div")(({ theme }) => [
   {
@@ -203,7 +204,11 @@ const GlobalNav = () => {
                   padding: "0 5px 0 25px",
                 }}
               >
-                {hoverText}
+                <TypeAnimation
+                  key={hoverText}
+                  sequence={[hoverText, 500]}
+                  speed={hoverText.length > 8 ? 50 : 1}
+                />
               </Button>
             )}
           </Box>
