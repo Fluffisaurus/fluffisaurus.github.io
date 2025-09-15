@@ -59,7 +59,7 @@ const ProjectBlock = ({ proj }: ProjectBlockProps) => {
    */
   const location = useLocation();
 
-  const cardWidth = {
+  const cardDims = {
     width: ANI_CONST.PROJ_CARD_WIDTH,
   };
 
@@ -67,13 +67,13 @@ const ProjectBlock = ({ proj }: ProjectBlockProps) => {
     setExpanded(!expanded);
   };
   return (
-    <Card sx={{ ...cardWidth }}>
+    <Card sx={{ ...cardDims }}>
       <CardMedia sx={{ minHeight: 200 }}>
         <ProjectCarousel
           key={location.pathname}
           proj={proj}
-          width={{ ...cardWidth }}
-          height={200}
+          width={{ width: cardDims.width }}
+          height={400}
         />
       </CardMedia>
       <CardContent sx={{ position: "relative" }}>
