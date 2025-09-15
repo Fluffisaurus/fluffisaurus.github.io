@@ -1,5 +1,5 @@
-const GENERIC_CARD_DELAY = 500;
-const GENERIC_WRAPPER_DELAY = 1000;
+const GENERIC_CARD_DELAY = 400;
+const GENERIC_WRAPPER_DELAY = 700;
 
 export interface GenericWrapperProps {
   children: React.ReactNode;
