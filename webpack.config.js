@@ -59,6 +59,9 @@ module.exports = {
   optimization: {
     minimize: !devMode,
     minimizer: [new CssMinimizerPlugin()],
+    splitChunks: {
+      chunks: "all",
+    },
   },
   devServer: {
     historyApiFallback: true,

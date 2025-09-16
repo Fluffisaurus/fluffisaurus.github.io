@@ -44,7 +44,7 @@ const App = () => {
           }
         >
           <Routes location={background || location}>
-            <Route path="/" element={<Landing />} />
+            <Route path="" element={<Landing />} />
             <Route path="about" element={<AboutMe />} />
             <Route path="projects" element={<Projects />}>
               <Route index element={<Selection />} />

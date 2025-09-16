@@ -10,7 +10,7 @@
     "pre-commit": "pre-commit run",
     "dev": "NODE_ENV=development webpack serve",
     "start": "NODE_ENV=development webpack serve",
-    "build": "NODE_ENV=production webpack",
+    "build": "NODE_ENV=production webpack && cp build/index.html build/404.html",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
@@ -29,7 +29,7 @@
   "bugs": {
     "url": "https://github.com/Fluffisaurus/fluffisaurus.github.io/issues"
   },
-  "homepage": "https://fluffisaurus.github.io",
+  "homepage": "https://fluffisaurus.github.io/",
   "dependencies": {
     "@blur-ui/scroll-area": "^1.0.1",
     "@cloudinary/react": "1.4.0",
