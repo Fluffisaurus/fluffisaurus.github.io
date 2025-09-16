@@ -1,18 +1,47 @@
 import * as React from "react";
-import { Box, SpeedDial, SpeedDialIcon, SpeedDialAction } from "@mui/material";
+import {
+  Box,
+  SpeedDial,
+  SpeedDialIcon,
+  SpeedDialAction,
+  useColorScheme,
+} from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 
 import ToggleThemeButtons from "./ToggleThemeButtons";
 import ToggleImageQualityButtons from "./ToggleImageQualityButtons";
+import { Slide, ToastContainer } from "react-toastify";
+
+interface DialActions {
+  icon: JSX.Element;
+  name: string;
+}
 
 export default function CustomOptionsDial() {
-  const actions = [
+  const { mode, systemMode, setMode } = useColorScheme();
+  const actions: DialActions[] = [
     { icon: <ToggleImageQualityButtons />, name: "Image Quality" },
-    { icon: <ToggleThemeButtons />, name: "Theme Mode" },
+    {
+      icon: <ToggleThemeButtons mode={mode} setMode={setMode} />,
+      name: "Theme Mode",
+    },
   ];
   return (
     <>
+      <ToastContainer
+        position="bottom-left"
+        autoClose={5000}
+        limit={3}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={mode == "system" ? systemMode : mode}
+        transition={Slide}
+      />
       <Box
         sx={{
           position: "absolute",
