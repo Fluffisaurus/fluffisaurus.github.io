@@ -22,6 +22,9 @@ export const muiSpeedDialAction = {
         borderRadius: "var(--custom-mui-theme-shape-borderRadius)",
         justifyContent: "right",
       },
+      staticTooltip: {
+        whiteSpace: "nowrap",
+      },
     },
   },
 };

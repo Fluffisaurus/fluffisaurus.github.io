@@ -29,8 +29,8 @@ export default function CustomOptionsDial() {
           sx={{ position: "absolute", bottom: 16, right: 16 }}
           icon={
             <SpeedDialIcon
-              icon={<EditIcon />}
-              openIcon={<DisplaySettingsTwoToneIcon />}
+              icon={<DisplaySettingsTwoToneIcon />}
+              openIcon={<EditIcon />}
             />
           }
         >
@@ -41,6 +41,7 @@ export default function CustomOptionsDial() {
               slotProps={{
                 tooltip: {
                   title: action.name,
+                  open: true,
                 },
               }}
             />
