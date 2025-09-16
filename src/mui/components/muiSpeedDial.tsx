@@ -2,7 +2,10 @@ export const muiSpeedDial = {
   MuiSpeedDial: {
     styleOverrides: {
       root: {
-        alignItems: "flex-end", // aligns actions
+        alignItems: "flex-end", // fab itself
+      },
+      actions: {
+        alignItems: "flex-end", /// actions
       },
       fab: {
         // the actual icon on the speed dial itself
