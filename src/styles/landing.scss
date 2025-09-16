@@ -1,3 +1,5 @@
+@import "./global-nav.scss";
+
 .Landing-container {
   width: fit-content;
   display: flex;
@@ -35,7 +37,7 @@
 
 @media (max-width: 600px) {
   .Landing-container {
-    padding: 50px;
+    padding: $global-nav-height;
 
     &__name {
       &__fullname,

@@ -24,12 +24,13 @@ import { Project } from "../content/projects/interfaces";
 import computeNodeStyle from "../utils/computeNodeStyle";
 import ScrollableContainer from "./styled/ScrollableContainer";
 import FadeWrapper from "./styled/FadeWrapper";
+import { ANI_CONST } from "./styled/constants";
 
 const styles = {
   ...carouselStyles,
   modalBox: {
     position: "absolute",
-    top: "calc(50% + 20px)", // global nav bar is 40px tall
+    top: `calc(50% + ${ANI_CONST.GLOBAL_NAV_HEIGHT / 2}px)`, // global nav bar offset
     left: "50%",
     transform: "translate(-50%, -50%)",
     width: "87%",
@@ -63,7 +64,7 @@ export default function ProjectModalCarousel({
       const nodeDims = computeNodeStyle(node);
       setDims({
         width: nodeDims.width,
-        height: nodeDims.height - 40, // 40px for indicators
+        height: nodeDims.height - ANI_CONST.GLOBAL_NAV_HEIGHT,
       });
     }
   }, []);

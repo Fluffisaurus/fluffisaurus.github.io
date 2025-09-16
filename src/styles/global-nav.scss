@@ -1,6 +1,6 @@
 @import "./nav-link.scss";
 
-$global-nav-height: 40px;
+$global-nav-height: 50px;
 
 .Global-nav {
   @extend .Nav-link;
@@ -16,7 +16,10 @@ $global-nav-height: 40px;
   align-items: center;
 
   &__root {
+    display: flex;
+    justify-content: flex-start;
     align-self: center;
     width: 100%;
+    height: 100%;
   }
 }

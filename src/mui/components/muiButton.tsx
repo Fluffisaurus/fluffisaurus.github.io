@@ -13,7 +13,7 @@ export const navLinkButtonProps: ButtonProps = {
 };
 
 const muiButtonGlobalNavFontSizes = {
-  fontSize: { xs: 18, sm: 18, md: 19, lg: 20 },
+  fontSize: { xs: 19, sm: 20, md: 21, lg: 22 },
 };
 
 export const globalNavButtonProps: ButtonProps = {
