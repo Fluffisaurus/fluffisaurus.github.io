@@ -13,6 +13,11 @@ html,
   width: 100%;
 }
 
+// theme mode transition time
+body {
+  transition: background-color 1s ease-in-out;
+}
+
 .App {
   height: 100%;
 
