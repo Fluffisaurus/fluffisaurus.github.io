@@ -5,13 +5,15 @@ import {
   SpeedDialIcon,
   SpeedDialAction,
   useColorScheme,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 
 import ToggleThemeButtons from "./ToggleThemeButtons";
 import ToggleImageQualityButtons from "./ToggleImageQualityButtons";
-import { Slide, ToastContainer } from "react-toastify";
+import { Slide, toast, ToastContainer } from "react-toastify";
 
 interface DialActions {
   icon: JSX.Element;
@@ -27,11 +29,45 @@ export default function CustomOptionsDial() {
       name: "Theme Mode",
     },
   ];
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
+  // Note: --speedDial-onboard is not cleared after <App/> unmount
+  const [initialLoad, setInitialLoad] = React.useState(() => {
+    return !!localStorage.getItem("--speedDial-onboard");
+  });
+  React.useEffect(() => {
+    if (!initialLoad) {
+      // first load
+      toast.info("Customize your experience", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        closeButton: false,
+        pauseOnFocusLoss: false,
+        draggableDirection: "y",
+        style: {
+          right: isMobile ? "65px" : "55px",
+          bottom: isMobile ? "70px" : "40px",
+          borderTopLeftRadius: "10px",
+          borderTopRightRadius: "10px",
+          borderBottomLeftRadius: "10px",
+          borderBottomRightRadius: 0,
+          width: isMobile ? "280px" : "fit-content",
+        },
+      });
+      setInitialLoad(true);
+      localStorage.setItem("--speedDial-onboard", "true");
+    }
+  }, []);
+
   return (
     <>
       <ToastContainer
         position="bottom-left"
-        autoClose={5000}
+        autoClose={2000}
         limit={3}
         hideProgressBar={false}
         newestOnTop={false}
