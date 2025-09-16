@@ -163,10 +163,21 @@ const GlobalNav = () => {
               component={Link}
               to={"/"}
               {...globalNavButtonProps}
-              sx={{ ...globalNavButtonProps.sx, padding: 0 }}
+              sx={{ ...globalNavButtonProps.sx }}
               onMouseEnter={() => setHoverPath("~")}
             >
-              🏠:/
+              🏠
+            </Button>
+            <Button
+              className="Nav-link__no-events"
+              {...globalNavButtonProps}
+              sx={{
+                ...globalNavButtonProps.sx,
+                color: theme.vars.palette.primary.dark,
+                padding: 0,
+              }}
+            >
+              :/
             </Button>
             <Button
               component={Link}
@@ -190,7 +201,15 @@ const GlobalNav = () => {
                 {subPath + "/"}
               </Button>
             )}
-            <Button className="Nav-link__no-events" {...globalNavButtonProps}>
+            <Button
+              className="Nav-link__no-events"
+              {...globalNavButtonProps}
+              sx={{
+                ...globalNavButtonProps.sx,
+                color: theme.vars.palette.primary.dark,
+                padding: 0,
+              }}
+            >
               ~$
             </Button>
             {!isMobile && (
