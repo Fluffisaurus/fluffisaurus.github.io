@@ -16,6 +16,7 @@ const muiCssBaseline = {
           font-style: normal;
           font-weight: 400;
           font-stretch: 100%;
+          font-display: swap;
           src: url(https://fonts.gstatic.com/s/inconsolata/v37/QlddNThLqRwH-OJ1UHjlKENVzkWGVkL3GZQmAwLyya15.woff2) format('woff2');
           unicode-range: U0000-00FF, U0131, U0152-0153, U02BB-02BC, U02C6, U02DA, U02DC, U0304, U0308, U0329, U2000-206F, U20AC, U2122, U2191, U2193, U2212, U2215, UFEFF, UFFFD;
         }
@@ -42,6 +43,7 @@ const muiCssBaseline = {
           font-family: 'Karla';
           font-style: italic;
           font-weight: 400;
+          font-display: swap;
           src: url(https://fonts.gstatic.com/s/karla/v32/qkBKXvYC6trAT7RQNNK2EG7SIwPWMNlCV3lIb7M.woff2) format('woff2');
           unicode-range: U0000-00FF, U0131, U0152-0153, U02BB-02BC, U02C6, U02DA, U02DC, U0304, U0308, U0329, U2000-206F, U20AC, U2122, U2191, U2193, U2212, U2215, UFEFF, UFFFD;
         }
