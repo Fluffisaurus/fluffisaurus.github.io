@@ -11,12 +11,12 @@ const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
   mode: devMode ? "development" : "production",
-  devtool: "inline-source-map",
+  devtool: devMode ? "inline-source-map" : "source-map",
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build/"),
     publicPath: devMode === "production" ? "./" : "/",
-    filename: devMode ? "[name].js" : "[name].[hash].js",
+    filename: devMode ? "[name].js" : "[name].[contenthash].js",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx", "..."],
@@ -27,8 +27,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: devMode ? "[name].css" : "[name].[hash].css",
-      chunkFilename: devMode ? "[ic].css" : "[ic].[hash].css",
+      filename: devMode ? "[name].css" : "[name].[contenthash].css",
+      chunkFilename: devMode ? "[ic].css" : "[ic].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
       template: "public/index.html",
