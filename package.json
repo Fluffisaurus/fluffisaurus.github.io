@@ -12,7 +12,8 @@
     "start": "NODE_ENV=development webpack serve",
     "build": "NODE_ENV=production webpack && cp build/index.html build/404.html",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "analyze": "webpack --profile --json > stats.json"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -80,6 +81,7 @@
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.43.0",
     "webpack": "^5.93.0",
+    "webpack-bundle-analyzer": "^4.10.2",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
   }

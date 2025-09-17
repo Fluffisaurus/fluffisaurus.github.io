@@ -1,6 +1,7 @@
 # dev build files
 build/
 .env
+stats.json
 
 # IDEs
 .project

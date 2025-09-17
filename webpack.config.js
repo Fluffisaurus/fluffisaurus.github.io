@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
+const BundleAnalyzerPlugin =
+  require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const devMode = process.env.NODE_ENV !== "production";
 
@@ -33,6 +35,9 @@ module.exports = {
       // favicon: 'public/favicon.ico'
     }),
     new Dotenv(),
+    new BundleAnalyzerPlugin({
+      generateStatsFile: true,
+    }),
   ],
   module: {
     rules: [
