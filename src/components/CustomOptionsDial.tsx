@@ -8,7 +8,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import EditIcon from "@mui/icons-material/Edit";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 import { Slide, toast, ToastContainer, ToastOptions } from "react-toastify";
 
@@ -122,7 +121,7 @@ export default function CustomOptionsDial() {
           icon={
             <SpeedDialIcon
               icon={<DisplaySettingsTwoToneIcon />}
-              openIcon={<EditIcon />}
+              openIcon={<DisplaySettingsTwoToneIcon />}
             />
           }
         >
