@@ -33,6 +33,7 @@ const App = () => {
     // clean up on unmount
     localStorage.removeItem("--grow-animatedOnLoad");
     localStorage.removeItem("--slide-animatedOnLoad");
+    localStorage.removeItem("--speedDial-onboard");
   }, []);
 
   return (

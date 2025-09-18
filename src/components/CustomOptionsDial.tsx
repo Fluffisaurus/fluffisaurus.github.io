@@ -44,7 +44,8 @@ export default function CustomOptionsDial({
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
-  // Note: --speedDial-onboard is not cleared after <App/> unmount
+  // Note: --speedDial-onboard is cleared after <App/> unmount
+  //       to re-enable functionality, remove that line
   const [initialLoad, setInitialLoad] = React.useState(() => {
     return !!localStorage.getItem("--speedDial-onboard");
   });
@@ -56,7 +57,6 @@ export default function CustomOptionsDial({
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
-        closeButton: false,
         pauseOnFocusLoss: false,
         draggableDirection: "y",
         style: {
