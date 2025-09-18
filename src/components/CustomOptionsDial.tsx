@@ -9,12 +9,11 @@ import {
   useTheme,
 } from "@mui/material";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
-import { Slide, toast, ToastContainer } from "react-toastify";
 
 import ToggleThemeButtons from "./ToggleThemeButtons";
 import ToggleImageQualityButtons from "./ToggleImageQualityButtons";
-import ToggleOnboardingButtons from "./ToggleOnboardingButtons";
 import { ImageQualityProps } from "./styled/constants";
+import { Slide, toast, ToastContainer } from "react-toastify";
 
 interface DialActions {
   icon: JSX.Element;
@@ -26,19 +25,7 @@ export default function CustomOptionsDial({
   setImgQuality,
 }: ImageQualityProps) {
   const { mode, systemMode, setMode } = useColorScheme();
-  const [isOnboarding, setIsOnboarding] =
-    React.useState<string | null>("enabled");
-
   const actions: DialActions[] = [
-    {
-      icon: (
-        <ToggleOnboardingButtons
-          isOnboarding={isOnboarding}
-          setIsOnboarding={setIsOnboarding}
-        />
-      ),
-      name: "Onboarding",
-    },
     {
       icon: (
         <ToggleImageQualityButtons
@@ -62,7 +49,7 @@ export default function CustomOptionsDial({
     return !!localStorage.getItem("--speedDial-onboard");
   });
   React.useEffect(() => {
-    if (!initialLoad || isOnboarding) {
+    if (!initialLoad) {
       // first load
       toast.info("Customize your experience", {
         position: "bottom-right",
