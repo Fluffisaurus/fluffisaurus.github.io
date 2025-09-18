@@ -20,11 +20,9 @@ const ToggleOnboardingButtons = ({
   ) => {
     if (newIsOnboarding) {
       setIsOnboarding(newIsOnboarding);
-      localStorage.setItem("--speedDial-onboard", newIsOnboarding);
       toast.success(`Onboarding: ${newIsOnboarding}`);
     } else {
       setIsOnboarding("enabled");
-      localStorage.setItem("--speedDial-onboard", "enabled");
       toast.success(`Onboarding: default (enabled)`);
     }
   };

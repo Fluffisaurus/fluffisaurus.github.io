@@ -9,7 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
-import { Slide, toast, ToastContainer, ToastOptions } from "react-toastify";
+import { Slide, toast, ToastContainer } from "react-toastify";
 
 import ToggleThemeButtons from "./ToggleThemeButtons";
 import ToggleImageQualityButtons from "./ToggleImageQualityButtons";
@@ -26,14 +26,8 @@ export default function CustomOptionsDial({
   setImgQuality,
 }: ImageQualityProps) {
   const { mode, systemMode, setMode } = useColorScheme();
-  const [isOnboarding, setIsOnboarding] = React.useState<string | null>(() => {
-    const val = localStorage.getItem("--speedDial-onboard");
-    if (val) {
-      return val;
-    } else {
-      return "enabled";
-    }
-  });
+  const [isOnboarding, setIsOnboarding] =
+    React.useState<string | null>("enabled");
 
   const actions: DialActions[] = [
     {
@@ -62,43 +56,35 @@ export default function CustomOptionsDial({
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const toastOptions: ToastOptions = {
-    position: "bottom-right",
-    autoClose: 5000,
-    hideProgressBar: true,
-    closeOnClick: true,
-    pauseOnFocusLoss: false,
-    draggableDirection: "y",
-    style: {
-      right: isMobile ? "65px" : "55px",
-      bottom: isMobile ? "70px" : "40px",
-      borderTopLeftRadius: "10px",
-      borderTopRightRadius: "10px",
-      borderBottomLeftRadius: "10px",
-      borderBottomRightRadius: 0,
-      width: isMobile ? "280px" : "fit-content",
-    },
-  };
 
-  // Note: --speedDial-initialOnboard and --speedDial-onboard
-  //       is not cleared after <App/> unmount, required for
-  //       functionality.
+  // Note: --speedDial-onboard is not cleared after <App/> unmount
   const [initialLoad, setInitialLoad] = React.useState(() => {
-    return !!localStorage.getItem("--speedDial-initialOnboard");
+    return !!localStorage.getItem("--speedDial-onboard");
   });
   React.useEffect(() => {
-    if (!initialLoad) {
+    if (!initialLoad || isOnboarding) {
       // first load
-      toast.info("Customize your experience", toastOptions);
+      toast.info("Customize your experience", {
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        closeButton: false,
+        pauseOnFocusLoss: false,
+        draggableDirection: "y",
+        style: {
+          right: isMobile ? "65px" : "55px",
+          bottom: isMobile ? "70px" : "40px",
+          borderTopLeftRadius: "10px",
+          borderTopRightRadius: "10px",
+          borderBottomLeftRadius: "10px",
+          borderBottomRightRadius: 0,
+          width: isMobile ? "280px" : "fit-content",
+        },
+      });
       setInitialLoad(true);
-      localStorage.setItem("--speedDial-initialOnboard", "true");
-    } else {
-      if (isOnboarding == "enabled") {
-        toast.info("Customize your experience", toastOptions);
-      }
+      localStorage.setItem("--speedDial-onboard", "true");
     }
-    console.log(`toggled option: ${isOnboarding}`);
-    console.log(`initial onboarding: ${initialLoad}`);
   }, []);
 
   return (
@@ -106,7 +92,7 @@ export default function CustomOptionsDial({
       <ToastContainer
         position="bottom-left"
         autoClose={2000}
-        limit={1}
+        limit={3}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}
