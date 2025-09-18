@@ -20,6 +20,7 @@ import cld from "../components/Cloudinary";
 import SlideWrapper from "../components/styled/SlideWrapper";
 import { ANI_CONST } from "../components/styled/constants";
 import FadeWrapper from "../components/styled/FadeWrapper";
+import { toast } from "react-toastify";
 
 interface ContactInfo {
   name: string;
@@ -46,6 +47,21 @@ const Contact: React.FunctionComponent = () => {
   const theme = useTheme();
   const animationBreakpoint = useMediaQuery(theme.breakpoints.down("sm"));
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleEmailClick = async () => {
+    try {
+      await navigator.clipboard.writeText("angushon96@gmail.com");
+      toast.success("Copied email to clipboard.");
+    } catch (err: unknown) {
+      console.error(
+        `Failed to copy email to clipboard: ${
+          err instanceof Error && err.message
+        }`
+      );
+      toast.error("Failed to copy email to clipboard");
+    }
+  };
+
   return (
     <>
       <ScrollableContainer ref={containerRef}>
@@ -65,6 +81,7 @@ const Contact: React.FunctionComponent = () => {
                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={item.modal ? () => handleEmailClick() : undefined}
                   >
                     <Grid
                       container
