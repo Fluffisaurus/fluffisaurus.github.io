@@ -18,13 +18,13 @@ import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRigh
 import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftTwoTone";
 import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
 
-import getCloudinaryInstance from "./Cloudinary";
+import getCloudinaryInstance, { getDesiredQuality } from "./Cloudinary";
 import { carouselStyles } from "./ProjectCarousel";
 import { Project } from "../content/projects/interfaces";
 import computeNodeStyle from "../utils/computeNodeStyle";
 import ScrollableContainer from "./styled/ScrollableContainer";
 import FadeWrapper from "./styled/FadeWrapper";
-import { ANI_CONST } from "./styled/constants";
+import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 
 const styles = {
   ...carouselStyles,
@@ -42,12 +42,13 @@ const styles = {
   },
 };
 
-interface ProjectModalCarouselProps {
+interface ProjectModalCarouselProps extends ImageQualityProps {
   proj: Project;
 }
 
 export default function ProjectModalCarousel({
   proj,
+  imgQuality,
 }: ProjectModalCarouselProps) {
   const navigate = useNavigate();
   const theme = useTheme();
@@ -165,7 +166,8 @@ export default function ProjectModalCarousel({
                         <AdvancedImage
                           cldImg={cld
                             .image(`portfolio/${item.src}`)
-                            .resize(fit(dims.width, dims.height))}
+                            .resize(fit(dims.width, dims.height))
+                            .quality(getDesiredQuality(imgQuality))}
                           plugins={[
                             placeholder({ mode: "blur" }),
                             responsive(),

@@ -10,10 +10,13 @@ import {
   ProjectList,
 } from "../../content/projects/project-list";
 import SlideWrapper from "../../components/styled/SlideWrapper";
-import { ANI_CONST } from "../../components/styled/constants";
+import {
+  ANI_CONST,
+  ImageQualityProps,
+} from "../../components/styled/constants";
 import FadeWrapper from "../../components/styled/FadeWrapper";
 
-const Academic = () => {
+const Academic = ({ imgQuality }: ImageQualityProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const theme = useTheme();
   const animationBreakpoint = useMediaQuery(
@@ -33,7 +36,7 @@ const Academic = () => {
                 delay={i * ANI_CONST.PROJ_CARDS_DELAY}
                 direction={animationBreakpoint ? "up" : "left"}
               >
-                <ProjectBlock proj={proj} key={i} />
+                <ProjectBlock proj={proj} imgQuality={imgQuality} key={i} />
               </SlideWrapper>
             );
           })}

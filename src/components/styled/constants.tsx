@@ -1,3 +1,5 @@
+import { QualityTypes } from "@cloudinary/url-gen/types/types";
+
 const GENERIC_CARD_DELAY = 400;
 const GENERIC_WRAPPER_DELAY = 700;
 
@@ -5,6 +7,18 @@ export interface GenericWrapperProps {
   children: React.ReactNode;
   delay?: number;
   timeout?: number;
+}
+
+export type ImageQuality = "low" | "good" | "best";
+export const CldImgQuality: Record<ImageQuality, QualityTypes> = {
+  low: "auto:low",
+  good: "auto:good",
+  best: "auto:best",
+};
+
+export interface ImageQualityProps {
+  imgQuality?: ImageQuality;
+  setImgQuality?: React.Dispatch<React.SetStateAction<ImageQuality>>;
 }
 
 export const ANI_CONST = {

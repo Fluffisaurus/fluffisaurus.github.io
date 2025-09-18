@@ -11,10 +11,10 @@ import { CardActions, Collapse, Grid } from "@mui/material";
 
 import { Project } from "../content/projects/interfaces";
 import ProjectCarousel from "./ProjectCarousel";
-import { ANI_CONST } from "./styled/constants";
+import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import { useLocation } from "react-router-dom";
 
-interface ProjectBlockProps {
+interface ProjectBlockProps extends ImageQualityProps {
   proj: Project;
 }
 
@@ -46,7 +46,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
-const ProjectBlock = ({ proj }: ProjectBlockProps) => {
+const ProjectBlock = ({ proj, imgQuality }: ProjectBlockProps) => {
   const [expanded, setExpanded] = React.useState(false);
   /*
    * location as a key here helps react recognize which is parent vs child
@@ -74,6 +74,7 @@ const ProjectBlock = ({ proj }: ProjectBlockProps) => {
           proj={proj}
           width={{ width: cardDims.width }}
           height={400}
+          imgQuality={imgQuality}
         />
       </CardMedia>
       <CardContent sx={{ position: "relative" }}>

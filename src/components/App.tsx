@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useEffect } from "react";
+import React, { Suspense, lazy, useEffect, useState } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { Box } from "@mui/material";
 
@@ -21,11 +21,13 @@ const ProjectModalCarousel = lazy(
 );
 import { ProjectList } from "../content/projects/project-list";
 import { Project } from "../content/projects/interfaces";
+import { ImageQuality } from "./styled/constants";
 
 const App = () => {
   const location = useLocation();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const background = location.state && (location.state as any).background;
+  const [imgQuality, setImgQuality] = useState<ImageQuality>("best");
 
   useEffect(() => {
     // clean up on unmount
@@ -35,7 +37,10 @@ const App = () => {
 
   return (
     <Box className="App">
-      <CustomOptionsDial />
+      <CustomOptionsDial
+        imgQuality={imgQuality}
+        setImgQuality={setImgQuality}
+      />
       <Suspense fallback={<Loading />}>
         <GlobalNav />
         <Box
@@ -48,12 +53,18 @@ const App = () => {
             <Route path="about" element={<AboutMe />} />
             <Route path="projects" element={<Projects />}>
               <Route index element={<Selection />} />
-              <Route path="personal" element={<Personal />} />
+              <Route
+                path="personal"
+                element={<Personal imgQuality={imgQuality} />}
+              />
               <Route
                 path="personal/*"
                 element={<Navigate to="/projects/personal" replace />}
               />
-              <Route path="academic" element={<Academic />} />
+              <Route
+                path="academic"
+                element={<Academic imgQuality={imgQuality} />}
+              />
               <Route
                 path="academic/*"
                 element={<Navigate to="/projects/academic" replace />}
@@ -69,14 +80,18 @@ const App = () => {
                 <Route
                   key={i}
                   path={`projects/personal/${proj.abbr}`}
-                  element={<ProjectModalCarousel proj={proj} />}
+                  element={
+                    <ProjectModalCarousel proj={proj} imgQuality={imgQuality} />
+                  }
                 />
               ))}
               {ProjectList.academic.map((proj, i) => (
                 <Route
                   key={i}
                   path={`projects/academic/${proj.abbr}`}
-                  element={<ProjectModalCarousel proj={proj} />}
+                  element={
+                    <ProjectModalCarousel proj={proj} imgQuality={imgQuality} />
+                  }
                 />
               ))}
             </Routes>

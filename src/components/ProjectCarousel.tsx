@@ -16,11 +16,12 @@ import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRigh
 import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftTwoTone";
 
 import { Project } from "../content/projects/interfaces";
-import getCloudinaryInstance from "./Cloudinary";
+import getCloudinaryInstance, { getDesiredQuality } from "./Cloudinary";
 import { Link, useLocation } from "react-router-dom";
 import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
+import { ImageQualityProps } from "./styled/constants";
 
-interface ProjectCarouselProps {
+interface ProjectCarouselProps extends ImageQualityProps {
   proj: Project;
   width: Record<string, Record<string, number>>;
   height: number | string;
@@ -97,13 +98,19 @@ const PlaceholderCarousel = ({ proj, width, height }: ProjectCarouselProps) => {
   );
 };
 
-const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
+const CarouselCard = ({
+  proj,
+  width,
+  height,
+  imgQuality,
+}: ProjectCarouselProps) => {
   const location = useLocation();
   const images = proj.images;
   const cld = getCloudinaryInstance;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const imgWidth = isMobile ? width.width.xs : width.width.md;
+
   return (
     <Carousel
       stopAutoPlayOnHover={true}
@@ -128,7 +135,8 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
                 <AdvancedImage
                   cldImg={cld
                     .image(`portfolio/${item.src}`)
-                    .resize(fit(imgWidth, height))}
+                    .resize(fit(imgWidth, height))
+                    .quality(getDesiredQuality(imgQuality))}
                   plugins={[placeholder({ mode: "blur" }), responsive()]}
                 />
               </CardMedia>
@@ -144,12 +152,17 @@ const CarouselCard = ({ proj, width, height }: ProjectCarouselProps) => {
 };
 
 const ProjectCarousel = (props: ProjectCarouselProps) => {
-  const { proj, width, height } = props;
+  const { proj, width, height, imgQuality } = props;
 
   return proj.images.length == 0 ? (
     <PlaceholderCarousel proj={proj} width={width} height={height} />
   ) : (
-    <CarouselCard proj={proj} width={width} height={height} />
+    <CarouselCard
+      proj={proj}
+      width={width}
+      height={height}
+      imgQuality={imgQuality}
+    />
   );
 };
 

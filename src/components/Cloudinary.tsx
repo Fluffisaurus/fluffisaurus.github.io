@@ -1,6 +1,6 @@
-import React from "react";
-
 import { Cloudinary } from "@cloudinary/url-gen";
+import { CldImgQuality, ImageQuality } from "./styled/constants";
+import { QualityTypes } from "@cloudinary/url-gen/types/types";
 
 let cldInstance: Cloudinary | null = null;
 
@@ -14,6 +14,12 @@ function getCloudinaryInstance() {
     });
   }
   return cldInstance;
+}
+
+export function getDesiredQuality(
+  imgQuality: ImageQuality | undefined
+): QualityTypes {
+  return imgQuality ? CldImgQuality[imgQuality] : CldImgQuality.best;
 }
 
 export default getCloudinaryInstance();

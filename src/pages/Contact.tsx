@@ -16,9 +16,9 @@ import { AdvancedImage } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
 
 import ScrollableContainer from "../components/styled/ScrollableContainer";
-import cld from "../components/Cloudinary";
+import cld, { getDesiredQuality } from "../components/Cloudinary";
 import SlideWrapper from "../components/styled/SlideWrapper";
-import { ANI_CONST } from "../components/styled/constants";
+import { ANI_CONST, ImageQualityProps } from "../components/styled/constants";
 import FadeWrapper from "../components/styled/FadeWrapper";
 import { toast } from "react-toastify";
 
@@ -43,7 +43,9 @@ const info: ContactInfo[] = [
   { name: "email", link: "", icon: <EmailIcon />, modal: true },
 ];
 
-const Contact: React.FunctionComponent = () => {
+const Contact: React.FunctionComponent = ({
+  imgQuality,
+}: ImageQualityProps) => {
   const theme = useTheme();
   const animationBreakpoint = useMediaQuery(theme.breakpoints.down("sm"));
   const containerRef = useRef<HTMLDivElement>(null);
@@ -133,7 +135,8 @@ const Contact: React.FunctionComponent = () => {
                 <AdvancedImage
                   cldImg={cld
                     .image("portfolio/Elite_goose_jndy3l")
-                    .resize(fit(400, 400))}
+                    .resize(fit(400, 400))
+                    .quality(getDesiredQuality(imgQuality))}
                 />
                 <Typography variant="body1">self portrait</Typography>
               </Grid>

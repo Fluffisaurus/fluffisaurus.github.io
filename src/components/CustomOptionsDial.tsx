@@ -14,13 +14,17 @@ import { Slide, toast, ToastContainer, ToastOptions } from "react-toastify";
 import ToggleThemeButtons from "./ToggleThemeButtons";
 import ToggleImageQualityButtons from "./ToggleImageQualityButtons";
 import ToggleOnboardingButtons from "./ToggleOnboardingButtons";
+import { ImageQualityProps } from "./styled/constants";
 
 interface DialActions {
   icon: JSX.Element;
   name: string;
 }
 
-export default function CustomOptionsDial() {
+export default function CustomOptionsDial({
+  imgQuality,
+  setImgQuality,
+}: ImageQualityProps) {
   const { mode, systemMode, setMode } = useColorScheme();
   const [isOnboarding, setIsOnboarding] = React.useState<string | null>(() => {
     const val = localStorage.getItem("--speedDial-onboard");
@@ -41,7 +45,15 @@ export default function CustomOptionsDial() {
       ),
       name: "Onboarding",
     },
-    { icon: <ToggleImageQualityButtons />, name: "Image Quality" },
+    {
+      icon: (
+        <ToggleImageQualityButtons
+          imgQuality={imgQuality}
+          setImgQuality={setImgQuality}
+        />
+      ),
+      name: "Image Quality",
+    },
     {
       icon: <ToggleThemeButtons mode={mode} setMode={setMode} />,
       name: "Theme Mode",

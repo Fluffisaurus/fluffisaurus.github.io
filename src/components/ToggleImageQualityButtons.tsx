@@ -5,20 +5,27 @@ import SdTwoToneIcon from "@mui/icons-material/SdTwoTone";
 import HdTwoToneIcon from "@mui/icons-material/HdTwoTone";
 import FourKTwoToneIcon from "@mui/icons-material/FourKTwoTone";
 import { toast } from "react-toastify";
+import { ImageQuality, ImageQualityProps } from "./styled/constants";
 
-function ToggleImageQualityButtons() {
-  const [imgQuality, setImgQuality] = React.useState<string | null>("high");
-
+function ToggleImageQualityButtons({
+  imgQuality,
+  setImgQuality,
+}: ImageQualityProps) {
   const handleToggleImgQuality = (
     event: React.MouseEvent<HTMLElement>,
-    newImgQuality: string | null
+    newImgQuality: ImageQuality | null
   ) => {
-    if (newImgQuality) {
-      setImgQuality(newImgQuality);
-      toast.success(`Image quality: ${newImgQuality}`);
+    if (setImgQuality) {
+      if (newImgQuality) {
+        setImgQuality(newImgQuality);
+        toast.success(`Image quality: ${newImgQuality}`);
+      } else {
+        setImgQuality("best");
+        toast.success(`Image quality: default (best)`);
+      }
     } else {
-      setImgQuality("high");
-      toast.success(`Image quality: default (high)`);
+      // this should never happen b/c it's always passed as a prop
+      console.error("setImgQuality was never passed as a prop");
     }
   };
 
@@ -33,10 +40,10 @@ function ToggleImageQualityButtons() {
         <ToggleButton value="low" aria-label="low image quality">
           <SdTwoToneIcon />
         </ToggleButton>
-        <ToggleButton value="medium" aria-label="medium image quality">
+        <ToggleButton value="good" aria-label="good image quality">
           <HdTwoToneIcon />
         </ToggleButton>
-        <ToggleButton value="high" aria-label="high image quality">
+        <ToggleButton value="best" aria-label="best image quality">
           <FourKTwoToneIcon />
         </ToggleButton>
       </ToggleButtonGroup>
