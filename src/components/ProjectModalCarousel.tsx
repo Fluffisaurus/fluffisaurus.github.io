@@ -11,11 +11,8 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import Carousel from "react-material-ui-carousel";
 import { AdvancedImage, placeholder, responsive } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
-import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRightTwoTone";
-import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftTwoTone";
 import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
 
 import getCloudinaryInstance, { getDesiredQuality } from "./Cloudinary";
@@ -25,6 +22,7 @@ import computeNodeStyle from "../utils/computeNodeStyle";
 import ScrollableContainer from "./styled/ScrollableContainer";
 import FadeWrapper from "./styled/FadeWrapper";
 import { ANI_CONST, ImageQualityProps } from "./styled/constants";
+import CarouselWrapper from "./styled/CarouselWrapper";
 
 const styles = {
   ...carouselStyles,
@@ -143,17 +141,7 @@ export default function ProjectModalCarousel({
             ref={modalRef}
             sx={{ width: isSmallScreen ? "100%" : "70%", height: "100%" }}
           >
-            <Carousel
-              stopAutoPlayOnHover
-              fullHeightHover
-              autoPlay={false}
-              interval={5000}
-              animation="slide"
-              indicators
-              navButtonsAlwaysVisible
-              NextIcon={<KeyboardArrowRightTwoToneIcon />}
-              PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
-            >
+            <CarouselWrapper navButtonsAlwaysVisible={true}>
               {proj.images.length >= 1
                 ? proj.images.map((item, i) => (
                     <Card
@@ -200,7 +188,7 @@ export default function ProjectModalCarousel({
                       </Box>
                     </Card>
                   ))}
-            </Carousel>
+            </CarouselWrapper>
           </Box>
         </Box>
       </FadeWrapper>

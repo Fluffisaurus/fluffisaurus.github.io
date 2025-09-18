@@ -9,17 +9,15 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import Carousel from "react-material-ui-carousel";
 import { AdvancedImage, placeholder, responsive } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
-import KeyboardArrowRightTwoToneIcon from "@mui/icons-material/KeyboardArrowRightTwoTone";
-import KeyboardArrowLeftTwoToneIcon from "@mui/icons-material/KeyboardArrowLeftTwoTone";
-
-import { Project } from "../content/projects/interfaces";
 import getCloudinaryInstance, { getDesiredQuality } from "./Cloudinary";
 import { Link, useLocation } from "react-router-dom";
 import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
+
+import { Project } from "../content/projects/interfaces";
 import { ImageQualityProps } from "./styled/constants";
+import CarouselWrapper from "./styled/CarouselWrapper";
 
 interface ProjectCarouselProps extends ImageQualityProps {
   proj: Project;
@@ -80,21 +78,14 @@ const PlaceholderCarousel = ({ proj, width, height }: ProjectCarouselProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
-    <Carousel
-      stopAutoPlayOnHover={true}
-      fullHeightHover={true}
-      autoPlay={false}
-      interval={5000}
-      animation={"slide"}
+    <CarouselWrapper
       height={height}
-      NextIcon={<KeyboardArrowRightTwoToneIcon />}
-      PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
       navButtonsAlwaysVisible={isMobile ? true : false}
     >
       {placeholders.map((item, i) => (
         <PlaceholderCard key={i} proj={proj} width={width} height={height} />
       ))}
-    </Carousel>
+    </CarouselWrapper>
   );
 };
 
@@ -112,15 +103,8 @@ const CarouselCard = ({
   const imgWidth = isMobile ? width.width.xs : width.width.md;
 
   return (
-    <Carousel
-      stopAutoPlayOnHover={true}
-      fullHeightHover={true}
-      autoPlay={false}
-      interval={5000}
-      animation={"slide"}
+    <CarouselWrapper
       height={height}
-      NextIcon={<KeyboardArrowRightTwoToneIcon />}
-      PrevIcon={<KeyboardArrowLeftTwoToneIcon />}
       navButtonsAlwaysVisible={isMobile ? true : false}
     >
       {images.map((item, i) => (
@@ -147,7 +131,7 @@ const CarouselCard = ({
           </CardActionArea>
         </Card>
       ))}
-    </Carousel>
+    </CarouselWrapper>
   );
 };
 
