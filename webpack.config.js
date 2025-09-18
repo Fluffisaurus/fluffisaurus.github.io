@@ -11,7 +11,7 @@ const devMode = process.env.NODE_ENV !== "production";
 
 module.exports = {
   mode: devMode ? "development" : "production",
-  devtool: devMode ? "inline-source-map" : "source-map",
+  devtool: devMode ? "inline-source-map" : false,
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build/"),
@@ -37,6 +37,7 @@ module.exports = {
     new Dotenv(),
     new BundleAnalyzerPlugin({
       generateStatsFile: true,
+      analyzerMode: "json",
     }),
   ],
   module: {
