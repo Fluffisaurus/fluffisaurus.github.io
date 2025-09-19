@@ -18,6 +18,9 @@ module.exports = {
     publicPath: devMode === "production" ? "./" : "/",
     filename: devMode ? "[name].js" : "[name].[contenthash].js",
   },
+  cache: {
+    type: "filesystem",
+  },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx", "..."],
     alias: {
@@ -65,6 +68,7 @@ module.exports = {
   optimization: {
     minimize: !devMode,
     minimizer: [new CssMinimizerPlugin()],
+    chunkIds: devMode ? "named" : "deterministic",
     splitChunks: {
       chunks: "all",
       maxInitialRequests: Infinity,
