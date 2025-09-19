@@ -155,6 +155,7 @@ const GlobalNav = () => {
               onClick={toggleDrawer}
               {...globalNavButtonProps}
               onMouseEnter={() => setHoverPath("menu")}
+              aria-label="Global navigation button to expand drawer navigation."
             >
               {openDrawer ? <MenuOpenTwoToneIcon /> : <MenuTwoToneIcon />}
             </Button>
@@ -165,6 +166,7 @@ const GlobalNav = () => {
               {...globalNavButtonProps}
               sx={{ ...globalNavButtonProps.sx }}
               onMouseEnter={() => setHoverPath("~")}
+              aria-labal="Global navigation button to return to home."
             >
               🏠
             </Button>
@@ -176,6 +178,7 @@ const GlobalNav = () => {
                 color: theme.vars.palette.primary.dark,
                 padding: 0,
               }}
+              aria-label="Styling emulating a terminal's file structure."
             >
               :/
             </Button>
@@ -185,6 +188,7 @@ const GlobalNav = () => {
               {...globalNavButtonProps}
               sx={{ ...globalNavButtonProps.sx, padding: 0 }}
               onMouseEnter={() => setHoverPath("/" + currPath)}
+              aria-label="Breadcrumb navigation path."
             >
               {currPath == "" ? "" : currPath + "/"}
             </Button>
@@ -197,6 +201,7 @@ const GlobalNav = () => {
                 onMouseEnter={() =>
                   setHoverPath("/" + currPath + "/" + subPath)
                 }
+                aria-label="Breadcrumb navigation subpath."
               >
                 {subPath + "/"}
               </Button>
@@ -209,6 +214,7 @@ const GlobalNav = () => {
                 color: theme.vars.palette.primary.dark,
                 padding: 0,
               }}
+              aria-label="Styling emulating a terminal's command line blinking cursor for text input."
             >
               ~$
             </Button>
@@ -222,6 +228,7 @@ const GlobalNav = () => {
                   justifyContent: "flex-start",
                   padding: "0 5px 0 25px",
                 }}
+                aria-label="Styling emulating a terminal's command line input. Types out paths and sub paths on user focus."
               >
                 <TypeAnimation
                   key={hoverText}
@@ -262,6 +269,7 @@ const GlobalNav = () => {
                 ...globalNavDrawerButtonStyles,
               }}
               onMouseEnter={() => setHoverPath("/about")}
+              aria-label="Global navigation drawer menu link to about page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
               about
@@ -277,6 +285,7 @@ const GlobalNav = () => {
                 color: theme.vars.palette.primary.dark,
               }}
               onMouseEnter={() => setHoverPath("/projects")}
+              aria-label="Global navigation drawer menu heading that emulates a terminal's foldre structure showing that projects is a folder with contents."
             >
               <SubdirectoryArrowRightTwoToneIcon />
               projects/
@@ -291,6 +300,7 @@ const GlobalNav = () => {
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
               onMouseEnter={() => setHoverPath("/projects")}
+              aria-label="Global navigation drawer menu link to projects page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
               ./
@@ -305,6 +315,7 @@ const GlobalNav = () => {
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
               onMouseEnter={() => setHoverPath("/projects/personal")}
+              aria-label="Global navigation drawer menu link to personal projects page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
               personal
@@ -319,6 +330,7 @@ const GlobalNav = () => {
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
               onMouseEnter={() => setHoverPath("/projects/academic")}
+              aria-label="Global navigation drawer menu link to academic projects page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
               academic
@@ -332,6 +344,7 @@ const GlobalNav = () => {
                 ...globalNavDrawerButtonStyles,
               }}
               onMouseEnter={() => setHoverPath("/contact")}
+              aria-label="Global navigation drawer menu link to contact page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
               contact
