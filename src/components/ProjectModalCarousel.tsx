@@ -4,28 +4,18 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { To, useNavigate } from "react-router-dom";
-import {
-  Card,
-  CardContent,
-  Grid,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { AdvancedImage, placeholder, responsive } from "@cloudinary/react";
-import { fit } from "@cloudinary/url-gen/actions/resize";
-import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
+import { CardContent, Grid, useMediaQuery, useTheme } from "@mui/material";
 
-import getCloudinaryInstance, { getDesiredQuality } from "./Cloudinary";
-import { carouselStyles } from "./ProjectCarousel";
 import { Project } from "../content/projects/interfaces";
 import computeNodeStyle from "../utils/computeNodeStyle";
 import ScrollableContainer from "./styled/ScrollableContainer";
 import FadeWrapper from "./styled/FadeWrapper";
 import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import CarouselWrapper from "./styled/CarouselWrapper";
+import CarouselPlaceholderCard from "./styled/CarouselPlaceholderCard";
+import CarouselCard from "./styled/CarouselCard";
 
 const styles = {
-  ...carouselStyles,
   modalBox: {
     position: "absolute",
     top: `calc(50% + ${ANI_CONST.GLOBAL_NAV_HEIGHT / 2}px)`, // global nav bar offset
@@ -51,7 +41,6 @@ export default function ProjectModalCarousel({
   const navigate = useNavigate();
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
-  const cld = getCloudinaryInstance;
 
   const [dims, setDims] = useState({ width: 0, height: 0 });
 
@@ -144,49 +133,22 @@ export default function ProjectModalCarousel({
             <CarouselWrapper navButtonsAlwaysVisible={true}>
               {proj.images.length >= 1
                 ? proj.images.map((item, i) => (
-                    <Card
+                    <CarouselCard
                       key={i}
-                      sx={{ height: dims.height, ...carouselStyles.card }}
-                    >
-                      <Box
-                        sx={{ width: dims.width, ...carouselStyles.outerBox }}
-                      >
-                        <AdvancedImage
-                          cldImg={cld
-                            .image(`portfolio/${item.src}`)
-                            .resize(fit(dims.width, dims.height))
-                            .quality(getDesiredQuality(imgQuality))}
-                          plugins={[
-                            placeholder({ mode: "blur" }),
-                            responsive(),
-                          ]}
-                        />
-                        <Box sx={{ ...carouselStyles.textOverlay }}>
-                          <Typography variant="caption">
-                            {item.description}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Card>
+                      item={item}
+                      width={{ width: { md: dims.width } }}
+                      height={dims.height}
+                      cardActionArea={false}
+                      imgQuality={imgQuality}
+                    />
                   ))
                 : [1, 2].map((i) => (
-                    <Card
+                    <CarouselPlaceholderCard
                       key={i}
-                      sx={{ height: dims.height, ...carouselStyles.card }}
-                    >
-                      <Box
-                        sx={{ width: dims.width, ...carouselStyles.outerBox }}
-                      >
-                        <PhotoLibraryTwoToneIcon
-                          sx={{ width: dims.width, height: dims.height }}
-                        />
-                        <Box sx={{ ...carouselStyles.textOverlay }}>
-                          <Typography variant="caption">
-                            Photo unavailable at the moment.
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Card>
+                      width={{ width: { md: dims.width } }}
+                      height={dims.height}
+                      cardActionArea={false}
+                    />
                   ))}
             </CarouselWrapper>
           </Box>

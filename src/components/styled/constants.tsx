@@ -47,3 +47,37 @@ export const ANI_CONST = {
   CONTACT_PORTRAIT_HEADING_DELAY: GENERIC_CARD_DELAY * 6,
   CONTACT_PORTRAIT_PIC_DELAY: GENERIC_CARD_DELAY * 6,
 };
+
+export interface CarouselCardContentProps {
+  width: Record<string, Record<string, number>>;
+  height: number | string;
+}
+
+export interface CarouselActionCardContentProps
+  extends CarouselCardContentProps {
+  cardActionArea: string | false;
+}
+
+export const CarouselStyles = {
+  card: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    margin: "5px",
+  },
+  wrapperBox: {
+    position: "relative",
+    display: "flex",
+    justifyContent: "center",
+  },
+  textOverlayBox: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    width: "100%",
+    bgcolor: "rgba(0, 0, 0, 0.54)",
+    color: "white",
+    padding: "10px",
+  },
+};

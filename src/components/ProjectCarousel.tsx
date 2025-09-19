@@ -1,152 +1,85 @@
 import React from "react";
 
-import {
-  Box,
-  Card,
-  CardActionArea,
-  CardMedia,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
-import { AdvancedImage, placeholder, responsive } from "@cloudinary/react";
-import { fit } from "@cloudinary/url-gen/actions/resize";
-import getCloudinaryInstance, { getDesiredQuality } from "./Cloudinary";
-import { Link, useLocation } from "react-router-dom";
-import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 import { Project } from "../content/projects/interfaces";
-import { ImageQualityProps } from "./styled/constants";
+import {
+  CarouselCardContentProps,
+  ImageQualityProps,
+} from "./styled/constants";
 import CarouselWrapper from "./styled/CarouselWrapper";
+import CarouselPlaceholderCard from "./styled/CarouselPlaceholderCard";
+import CarouselCard from "./styled/CarouselCard";
 
-interface ProjectCarouselProps extends ImageQualityProps {
+interface ProjectCarouselProps
+  extends CarouselCardContentProps,
+    ImageQualityProps {
   proj: Project;
-  width: Record<string, Record<string, number>>;
-  height: number | string;
 }
 
-export const carouselStyles = {
-  card: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-    margin: "5px",
-  },
-  outerBox: {
-    position: "relative",
-    display: "flex",
-    justifyContent: "center",
-  },
-  textOverlay: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    width: "100%",
-    bgcolor: "rgba(0, 0, 0, 0.54)",
-    color: "white",
-    padding: "10px",
-  },
-};
+interface ProjectContentProps extends ProjectCarouselProps {
+  isMobile: boolean;
+}
 
-const PlaceholderCard = ({ proj, width, height }: ProjectCarouselProps) => {
-  const location = useLocation();
-  return (
-    <Card sx={{ minHeight: height, ...carouselStyles.card }}>
-      <CardActionArea
-        component={Link}
-        to={proj.abbr}
-        state={{ background: location }}
-      >
-        <Box sx={{ ...width, ...carouselStyles.outerBox }}>
-          <CardMedia>
-            <PhotoLibraryTwoToneIcon sx={{ ...width, height }} />
-          </CardMedia>
-          <Box sx={{ ...carouselStyles.textOverlay }}>
-            <Typography variant="caption">
-              Photo unavailable at the moment.
-            </Typography>
-          </Box>
-        </Box>
-      </CardActionArea>
-    </Card>
-  );
-};
-
-const PlaceholderCarousel = ({ proj, width, height }: ProjectCarouselProps) => {
+const PlaceholderCarousel = ({
+  proj,
+  width,
+  height,
+  isMobile,
+}: ProjectContentProps) => {
   const placeholders = [1, 2];
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   return (
     <CarouselWrapper
       height={height}
       navButtonsAlwaysVisible={isMobile ? true : false}
     >
       {placeholders.map((item, i) => (
-        <PlaceholderCard key={i} proj={proj} width={width} height={height} />
+        <CarouselPlaceholderCard
+          key={i}
+          width={width}
+          height={height}
+          cardActionArea={proj.abbr}
+        />
       ))}
     </CarouselWrapper>
   );
 };
 
-const CarouselCard = ({
+const ProjectCarouselCard = ({
   proj,
   width,
   height,
   imgQuality,
-}: ProjectCarouselProps) => {
-  const location = useLocation();
-  const images = proj.images;
-  const cld = getCloudinaryInstance;
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const imgWidth = isMobile ? width.width.xs : width.width.md;
-
+  isMobile,
+}: ProjectContentProps) => {
   return (
     <CarouselWrapper
       height={height}
       navButtonsAlwaysVisible={isMobile ? true : false}
     >
-      {images.map((item, i) => (
-        <Card key={i} sx={{ minHeight: height, ...carouselStyles.card }}>
-          <CardActionArea
-            component={Link}
-            to={proj.abbr}
-            state={{ background: location }}
-          >
-            <Box sx={{ width: width, ...carouselStyles.outerBox }}>
-              <CardMedia>
-                <AdvancedImage
-                  cldImg={cld
-                    .image(`portfolio/${item.src}`)
-                    .resize(fit(imgWidth, height))
-                    .quality(getDesiredQuality(imgQuality))}
-                  plugins={[placeholder({ mode: "blur" }), responsive()]}
-                />
-              </CardMedia>
-              <Box sx={{ ...carouselStyles.textOverlay }}>
-                <Typography variant="caption">{item.description}</Typography>
-              </Box>
-            </Box>
-          </CardActionArea>
-        </Card>
+      {proj.images.map((item, i) => (
+        <CarouselCard
+          key={i}
+          item={item}
+          width={width}
+          height={height}
+          cardActionArea={proj.abbr}
+          imgQuality={imgQuality}
+        />
       ))}
     </CarouselWrapper>
   );
 };
 
 const ProjectCarousel = (props: ProjectCarouselProps) => {
-  const { proj, width, height, imgQuality } = props;
+  const { proj } = props;
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   return proj.images.length == 0 ? (
-    <PlaceholderCarousel proj={proj} width={width} height={height} />
+    <PlaceholderCarousel {...props} isMobile={isMobile} />
   ) : (
-    <CarouselCard
-      proj={proj}
-      width={width}
-      height={height}
-      imgQuality={imgQuality}
-    />
+    <ProjectCarouselCard {...props} isMobile={isMobile} />
   );
 };
 
