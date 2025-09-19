@@ -8,6 +8,8 @@ const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const devMode = process.env.NODE_ENV !== "production";
+const devCacheTTL = 600000; // 10 min = 10min * 60s/min * 1000ms/s
+const prodCacheTTL = 2592000000; // 1 month = 30days * 24h/day * 60min/h * 60s/min * 1000ms/s
 
 module.exports = {
   mode: devMode ? "development" : "production",
@@ -20,6 +22,7 @@ module.exports = {
   },
   cache: {
     type: "filesystem",
+    maxAge: devMode ? devCacheTTL : prodCacheTTL,
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx", "..."],
