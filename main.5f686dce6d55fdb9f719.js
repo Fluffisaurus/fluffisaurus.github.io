@@ -716,117 +716,29 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.carouselStyles = void 0;
 var react_1 = __importDefault(__webpack_require__(96540));
 var material_1 = __webpack_require__(8157);
-var react_material_ui_carousel_1 = __importDefault(__webpack_require__(31661));
-var react_2 = __webpack_require__(44387);
-var resize_1 = __webpack_require__(16012);
-var KeyboardArrowRightTwoTone_1 = __importDefault(__webpack_require__(50255));
-var KeyboardArrowLeftTwoTone_1 = __importDefault(__webpack_require__(40082));
-var Cloudinary_1 = __importStar(__webpack_require__(55039));
-var react_router_dom_1 = __webpack_require__(28651);
-var PhotoLibraryTwoTone_1 = __importDefault(__webpack_require__(53194));
-exports.carouselStyles = {
-    card: {
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        margin: "5px",
-    },
-    outerBox: {
-        position: "relative",
-        display: "flex",
-        justifyContent: "center",
-    },
-    textOverlay: {
-        position: "absolute",
-        bottom: 0,
-        left: 0,
-        width: "100%",
-        bgcolor: "rgba(0, 0, 0, 0.54)",
-        color: "white",
-        padding: "10px",
-    },
-};
-var PlaceholderCard = function (_a) {
-    var proj = _a.proj, width = _a.width, height = _a.height;
-    var location = (0, react_router_dom_1.useLocation)();
-    return (react_1.default.createElement(material_1.Card, { sx: __assign({ minHeight: height }, exports.carouselStyles.card) },
-        react_1.default.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: proj.abbr, state: { background: location } },
-            react_1.default.createElement(material_1.Box, { sx: __assign(__assign({}, width), exports.carouselStyles.outerBox) },
-                react_1.default.createElement(material_1.CardMedia, null,
-                    react_1.default.createElement(PhotoLibraryTwoTone_1.default, { sx: __assign(__assign({}, width), { height: height }) })),
-                react_1.default.createElement(material_1.Box, { sx: __assign({}, exports.carouselStyles.textOverlay) },
-                    react_1.default.createElement(material_1.Typography, { variant: "caption" }, "Photo unavailable at the moment."))))));
-};
+var CarouselWrapper_1 = __importDefault(__webpack_require__(52308));
+var CarouselPlaceholderCard_1 = __importDefault(__webpack_require__(89336));
+var CarouselCard_1 = __importDefault(__webpack_require__(54091));
 var PlaceholderCarousel = function (_a) {
-    var proj = _a.proj, width = _a.width, height = _a.height;
+    var proj = _a.proj, width = _a.width, height = _a.height, isMobile = _a.isMobile;
     var placeholders = [1, 2];
-    var theme = (0, material_1.useTheme)();
-    var isMobile = (0, material_1.useMediaQuery)(theme.breakpoints.down("sm"));
-    return (react_1.default.createElement(react_material_ui_carousel_1.default, { stopAutoPlayOnHover: true, fullHeightHover: true, autoPlay: false, interval: 5000, animation: "slide", height: height, NextIcon: react_1.default.createElement(KeyboardArrowRightTwoTone_1.default, null), PrevIcon: react_1.default.createElement(KeyboardArrowLeftTwoTone_1.default, null), navButtonsAlwaysVisible: isMobile ? true : false }, placeholders.map(function (item, i) { return (react_1.default.createElement(PlaceholderCard, { key: i, proj: proj, width: width, height: height })); })));
+    return (react_1.default.createElement(CarouselWrapper_1.default, { height: height, navButtonsAlwaysVisible: isMobile ? true : false }, placeholders.map(function (item, i) { return (react_1.default.createElement(CarouselPlaceholderCard_1.default, { key: i, width: width, height: height, cardActionArea: proj.abbr })); })));
 };
-var CarouselCard = function (_a) {
-    var proj = _a.proj, width = _a.width, height = _a.height, imgQuality = _a.imgQuality;
-    var location = (0, react_router_dom_1.useLocation)();
-    var images = proj.images;
-    var cld = Cloudinary_1.default;
-    var theme = (0, material_1.useTheme)();
-    var isMobile = (0, material_1.useMediaQuery)(theme.breakpoints.down("sm"));
-    var imgWidth = isMobile ? width.width.xs : width.width.md;
-    return (react_1.default.createElement(react_material_ui_carousel_1.default, { stopAutoPlayOnHover: true, fullHeightHover: true, autoPlay: false, interval: 5000, animation: "slide", height: height, NextIcon: react_1.default.createElement(KeyboardArrowRightTwoTone_1.default, null), PrevIcon: react_1.default.createElement(KeyboardArrowLeftTwoTone_1.default, null), navButtonsAlwaysVisible: isMobile ? true : false }, images.map(function (item, i) { return (react_1.default.createElement(material_1.Card, { key: i, sx: __assign({ minHeight: height }, exports.carouselStyles.card) },
-        react_1.default.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: proj.abbr, state: { background: location } },
-            react_1.default.createElement(material_1.Box, { sx: __assign({ width: width }, exports.carouselStyles.outerBox) },
-                react_1.default.createElement(material_1.CardMedia, null,
-                    react_1.default.createElement(react_2.AdvancedImage, { cldImg: cld
-                            .image("portfolio/".concat(item.src))
-                            .resize((0, resize_1.fit)(imgWidth, height))
-                            .quality((0, Cloudinary_1.getDesiredQuality)(imgQuality)), plugins: [(0, react_2.placeholder)({ mode: "blur" }), (0, react_2.responsive)()] })),
-                react_1.default.createElement(material_1.Box, { sx: __assign({}, exports.carouselStyles.textOverlay) },
-                    react_1.default.createElement(material_1.Typography, { variant: "caption" }, item.description)))))); })));
+var ProjectCarouselCard = function (_a) {
+    var proj = _a.proj, width = _a.width, height = _a.height, imgQuality = _a.imgQuality, isMobile = _a.isMobile;
+    return (react_1.default.createElement(CarouselWrapper_1.default, { height: height, navButtonsAlwaysVisible: isMobile ? true : false }, proj.images.map(function (item, i) { return (react_1.default.createElement(CarouselCard_1.default, { key: i, item: item, width: width, height: height, cardActionArea: proj.abbr, imgQuality: imgQuality })); })));
 };
 var ProjectCarousel = function (props) {
-    var proj = props.proj, width = props.width, height = props.height, imgQuality = props.imgQuality;
-    return proj.images.length == 0 ? (react_1.default.createElement(PlaceholderCarousel, { proj: proj, width: width, height: height })) : (react_1.default.createElement(CarouselCard, { proj: proj, width: width, height: height, imgQuality: imgQuality }));
+    var proj = props.proj;
+    var theme = (0, material_1.useTheme)();
+    var isMobile = (0, material_1.useMediaQuery)(theme.breakpoints.down("sm"));
+    return proj.images.length == 0 ? (react_1.default.createElement(PlaceholderCarousel, __assign({}, props, { isMobile: isMobile }))) : (react_1.default.createElement(ProjectCarouselCard, __assign({}, props, { isMobile: isMobile })));
 };
 exports["default"] = ProjectCarousel;
 
@@ -2038,19 +1950,15 @@ var Typography_1 = __importDefault(__webpack_require__(59259));
 var Modal_1 = __importDefault(__webpack_require__(1219));
 var react_router_dom_1 = __webpack_require__(28651);
 var material_1 = __webpack_require__(8157);
-var react_material_ui_carousel_1 = __importDefault(__webpack_require__(31661));
-var react_2 = __webpack_require__(44387);
-var resize_1 = __webpack_require__(16012);
-var KeyboardArrowRightTwoTone_1 = __importDefault(__webpack_require__(50255));
-var KeyboardArrowLeftTwoTone_1 = __importDefault(__webpack_require__(40082));
-var PhotoLibraryTwoTone_1 = __importDefault(__webpack_require__(53194));
-var Cloudinary_1 = __importStar(__webpack_require__(55039));
-var ProjectCarousel_1 = __webpack_require__(15274);
 var computeNodeStyle_1 = __importDefault(__webpack_require__(91582));
 var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
 var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
 var constants_1 = __webpack_require__(70908);
-var styles = __assign(__assign({}, ProjectCarousel_1.carouselStyles), { modalBox: {
+var CarouselWrapper_1 = __importDefault(__webpack_require__(52308));
+var CarouselPlaceholderCard_1 = __importDefault(__webpack_require__(89336));
+var CarouselCard_1 = __importDefault(__webpack_require__(54091));
+var styles = {
+    modalBox: {
         position: "absolute",
         top: "calc(50% + ".concat(constants_1.ANI_CONST.GLOBAL_NAV_HEIGHT / 2, "px)"), // global nav bar offset
         left: "50%",
@@ -2061,13 +1969,13 @@ var styles = __assign(__assign({}, ProjectCarousel_1.carouselStyles), { modalBox
         boxShadow: 24,
         p: 2,
         display: "flex",
-    } });
+    },
+};
 function ProjectModalCarousel(_a) {
     var proj = _a.proj, imgQuality = _a.imgQuality;
     var navigate = (0, react_router_dom_1.useNavigate)();
     var theme = (0, material_1.useTheme)();
     var isSmallScreen = (0, material_1.useMediaQuery)(theme.breakpoints.down("md"));
-    var cld = Cloudinary_1.default;
     var _b = (0, react_1.useState)({ width: 0, height: 0 }), dims = _b[0], setDims = _b[1];
     // issue with useRefs and useEffect detailed in this article
     // https://medium.com/@teh_builder/ref-objects-inside-useeffect-hooks-eb7c15198780
@@ -2102,23 +2010,9 @@ function ProjectModalCarousel(_a) {
                             react_1.default.createElement(Typography_1.default, { variant: "body2" }, proj.date),
                             react_1.default.createElement(Typography_1.default, { variant: "body1" }, proj.detail.short)))),
                 react_1.default.createElement(Box_1.default, { ref: modalRef, sx: { width: isSmallScreen ? "100%" : "70%", height: "100%" } },
-                    react_1.default.createElement(react_material_ui_carousel_1.default, { stopAutoPlayOnHover: true, fullHeightHover: true, autoPlay: false, interval: 5000, animation: "slide", indicators: true, navButtonsAlwaysVisible: true, NextIcon: react_1.default.createElement(KeyboardArrowRightTwoTone_1.default, null), PrevIcon: react_1.default.createElement(KeyboardArrowLeftTwoTone_1.default, null) }, proj.images.length >= 1
-                        ? proj.images.map(function (item, i) { return (react_1.default.createElement(material_1.Card, { key: i, sx: __assign({ height: dims.height }, ProjectCarousel_1.carouselStyles.card) },
-                            react_1.default.createElement(Box_1.default, { sx: __assign({ width: dims.width }, ProjectCarousel_1.carouselStyles.outerBox) },
-                                react_1.default.createElement(react_2.AdvancedImage, { cldImg: cld
-                                        .image("portfolio/".concat(item.src))
-                                        .resize((0, resize_1.fit)(dims.width, dims.height))
-                                        .quality((0, Cloudinary_1.getDesiredQuality)(imgQuality)), plugins: [
-                                        (0, react_2.placeholder)({ mode: "blur" }),
-                                        (0, react_2.responsive)(),
-                                    ] }),
-                                react_1.default.createElement(Box_1.default, { sx: __assign({}, ProjectCarousel_1.carouselStyles.textOverlay) },
-                                    react_1.default.createElement(Typography_1.default, { variant: "caption" }, item.description))))); })
-                        : [1, 2].map(function (i) { return (react_1.default.createElement(material_1.Card, { key: i, sx: __assign({ height: dims.height }, ProjectCarousel_1.carouselStyles.card) },
-                            react_1.default.createElement(Box_1.default, { sx: __assign({ width: dims.width }, ProjectCarousel_1.carouselStyles.outerBox) },
-                                react_1.default.createElement(PhotoLibraryTwoTone_1.default, { sx: { width: dims.width, height: dims.height } }),
-                                react_1.default.createElement(Box_1.default, { sx: __assign({}, ProjectCarousel_1.carouselStyles.textOverlay) },
-                                    react_1.default.createElement(Typography_1.default, { variant: "caption" }, "Photo unavailable at the moment."))))); })))))));
+                    react_1.default.createElement(CarouselWrapper_1.default, { navButtonsAlwaysVisible: true }, proj.images.length >= 1
+                        ? proj.images.map(function (item, i) { return (react_1.default.createElement(CarouselCard_1.default, { key: i, item: item, width: { width: { md: dims.width } }, height: dims.height, cardActionArea: false, imgQuality: imgQuality })); })
+                        : [1, 2].map(function (i) { return (react_1.default.createElement(CarouselPlaceholderCard_1.default, { key: i, width: { width: { md: dims.width } }, height: dims.height, cardActionArea: false })); })))))));
 }
 
 
@@ -2141,6 +2035,60 @@ var Loading = function () {
             react_1.default.createElement(material_1.Typography, { variant: "h5" }, "loading..."))));
 };
 exports["default"] = Loading;
+
+
+/***/ }),
+
+/***/ 52308:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var React = __importStar(__webpack_require__(96540));
+var react_material_ui_carousel_1 = __importDefault(__webpack_require__(31661));
+var KeyboardArrowRightTwoTone_1 = __importDefault(__webpack_require__(50255));
+var KeyboardArrowLeftTwoTone_1 = __importDefault(__webpack_require__(40082));
+var CarouselWrapper = function (_a) {
+    var children = _a.children, height = _a.height, navButtonsAlwaysVisible = _a.navButtonsAlwaysVisible;
+    return (React.createElement(react_material_ui_carousel_1.default, { stopAutoPlayOnHover: true, fullHeightHover: true, autoPlay: false, interval: 5000, animation: "slide", indicators: true, navButtonsAlwaysVisible: navButtonsAlwaysVisible, height: height, NextIcon: React.createElement(KeyboardArrowRightTwoTone_1.default, null), PrevIcon: React.createElement(KeyboardArrowLeftTwoTone_1.default, null) }, children));
+};
+exports["default"] = CarouselWrapper;
 
 
 /***/ }),
@@ -2304,6 +2252,87 @@ root.render(react_1.default.createElement(react_1.default.StrictMode, null,
         react_1.default.createElement(styles_1.ThemeProvider, { theme: theme_1.default, defaultMode: "light", noSsr: true },
             react_1.default.createElement(material_1.CssBaseline, null),
             react_1.default.createElement(App_1.default, null)))));
+
+
+/***/ }),
+
+/***/ 54091:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var React = __importStar(__webpack_require__(96540));
+var material_1 = __webpack_require__(8157);
+var react_1 = __webpack_require__(44387);
+var resize_1 = __webpack_require__(16012);
+var Cloudinary_1 = __importStar(__webpack_require__(55039));
+var react_router_dom_1 = __webpack_require__(28651);
+var constants_1 = __webpack_require__(70908);
+var CardContent = function (props) {
+    var item = props.item, width = props.width, height = props.height, imgQuality = props.imgQuality;
+    var cld = Cloudinary_1.default;
+    var theme = (0, material_1.useTheme)();
+    var isMobile = (0, material_1.useMediaQuery)(theme.breakpoints.down("sm"));
+    var imgWidth = isMobile ? width.width.xs : width.width.md;
+    return (React.createElement(material_1.Box, { sx: __assign({ width: width }, constants_1.CarouselStyles.wrapperBox) },
+        React.createElement(react_1.AdvancedImage, { cldImg: cld
+                .image("portfolio/".concat(item.src))
+                .resize((0, resize_1.fit)(imgWidth, height))
+                .quality((0, Cloudinary_1.getDesiredQuality)(imgQuality)), plugins: [(0, react_1.placeholder)({ mode: "blur" }), (0, react_1.responsive)()] }),
+        React.createElement(material_1.Box, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
+            React.createElement(material_1.Typography, { variant: "caption" }, item.description))));
+};
+var CarouselCard = function (props) {
+    var height = props.height, cardActionArea = props.cardActionArea;
+    var location = (0, react_router_dom_1.useLocation)();
+    return (React.createElement(material_1.Card, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
+        React.createElement(CardContent, __assign({}, props)))) : (React.createElement(CardContent, __assign({}, props)))));
+};
+exports["default"] = CarouselCard;
 
 
 /***/ }),
@@ -2633,7 +2662,7 @@ exports.ProjectList = ProjectList;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.ANI_CONST = exports.CldImgQuality = void 0;
+exports.CarouselStyles = exports.ANI_CONST = exports.CldImgQuality = void 0;
 var GENERIC_CARD_DELAY = 400;
 var GENERIC_WRAPPER_DELAY = 700;
 exports.CldImgQuality = {
@@ -2662,6 +2691,29 @@ exports.ANI_CONST = {
     CONTACT_BADGE_DELAY: GENERIC_CARD_DELAY,
     CONTACT_PORTRAIT_HEADING_DELAY: GENERIC_CARD_DELAY * 6,
     CONTACT_PORTRAIT_PIC_DELAY: GENERIC_CARD_DELAY * 6,
+};
+exports.CarouselStyles = {
+    card: {
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        margin: "5px",
+    },
+    wrapperBox: {
+        position: "relative",
+        display: "flex",
+        justifyContent: "center",
+    },
+    textOverlayBox: {
+        position: "absolute",
+        bottom: 0,
+        left: 0,
+        width: "100%",
+        bgcolor: "rgba(0, 0, 0, 0.54)",
+        color: "white",
+        padding: "10px",
+    },
 };
 
 
@@ -2842,6 +2894,81 @@ var muiCssBaseline = {
     MuiCssBaseline: {},
 };
 exports["default"] = muiCssBaseline;
+
+
+/***/ }),
+
+/***/ 89336:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var React = __importStar(__webpack_require__(96540));
+var react_router_dom_1 = __webpack_require__(28651);
+var material_1 = __webpack_require__(8157);
+var PhotoLibraryTwoTone_1 = __importDefault(__webpack_require__(53194));
+var constants_1 = __webpack_require__(70908);
+var PlaceholderCardContent = function (props) {
+    var width = props.width, height = props.height;
+    return (React.createElement(material_1.Box, { sx: __assign(__assign({}, width), constants_1.CarouselStyles.wrapperBox) },
+        React.createElement(PhotoLibraryTwoTone_1.default, { sx: __assign(__assign({}, width), { height: height }) }),
+        React.createElement(material_1.Box, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
+            React.createElement(material_1.Typography, { variant: "caption" }, "Photo not availble at the moment."))));
+};
+var CarouselPlaceholderCard = function (props) {
+    var width = props.width, height = props.height, cardActionArea = props.cardActionArea;
+    var location = (0, react_router_dom_1.useLocation)();
+    return (React.createElement(material_1.Card, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
+        React.createElement(PlaceholderCardContent, { width: width, height: height }))) : (React.createElement(PlaceholderCardContent, { width: width, height: height }))));
+};
+exports["default"] = CarouselPlaceholderCard;
 
 
 /***/ }),
