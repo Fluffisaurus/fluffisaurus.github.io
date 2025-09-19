@@ -166,7 +166,7 @@ const GlobalNav = () => {
               {...globalNavButtonProps}
               sx={{ ...globalNavButtonProps.sx }}
               onMouseEnter={() => setHoverPath("~")}
-              aria-labal="Global navigation button to return to home."
+              aria-label="Global navigation button to return to home."
             >
               🏠
             </Button>
