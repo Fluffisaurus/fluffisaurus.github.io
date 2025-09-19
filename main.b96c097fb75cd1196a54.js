@@ -373,13 +373,13 @@ var NavLinks = function () {
     });
     return (react_1.default.createElement(react_1.default.Fragment, null, paths.map(function (path, index) {
         return (react_1.default.createElement(react_1.default.Fragment, null, path.subpaths.length !== 0 ? (react_1.default.createElement(react_1.default.Fragment, null,
-            react_1.default.createElement(material_1.Button, __assign({ key: "".concat(path.text), component: react_router_dom_1.Link, to: path.path }, muiButton_1.navLinkButtonProps, (0, hooks_1.bindHover)(popupState)), path.text),
+            react_1.default.createElement(material_1.Button, __assign({ key: "".concat(path.text), component: react_router_dom_1.Link, to: path.path }, muiButton_1.navLinkButtonProps, (0, hooks_1.bindHover)(popupState), { "aria-label": "Landing page navigation to ".concat(path.text, " page.") }), path.text),
             react_1.default.createElement(HoverMenu_1.default, __assign({}, (0, hooks_1.bindMenu)(popupState), { anchorOrigin: isMobile
                     ? { vertical: "top", horizontal: "right" }
                     : { vertical: "bottom", horizontal: "left" }, transformOrigin: { vertical: "top", horizontal: "left" } }), path.subpaths.map(function (subPath, i) {
                 return (react_1.default.createElement(material_1.MenuItem, null,
-                    react_1.default.createElement(material_1.Button, __assign({ key: "".concat(subPath.text, "-").concat(i), component: react_router_dom_1.Link, to: subPath.path }, muiButton_1.navLinkButtonProps), subPath.text)));
-            })))) : (react_1.default.createElement(material_1.Button, __assign({ key: "".concat(path.text, "-").concat(index), component: react_router_dom_1.Link, to: path.path }, muiButton_1.navLinkButtonProps), path.text))));
+                    react_1.default.createElement(material_1.Button, __assign({ key: "".concat(subPath.text, "-").concat(i), component: react_router_dom_1.Link, to: subPath.path }, muiButton_1.navLinkButtonProps, { "aria-label": "Landing page navigation dropdown sub-menu to ".concat(path.text, " ").concat(subPath.text, " page.") }), subPath.text)));
+            })))) : (react_1.default.createElement(material_1.Button, __assign({ key: "".concat(path.text, "-").concat(index), component: react_router_dom_1.Link, to: path.path }, muiButton_1.navLinkButtonProps, { "aria-label": "Landing page navigation to ".concat(path.text, " page.") }), path.text))));
     })));
 };
 exports["default"] = NavLinks;
@@ -1781,7 +1781,7 @@ var Landing = function () {
                     } }, "angus_hon"),
                 react_1.default.createElement(material_1.Typography, { className: "Landing-container__name__at", variant: "h1", sx: { color: theme_1.default.vars.palette.primary.main } }, "@\uD83C\uDFE0")),
             react_1.default.createElement(material_1.Box, { className: "Landing-container__nav" },
-                react_1.default.createElement(material_1.Button, __assign({ className: "Nav-link__no-events" }, muiButton_1.navLinkButtonProps, { sx: __assign({ paddingLeft: 0 }, muiButton_1.navLinkButtonProps.sx) }), "~$"),
+                react_1.default.createElement(material_1.Button, __assign({ className: "Nav-link__no-events" }, muiButton_1.navLinkButtonProps, { sx: __assign({ paddingLeft: 0 }, muiButton_1.navLinkButtonProps.sx), "aria-label": "Styling emulating a terminal's command line blinking cursor for text input." }), "~$"),
                 react_1.default.createElement(NavLinks_1.default, null)))));
 };
 exports["default"] = Landing;
