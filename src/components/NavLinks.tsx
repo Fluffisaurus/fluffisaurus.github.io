@@ -52,6 +52,7 @@ const NavLinks = () => {
                   to={path.path}
                   {...navLinkButtonProps}
                   {...bindHover(popupState)}
+                  aria-label={`Landing page navigation to ${path.text} page.`}
                 >
                   {path.text}
                 </Button>
@@ -72,6 +73,7 @@ const NavLinks = () => {
                           component={Link}
                           to={subPath.path}
                           {...navLinkButtonProps}
+                          aria-label={`Landing page navigation dropdown sub-menu to ${path.text} ${subPath.text} page.`}
                         >
                           {subPath.text}
                         </Button>
@@ -86,6 +88,7 @@ const NavLinks = () => {
                 component={Link}
                 to={path.path}
                 {...navLinkButtonProps}
+                aria-label={`Landing page navigation to ${path.text} page.`}
               >
                 {path.text}
               </Button>
