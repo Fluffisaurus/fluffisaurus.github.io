@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import loadable from "@loadable/component";
 
 import {
   Card,
@@ -12,15 +13,16 @@ import {
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";
-import { AdvancedImage } from "@cloudinary/react";
-import { fit } from "@cloudinary/url-gen/actions/resize";
 
 import ScrollableContainer from "../components/styled/ScrollableContainer";
-import cld, { getDesiredQuality } from "../components/Cloudinary";
 import SlideWrapper from "../components/styled/SlideWrapper";
 import { ANI_CONST, ImageQualityProps } from "../components/styled/constants";
 import FadeWrapper from "../components/styled/FadeWrapper";
 import { toast } from "react-toastify";
+
+const CloudinaryCustomImage = loadable(
+  () => import("../components/CloudinaryCustomImage")
+);
 
 interface ContactInfo {
   name: string;
@@ -132,11 +134,11 @@ const Contact: React.FunctionComponent = ({
                   padding: "10px",
                 }}
               >
-                <AdvancedImage
-                  cldImg={cld
-                    .image("portfolio/Elite_goose_jndy3l")
-                    .resize(fit(400, 400))
-                    .quality(getDesiredQuality(imgQuality))}
+                <CloudinaryCustomImage
+                  src={"Elite_goose_jndy3l"}
+                  width={400}
+                  height={400}
+                  imgQuality={imgQuality}
                 />
                 <Typography variant="body1">self portrait</Typography>
               </Grid>
