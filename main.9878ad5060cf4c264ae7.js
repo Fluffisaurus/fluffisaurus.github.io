@@ -302,6 +302,7 @@ var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
 var Personal = function (_a) {
     var imgQuality = _a.imgQuality;
     var containerRef = (0, react_1.useRef)(null);
+    var _b = (0, react_1.useState)(null), activeProj = _b[0], setActiveProj = _b[1];
     var theme = (0, material_1.useTheme)();
     var animationBreakpoint = (0, material_1.useMediaQuery)(theme.breakpoints.down(constants_1.ANI_CONST.PROJ_ROW_BREAKPOINT));
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -310,7 +311,7 @@ var Personal = function (_a) {
                 react_1.default.createElement(material_1.Typography, { variant: "h4" }, "Personal_projects")),
             react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[project_list_1.ProjectCategories.PERSONAL].map(function (proj, i) {
                 return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
-                    react_1.default.createElement(ProjectBlock_1.default, { proj: proj, imgQuality: imgQuality, key: i })));
+                    react_1.default.createElement(ProjectBlock_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
             }))),
         react_1.default.createElement(react_router_dom_1.Outlet, null)));
 };
@@ -1006,6 +1007,7 @@ var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
 var Academic = function (_a) {
     var imgQuality = _a.imgQuality;
     var containerRef = (0, react_1.useRef)(null);
+    var _b = (0, react_1.useState)(null), activeProj = _b[0], setActiveProj = _b[1];
     var theme = (0, material_1.useTheme)();
     var animationBreakpoint = (0, material_1.useMediaQuery)(theme.breakpoints.down(constants_1.ANI_CONST.PROJ_ROW_BREAKPOINT));
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -1014,7 +1016,7 @@ var Academic = function (_a) {
                 react_1.default.createElement(material_1.Typography, { variant: "h4" }, "Academic_projects")),
             react_1.default.createElement(Grid_1.default, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[project_list_1.ProjectCategories.ACADEMIC].map(function (proj, i) {
                 return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
-                    react_1.default.createElement(ProjectBlock_1.default, { proj: proj, imgQuality: imgQuality, key: i })));
+                    react_1.default.createElement(ProjectBlock_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
             }))),
         react_1.default.createElement(react_router_dom_1.Outlet, null)));
 };
@@ -3134,6 +3136,39 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __rest = (this && this.__rest) || function (s, e) {
     var t = {};
     for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
@@ -3149,7 +3184,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(96540));
+var react_1 = __importStar(__webpack_require__(96540));
 var Card_1 = __importDefault(__webpack_require__(97452));
 var CardContent_1 = __importDefault(__webpack_require__(61593));
 var Typography_1 = __importDefault(__webpack_require__(59259));
@@ -3206,7 +3241,7 @@ var ProjBlockShortContent = function (proj) {
         }))));
 };
 var ProjectBlock = function (_a) {
-    var proj = _a.proj, imgQuality = _a.imgQuality;
+    var proj = _a.proj, imgQuality = _a.imgQuality, activeProj = _a.activeProj, setActiveProj = _a.setActiveProj;
     var _b = react_1.default.useState(false), expanded = _b[0], setExpanded = _b[1];
     /*
      * location as a key here helps react recognize which is parent vs child
@@ -3229,8 +3264,14 @@ var ProjectBlock = function (_a) {
         height: "100%",
         zIndex: 9999,
     };
+    (0, react_1.useLayoutEffect)(function () {
+        if (activeProj != proj.abbr && expanded != false) {
+            setExpanded(false);
+        }
+    }, [activeProj]);
     var handleExpandClick = function () {
         setExpanded(!expanded);
+        setActiveProj(proj.abbr);
     };
     return (react_1.default.createElement(Card_1.default, { sx: __assign(__assign({}, cardDims), { position: "relative" }) },
         react_1.default.createElement(CardMedia_1.default, { sx: { minHeight: 200 } },
@@ -3245,7 +3286,7 @@ var ProjectBlock = function (_a) {
                 } },
                 react_1.default.createElement(ExpandMore, { expand: expanded, onClick: handleExpandClick, "aria-expanded": expanded, "aria-label": "show more" },
                     react_1.default.createElement(ExpandMore_1.default, null)))),
-        react_1.default.createElement(material_1.Slide, { in: expanded, direction: "up" },
+        react_1.default.createElement(material_1.Slide, { in: expanded, direction: "up", timeout: constants_1.ANI_CONST.PROJ_CARDS_DELAY },
             react_1.default.createElement(CardContent_1.default, { sx: __assign({}, collapsedContentStyling) },
                 react_1.default.createElement(material_1.Grid, { container: true, rowSpacing: 3 },
                     react_1.default.createElement("div", null,
