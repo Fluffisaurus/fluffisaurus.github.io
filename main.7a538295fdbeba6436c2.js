@@ -615,6 +615,14 @@ var muiButtonStyles = {
                     minWidth: 0,
                 },
             },
+            {
+                props: { variant: "cardDetails" },
+                style: {
+                    fontFamily: "Source Code Pro",
+                    fontWeight: 600,
+                    minWidth: 0,
+                },
+            },
         ],
         styleOverrides: {
             root: function (props) {
@@ -636,6 +644,13 @@ var muiButtonStyles = {
                     "&:focus": {},
                 });
             },
+            cardDetails: function () { return ({
+                position: "absolute",
+                padding: "5px",
+                borderRadius: "5%",
+                left: "10px",
+                bottom: "10px",
+            }); },
         },
         defaultProps: {
             style: {
@@ -3143,18 +3158,22 @@ var styles_1 = __webpack_require__(9752);
 var IconButton_1 = __importDefault(__webpack_require__(92975));
 var ExpandMore_1 = __importDefault(__webpack_require__(72048));
 var material_1 = __webpack_require__(8157);
+var AddCircleOutlineTwoTone_1 = __importDefault(__webpack_require__(56322));
 var ProjectCarousel_1 = __importDefault(__webpack_require__(15274));
 var constants_1 = __webpack_require__(70908);
 var react_router_dom_1 = __webpack_require__(28651);
 var ExpandMore = (0, styles_1.styled)(function (props) {
     var expand = props.expand, other = __rest(props, ["expand"]); //eslint-disable-line @typescript-eslint/no-unused-vars
-    return react_1.default.createElement(IconButton_1.default, __assign({}, other));
+    return (react_1.default.createElement(IconButton_1.default, __assign({}, other),
+        react_1.default.createElement(AddCircleOutlineTwoTone_1.default, { fontSize: "medium" })));
 })(function (_a) {
     var theme = _a.theme;
     return ({
+        zIndex: 999999,
         marginLeft: "auto",
         transition: theme.transitions.create("transform", {
-            duration: theme.transitions.duration.shortest,
+            duration: theme.transitions.duration.standard,
+            easing: theme.transitions.easing.easeInOut,
         }),
         variants: [
             {
@@ -3172,12 +3191,20 @@ var ExpandMore = (0, styles_1.styled)(function (props) {
                     return !!expand;
                 },
                 style: {
-                    transform: "rotate(180deg)",
+                    transform: "rotate(225deg)",
                 },
             },
         ],
     });
 });
+var ProjBlockShortContent = function (proj) {
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(Typography_1.default, { component: "div", variant: "h5" }, proj.name),
+        react_1.default.createElement(Typography_1.default, { variant: "subtitle1", component: "div", sx: { color: "text.secondary" } }, proj.category),
+        react_1.default.createElement(material_1.Grid, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) {
+            return (react_1.default.createElement(Typography_1.default, { key: i, variant: "subtitle2", component: "div", sx: { color: "text.secondary" } }, tag));
+        }))));
+};
 var ProjectBlock = function (_a) {
     var proj = _a.proj, imgQuality = _a.imgQuality;
     var _b = react_1.default.useState(false), expanded = _b[0], setExpanded = _b[1];
@@ -3194,18 +3221,22 @@ var ProjectBlock = function (_a) {
     var cardDims = {
         width: constants_1.ANI_CONST.PROJ_CARD_WIDTH,
     };
+    var collapsedContentStyling = {
+        position: "absolute",
+        bottom: 0,
+        backgroundColor: "white",
+        width: constants_1.ANI_CONST.PROJ_CARD_WIDTH,
+        height: "100%",
+        zIndex: 9999,
+    };
     var handleExpandClick = function () {
         setExpanded(!expanded);
     };
-    return (react_1.default.createElement(Card_1.default, { sx: __assign({}, cardDims) },
+    return (react_1.default.createElement(Card_1.default, { sx: __assign(__assign({}, cardDims), { position: "relative" }) },
         react_1.default.createElement(CardMedia_1.default, { sx: { minHeight: 200 } },
             react_1.default.createElement(ProjectCarousel_1.default, { key: location.pathname, proj: proj, width: { width: cardDims.width }, height: 400, imgQuality: imgQuality })),
         react_1.default.createElement(CardContent_1.default, { sx: { position: "relative" } },
-            react_1.default.createElement(Typography_1.default, { component: "div", variant: "h5" }, proj.name),
-            react_1.default.createElement(Typography_1.default, { variant: "subtitle1", component: "div", sx: { color: "text.secondary" } }, proj.category),
-            react_1.default.createElement(material_1.Grid, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) {
-                return (react_1.default.createElement(Typography_1.default, { key: i, variant: "subtitle2", component: "div", sx: { color: "text.secondary" } }, tag));
-            })),
+            react_1.default.createElement(ProjBlockShortContent, __assign({}, proj)),
             react_1.default.createElement(material_1.CardActions, { disableSpacing: true, sx: {
                     position: "absolute",
                     padding: 0,
@@ -3214,10 +3245,15 @@ var ProjectBlock = function (_a) {
                 } },
                 react_1.default.createElement(ExpandMore, { expand: expanded, onClick: handleExpandClick, "aria-expanded": expanded, "aria-label": "show more" },
                     react_1.default.createElement(ExpandMore_1.default, null)))),
-        react_1.default.createElement(material_1.Collapse, { in: expanded, timeout: "auto", unmountOnExit: true },
-            react_1.default.createElement(CardContent_1.default, null,
-                react_1.default.createElement(Typography_1.default, { variant: "body2" }, proj.date),
-                react_1.default.createElement(Typography_1.default, { variant: "body1" }, proj.detail.short)))));
+        react_1.default.createElement(material_1.Slide, { in: expanded, direction: "up" },
+            react_1.default.createElement(CardContent_1.default, { sx: __assign({}, collapsedContentStyling) },
+                react_1.default.createElement(material_1.Grid, { container: true, rowSpacing: 3 },
+                    react_1.default.createElement("div", null,
+                        react_1.default.createElement(ProjBlockShortContent, __assign({}, proj))),
+                    react_1.default.createElement("div", null,
+                        react_1.default.createElement(Typography_1.default, { variant: "body2", sx: { marginBottom: "5px" } }, proj.date),
+                        react_1.default.createElement(Typography_1.default, { variant: "body1" }, proj.detail.short))),
+                react_1.default.createElement(material_1.Button, { variant: "cardDetails", component: react_router_dom_1.Link, to: proj.abbr, state: { background: location } }, "More details")))));
 };
 exports["default"] = ProjectBlock;
 

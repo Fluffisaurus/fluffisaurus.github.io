@@ -36905,6 +36905,25 @@ var _default = exports["default"] = Dialog;
 
 /***/ }),
 
+/***/ 56322:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+"use client";
+
+var _interopRequireDefault = (__webpack_require__(24994)["default"]);
+Object.defineProperty(exports, "__esModule", ({
+  value: true
+}));
+exports["default"] = void 0;
+var _createSvgIcon = _interopRequireDefault(__webpack_require__(42032));
+var _jsxRuntime = __webpack_require__(74848);
+var _default = exports["default"] = (0, _createSvgIcon.default)(/*#__PURE__*/(0, _jsxRuntime.jsx)("path", {
+  d: "M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8"
+}), 'AddCircleOutlineTwoTone');
+
+/***/ }),
+
 /***/ 56477:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
