@@ -33,6 +33,14 @@ const muiButtonStyles = {
           minWidth: 0,
         },
       },
+      {
+        props: { variant: "cardDetails" as const },
+        style: {
+          fontFamily: "Source Code Pro",
+          fontWeight: 600,
+          minWidth: 0,
+        },
+      },
     ],
     styleOverrides: {
       root: (props: { theme: Theme }) =>
@@ -53,6 +61,13 @@ const muiButtonStyles = {
           },
           "&:focus": {},
         } as CSSObject),
+      cardDetails: () => ({
+        position: "absolute",
+        padding: "5px",
+        borderRadius: "5%",
+        left: "10px",
+        bottom: "10px",
+      }),
     },
     defaultProps: {
       style: {

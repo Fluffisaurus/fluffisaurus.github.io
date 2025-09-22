@@ -7,12 +7,13 @@ import CardMedia from "@mui/material/CardMedia";
 import { styled } from "@mui/material/styles";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { CardActions, Collapse, Grid } from "@mui/material";
+import { Button, CardActions, Grid, Slide } from "@mui/material";
+import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
 
 import { Project } from "../content/projects/interfaces";
 import ProjectCarousel from "./ProjectCarousel";
 import { ANI_CONST, ImageQualityProps } from "./styled/constants";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 interface ProjectBlockProps extends ImageQualityProps {
   proj: Project;
@@ -24,11 +25,17 @@ interface ExpandMoreProps extends IconButtonProps {
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
   const { expand, ...other } = props; //eslint-disable-line @typescript-eslint/no-unused-vars
-  return <IconButton {...other} />;
+  return (
+    <IconButton {...other}>
+      <AddCircleOutlineTwoToneIcon fontSize="medium" />
+    </IconButton>
+  );
 })(({ theme }) => ({
+  zIndex: 999999,
   marginLeft: "auto",
   transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
+    duration: theme.transitions.duration.standard,
+    easing: theme.transitions.easing.easeInOut,
   }),
   variants: [
     {
@@ -40,11 +47,49 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     {
       props: ({ expand }) => !!expand,
       style: {
-        transform: "rotate(180deg)",
+        transform: "rotate(225deg)",
       },
     },
   ],
 }));
+
+const ProjBlockShortContent = (proj: Project) => {
+  return (
+    <>
+      <Typography component="div" variant="h5">
+        {proj.name}
+      </Typography>
+      <Typography
+        variant="subtitle1"
+        component="div"
+        sx={{ color: "text.secondary" }}
+      >
+        {proj.category}
+      </Typography>
+      <Grid
+        container
+        display={"flex"}
+        flexDirection={"row"}
+        spacing={2}
+        rowSpacing={0}
+        width={"90%"}
+      >
+        {proj.tags.map((tag, i) => {
+          return (
+            <Typography
+              key={i}
+              variant="subtitle2"
+              component="div"
+              sx={{ color: "text.secondary" }}
+            >
+              {tag}
+            </Typography>
+          );
+        })}
+      </Grid>
+    </>
+  );
+};
 
 const ProjectBlock = ({ proj, imgQuality }: ProjectBlockProps) => {
   const [expanded, setExpanded] = React.useState(false);
@@ -63,11 +108,21 @@ const ProjectBlock = ({ proj, imgQuality }: ProjectBlockProps) => {
     width: ANI_CONST.PROJ_CARD_WIDTH,
   };
 
+  const collapsedContentStyling = {
+    position: "absolute",
+    bottom: 0,
+    backgroundColor: "white",
+    width: ANI_CONST.PROJ_CARD_WIDTH,
+    height: "100%",
+    zIndex: 9999,
+  };
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
   return (
-    <Card sx={{ ...cardDims }}>
+    <Card sx={{ ...cardDims, position: "relative" }}>
       <CardMedia sx={{ minHeight: 200 }}>
         <ProjectCarousel
           key={location.pathname}
@@ -78,37 +133,7 @@ const ProjectBlock = ({ proj, imgQuality }: ProjectBlockProps) => {
         />
       </CardMedia>
       <CardContent sx={{ position: "relative" }}>
-        <Typography component="div" variant="h5">
-          {proj.name}
-        </Typography>
-        <Typography
-          variant="subtitle1"
-          component="div"
-          sx={{ color: "text.secondary" }}
-        >
-          {proj.category}
-        </Typography>
-        <Grid
-          container
-          display={"flex"}
-          flexDirection={"row"}
-          spacing={2}
-          rowSpacing={0}
-          width={"90%"}
-        >
-          {proj.tags.map((tag, i) => {
-            return (
-              <Typography
-                key={i}
-                variant="subtitle2"
-                component="div"
-                sx={{ color: "text.secondary" }}
-              >
-                {tag}
-              </Typography>
-            );
-          })}
-        </Grid>
+        <ProjBlockShortContent {...proj} />
         <CardActions
           disableSpacing
           sx={{
@@ -128,12 +153,29 @@ const ProjectBlock = ({ proj, imgQuality }: ProjectBlockProps) => {
           </ExpandMore>
         </CardActions>
       </CardContent>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography variant="body2">{proj.date}</Typography>
-          <Typography variant="body1">{proj.detail.short}</Typography>
+      <Slide in={expanded} direction="up">
+        <CardContent sx={{ ...collapsedContentStyling }}>
+          <Grid container rowSpacing={3}>
+            <div>
+              <ProjBlockShortContent {...proj} />
+            </div>
+            <div>
+              <Typography variant="body2" sx={{ marginBottom: "5px" }}>
+                {proj.date}
+              </Typography>
+              <Typography variant="body1">{proj.detail.short}</Typography>
+            </div>
+          </Grid>
+          <Button
+            variant="cardDetails"
+            component={Link}
+            to={proj.abbr}
+            state={{ background: location }}
+          >
+            More details
+          </Button>
         </CardContent>
-      </Collapse>
+      </Slide>
     </Card>
   );
 };

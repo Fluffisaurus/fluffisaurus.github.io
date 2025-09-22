@@ -13,6 +13,7 @@ import muiCssBaseline from "./components/muiCssBaseline";
 declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
     navlink: true;
+    cardDetails: true;
   }
 }
 
