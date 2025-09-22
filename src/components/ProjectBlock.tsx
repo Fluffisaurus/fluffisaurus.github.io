@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useLayoutEffect } from "react";
 
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -17,6 +17,8 @@ import { Link, useLocation } from "react-router-dom";
 
 interface ProjectBlockProps extends ImageQualityProps {
   proj: Project;
+  activeProj: string | null;
+  setActiveProj: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -91,7 +93,12 @@ const ProjBlockShortContent = (proj: Project) => {
   );
 };
 
-const ProjectBlock = ({ proj, imgQuality }: ProjectBlockProps) => {
+const ProjectBlock = ({
+  proj,
+  imgQuality,
+  activeProj,
+  setActiveProj,
+}: ProjectBlockProps) => {
   const [expanded, setExpanded] = React.useState(false);
   /*
    * location as a key here helps react recognize which is parent vs child
@@ -117,8 +124,15 @@ const ProjectBlock = ({ proj, imgQuality }: ProjectBlockProps) => {
     zIndex: 9999,
   };
 
+  useLayoutEffect(() => {
+    if (activeProj != proj.abbr && expanded != false) {
+      setExpanded(false);
+    }
+  }, [activeProj]);
+
   const handleExpandClick = () => {
     setExpanded(!expanded);
+    setActiveProj(proj.abbr);
   };
 
   return (
@@ -153,7 +167,7 @@ const ProjectBlock = ({ proj, imgQuality }: ProjectBlockProps) => {
           </ExpandMore>
         </CardActions>
       </CardContent>
-      <Slide in={expanded} direction="up">
+      <Slide in={expanded} direction="up" timeout={ANI_CONST.PROJ_CARDS_DELAY}>
         <CardContent sx={{ ...collapsedContentStyling }}>
           <Grid container rowSpacing={3}>
             <div>

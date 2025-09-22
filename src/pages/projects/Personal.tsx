@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import { Grid, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { Outlet } from "react-router-dom";
@@ -17,6 +17,7 @@ import FadeWrapper from "../../components/styled/FadeWrapper";
 
 const Personal = ({ imgQuality }: ImageQualityProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [activeProj, setActiveProj] = useState<string | null>(null);
   const theme = useTheme();
   const animationBreakpoint = useMediaQuery(
     theme.breakpoints.down(ANI_CONST.PROJ_ROW_BREAKPOINT)
@@ -35,7 +36,13 @@ const Personal = ({ imgQuality }: ImageQualityProps) => {
                 delay={i * ANI_CONST.PROJ_CARDS_DELAY}
                 direction={animationBreakpoint ? "up" : "left"}
               >
-                <ProjectBlock proj={proj} imgQuality={imgQuality} key={i} />
+                <ProjectBlock
+                  activeProj={activeProj}
+                  setActiveProj={setActiveProj}
+                  proj={proj}
+                  imgQuality={imgQuality}
+                  key={i}
+                />
               </SlideWrapper>
             );
           })}
