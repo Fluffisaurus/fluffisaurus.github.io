@@ -1,4 +1,5 @@
 import * as React from "react";
+import loadable from "@loadable/component";
 
 import {
   Box,
@@ -8,9 +9,6 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import { AdvancedImage, placeholder, responsive } from "@cloudinary/react";
-import { fit } from "@cloudinary/url-gen/actions/resize";
-import getCloudinaryInstance, { getDesiredQuality } from "../Cloudinary";
 import { Link, useLocation } from "react-router-dom";
 
 import { ProjectImage } from "../../content/projects/interfaces";
@@ -20,6 +18,10 @@ import {
   ImageQualityProps,
 } from "./constants";
 
+const CloudinaryCustomImage = loadable(
+  () => import("../CloudinaryCustomImage")
+);
+
 interface CarouselCardProps
   extends CarouselActionCardContentProps,
     ImageQualityProps {
@@ -28,18 +30,16 @@ interface CarouselCardProps
 
 const CardContent = (props: CarouselCardProps) => {
   const { item, width, height, imgQuality } = props;
-  const cld = getCloudinaryInstance;
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const imgWidth = isMobile ? width.width.xs : width.width.md;
   return (
     <Box sx={{ width: width, ...CarouselStyles.wrapperBox }}>
-      <AdvancedImage
-        cldImg={cld
-          .image(`portfolio/${item.src}`)
-          .resize(fit(imgWidth, height))
-          .quality(getDesiredQuality(imgQuality))}
-        plugins={[placeholder({ mode: "blur" }), responsive()]}
+      <CloudinaryCustomImage
+        src={item.src}
+        width={imgWidth}
+        height={height}
+        imgQuality={imgQuality}
       />
       <Box sx={{ ...CarouselStyles.textOverlayBox }}>
         <Typography variant="caption">{item.description}</Typography>
