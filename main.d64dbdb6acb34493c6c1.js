@@ -2778,13 +2778,13 @@ var React = __importStar(__webpack_require__(96540));
 var react_1 = __webpack_require__(44387);
 var resize_1 = __webpack_require__(16012);
 var Cloudinary_1 = __importStar(__webpack_require__(55039));
-var CloudinaryCustomImage = function (props) {
+var CloudinaryCustomImage = React.memo(function (props) {
     var src = props.src, width = props.width, height = props.height, imgQuality = props.imgQuality;
     return (React.createElement(react_1.AdvancedImage, { cldImg: Cloudinary_1.default
             .image("portfolio/".concat(src))
             .resize((0, resize_1.fit)(width, height))
             .quality((0, Cloudinary_1.getDesiredQuality)(imgQuality)), plugins: [(0, react_1.placeholder)({ mode: "blur" }), (0, react_1.responsive)()] }));
-};
+});
 exports["default"] = CloudinaryCustomImage;
 
 
