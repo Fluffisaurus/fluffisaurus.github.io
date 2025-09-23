@@ -3256,10 +3256,11 @@ var ProjectBlock = function (_a) {
     var cardDims = {
         width: constants_1.ANI_CONST.PROJ_CARD_WIDTH,
     };
+    var theme = (0, styles_1.useTheme)();
     var collapsedContentStyling = {
         position: "absolute",
         bottom: 0,
-        backgroundColor: "white",
+        backgroundColor: theme.vars.palette.background.paper,
         width: constants_1.ANI_CONST.PROJ_CARD_WIDTH,
         height: "100%",
         zIndex: 9999,
