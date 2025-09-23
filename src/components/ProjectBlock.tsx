@@ -4,7 +4,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Button, CardActions, Grid, Slide } from "@mui/material";
@@ -115,10 +115,11 @@ const ProjectBlock = ({
     width: ANI_CONST.PROJ_CARD_WIDTH,
   };
 
+  const theme = useTheme();
   const collapsedContentStyling = {
     position: "absolute",
     bottom: 0,
-    backgroundColor: "white",
+    backgroundColor: theme.vars.palette.background.paper,
     width: ANI_CONST.PROJ_CARD_WIDTH,
     height: "100%",
     zIndex: 9999,
