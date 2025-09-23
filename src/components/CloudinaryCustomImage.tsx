@@ -13,7 +13,7 @@ interface CloudinaryImageProps {
   imgQuality: ImageQuality | undefined;
 }
 
-const CloudinaryCustomImage = (props: CloudinaryImageProps) => {
+const CloudinaryCustomImage = React.memo((props: CloudinaryImageProps) => {
   const { src, width, height, imgQuality } = props;
   return (
     <AdvancedImage
@@ -24,6 +24,6 @@ const CloudinaryCustomImage = (props: CloudinaryImageProps) => {
       plugins={[placeholder({ mode: "blur" }), responsive()]}
     />
   );
-};
+});
 
 export default CloudinaryCustomImage;
