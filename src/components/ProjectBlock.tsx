@@ -33,7 +33,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
     </IconButton>
   );
 })(({ theme }) => ({
-  zIndex: 999999,
+  zIndex: ANI_CONST.ZINDEX.EXPAND_MORE,
   marginLeft: "auto",
   transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.standard,
@@ -122,7 +122,7 @@ const ProjectBlock = ({
     backgroundColor: theme.vars.palette.background.paper,
     width: ANI_CONST.PROJ_CARD_WIDTH,
     height: "100%",
-    zIndex: 9999,
+    zIndex: ANI_CONST.ZINDEX.COLLAPSED_CONTENT,
   };
 
   useLayoutEffect(() => {

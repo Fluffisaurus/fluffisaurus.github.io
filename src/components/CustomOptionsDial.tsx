@@ -12,7 +12,7 @@ import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTo
 
 import ToggleThemeButtons from "./ToggleThemeButtons";
 import ToggleImageQualityButtons from "./ToggleImageQualityButtons";
-import { ImageQualityProps } from "./styled/constants";
+import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import { Slide, toast, ToastContainer } from "react-toastify";
 
 interface DialActions {
@@ -97,7 +97,7 @@ export default function CustomOptionsDial({
           height: 320,
           transform: "translateZ(0px)",
           flexGrow: 1,
-          zIndex: 999,
+          zIndex: ANI_CONST.ZINDEX.OPTIONS_DIAL,
         }}
       >
         <SpeedDial

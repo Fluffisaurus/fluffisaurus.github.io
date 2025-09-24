@@ -149,7 +149,10 @@ const GlobalNav = () => {
   return (
     <>
       <Slide in={showContent} timeout={ANI_CONST.GLOBAL_NAV_DELAY}>
-        <StyledBox className="Global-nav">
+        <StyledBox
+          className="Global-nav"
+          sx={{ zIndex: ANI_CONST.ZINDEX.GLOBAL_NAV }}
+        >
           <Box className="Global-nav__root">
             <Button
               onClick={toggleDrawer}
