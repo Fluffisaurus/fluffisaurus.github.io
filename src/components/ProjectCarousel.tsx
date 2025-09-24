@@ -1,7 +1,5 @@
 import React from "react";
 
-import { useMediaQuery, useTheme } from "@mui/material";
-
 import { Project } from "../content/projects/interfaces";
 import {
   CarouselCardContentProps,
@@ -10,6 +8,7 @@ import {
 import CarouselWrapper from "./styled/CarouselWrapper";
 import CarouselPlaceholderCard from "./styled/CarouselPlaceholderCard";
 import CarouselCard from "./styled/CarouselCard";
+import { isSmallScreen } from "../utils/breakpoints";
 
 interface ProjectCarouselProps
   extends CarouselCardContentProps,
@@ -18,20 +17,20 @@ interface ProjectCarouselProps
 }
 
 interface ProjectContentProps extends ProjectCarouselProps {
-  isMobile: boolean;
+  smallScreen: boolean;
 }
 
 const PlaceholderCarousel = ({
   proj,
   width,
   height,
-  isMobile,
+  smallScreen,
 }: ProjectContentProps) => {
   const placeholders = [1, 2];
   return (
     <CarouselWrapper
       height={height}
-      navButtonsAlwaysVisible={isMobile ? true : false}
+      navButtonsAlwaysVisible={smallScreen ? true : false}
     >
       {placeholders.map((item, i) => (
         <CarouselPlaceholderCard
@@ -50,12 +49,12 @@ const ProjectCarouselCard = ({
   width,
   height,
   imgQuality,
-  isMobile,
+  smallScreen,
 }: ProjectContentProps) => {
   return (
     <CarouselWrapper
       height={height}
-      navButtonsAlwaysVisible={isMobile ? true : false}
+      navButtonsAlwaysVisible={smallScreen ? true : false}
     >
       {proj.images.map((item, i) => (
         <CarouselCard
@@ -73,13 +72,12 @@ const ProjectCarouselCard = ({
 
 const ProjectCarousel = (props: ProjectCarouselProps) => {
   const { proj } = props;
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
+  const smallScreen = isSmallScreen();
 
   return proj.images.length == 0 ? (
-    <PlaceholderCarousel {...props} isMobile={isMobile} />
+    <PlaceholderCarousel {...props} smallScreen={smallScreen} />
   ) : (
-    <ProjectCarouselCard {...props} isMobile={isMobile} />
+    <ProjectCarouselCard {...props} smallScreen={smallScreen} />
   );
 };
 

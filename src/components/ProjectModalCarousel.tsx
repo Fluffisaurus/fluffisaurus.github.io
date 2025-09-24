@@ -4,7 +4,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { To, useNavigate } from "react-router-dom";
-import { CardContent, Grid, useMediaQuery, useTheme } from "@mui/material";
+import { CardContent, Grid } from "@mui/material";
 
 import { Project } from "../content/projects/interfaces";
 import computeNodeStyle from "../utils/computeNodeStyle";
@@ -14,6 +14,7 @@ import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import CarouselWrapper from "./styled/CarouselWrapper";
 import CarouselPlaceholderCard from "./styled/CarouselPlaceholderCard";
 import CarouselCard from "./styled/CarouselCard";
+import { isSmallScreen } from "../utils/breakpoints";
 
 const styles = {
   modalBox: {
@@ -39,8 +40,7 @@ export default function ProjectModalCarousel({
   imgQuality,
 }: ProjectModalCarouselProps) {
   const navigate = useNavigate();
-  const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("desktop"));
+  const smallScreen = isSmallScreen();
 
   const [dims, setDims] = useState({ width: 0, height: 0 });
 
@@ -72,14 +72,14 @@ export default function ProjectModalCarousel({
         <Box
           sx={{
             ...styles.modalBox,
-            flexDirection: isSmallScreen ? "column-reverse" : "row",
+            flexDirection: smallScreen ? "column-reverse" : "row",
           }}
         >
           <ScrollableContainer
             sx={{
               flexDirection: "column",
-              width: isSmallScreen ? "100%" : "30%",
-              height: isSmallScreen ? "40%" : "100%",
+              width: smallScreen ? "100%" : "30%",
+              height: smallScreen ? "40%" : "100%",
             }}
           >
             <CardContent
@@ -128,7 +128,7 @@ export default function ProjectModalCarousel({
           </ScrollableContainer>
           <Box
             ref={modalRef}
-            sx={{ width: isSmallScreen ? "100%" : "70%", height: "100%" }}
+            sx={{ width: smallScreen ? "100%" : "70%", height: "100%" }}
           >
             <CarouselWrapper navButtonsAlwaysVisible={true}>
               {proj.images.length >= 1
@@ -136,7 +136,7 @@ export default function ProjectModalCarousel({
                     <CarouselCard
                       key={i}
                       item={item}
-                      width={{ width: { md: dims.width } }}
+                      width={dims.width}
                       height={dims.height}
                       cardActionArea={false}
                       imgQuality={imgQuality}

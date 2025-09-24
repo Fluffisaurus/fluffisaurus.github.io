@@ -1,14 +1,7 @@
 import * as React from "react";
 import loadable from "@loadable/component";
 
-import {
-  Box,
-  Card,
-  CardActionArea,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Card, CardActionArea, Typography } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
 
 import { ProjectImage } from "../../content/projects/interfaces";
@@ -17,6 +10,7 @@ import {
   CarouselStyles,
   ImageQualityProps,
 } from "./constants";
+import getDimsfromViewport from "../../utils/breakpoints";
 
 const CloudinaryCustomImage = loadable(
   () => import("../CloudinaryCustomImage")
@@ -30,9 +24,8 @@ interface CarouselCardProps
 
 const CardContent = (props: CarouselCardProps) => {
   const { item, width, height, imgQuality } = props;
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
-  const imgWidth = isMobile ? width.width.xs : width.width.md;
+  const imgWidth =
+    typeof width == "number" ? width : getDimsfromViewport(width.width);
   return (
     <Box sx={{ width: width, ...CarouselStyles.wrapperBox }}>
       <CloudinaryCustomImage

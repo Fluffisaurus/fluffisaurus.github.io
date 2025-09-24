@@ -5,8 +5,6 @@ import {
   SpeedDialIcon,
   SpeedDialAction,
   useColorScheme,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 
@@ -14,6 +12,7 @@ import ToggleThemeButtons from "./ToggleThemeButtons";
 import ToggleImageQualityButtons from "./ToggleImageQualityButtons";
 import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import { Slide, toast, ToastContainer } from "react-toastify";
+import { isSmallScreen } from "../utils/breakpoints";
 
 interface DialActions {
   icon: JSX.Element;
@@ -41,8 +40,7 @@ export default function CustomOptionsDial({
     },
   ];
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
+  const smallScreen = isSmallScreen();
 
   // Note: --speedDial-onboard is cleared after <App/> unmount
   //       to re-enable functionality, remove that line
@@ -60,13 +58,13 @@ export default function CustomOptionsDial({
         pauseOnFocusLoss: false,
         draggableDirection: "y",
         style: {
-          right: isMobile ? "65px" : "55px",
-          bottom: isMobile ? "70px" : "40px",
+          right: smallScreen ? "65px" : "55px",
+          bottom: smallScreen ? "70px" : "40px",
           borderTopLeftRadius: "10px",
           borderTopRightRadius: "10px",
           borderBottomLeftRadius: "10px",
           borderBottomRightRadius: 0,
-          width: isMobile ? "280px" : "fit-content",
+          width: smallScreen ? "280px" : "fit-content",
         },
       });
       setInitialLoad(true);

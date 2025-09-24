@@ -12,9 +12,20 @@ import {
 
 const PlaceholderCardContent = (props: CarouselCardContentProps) => {
   const { width, height } = props;
+  const isNum = typeof width == "number";
   return (
-    <Box sx={{ ...width, ...CarouselStyles.wrapperBox }}>
-      <PhotoLibraryTwoToneIcon sx={{ ...width, height }} />
+    <Box
+      sx={{
+        width: isNum ? width : { ...width.width },
+        ...CarouselStyles.wrapperBox,
+      }}
+    >
+      <PhotoLibraryTwoToneIcon
+        sx={{
+          width: isNum ? width : { ...width.width },
+          height,
+        }}
+      />
       <Box sx={{ ...CarouselStyles.textOverlayBox }}>
         <Typography variant="caption">
           Photo not availble at the moment.

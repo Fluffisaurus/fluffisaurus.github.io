@@ -2,15 +2,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import type {} from "@mui/material/themeCssVarsAugmentation";
-import {
-  Box,
-  Button,
-  Slide,
-  styled,
-  SwipeableDrawer,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, Button, Slide, styled, SwipeableDrawer } from "@mui/material";
 import { bindTrigger, usePopupState } from "material-ui-popup-state/hooks";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 import MenuOpenTwoToneIcon from "@mui/icons-material/MenuOpenTwoTone";
@@ -21,6 +13,8 @@ import { globalNavButtonProps } from "../mui/components/muiButton";
 import "../styles/global-nav.scss";
 import { ANI_CONST } from "./styled/constants";
 import { TypeAnimation } from "react-type-animation";
+import { isSmallScreen } from "../utils/breakpoints";
+import theme from "../mui/theme";
 
 const StyledBox = styled("div")(({ theme }) => [
   {
@@ -60,8 +54,7 @@ const GlobalNav = () => {
   const [openDrawer, setOpenDrawer] = React.useState(false);
   const toggleDrawer = () => setOpenDrawer(!openDrawer);
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
+  const smallScreen = isSmallScreen();
 
   const popupState = usePopupState({
     variant: "popover",
@@ -221,7 +214,7 @@ const GlobalNav = () => {
             >
               ~$
             </Button>
-            {!isMobile && (
+            {!smallScreen && (
               <Button
                 className="Nav-link__no-events"
                 {...globalNavButtonProps}

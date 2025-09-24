@@ -7,8 +7,6 @@ import {
   Grid,
   SvgIconProps,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
@@ -19,6 +17,7 @@ import SlideWrapper from "../components/styled/SlideWrapper";
 import { ANI_CONST, ImageQualityProps } from "../components/styled/constants";
 import FadeWrapper from "../components/styled/FadeWrapper";
 import { toast } from "react-toastify";
+import { isSmallScreen } from "../utils/breakpoints";
 
 const CloudinaryCustomImage = loadable(
   () => import("../components/CloudinaryCustomImage")
@@ -48,8 +47,7 @@ const info: ContactInfo[] = [
 const Contact: React.FunctionComponent = ({
   imgQuality,
 }: ImageQualityProps) => {
-  const theme = useTheme();
-  const animationBreakpoint = useMediaQuery(theme.breakpoints.down("laptop"));
+  const smallScreen = isSmallScreen();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleEmailClick = async () => {
@@ -82,7 +80,7 @@ const Contact: React.FunctionComponent = ({
               <SlideWrapper
                 slideFromRef={containerRef}
                 delay={i * ANI_CONST.CONTACT_BADGE_DELAY}
-                direction={animationBreakpoint ? "up" : "left"}
+                direction={smallScreen ? "up" : "left"}
               >
                 <Card key={i} sx={{ width: "150px", height: "fit-content" }}>
                   <CardActionArea

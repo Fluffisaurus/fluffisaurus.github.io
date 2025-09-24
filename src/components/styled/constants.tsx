@@ -71,7 +71,7 @@ export const ANI_CONST = {
 };
 
 export interface CarouselCardContentProps {
-  width: Record<string, Record<string, number>>;
+  width: number | Record<string, Record<string, number>>;
   height: number | string;
 }
 

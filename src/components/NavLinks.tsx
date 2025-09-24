@@ -1,4 +1,4 @@
-import { Button, MenuItem, useMediaQuery, useTheme } from "@mui/material";
+import { Button, MenuItem } from "@mui/material";
 import {
   bindHover,
   bindMenu,
@@ -9,6 +9,7 @@ import HoverMenu from "material-ui-popup-state/HoverMenu";
 import React from "react";
 import { Link } from "react-router-dom";
 import { navLinkButtonProps } from "../mui/components/muiButton";
+import { isSmallScreen } from "../utils/breakpoints";
 
 const paths = [
   {
@@ -32,8 +33,7 @@ const paths = [
 ];
 
 const NavLinks = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
+  const smallScreen = isSmallScreen();
   const popupState = usePopupState({
     variant: "popover",
     popupId: "subPathMenu",
@@ -59,7 +59,7 @@ const NavLinks = () => {
                 <HoverMenu
                   {...bindMenu(popupState)}
                   anchorOrigin={
-                    isMobile
+                    smallScreen
                       ? { vertical: "top", horizontal: "right" }
                       : { vertical: "bottom", horizontal: "left" }
                   }
