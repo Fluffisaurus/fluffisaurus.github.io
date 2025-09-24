@@ -33,7 +33,7 @@ const paths = [
 
 const NavLinks = () => {
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
   const popupState = usePopupState({
     variant: "popover",
     popupId: "subPathMenu",

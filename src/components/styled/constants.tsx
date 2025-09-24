@@ -40,8 +40,20 @@ export const ANI_CONST = {
   PROJ_ROW_BREAKPOINT: 1340, // >= 1340px fits 3 cards
   PROJ_SUBHEADING_DELAY: 300, // same as WRAPPER_FADE_WRAPPER_DELAY
   PROJ_CARDS_DELAY: GENERIC_CARD_DELAY,
-  PROJ_CARD_WIDTH: { xs: 300, sm: 325, md: 350, lg: 375, xl: 425 },
-  PROJ_CARD_HEIGHT: { xs: 300, sm: 325, md: 350, lg: 375, xl: 425 },
+  PROJ_CARD_WIDTH: {
+    mobile: 300,
+    tablet: 325,
+    laptop: 350,
+    desktop: 375,
+    bigboi: 425,
+  },
+  PROJ_CARD_HEIGHT: {
+    mobile: 300,
+    tablet: 325,
+    laptop: 350,
+    desktop: 375,
+    bigboi: 425,
+  },
 
   // CONTACT
   CONTACT_BADGE_DELAY: GENERIC_CARD_DELAY,

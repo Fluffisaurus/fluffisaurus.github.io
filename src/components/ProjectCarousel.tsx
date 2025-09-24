@@ -74,7 +74,7 @@ const ProjectCarouselCard = ({
 const ProjectCarousel = (props: ProjectCarouselProps) => {
   const { proj } = props;
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
 
   return proj.images.length == 0 ? (
     <PlaceholderCarousel {...props} isMobile={isMobile} />

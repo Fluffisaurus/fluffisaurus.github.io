@@ -12,7 +12,12 @@ const Selection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   return (
     <div ref={containerRef}>
-      <Grid container direction="row" spacing={2} size={{ xs: 6, md: 8 }}>
+      <Grid
+        container
+        direction="row"
+        spacing={2}
+        size={{ mobile: 6, tablet: 8 }}
+      >
         <SlideWrapper slideFromRef={containerRef} delay={500} direction="up">
           <ProjectSelectionBlock
             cat={ProjectCategories.PERSONAL}

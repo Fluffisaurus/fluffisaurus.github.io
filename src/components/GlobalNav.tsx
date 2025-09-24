@@ -61,7 +61,7 @@ const GlobalNav = () => {
   const toggleDrawer = () => setOpenDrawer(!openDrawer);
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
 
   const popupState = usePopupState({
     variant: "popover",

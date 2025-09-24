@@ -3,7 +3,7 @@ import { ButtonProps } from "@mui/material";
 import { CSSObject, Theme } from "@mui/material/styles";
 
 const muiButtonNavlinkFontSizes = {
-  fontSize: { xs: 18, sm: 20, md: 24, lg: 26 },
+  fontSize: { mobile: 18, tablet: 20, laptop: 24, desktop: 26 },
 };
 
 export const navLinkButtonProps: ButtonProps = {
@@ -13,7 +13,7 @@ export const navLinkButtonProps: ButtonProps = {
 };
 
 const muiButtonGlobalNavFontSizes = {
-  fontSize: { xs: 19, sm: 20, md: 21, lg: 22 },
+  fontSize: { mobile: 19, tablet: 20, laptop: 21, desktop: 22 },
 };
 
 export const globalNavButtonProps: ButtonProps = {

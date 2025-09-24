@@ -1,5 +1,6 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 
+import muiBreakpoints from "./muiBreakpoints";
 import muiColorSchemes from "./muiColorSchemes";
 import muiTypography from "./muiTypography";
 import muiButtonStyles from "./components/muiButton";
@@ -24,7 +25,23 @@ declare module "@mui/material/styles" {
   }
 }
 
+declare module "@mui/material/styles" {
+  interface BreakpointOverrides {
+    xs: false; // default: 0
+    sm: false; // default: 600
+    md: false; // default: 900
+    lg: false; // default: 1200
+    xl: false; // default: 1536
+    mobile: true; // [0, 480)
+    tablet: true; // [480, 769)
+    laptop: true; // [769, 1279)
+    desktop: true; // [1280, 1439)
+    bigboi: true; // [1440, inf)
+  }
+}
+
 let theme = createTheme({
+  ...muiBreakpoints,
   ...muiColorSchemes,
   ...muiTypography,
   components: {

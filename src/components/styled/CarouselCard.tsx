@@ -31,7 +31,7 @@ interface CarouselCardProps
 const CardContent = (props: CarouselCardProps) => {
   const { item, width, height, imgQuality } = props;
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
   const imgWidth = isMobile ? width.width.xs : width.width.md;
   return (
     <Box sx={{ width: width, ...CarouselStyles.wrapperBox }}>

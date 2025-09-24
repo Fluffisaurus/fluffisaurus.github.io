@@ -42,7 +42,7 @@ export default function CustomOptionsDial({
   ];
 
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isMobile = useMediaQuery(theme.breakpoints.down("laptop"));
 
   // Note: --speedDial-onboard is cleared after <App/> unmount
   //       to re-enable functionality, remove that line

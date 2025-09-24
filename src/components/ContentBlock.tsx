@@ -21,7 +21,7 @@ const ContentBlock = ({ heading, body }: ContentBlockProps) => {
 
   return (
     <>
-      <Grid size={{ xs: 15, md: 20 }} sx={{ width: "100%" }}>
+      <Grid size={{ mobile: 15, tablet: 20 }} sx={{ width: "100%" }}>
         <Card variant="outlined">
           <CardContent>
             <Typography variant="h5" component="div" sx={{ mb: 2 }}>

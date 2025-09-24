@@ -40,7 +40,7 @@ export default function ProjectModalCarousel({
 }: ProjectModalCarouselProps) {
   const navigate = useNavigate();
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("desktop"));
 
   const [dims, setDims] = useState({ width: 0, height: 0 });
 

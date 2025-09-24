@@ -49,7 +49,7 @@ const Contact: React.FunctionComponent = ({
   imgQuality,
 }: ImageQualityProps) => {
   const theme = useTheme();
-  const animationBreakpoint = useMediaQuery(theme.breakpoints.down("sm"));
+  const animationBreakpoint = useMediaQuery(theme.breakpoints.down("laptop"));
   const containerRef = useRef<HTMLDivElement>(null);
 
   const handleEmailClick = async () => {
@@ -72,7 +72,11 @@ const Contact: React.FunctionComponent = ({
         <FadeWrapper>
           <Typography variant="h3">Contact Info</Typography>
         </FadeWrapper>
-        <Grid container spacing={2} direction={{ xs: "column", sm: "row" }}>
+        <Grid
+          container
+          spacing={2}
+          direction={{ mobile: "column", tablet: "row" }}
+        >
           {info.map((item, i) => {
             return (
               <SlideWrapper
