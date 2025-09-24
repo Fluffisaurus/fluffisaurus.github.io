@@ -3,7 +3,7 @@ import * as React from "react";
 import { AdvancedImage, placeholder, responsive } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
 
-import cld, { getDesiredQuality } from "./Cloudinary";
+import getCloudinaryInstance, { getDesiredQuality } from "../utils/Cloudinary";
 import { ImageQuality } from "./styled/constants";
 
 interface CloudinaryImageProps {
@@ -15,6 +15,7 @@ interface CloudinaryImageProps {
 
 const CloudinaryCustomImage = React.memo((props: CloudinaryImageProps) => {
   const { src, width, height, imgQuality } = props;
+  const cld = getCloudinaryInstance();
   return (
     <AdvancedImage
       cldImg={cld

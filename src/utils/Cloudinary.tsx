@@ -1,5 +1,5 @@
 import { Cloudinary } from "@cloudinary/url-gen";
-import { CldImgQuality, ImageQuality } from "./styled/constants";
+import { CldImgQuality, ImageQuality } from "../components/styled/constants";
 import { QualityTypes } from "@cloudinary/url-gen/types/types";
 
 let cldInstance: Cloudinary | null = null;
@@ -22,4 +22,4 @@ export function getDesiredQuality(
   return imgQuality ? CldImgQuality[imgQuality] : CldImgQuality.best;
 }
 
-export default getCloudinaryInstance();
+export default getCloudinaryInstance;
