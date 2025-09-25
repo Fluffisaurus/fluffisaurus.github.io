@@ -337,66 +337,16 @@ exports["default"] = GlobalNav;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importStar(__webpack_require__(96540));
-var material_1 = __webpack_require__(8157);
-var react_router_dom_1 = __webpack_require__(28651);
-var ProjectBlock_1 = __importDefault(__webpack_require__(96757));
+var react_1 = __importDefault(__webpack_require__(96540));
+var ProjectVariants_1 = __importDefault(__webpack_require__(32244));
 var project_list_1 = __webpack_require__(60803);
-var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
-var constants_1 = __webpack_require__(70908);
-var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
-var breakpoints_1 = __webpack_require__(2386);
 var Personal = function (_a) {
     var imgQuality = _a.imgQuality;
-    var containerRef = (0, react_1.useRef)(null);
-    var _b = (0, react_1.useState)(null), activeProj = _b[0], setActiveProj = _b[1];
-    var animationBreakpoint = (0, breakpoints_1.isSmallScreen)();
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("div", { ref: containerRef },
-            react_1.default.createElement(FadeWrapper_1.default, { delay: constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY },
-                react_1.default.createElement(material_1.Typography, { variant: "h4" }, "Personal_projects")),
-            react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[project_list_1.ProjectCategories.PERSONAL].map(function (proj, i) {
-                return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
-                    react_1.default.createElement(ProjectBlock_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
-            }))),
-        react_1.default.createElement(react_router_dom_1.Outlet, null)));
+    return (react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.PERSONAL, imgQuality: imgQuality }));
 };
 exports["default"] = Personal;
 
@@ -801,6 +751,110 @@ exports["default"] = motionArt;
 
 /***/ }),
 
+/***/ 9562:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var React = __importStar(__webpack_require__(96540));
+var react_router_dom_1 = __webpack_require__(28651);
+var material_1 = __webpack_require__(8157);
+var PhotoLibraryTwoTone_1 = __importDefault(__webpack_require__(53194));
+var constants_1 = __webpack_require__(70908);
+var PlaceholderCardContent = function (props) {
+    var width = props.width, height = props.height;
+    return (React.createElement(material_1.Box, { sx: __assign({ width: width }, constants_1.CarouselStyles.wrapperBox) },
+        React.createElement(PhotoLibraryTwoTone_1.default, { sx: {
+                width: width,
+                height: height,
+            } }),
+        React.createElement(material_1.Box, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
+            React.createElement(material_1.Typography, { variant: "caption" }, "Photo not availble at the moment."))));
+};
+var CarouselPlaceholder = function (props) {
+    var width = props.width, height = props.height, cardActionArea = props.cardActionArea;
+    var location = (0, react_router_dom_1.useLocation)();
+    return (React.createElement(material_1.Card, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
+        React.createElement(PlaceholderCardContent, { width: width, height: height }))) : (React.createElement(PlaceholderCardContent, { width: width, height: height }))));
+};
+exports["default"] = CarouselPlaceholder;
+
+
+/***/ }),
+
+/***/ 11438:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(96540));
+var react_router_dom_1 = __webpack_require__(28651);
+__webpack_require__(76103);
+var material_1 = __webpack_require__(8157);
+var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
+var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
+var Projects = function () {
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(ScrollableContainer_1.default, { className: "Projects-container" },
+            react_1.default.createElement(FadeWrapper_1.default, null,
+                react_1.default.createElement(material_1.Typography, { variant: "h3" }, "Projects")),
+            react_1.default.createElement(react_router_dom_1.Outlet, null))));
+};
+exports["default"] = Projects;
+
+
+/***/ }),
+
 /***/ 12612:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -825,49 +879,6 @@ function getDesiredQuality(imgQuality) {
     return imgQuality ? constants_1.CldImgQuality[imgQuality] : constants_1.CldImgQuality.best;
 }
 exports["default"] = getCloudinaryInstance;
-
-
-/***/ }),
-
-/***/ 15274:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(96540));
-var CarouselWrapper_1 = __importDefault(__webpack_require__(52308));
-var CarouselPlaceholderCard_1 = __importDefault(__webpack_require__(89336));
-var CarouselCard_1 = __importDefault(__webpack_require__(54091));
-var breakpoints_1 = __webpack_require__(2386);
-var PlaceholderCarousel = function (_a) {
-    var proj = _a.proj, width = _a.width, height = _a.height, smallScreen = _a.smallScreen;
-    var placeholders = [1, 2];
-    return (react_1.default.createElement(CarouselWrapper_1.default, { height: height, navButtonsAlwaysVisible: smallScreen ? true : false }, placeholders.map(function (item, i) { return (react_1.default.createElement(CarouselPlaceholderCard_1.default, { key: i, width: width, height: height, cardActionArea: proj.abbr })); })));
-};
-var ProjectCarouselCard = function (_a) {
-    var proj = _a.proj, width = _a.width, height = _a.height, imgQuality = _a.imgQuality, smallScreen = _a.smallScreen;
-    return (react_1.default.createElement(CarouselWrapper_1.default, { height: height, navButtonsAlwaysVisible: smallScreen ? true : false }, proj.images.map(function (item, i) { return (react_1.default.createElement(CarouselCard_1.default, { key: i, item: item, width: width, height: height, cardActionArea: proj.abbr, imgQuality: imgQuality })); })));
-};
-var ProjectCarousel = function (props) {
-    var proj = props.proj;
-    var smallScreen = (0, breakpoints_1.isSmallScreen)();
-    return proj.images.length == 0 ? (react_1.default.createElement(PlaceholderCarousel, __assign({}, props, { smallScreen: smallScreen }))) : (react_1.default.createElement(ProjectCarouselCard, __assign({}, props, { smallScreen: smallScreen })));
-};
-exports["default"] = ProjectCarousel;
 
 
 /***/ }),
@@ -985,7 +996,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(96540));
 var Grid_1 = __importDefault(__webpack_require__(36434));
 var project_list_1 = __webpack_require__(60803);
-var ProjectSelectionBlock_1 = __importDefault(__webpack_require__(42973));
+var ProjectSelectionBlock_1 = __importDefault(__webpack_require__(90619));
 var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
 var Selection = function () {
     var containerRef = (0, react_1.useRef)(null);
@@ -1070,67 +1081,16 @@ exports["default"] = AboutMe;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importStar(__webpack_require__(96540));
-var Grid_1 = __importDefault(__webpack_require__(36434));
-var material_1 = __webpack_require__(8157);
-var react_router_dom_1 = __webpack_require__(28651);
-var ProjectBlock_1 = __importDefault(__webpack_require__(96757));
+var react_1 = __importDefault(__webpack_require__(96540));
+var ProjectVariants_1 = __importDefault(__webpack_require__(32244));
 var project_list_1 = __webpack_require__(60803);
-var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
-var constants_1 = __webpack_require__(70908);
-var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
-var breakpoints_1 = __webpack_require__(2386);
 var Academic = function (_a) {
     var imgQuality = _a.imgQuality;
-    var containerRef = (0, react_1.useRef)(null);
-    var _b = (0, react_1.useState)(null), activeProj = _b[0], setActiveProj = _b[1];
-    var animationBreakpoint = (0, breakpoints_1.isSmallScreen)();
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("div", { ref: containerRef },
-            react_1.default.createElement(FadeWrapper_1.default, { delay: constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY },
-                react_1.default.createElement(material_1.Typography, { variant: "h4" }, "Academic_projects")),
-            react_1.default.createElement(Grid_1.default, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[project_list_1.ProjectCategories.ACADEMIC].map(function (proj, i) {
-                return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
-                    react_1.default.createElement(ProjectBlock_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
-            }))),
-        react_1.default.createElement(react_router_dom_1.Outlet, null)));
+    return (react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.ACADEMIC, imgQuality: imgQuality }));
 };
 exports["default"] = Academic;
 
@@ -1201,6 +1161,194 @@ var ContentBlock = function (_a) {
                     })))))));
 };
 exports["default"] = ContentBlock;
+
+
+/***/ }),
+
+/***/ 25124:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importStar(__webpack_require__(96540));
+var Card_1 = __importDefault(__webpack_require__(97452));
+var CardContent_1 = __importDefault(__webpack_require__(61593));
+var Typography_1 = __importDefault(__webpack_require__(59259));
+var CardMedia_1 = __importDefault(__webpack_require__(85672));
+var styles_1 = __webpack_require__(9752);
+var IconButton_1 = __importDefault(__webpack_require__(92975));
+var ExpandMore_1 = __importDefault(__webpack_require__(72048));
+var material_1 = __webpack_require__(8157);
+var AddCircleOutlineTwoTone_1 = __importDefault(__webpack_require__(56322));
+var ProjectCardMedia_1 = __importDefault(__webpack_require__(63182));
+var constants_1 = __webpack_require__(70908);
+var react_router_dom_1 = __webpack_require__(28651);
+var breakpoints_1 = __importDefault(__webpack_require__(2386));
+var ExpandMore = (0, styles_1.styled)(function (props) {
+    var expand = props.expand, other = __rest(props, ["expand"]); //eslint-disable-line @typescript-eslint/no-unused-vars
+    return (react_1.default.createElement(IconButton_1.default, __assign({}, other),
+        react_1.default.createElement(AddCircleOutlineTwoTone_1.default, { fontSize: "medium" })));
+})(function (_a) {
+    var theme = _a.theme;
+    return ({
+        zIndex: constants_1.ANI_CONST.ZINDEX.EXPAND_MORE,
+        marginLeft: "auto",
+        transition: theme.transitions.create("transform", {
+            duration: theme.transitions.duration.standard,
+            easing: theme.transitions.easing.easeInOut,
+        }),
+        variants: [
+            {
+                props: function (_a) {
+                    var expand = _a.expand;
+                    return !expand;
+                },
+                style: {
+                    transform: "rotate(0deg)",
+                },
+            },
+            {
+                props: function (_a) {
+                    var expand = _a.expand;
+                    return !!expand;
+                },
+                style: {
+                    transform: "rotate(225deg)",
+                },
+            },
+        ],
+    });
+});
+var ProjectCardTitle = function (proj) {
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(Typography_1.default, { component: "div", variant: "h5" }, proj.name),
+        react_1.default.createElement(Typography_1.default, { variant: "subtitle1", component: "div", sx: { color: "text.secondary" } }, proj.category),
+        react_1.default.createElement(material_1.Grid, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) {
+            return (react_1.default.createElement(Typography_1.default, { key: i, variant: "subtitle2", component: "div", sx: { color: "text.secondary" } }, tag));
+        }))));
+};
+var ProjectCard = function (_a) {
+    var proj = _a.proj, imgQuality = _a.imgQuality, activeProj = _a.activeProj, setActiveProj = _a.setActiveProj;
+    var _b = react_1.default.useState(false), expanded = _b[0], setExpanded = _b[1];
+    /*
+     * location as a key here helps react recognize which is parent vs child
+     * when path updates, the state of the parent is preserved since React can keep track
+     * of which is the parent via it's location.pathname.
+     * in this case, fullscreen modal carousel is the child, forcing project block to
+     * rerender or preserve its state
+     *
+     * search: "react rerender with key location" or "react rerender parent with child key location"
+     */
+    var location = (0, react_router_dom_1.useLocation)();
+    var cardDims = {
+        width: constants_1.ANI_CONST.PROJ_CARD_WIDTH,
+        height: "fit-content",
+    };
+    var carouselDims = {
+        // square sized carousel
+        width: (0, breakpoints_1.default)(cardDims.width),
+        height: (0, breakpoints_1.default)(cardDims.width),
+    };
+    var theme = (0, styles_1.useTheme)();
+    var collapsedContentStyling = {
+        position: "absolute",
+        bottom: 0,
+        backgroundColor: theme.vars.palette.background.paper,
+        width: constants_1.ANI_CONST.PROJ_CARD_WIDTH,
+        height: "100%",
+        zIndex: constants_1.ANI_CONST.ZINDEX.COLLAPSED_CONTENT,
+    };
+    (0, react_1.useLayoutEffect)(function () {
+        if (activeProj != proj.abbr && expanded != false) {
+            setExpanded(false);
+        }
+    }, [activeProj]);
+    var handleExpandClick = function () {
+        setExpanded(!expanded);
+        setActiveProj(proj.abbr);
+    };
+    return (react_1.default.createElement(Card_1.default, { sx: __assign(__assign({}, cardDims), { position: "relative" }) },
+        react_1.default.createElement(CardMedia_1.default, { sx: { minHeight: 200 } },
+            react_1.default.createElement(ProjectCardMedia_1.default, __assign({ key: location.pathname, proj: proj, imgQuality: imgQuality }, carouselDims))),
+        react_1.default.createElement(CardContent_1.default, { sx: { position: "relative" } },
+            react_1.default.createElement(ProjectCardTitle, __assign({}, proj)),
+            react_1.default.createElement(material_1.CardActions, { disableSpacing: true, sx: {
+                    position: "absolute",
+                    padding: 0,
+                    right: "10px",
+                    bottom: "10px",
+                } },
+                react_1.default.createElement(ExpandMore, { expand: expanded, onClick: handleExpandClick, "aria-expanded": expanded, "aria-label": "show more" },
+                    react_1.default.createElement(ExpandMore_1.default, null)))),
+        react_1.default.createElement(material_1.Slide, { in: expanded, direction: "up", timeout: constants_1.ANI_CONST.PROJ_CARDS_DELAY },
+            react_1.default.createElement(CardContent_1.default, { sx: __assign({}, collapsedContentStyling) },
+                react_1.default.createElement(material_1.Grid, { container: true, rowSpacing: 3 },
+                    react_1.default.createElement("div", null,
+                        react_1.default.createElement(ProjectCardTitle, __assign({}, proj))),
+                    react_1.default.createElement("div", null,
+                        react_1.default.createElement(Typography_1.default, { variant: "body2", sx: { marginBottom: "5px" } }, proj.date),
+                        react_1.default.createElement(Typography_1.default, { variant: "body1" }, proj.detail.short))),
+                react_1.default.createElement(material_1.Button, { variant: "cardDetails", component: react_router_dom_1.Link, to: proj.abbr, state: { background: location } }, "More details")))));
+};
+exports["default"] = ProjectCard;
 
 
 /***/ }),
@@ -1352,28 +1500,74 @@ exports["default"] = fallingBlocks;
 
 /***/ }),
 
-/***/ 30791:
+/***/ 32244:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(96540));
-var react_router_dom_1 = __webpack_require__(28651);
-__webpack_require__(76103);
+var react_1 = __importStar(__webpack_require__(96540));
 var material_1 = __webpack_require__(8157);
-var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
+var react_router_dom_1 = __webpack_require__(28651);
+var ProjectCard_1 = __importDefault(__webpack_require__(25124));
+var project_list_1 = __webpack_require__(60803);
+var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
+var constants_1 = __webpack_require__(70908);
 var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
-var Projects = function () {
+var breakpoints_1 = __webpack_require__(2386);
+var ProjectVariants = function (_a) {
+    var variant = _a.variant, imgQuality = _a.imgQuality;
+    var containerRef = (0, react_1.useRef)(null);
+    var _b = (0, react_1.useState)(null), activeProj = _b[0], setActiveProj = _b[1];
+    var animationBreakpoint = (0, breakpoints_1.isSmallScreen)();
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(ScrollableContainer_1.default, { className: "Projects-container" },
-            react_1.default.createElement(FadeWrapper_1.default, null,
-                react_1.default.createElement(material_1.Typography, { variant: "h3" }, "Projects")),
-            react_1.default.createElement(react_router_dom_1.Outlet, null))));
+        react_1.default.createElement("div", { ref: containerRef },
+            react_1.default.createElement(FadeWrapper_1.default, { delay: constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY },
+                react_1.default.createElement(material_1.Typography, { variant: "h4" },
+                    variant,
+                    " projects")),
+            react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[variant].map(function (proj, i) {
+                return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
+                    react_1.default.createElement(ProjectCard_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
+            }))),
+        react_1.default.createElement(react_router_dom_1.Outlet, null)));
 };
-exports["default"] = Projects;
+exports["default"] = ProjectVariants;
 
 
 /***/ }),
@@ -1683,46 +1877,6 @@ var Contact = function (_a) {
                             react_1.default.createElement(material_1.Typography, { variant: "body1" }, "self portrait"))))))));
 };
 exports["default"] = Contact;
-
-
-/***/ }),
-
-/***/ 42973:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(96540));
-var Card_1 = __importDefault(__webpack_require__(97452));
-var CardActionArea_1 = __importDefault(__webpack_require__(91319));
-var CardContent_1 = __importDefault(__webpack_require__(61593));
-var react_router_dom_1 = __webpack_require__(28651);
-var Typography_1 = __importDefault(__webpack_require__(59259));
-var SchoolTwoTone_1 = __importDefault(__webpack_require__(88455));
-var FaceTwoTone_1 = __importDefault(__webpack_require__(27736));
-var project_list_1 = __webpack_require__(60803);
-var iconStyling = {
-    display: "flex",
-    width: "50%",
-    height: "50%",
-    margin: "auto",
-};
-var ProjectSelectionBlock = function (_a) {
-    var cat = _a.cat, data = _a.data;
-    var location = (0, react_router_dom_1.useLocation)();
-    return (react_1.default.createElement(Card_1.default, { sx: { maxWidth: 300 } },
-        react_1.default.createElement(CardActionArea_1.default, { component: react_router_dom_1.Link, to: cat, state: location },
-            cat == project_list_1.ProjectCategories.PERSONAL ? (react_1.default.createElement(FaceTwoTone_1.default, { sx: iconStyling })) : (react_1.default.createElement(SchoolTwoTone_1.default, { sx: iconStyling })),
-            react_1.default.createElement(CardContent_1.default, null,
-                react_1.default.createElement(Typography_1.default, { gutterBottom: true, variant: "h5", component: "div" }, cat),
-                react_1.default.createElement(Typography_1.default, { variant: "body2", sx: { color: "text.secondary" } }, data.map(function (proj) {
-                    return "- ".concat(proj.name, " ");
-                }))))));
-};
-exports["default"] = ProjectSelectionBlock;
 
 
 /***/ }),
@@ -2038,133 +2192,6 @@ exports["default"] = websiteV1;
 
 /***/ }),
 
-/***/ 50167:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports["default"] = ProjectModalCarousel;
-var react_1 = __importStar(__webpack_require__(96540));
-var Box_1 = __importDefault(__webpack_require__(20079));
-var Typography_1 = __importDefault(__webpack_require__(59259));
-var Modal_1 = __importDefault(__webpack_require__(1219));
-var react_router_dom_1 = __webpack_require__(28651);
-var material_1 = __webpack_require__(8157);
-var computeNodeStyle_1 = __importDefault(__webpack_require__(91582));
-var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
-var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
-var constants_1 = __webpack_require__(70908);
-var CarouselWrapper_1 = __importDefault(__webpack_require__(52308));
-var CarouselPlaceholderCard_1 = __importDefault(__webpack_require__(89336));
-var CarouselCard_1 = __importDefault(__webpack_require__(54091));
-var breakpoints_1 = __webpack_require__(2386);
-var styles = {
-    modalBox: {
-        position: "absolute",
-        top: "calc(50% + ".concat(constants_1.ANI_CONST.GLOBAL_NAV_HEIGHT / 2, "px)"), // global nav bar offset
-        left: "50%",
-        transform: "translate(-50%, -50%)",
-        width: "87%",
-        height: "87%",
-        bgcolor: "background.paper",
-        boxShadow: 24,
-        p: 2,
-        display: "flex",
-    },
-};
-function ProjectModalCarousel(_a) {
-    var proj = _a.proj, imgQuality = _a.imgQuality;
-    var navigate = (0, react_router_dom_1.useNavigate)();
-    var smallScreen = (0, breakpoints_1.isSmallScreen)();
-    var _b = (0, react_1.useState)({ width: 0, height: 0 }), dims = _b[0], setDims = _b[1];
-    // issue with useRefs and useEffect detailed in this article
-    // https://medium.com/@teh_builder/ref-objects-inside-useeffect-hooks-eb7c15198780
-    // solution from: https://stackoverflow.com/a/67906087
-    var modalRef = (0, react_1.useCallback)(function (node) {
-        if (node !== null) {
-            var nodeDims = (0, computeNodeStyle_1.default)(node);
-            setDims({
-                width: nodeDims.width,
-                height: nodeDims.height - constants_1.ANI_CONST.GLOBAL_NAV_HEIGHT,
-            });
-        }
-    }, []);
-    var handleClose = function () {
-        navigate("-1", { replace: true });
-    };
-    return (react_1.default.createElement(Modal_1.default, { open: true, onClose: handleClose, "aria-labelledby": "modal-modal-title-".concat(proj.abbr), "aria-describedby": "modal-modal-description-".concat(proj.abbr) },
-        react_1.default.createElement(FadeWrapper_1.default, null,
-            react_1.default.createElement(Box_1.default, { sx: __assign(__assign({}, styles.modalBox), { flexDirection: smallScreen ? "column-reverse" : "row" }) },
-                react_1.default.createElement(ScrollableContainer_1.default, { sx: {
-                        flexDirection: "column",
-                        width: smallScreen ? "100%" : "30%",
-                        height: smallScreen ? "40%" : "100%",
-                    } },
-                    react_1.default.createElement(material_1.CardContent, { sx: {
-                            flex: "1 0 auto",
-                        } },
-                        react_1.default.createElement(Typography_1.default, { id: "modal-modal-title-".concat(proj.abbr), component: "div", variant: "h5" }, proj.name),
-                        react_1.default.createElement(Typography_1.default, { variant: "subtitle1", component: "div", sx: { color: "text.secondary" } }, proj.category),
-                        react_1.default.createElement(material_1.Grid, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) { return (react_1.default.createElement(Typography_1.default, { key: i, variant: "subtitle2", component: "div", sx: { color: "text.secondary" } }, tag)); })),
-                        react_1.default.createElement(Box_1.default, { sx: { paddingTop: "10px" } },
-                            react_1.default.createElement(Typography_1.default, { variant: "body2" }, proj.date),
-                            react_1.default.createElement(Typography_1.default, { variant: "body1" }, proj.detail.short)))),
-                react_1.default.createElement(Box_1.default, { ref: modalRef, sx: { width: smallScreen ? "100%" : "70%", height: "100%" } },
-                    react_1.default.createElement(CarouselWrapper_1.default, { navButtonsAlwaysVisible: true }, proj.images.length >= 1
-                        ? proj.images.map(function (item, i) { return (react_1.default.createElement(CarouselCard_1.default, { key: i, item: item, width: dims.width, height: dims.height, cardActionArea: false, imgQuality: imgQuality })); })
-                        : [1, 2].map(function (i) { return (react_1.default.createElement(CarouselPlaceholderCard_1.default, { key: i, width: dims.width, height: dims.height, cardActionArea: false })); })))))));
-}
-
-
-/***/ }),
-
 /***/ 50585:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -2409,85 +2436,6 @@ root.render(react_1.default.createElement(react_1.default.StrictMode, null,
 
 /***/ }),
 
-/***/ 54091:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var React = __importStar(__webpack_require__(96540));
-var component_1 = __importDefault(__webpack_require__(35440));
-var material_1 = __webpack_require__(8157);
-var react_router_dom_1 = __webpack_require__(28651);
-var constants_1 = __webpack_require__(70908);
-var breakpoints_1 = __importDefault(__webpack_require__(2386));
-var CloudinaryCustomImage = (0, component_1.default)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(72143)); }); });
-var CarouselCardContent = function (props) {
-    var item = props.item, width = props.width, height = props.height, imgQuality = props.imgQuality;
-    var imgWidth = (0, breakpoints_1.default)(width);
-    var imgHeight = (0, breakpoints_1.default)(height);
-    return (React.createElement(material_1.Box, { sx: __assign({ width: width }, constants_1.CarouselStyles.wrapperBox) },
-        React.createElement(CloudinaryCustomImage, { src: item.src, width: imgWidth, height: imgHeight, imgQuality: imgQuality }),
-        React.createElement(material_1.Box, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
-            React.createElement(material_1.Typography, { variant: "caption" }, item.description))));
-};
-var CarouselCard = function (props) {
-    var height = props.height, cardActionArea = props.cardActionArea;
-    var location = (0, react_router_dom_1.useLocation)();
-    return (React.createElement(material_1.Card, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
-        React.createElement(CarouselCardContent, __assign({}, props)))) : (React.createElement(CarouselCardContent, __assign({}, props)))));
-};
-exports["default"] = CarouselCard;
-
-
-/***/ }),
-
 /***/ 54790:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -2591,13 +2539,13 @@ var DoesNotExist = (0, react_1.lazy)(function () { return Promise.resolve().then
 var CustomOptionsDial = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(7496)); }); });
 var GlobalNav = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(2943)); }); });
 var Landing = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(45688)); }); });
-var Projects = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(30791)); }); });
+var Projects = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(11438)); }); });
 var Selection = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(19432)); }); });
 var Academic = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(21645)); }); });
 var Personal = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(4040)); }); });
 var AboutMe = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(20834)); }); });
 var Contact = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(40858)); }); });
-var ProjectModalCarousel = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(50167)); }); });
+var ProjectModalCard = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(78217)); }); });
 var project_list_1 = __webpack_require__(60803);
 var App = function () {
     var location = (0, react_router_dom_1.useLocation)();
@@ -2628,8 +2576,8 @@ var App = function () {
                     react_1.default.createElement(react_router_dom_1.Route, { path: "default", element: react_1.default.createElement(Default, null) }),
                     react_1.default.createElement(react_router_dom_1.Route, { path: "*", element: react_1.default.createElement(DoesNotExist, null) })),
                 background && (react_1.default.createElement(react_router_dom_1.Routes, null,
-                    project_list_1.ProjectList.personal.map(function (proj, i) { return (react_1.default.createElement(react_router_dom_1.Route, { key: i, path: "projects/personal/".concat(proj.abbr), element: react_1.default.createElement(ProjectModalCarousel, { proj: proj, imgQuality: imgQuality }) })); }),
-                    project_list_1.ProjectList.academic.map(function (proj, i) { return (react_1.default.createElement(react_router_dom_1.Route, { key: i, path: "projects/academic/".concat(proj.abbr), element: react_1.default.createElement(ProjectModalCarousel, { proj: proj, imgQuality: imgQuality }) })); })))))));
+                    project_list_1.ProjectList.personal.map(function (proj, i) { return (react_1.default.createElement(react_router_dom_1.Route, { key: i, path: "projects/personal/".concat(proj.abbr), element: react_1.default.createElement(ProjectModalCard, { proj: proj, imgQuality: imgQuality }) })); }),
+                    project_list_1.ProjectList.academic.map(function (proj, i) { return (react_1.default.createElement(react_router_dom_1.Route, { key: i, path: "projects/academic/".concat(proj.abbr), element: react_1.default.createElement(ProjectModalCard, { proj: proj, imgQuality: imgQuality }) })); })))))));
 };
 exports["default"] = App;
 
@@ -2776,6 +2724,49 @@ var ProjectList = {
     academic: AcademicProjects,
 };
 exports.ProjectList = ProjectList;
+
+
+/***/ }),
+
+/***/ 63182:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(96540));
+var CarouselWrapper_1 = __importDefault(__webpack_require__(52308));
+var CarouselPlaceholder_1 = __importDefault(__webpack_require__(9562));
+var CarouselMedia_1 = __importDefault(__webpack_require__(96625));
+var breakpoints_1 = __webpack_require__(2386);
+var PlaceholderCarousel = function (_a) {
+    var proj = _a.proj, width = _a.width, height = _a.height, smallScreen = _a.smallScreen;
+    var placeholders = [1, 2];
+    return (react_1.default.createElement(CarouselWrapper_1.default, { height: height, navButtonsAlwaysVisible: smallScreen ? true : false }, placeholders.map(function (item, i) { return (react_1.default.createElement(CarouselPlaceholder_1.default, { key: i, width: width, height: height, cardActionArea: proj.abbr })); })));
+};
+var ProjectCardMediaCarousel = function (_a) {
+    var proj = _a.proj, width = _a.width, height = _a.height, imgQuality = _a.imgQuality, smallScreen = _a.smallScreen;
+    return (react_1.default.createElement(CarouselWrapper_1.default, { height: height, navButtonsAlwaysVisible: smallScreen ? true : false }, proj.images.map(function (item, i) { return (react_1.default.createElement(CarouselMedia_1.default, { key: i, item: item, width: width, height: height, cardActionArea: proj.abbr, imgQuality: imgQuality })); })));
+};
+var ProjectCardMedia = function (props) {
+    var proj = props.proj;
+    var smallScreen = (0, breakpoints_1.isSmallScreen)();
+    return proj.images.length == 0 ? (react_1.default.createElement(PlaceholderCarousel, __assign({}, props, { smallScreen: smallScreen }))) : (react_1.default.createElement(ProjectCardMediaCarousel, __assign({}, props, { smallScreen: smallScreen })));
+};
+exports["default"] = ProjectCardMedia;
 
 
 /***/ }),
@@ -3008,6 +2999,133 @@ exports["default"] = muiTypography;
 
 /***/ }),
 
+/***/ 78217:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports["default"] = ProjectModalCard;
+var react_1 = __importStar(__webpack_require__(96540));
+var Box_1 = __importDefault(__webpack_require__(20079));
+var Typography_1 = __importDefault(__webpack_require__(59259));
+var Modal_1 = __importDefault(__webpack_require__(1219));
+var react_router_dom_1 = __webpack_require__(28651);
+var material_1 = __webpack_require__(8157);
+var computeNodeStyle_1 = __importDefault(__webpack_require__(91582));
+var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
+var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
+var constants_1 = __webpack_require__(70908);
+var CarouselWrapper_1 = __importDefault(__webpack_require__(52308));
+var CarouselPlaceholder_1 = __importDefault(__webpack_require__(9562));
+var CarouselMedia_1 = __importDefault(__webpack_require__(96625));
+var breakpoints_1 = __webpack_require__(2386);
+var styles = {
+    modalBox: {
+        position: "absolute",
+        top: "calc(50% + ".concat(constants_1.ANI_CONST.GLOBAL_NAV_HEIGHT / 2, "px)"), // global nav bar offset
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: "87%",
+        height: "87%",
+        bgcolor: "background.paper",
+        boxShadow: 24,
+        p: 2,
+        display: "flex",
+    },
+};
+function ProjectModalCard(_a) {
+    var proj = _a.proj, imgQuality = _a.imgQuality;
+    var navigate = (0, react_router_dom_1.useNavigate)();
+    var smallScreen = (0, breakpoints_1.isSmallScreen)();
+    var _b = (0, react_1.useState)({ width: 0, height: 0 }), dims = _b[0], setDims = _b[1];
+    // issue with useRefs and useEffect detailed in this article
+    // https://medium.com/@teh_builder/ref-objects-inside-useeffect-hooks-eb7c15198780
+    // solution from: https://stackoverflow.com/a/67906087
+    var modalRef = (0, react_1.useCallback)(function (node) {
+        if (node !== null) {
+            var nodeDims = (0, computeNodeStyle_1.default)(node);
+            setDims({
+                width: nodeDims.width,
+                height: nodeDims.height - constants_1.ANI_CONST.GLOBAL_NAV_HEIGHT,
+            });
+        }
+    }, []);
+    var handleClose = function () {
+        navigate("-1", { replace: true });
+    };
+    return (react_1.default.createElement(Modal_1.default, { open: true, onClose: handleClose, "aria-labelledby": "modal-modal-title-".concat(proj.abbr), "aria-describedby": "modal-modal-description-".concat(proj.abbr) },
+        react_1.default.createElement(FadeWrapper_1.default, null,
+            react_1.default.createElement(Box_1.default, { sx: __assign(__assign({}, styles.modalBox), { flexDirection: smallScreen ? "column-reverse" : "row" }) },
+                react_1.default.createElement(ScrollableContainer_1.default, { sx: {
+                        flexDirection: "column",
+                        width: smallScreen ? "100%" : "30%",
+                        height: smallScreen ? "40%" : "100%",
+                    } },
+                    react_1.default.createElement(material_1.CardContent, { sx: {
+                            flex: "1 0 auto",
+                        } },
+                        react_1.default.createElement(Typography_1.default, { id: "modal-modal-title-".concat(proj.abbr), component: "div", variant: "h5" }, proj.name),
+                        react_1.default.createElement(Typography_1.default, { variant: "subtitle1", component: "div", sx: { color: "text.secondary" } }, proj.category),
+                        react_1.default.createElement(material_1.Grid, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) { return (react_1.default.createElement(Typography_1.default, { key: i, variant: "subtitle2", component: "div", sx: { color: "text.secondary" } }, tag)); })),
+                        react_1.default.createElement(Box_1.default, { sx: { paddingTop: "10px" } },
+                            react_1.default.createElement(Typography_1.default, { variant: "body2" }, proj.date),
+                            react_1.default.createElement(Typography_1.default, { variant: "body1" }, proj.detail.short)))),
+                react_1.default.createElement(Box_1.default, { ref: modalRef, sx: { width: smallScreen ? "100%" : "70%", height: "100%" } },
+                    react_1.default.createElement(CarouselWrapper_1.default, { navButtonsAlwaysVisible: true }, proj.images.length >= 1
+                        ? proj.images.map(function (item, i) { return (react_1.default.createElement(CarouselMedia_1.default, { key: i, item: item, width: dims.width, height: dims.height, cardActionArea: false, imgQuality: imgQuality })); })
+                        : [1, 2].map(function (i) { return (react_1.default.createElement(CarouselPlaceholder_1.default, { key: i, width: dims.width, height: dims.height, cardActionArea: false })); })))))));
+}
+
+
+/***/ }),
+
 /***/ 81593:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -3097,84 +3215,6 @@ exports["default"] = muiCssBaseline;
 
 /***/ }),
 
-/***/ 89336:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var React = __importStar(__webpack_require__(96540));
-var react_router_dom_1 = __webpack_require__(28651);
-var material_1 = __webpack_require__(8157);
-var PhotoLibraryTwoTone_1 = __importDefault(__webpack_require__(53194));
-var constants_1 = __webpack_require__(70908);
-var PlaceholderCardContent = function (props) {
-    var width = props.width, height = props.height;
-    return (React.createElement(material_1.Box, { sx: __assign({ width: width }, constants_1.CarouselStyles.wrapperBox) },
-        React.createElement(PhotoLibraryTwoTone_1.default, { sx: {
-                width: width,
-                height: height,
-            } }),
-        React.createElement(material_1.Box, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
-            React.createElement(material_1.Typography, { variant: "caption" }, "Photo not availble at the moment."))));
-};
-var CarouselPlaceholderCard = function (props) {
-    var width = props.width, height = props.height, cardActionArea = props.cardActionArea;
-    var location = (0, react_router_dom_1.useLocation)();
-    return (React.createElement(material_1.Card, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
-        React.createElement(PlaceholderCardContent, { width: width, height: height }))) : (React.createElement(PlaceholderCardContent, { width: width, height: height }))));
-};
-exports["default"] = CarouselPlaceholderCard;
-
-
-/***/ }),
-
 /***/ 90425:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -3227,6 +3267,46 @@ exports["default"] = kingdomOfHelios;
 
 /***/ }),
 
+/***/ 90619:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(96540));
+var Card_1 = __importDefault(__webpack_require__(97452));
+var CardActionArea_1 = __importDefault(__webpack_require__(91319));
+var CardContent_1 = __importDefault(__webpack_require__(61593));
+var react_router_dom_1 = __webpack_require__(28651);
+var Typography_1 = __importDefault(__webpack_require__(59259));
+var SchoolTwoTone_1 = __importDefault(__webpack_require__(88455));
+var FaceTwoTone_1 = __importDefault(__webpack_require__(27736));
+var project_list_1 = __webpack_require__(60803);
+var iconStyling = {
+    display: "flex",
+    width: "50%",
+    height: "50%",
+    margin: "auto",
+};
+var ProjectSelectionBlock = function (_a) {
+    var cat = _a.cat, data = _a.data;
+    var location = (0, react_router_dom_1.useLocation)();
+    return (react_1.default.createElement(Card_1.default, { sx: { maxWidth: 300 } },
+        react_1.default.createElement(CardActionArea_1.default, { component: react_router_dom_1.Link, to: cat, state: location },
+            cat == project_list_1.ProjectCategories.PERSONAL ? (react_1.default.createElement(FaceTwoTone_1.default, { sx: iconStyling })) : (react_1.default.createElement(SchoolTwoTone_1.default, { sx: iconStyling })),
+            react_1.default.createElement(CardContent_1.default, null,
+                react_1.default.createElement(Typography_1.default, { gutterBottom: true, variant: "h5", component: "div" }, cat),
+                react_1.default.createElement(Typography_1.default, { variant: "body2", sx: { color: "text.secondary" } }, data.map(function (proj) {
+                    return "- ".concat(proj.name, " ");
+                }))))));
+};
+exports["default"] = ProjectSelectionBlock;
+
+
+/***/ }),
+
 /***/ 91582:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -3252,7 +3332,7 @@ exports["default"] = computeNodeStyle;
 
 /***/ }),
 
-/***/ 96757:
+/***/ 96625:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -3300,142 +3380,33 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importStar(__webpack_require__(96540));
-var Card_1 = __importDefault(__webpack_require__(97452));
-var CardContent_1 = __importDefault(__webpack_require__(61593));
-var Typography_1 = __importDefault(__webpack_require__(59259));
-var CardMedia_1 = __importDefault(__webpack_require__(85672));
-var styles_1 = __webpack_require__(9752);
-var IconButton_1 = __importDefault(__webpack_require__(92975));
-var ExpandMore_1 = __importDefault(__webpack_require__(72048));
+var React = __importStar(__webpack_require__(96540));
+var component_1 = __importDefault(__webpack_require__(35440));
 var material_1 = __webpack_require__(8157);
-var AddCircleOutlineTwoTone_1 = __importDefault(__webpack_require__(56322));
-var ProjectCarousel_1 = __importDefault(__webpack_require__(15274));
-var constants_1 = __webpack_require__(70908);
 var react_router_dom_1 = __webpack_require__(28651);
+var constants_1 = __webpack_require__(70908);
 var breakpoints_1 = __importDefault(__webpack_require__(2386));
-var ExpandMore = (0, styles_1.styled)(function (props) {
-    var expand = props.expand, other = __rest(props, ["expand"]); //eslint-disable-line @typescript-eslint/no-unused-vars
-    return (react_1.default.createElement(IconButton_1.default, __assign({}, other),
-        react_1.default.createElement(AddCircleOutlineTwoTone_1.default, { fontSize: "medium" })));
-})(function (_a) {
-    var theme = _a.theme;
-    return ({
-        zIndex: constants_1.ANI_CONST.ZINDEX.EXPAND_MORE,
-        marginLeft: "auto",
-        transition: theme.transitions.create("transform", {
-            duration: theme.transitions.duration.standard,
-            easing: theme.transitions.easing.easeInOut,
-        }),
-        variants: [
-            {
-                props: function (_a) {
-                    var expand = _a.expand;
-                    return !expand;
-                },
-                style: {
-                    transform: "rotate(0deg)",
-                },
-            },
-            {
-                props: function (_a) {
-                    var expand = _a.expand;
-                    return !!expand;
-                },
-                style: {
-                    transform: "rotate(225deg)",
-                },
-            },
-        ],
-    });
-});
-var ProjBlockShortContent = function (proj) {
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(Typography_1.default, { component: "div", variant: "h5" }, proj.name),
-        react_1.default.createElement(Typography_1.default, { variant: "subtitle1", component: "div", sx: { color: "text.secondary" } }, proj.category),
-        react_1.default.createElement(material_1.Grid, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) {
-            return (react_1.default.createElement(Typography_1.default, { key: i, variant: "subtitle2", component: "div", sx: { color: "text.secondary" } }, tag));
-        }))));
+var CloudinaryCustomImage = (0, component_1.default)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(72143)); }); });
+var CarouselMediaContent = function (props) {
+    var item = props.item, width = props.width, height = props.height, imgQuality = props.imgQuality;
+    var imgWidth = (0, breakpoints_1.default)(width);
+    var imgHeight = (0, breakpoints_1.default)(height);
+    return (React.createElement(material_1.Box, { sx: __assign({ width: width }, constants_1.CarouselStyles.wrapperBox) },
+        React.createElement(CloudinaryCustomImage, { src: item.src, width: imgWidth, height: imgHeight, imgQuality: imgQuality }),
+        React.createElement(material_1.Box, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
+            React.createElement(material_1.Typography, { variant: "caption" }, item.description))));
 };
-var ProjectBlock = function (_a) {
-    var proj = _a.proj, imgQuality = _a.imgQuality, activeProj = _a.activeProj, setActiveProj = _a.setActiveProj;
-    var _b = react_1.default.useState(false), expanded = _b[0], setExpanded = _b[1];
-    /*
-     * location as a key here helps react recognize which is parent vs child
-     * when path updates, the state of the parent is preserved since React can keep track
-     * of which is the parent via it's location.pathname.
-     * in this case, fullscreen modal carousel is the child, forcing project block to
-     * rerender or preserve its state
-     *
-     * search: "react rerender with key location" or "react rerender parent with child key location"
-     */
+var CarouselMedia = function (props) {
+    var height = props.height, cardActionArea = props.cardActionArea;
     var location = (0, react_router_dom_1.useLocation)();
-    var cardDims = {
-        width: constants_1.ANI_CONST.PROJ_CARD_WIDTH,
-        height: "fit-content",
-    };
-    var carouselDims = {
-        // square sized carousel
-        width: (0, breakpoints_1.default)(cardDims.width),
-        height: (0, breakpoints_1.default)(cardDims.width),
-    };
-    var theme = (0, styles_1.useTheme)();
-    var collapsedContentStyling = {
-        position: "absolute",
-        bottom: 0,
-        backgroundColor: theme.vars.palette.background.paper,
-        width: constants_1.ANI_CONST.PROJ_CARD_WIDTH,
-        height: "100%",
-        zIndex: constants_1.ANI_CONST.ZINDEX.COLLAPSED_CONTENT,
-    };
-    (0, react_1.useLayoutEffect)(function () {
-        if (activeProj != proj.abbr && expanded != false) {
-            setExpanded(false);
-        }
-    }, [activeProj]);
-    var handleExpandClick = function () {
-        setExpanded(!expanded);
-        setActiveProj(proj.abbr);
-    };
-    return (react_1.default.createElement(Card_1.default, { sx: __assign(__assign({}, cardDims), { position: "relative" }) },
-        react_1.default.createElement(CardMedia_1.default, { sx: { minHeight: 200 } },
-            react_1.default.createElement(ProjectCarousel_1.default, __assign({ key: location.pathname, proj: proj, imgQuality: imgQuality }, carouselDims))),
-        react_1.default.createElement(CardContent_1.default, { sx: { position: "relative" } },
-            react_1.default.createElement(ProjBlockShortContent, __assign({}, proj)),
-            react_1.default.createElement(material_1.CardActions, { disableSpacing: true, sx: {
-                    position: "absolute",
-                    padding: 0,
-                    right: "10px",
-                    bottom: "10px",
-                } },
-                react_1.default.createElement(ExpandMore, { expand: expanded, onClick: handleExpandClick, "aria-expanded": expanded, "aria-label": "show more" },
-                    react_1.default.createElement(ExpandMore_1.default, null)))),
-        react_1.default.createElement(material_1.Slide, { in: expanded, direction: "up", timeout: constants_1.ANI_CONST.PROJ_CARDS_DELAY },
-            react_1.default.createElement(CardContent_1.default, { sx: __assign({}, collapsedContentStyling) },
-                react_1.default.createElement(material_1.Grid, { container: true, rowSpacing: 3 },
-                    react_1.default.createElement("div", null,
-                        react_1.default.createElement(ProjBlockShortContent, __assign({}, proj))),
-                    react_1.default.createElement("div", null,
-                        react_1.default.createElement(Typography_1.default, { variant: "body2", sx: { marginBottom: "5px" } }, proj.date),
-                        react_1.default.createElement(Typography_1.default, { variant: "body1" }, proj.detail.short))),
-                react_1.default.createElement(material_1.Button, { variant: "cardDetails", component: react_router_dom_1.Link, to: proj.abbr, state: { background: location } }, "More details")))));
+    return (React.createElement(material_1.Card, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
+        React.createElement(CarouselMediaContent, __assign({}, props)))) : (React.createElement(CarouselMediaContent, __assign({}, props)))));
 };
-exports["default"] = ProjectBlock;
+exports["default"] = CarouselMedia;
 
 
 /***/ }),
