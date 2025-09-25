@@ -1,4 +1,8 @@
-import { createTheme, responsiveFontSizes } from "@mui/material/styles";
+import {
+  Breakpoint,
+  createTheme,
+  responsiveFontSizes,
+} from "@mui/material/styles";
 
 import muiBreakpoints from "./muiBreakpoints";
 import muiColorSchemes from "./muiColorSchemes";
@@ -10,6 +14,7 @@ import muiMenuItem from "./components/muiMenuItem";
 import muiDrawer from "./components/muiDrawer";
 import { muiSpeedDial, muiSpeedDialAction } from "./components/muiSpeedDial";
 import muiCssBaseline from "./components/muiCssBaseline";
+import { Viewport } from "../components/styled/constants";
 
 declare module "@mui/material/Button" {
   interface ButtonPropsVariantOverrides {
@@ -62,5 +67,12 @@ let theme = createTheme({
   },
 });
 
-theme = responsiveFontSizes(theme);
+const breakpoints: Breakpoint[] = [
+  Viewport.mobile,
+  Viewport.tablet,
+  Viewport.laptop,
+  Viewport.desktop,
+  Viewport.bigboi,
+];
+theme = responsiveFontSizes(theme, { breakpoints });
 export default theme;
