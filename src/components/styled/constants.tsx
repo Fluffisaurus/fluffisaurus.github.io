@@ -51,7 +51,7 @@ export const ANI_CONST = {
   // ZINDEX
   // mui <Modal> has z-index of 1300
   ZINDEX: {
-    EXPAND_MORE: 500,
+    EXPAND_MORE: 501,
     COLLAPSED_CONTENT: 500,
     OPTIONS_DIAL: 1500, // default is 1050
     GLOBAL_NAV: 2000,
