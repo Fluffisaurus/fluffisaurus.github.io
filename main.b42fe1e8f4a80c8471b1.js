@@ -940,13 +940,21 @@ var muiMenuItem_1 = __importDefault(__webpack_require__(294));
 var muiDrawer_1 = __importDefault(__webpack_require__(56665));
 var muiSpeedDial_1 = __webpack_require__(85459);
 var muiCssBaseline_1 = __importDefault(__webpack_require__(86704));
+var constants_1 = __webpack_require__(70908);
 var theme = (0, styles_1.createTheme)(__assign(__assign(__assign(__assign({}, muiBreakpoints_1.default), muiColorSchemes_1.default), muiTypography_1.default), { components: __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, muiButton_1.default), muiContainer_1.default), muiList_1.default), muiMenuItem_1.default), muiDrawer_1.default), muiSpeedDial_1.muiSpeedDial), muiSpeedDial_1.muiSpeedDialAction), muiCssBaseline_1.default), cssVariables: {
         colorSchemeSelector: "class",
         // generated stylesheet:
         // --custom-mui-theme-primary-main: ...;
         cssVarPrefix: "custom-mui-theme",
     } }));
-theme = (0, styles_1.responsiveFontSizes)(theme);
+var breakpoints = [
+    constants_1.Viewport.mobile,
+    constants_1.Viewport.tablet,
+    constants_1.Viewport.laptop,
+    constants_1.Viewport.desktop,
+    constants_1.Viewport.bigboi,
+];
+theme = (0, styles_1.responsiveFontSizes)(theme, { breakpoints: breakpoints });
 exports["default"] = theme;
 
 
