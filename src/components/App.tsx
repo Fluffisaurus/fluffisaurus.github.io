@@ -16,9 +16,7 @@ const Personal = lazy(() => import("../pages/projects/Personal"));
 const AboutMe = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
 
-const ProjectModalCarousel = lazy(
-  () => import("../components/ProjectModalCarousel")
-);
+const ProjectModalCard = lazy(() => import("./project/ProjectModalCard"));
 import { ProjectList } from "../content/projects/project-list";
 import { Project } from "../content/projects/interfaces";
 import { ImageQuality } from "./styled/constants";
@@ -82,7 +80,7 @@ const App = () => {
                   key={i}
                   path={`projects/personal/${proj.abbr}`}
                   element={
-                    <ProjectModalCarousel proj={proj} imgQuality={imgQuality} />
+                    <ProjectModalCard proj={proj} imgQuality={imgQuality} />
                   }
                 />
               ))}
@@ -91,7 +89,7 @@ const App = () => {
                   key={i}
                   path={`projects/academic/${proj.abbr}`}
                   element={
-                    <ProjectModalCarousel proj={proj} imgQuality={imgQuality} />
+                    <ProjectModalCard proj={proj} imgQuality={imgQuality} />
                   }
                 />
               ))}

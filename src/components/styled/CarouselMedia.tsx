@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 
 import { ProjectImage } from "../../content/projects/interfaces";
 import {
-  CarouselActionCardContentProps,
+  CarouselActionMediaContentProps,
   CarouselStyles,
   ImageQualityProps,
 } from "./constants";
@@ -16,13 +16,13 @@ const CloudinaryCustomImage = loadable(
   () => import("../CloudinaryCustomImage")
 );
 
-interface CarouselCardProps
-  extends CarouselActionCardContentProps,
+interface CarouselMediaProps
+  extends CarouselActionMediaContentProps,
     ImageQualityProps {
   item: ProjectImage;
 }
 
-const CarouselCardContent = (props: CarouselCardProps) => {
+const CarouselMediaContent = (props: CarouselMediaProps) => {
   const { item, width, height, imgQuality } = props;
   const imgWidth = resolveDimensionValue(width);
   const imgHeight = resolveDimensionValue(height);
@@ -41,7 +41,7 @@ const CarouselCardContent = (props: CarouselCardProps) => {
   );
 };
 
-const CarouselCard = (props: CarouselCardProps) => {
+const CarouselMedia = (props: CarouselMediaProps) => {
   const { height, cardActionArea } = props;
   const location = useLocation();
   return (
@@ -52,13 +52,13 @@ const CarouselCard = (props: CarouselCardProps) => {
           to={cardActionArea}
           state={{ background: location }}
         >
-          <CarouselCardContent {...props} />
+          <CarouselMediaContent {...props} />
         </CardActionArea>
       ) : (
-        <CarouselCardContent {...props} />
+        <CarouselMediaContent {...props} />
       )}
     </Card>
   );
 };
 
-export default CarouselCard;
+export default CarouselMedia;

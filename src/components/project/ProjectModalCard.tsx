@@ -6,15 +6,15 @@ import Modal from "@mui/material/Modal";
 import { To, useNavigate } from "react-router-dom";
 import { CardContent, Grid } from "@mui/material";
 
-import { Project } from "../content/projects/interfaces";
-import computeNodeStyle from "../utils/computeNodeStyle";
-import ScrollableContainer from "./styled/ScrollableContainer";
-import FadeWrapper from "./styled/FadeWrapper";
-import { ANI_CONST, ImageQualityProps } from "./styled/constants";
-import CarouselWrapper from "./styled/CarouselWrapper";
-import CarouselPlaceholderCard from "./styled/CarouselPlaceholderCard";
-import CarouselCard from "./styled/CarouselCard";
-import { isSmallScreen } from "../utils/breakpoints";
+import { Project } from "../../content/projects/interfaces";
+import computeNodeStyle from "../../utils/computeNodeStyle";
+import ScrollableContainer from "../styled/ScrollableContainer";
+import FadeWrapper from "../styled/FadeWrapper";
+import { ANI_CONST, ImageQualityProps } from "../styled/constants";
+import CarouselWrapper from "../styled/CarouselWrapper";
+import CarouselPlaceholderCard from "../styled/CarouselPlaceholder";
+import CarouselMedia from "../styled/CarouselMedia";
+import { isSmallScreen } from "../../utils/breakpoints";
 
 const styles = {
   modalBox: {
@@ -31,14 +31,14 @@ const styles = {
   },
 };
 
-interface ProjectModalCarouselProps extends ImageQualityProps {
+interface ProjectModalCardProps extends ImageQualityProps {
   proj: Project;
 }
 
-export default function ProjectModalCarousel({
+export default function ProjectModalCard({
   proj,
   imgQuality,
-}: ProjectModalCarouselProps) {
+}: ProjectModalCardProps) {
   const navigate = useNavigate();
   const smallScreen = isSmallScreen();
 
@@ -133,7 +133,7 @@ export default function ProjectModalCarousel({
             <CarouselWrapper navButtonsAlwaysVisible={true}>
               {proj.images.length >= 1
                 ? proj.images.map((item, i) => (
-                    <CarouselCard
+                    <CarouselMedia
                       key={i}
                       item={item}
                       width={dims.width}

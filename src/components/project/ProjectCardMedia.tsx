@@ -1,22 +1,22 @@
 import React from "react";
 
-import { Project } from "../content/projects/interfaces";
+import { Project } from "../../content/projects/interfaces";
 import {
-  CarouselCardContentProps,
+  CarouselMediaContentProps,
   ImageQualityProps,
-} from "./styled/constants";
-import CarouselWrapper from "./styled/CarouselWrapper";
-import CarouselPlaceholderCard from "./styled/CarouselPlaceholderCard";
-import CarouselCard from "./styled/CarouselCard";
-import { isSmallScreen } from "../utils/breakpoints";
+} from "../styled/constants";
+import CarouselWrapper from "../styled/CarouselWrapper";
+import CarouselPlaceholderCard from "../styled/CarouselPlaceholder";
+import CarouselMedia from "../styled/CarouselMedia";
+import { isSmallScreen } from "../../utils/breakpoints";
 
-interface ProjectCarouselProps
-  extends CarouselCardContentProps,
+interface ProjectCardMediaProps
+  extends CarouselMediaContentProps,
     ImageQualityProps {
   proj: Project;
 }
 
-interface ProjectContentProps extends ProjectCarouselProps {
+interface ProjectContentProps extends ProjectCardMediaProps {
   smallScreen: boolean;
 }
 
@@ -44,7 +44,7 @@ const PlaceholderCarousel = ({
   );
 };
 
-const ProjectCarouselCard = ({
+const ProjectCardMediaCarousel = ({
   proj,
   width,
   height,
@@ -57,7 +57,7 @@ const ProjectCarouselCard = ({
       navButtonsAlwaysVisible={smallScreen ? true : false}
     >
       {proj.images.map((item, i) => (
-        <CarouselCard
+        <CarouselMedia
           key={i}
           item={item}
           width={width}
@@ -70,15 +70,15 @@ const ProjectCarouselCard = ({
   );
 };
 
-const ProjectCarousel = (props: ProjectCarouselProps) => {
+const ProjectCardMedia = (props: ProjectCardMediaProps) => {
   const { proj } = props;
   const smallScreen = isSmallScreen();
 
   return proj.images.length == 0 ? (
     <PlaceholderCarousel {...props} smallScreen={smallScreen} />
   ) : (
-    <ProjectCarouselCard {...props} smallScreen={smallScreen} />
+    <ProjectCardMediaCarousel {...props} smallScreen={smallScreen} />
   );
 };
 
-export default ProjectCarousel;
+export default ProjectCardMedia;

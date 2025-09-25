@@ -10,11 +10,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Button, CardActions, Grid, Slide } from "@mui/material";
 import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
 
-import { Project } from "../content/projects/interfaces";
-import ProjectCarousel from "./ProjectCarousel";
-import { ANI_CONST, ImageQualityProps } from "./styled/constants";
+import { Project } from "../../content/projects/interfaces";
+import ProjectCardMedia from "./ProjectCardMedia";
+import { ANI_CONST, ImageQualityProps } from "../styled/constants";
 import { Link, useLocation } from "react-router-dom";
-import resolveDimensionValue from "../utils/breakpoints";
+import resolveDimensionValue from "../../utils/breakpoints";
 
 interface ProjectBlockProps extends ImageQualityProps {
   proj: Project;
@@ -56,7 +56,7 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
-const ProjBlockShortContent = (proj: Project) => {
+const ProjectCardTitle = (proj: Project) => {
   return (
     <>
       <Typography component="div" variant="h5">
@@ -94,7 +94,7 @@ const ProjBlockShortContent = (proj: Project) => {
   );
 };
 
-const ProjectBlock = ({
+const ProjectCard = ({
   proj,
   imgQuality,
   activeProj,
@@ -147,7 +147,7 @@ const ProjectBlock = ({
   return (
     <Card sx={{ ...cardDims, position: "relative" }}>
       <CardMedia sx={{ minHeight: 200 }}>
-        <ProjectCarousel
+        <ProjectCardMedia
           key={location.pathname}
           proj={proj}
           imgQuality={imgQuality}
@@ -155,7 +155,7 @@ const ProjectBlock = ({
         />
       </CardMedia>
       <CardContent sx={{ position: "relative" }}>
-        <ProjBlockShortContent {...proj} />
+        <ProjectCardTitle {...proj} />
         <CardActions
           disableSpacing
           sx={{
@@ -179,7 +179,7 @@ const ProjectBlock = ({
         <CardContent sx={{ ...collapsedContentStyling }}>
           <Grid container rowSpacing={3}>
             <div>
-              <ProjBlockShortContent {...proj} />
+              <ProjectCardTitle {...proj} />
             </div>
             <div>
               <Typography variant="body2" sx={{ marginBottom: "5px" }}>
@@ -202,4 +202,4 @@ const ProjectBlock = ({
   );
 };
 
-export default ProjectBlock;
+export default ProjectCard;

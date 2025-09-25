@@ -72,13 +72,13 @@ export enum Viewport {
 
 export type MuiBreakpointDimension = Record<Viewport, number>;
 
-export interface CarouselCardContentProps {
+export interface CarouselMediaContentProps {
   width: number;
   height: number;
 }
 
-export interface CarouselActionCardContentProps
-  extends CarouselCardContentProps {
+export interface CarouselActionMediaContentProps
+  extends CarouselMediaContentProps {
   cardActionArea: string | false;
 }
 

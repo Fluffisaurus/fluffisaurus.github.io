@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { Grid, Typography } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
-import ProjectBlock from "../../components/ProjectBlock";
+import ProjectBlock from "../../components/project/ProjectCard";
 import {
   ProjectCategories,
   ProjectList,

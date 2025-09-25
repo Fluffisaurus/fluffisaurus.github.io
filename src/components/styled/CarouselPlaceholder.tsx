@@ -5,12 +5,12 @@ import { Box, Card, CardActionArea, Typography } from "@mui/material";
 import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
 
 import {
-  CarouselActionCardContentProps,
-  CarouselCardContentProps,
+  CarouselActionMediaContentProps,
+  CarouselMediaContentProps,
   CarouselStyles,
 } from "./constants";
 
-const PlaceholderCardContent = (props: CarouselCardContentProps) => {
+const PlaceholderCardContent = (props: CarouselMediaContentProps) => {
   const { width, height } = props;
   return (
     <Box
@@ -34,7 +34,7 @@ const PlaceholderCardContent = (props: CarouselCardContentProps) => {
   );
 };
 
-const CarouselPlaceholderCard = (props: CarouselActionCardContentProps) => {
+const CarouselPlaceholder = (props: CarouselActionMediaContentProps) => {
   const { width, height, cardActionArea } = props;
   const location = useLocation();
   return (
@@ -54,4 +54,4 @@ const CarouselPlaceholderCard = (props: CarouselActionCardContentProps) => {
   );
 };
 
-export default CarouselPlaceholderCard;
+export default CarouselPlaceholder;
