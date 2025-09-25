@@ -40,18 +40,11 @@ export const ANI_CONST = {
   PROJ_SUBHEADING_DELAY: 300, // same as WRAPPER_FADE_WRAPPER_DELAY
   PROJ_CARDS_DELAY: GENERIC_CARD_DELAY,
   PROJ_CARD_WIDTH: {
-    mobile: 300,
-    tablet: 325,
+    mobile: 350,
+    tablet: 350,
     laptop: 350,
     desktop: 375,
-    bigboi: 425,
-  },
-  PROJ_CARD_HEIGHT: {
-    mobile: 300,
-    tablet: 325,
-    laptop: 350,
-    desktop: 375,
-    bigboi: 425,
+    bigboi: 400,
   },
 
   // CONTACT
@@ -69,9 +62,19 @@ export const ANI_CONST = {
   },
 };
 
+export enum Viewport {
+  mobile = "mobile",
+  tablet = "tablet",
+  laptop = "laptop",
+  desktop = "desktop",
+  bigboi = "bigboi",
+}
+
+export type MuiBreakpointDimension = Record<Viewport, number>;
+
 export interface CarouselCardContentProps {
-  width: number | Record<string, Record<string, number>>;
-  height: number | string;
+  width: number;
+  height: number;
 }
 
 export interface CarouselActionCardContentProps

@@ -145,7 +145,7 @@ export default function ProjectModalCarousel({
                 : [1, 2].map((i) => (
                     <CarouselPlaceholderCard
                       key={i}
-                      width={{ width: { md: dims.width } }}
+                      width={dims.width}
                       height={dims.height}
                       cardActionArea={false}
                     />

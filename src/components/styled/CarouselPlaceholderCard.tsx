@@ -12,17 +12,16 @@ import {
 
 const PlaceholderCardContent = (props: CarouselCardContentProps) => {
   const { width, height } = props;
-  const isNum = typeof width == "number";
   return (
     <Box
       sx={{
-        width: isNum ? width : { ...width.width },
+        width,
         ...CarouselStyles.wrapperBox,
       }}
     >
       <PhotoLibraryTwoToneIcon
         sx={{
-          width: isNum ? width : { ...width.width },
+          width,
           height,
         }}
       />

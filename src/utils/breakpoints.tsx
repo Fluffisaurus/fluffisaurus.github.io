@@ -1,14 +1,10 @@
 import { useMediaQuery } from "@mui/material";
 
 import theme from "../mui/theme";
-
-enum Viewport {
-  mobile = "mobile",
-  tablet = "tablet",
-  laptop = "laptop",
-  desktop = "desktop",
-  bigboi = "bigboi",
-}
+import {
+  Viewport,
+  MuiBreakpointDimension,
+} from "../components/styled/constants";
 
 interface Breakpoints {
   mobile: boolean;
@@ -61,7 +57,7 @@ function isSmallScreen() {
     : false;
 }
 
-function getDimsFromViewport(dim: Record<string, number>) {
+function getDimsFromViewport(dim: MuiBreakpointDimension) {
   const view = getViewport();
   switch (view) {
     case Viewport.mobile:
@@ -80,5 +76,9 @@ function getDimsFromViewport(dim: Record<string, number>) {
   }
 }
 
+function resolveDimensionValue(dim: number | MuiBreakpointDimension) {
+  return typeof dim == "number" ? dim : getDimsFromViewport(dim);
+}
+
 export { isSmallScreen };
-export default getDimsFromViewport;
+export default resolveDimensionValue;

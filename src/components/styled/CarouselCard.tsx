@@ -10,7 +10,7 @@ import {
   CarouselStyles,
   ImageQualityProps,
 } from "./constants";
-import getDimsfromViewport from "../../utils/breakpoints";
+import resolveDimensionValue from "../../utils/breakpoints";
 
 const CloudinaryCustomImage = loadable(
   () => import("../CloudinaryCustomImage")
@@ -22,16 +22,16 @@ interface CarouselCardProps
   item: ProjectImage;
 }
 
-const CardContent = (props: CarouselCardProps) => {
+const CarouselCardContent = (props: CarouselCardProps) => {
   const { item, width, height, imgQuality } = props;
-  const imgWidth =
-    typeof width == "number" ? width : getDimsfromViewport(width.width);
+  const imgWidth = resolveDimensionValue(width);
+  const imgHeight = resolveDimensionValue(height);
   return (
     <Box sx={{ width: width, ...CarouselStyles.wrapperBox }}>
       <CloudinaryCustomImage
         src={item.src}
         width={imgWidth}
-        height={height}
+        height={imgHeight}
         imgQuality={imgQuality}
       />
       <Box sx={{ ...CarouselStyles.textOverlayBox }}>
@@ -52,10 +52,10 @@ const CarouselCard = (props: CarouselCardProps) => {
           to={cardActionArea}
           state={{ background: location }}
         >
-          <CardContent {...props} />
+          <CarouselCardContent {...props} />
         </CardActionArea>
       ) : (
-        <CardContent {...props} />
+        <CarouselCardContent {...props} />
       )}
     </Card>
   );

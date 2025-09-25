@@ -14,6 +14,7 @@ import { Project } from "../content/projects/interfaces";
 import ProjectCarousel from "./ProjectCarousel";
 import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import { Link, useLocation } from "react-router-dom";
+import resolveDimensionValue from "../utils/breakpoints";
 
 interface ProjectBlockProps extends ImageQualityProps {
   proj: Project;
@@ -113,6 +114,13 @@ const ProjectBlock = ({
 
   const cardDims = {
     width: ANI_CONST.PROJ_CARD_WIDTH,
+    height: "fit-content",
+  };
+
+  const carouselDims = {
+    // square sized carousel
+    width: resolveDimensionValue(cardDims.width),
+    height: resolveDimensionValue(cardDims.width),
   };
 
   const theme = useTheme();
@@ -142,9 +150,8 @@ const ProjectBlock = ({
         <ProjectCarousel
           key={location.pathname}
           proj={proj}
-          width={{ width: cardDims.width }}
-          height={400}
           imgQuality={imgQuality}
+          {...carouselDims}
         />
       </CardMedia>
       <CardContent sx={{ position: "relative" }}>
