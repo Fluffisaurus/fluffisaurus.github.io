@@ -5,7 +5,7 @@ import {
   ProjectCategories,
   ProjectList,
 } from "../../content/projects/project-list";
-import ProjectSelectionBlock from "../../components/ProjectSelectionBlock";
+import ProjectSelectionBlock from "../../components/project/ProjectSelectionBlock";
 import SlideWrapper from "../../components/styled/SlideWrapper";
 
 const Selection = () => {

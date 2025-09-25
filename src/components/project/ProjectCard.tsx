@@ -16,7 +16,7 @@ import { ANI_CONST, ImageQualityProps } from "../styled/constants";
 import { Link, useLocation } from "react-router-dom";
 import resolveDimensionValue from "../../utils/breakpoints";
 
-interface ProjectBlockProps extends ImageQualityProps {
+interface ProjectCardProps extends ImageQualityProps {
   proj: Project;
   activeProj: string | null;
   setActiveProj: React.Dispatch<React.SetStateAction<string | null>>;
@@ -99,7 +99,7 @@ const ProjectCard = ({
   imgQuality,
   activeProj,
   setActiveProj,
-}: ProjectBlockProps) => {
+}: ProjectCardProps) => {
   const [expanded, setExpanded] = React.useState(false);
   /*
    * location as a key here helps react recognize which is parent vs child

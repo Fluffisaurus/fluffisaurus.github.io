@@ -7,12 +7,12 @@ import Typography from "@mui/material/Typography";
 import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
 import FaceTwoToneIcon from "@mui/icons-material/FaceTwoTone";
 
-import { Project } from "../content/projects/interfaces";
-import { ProjectCategories } from "../content/projects/project-list";
+import { Project } from "../../content/projects/interfaces";
+import { ProjectCategories } from "../../content/projects/project-list";
 
 interface ProjectSelectionBlockProps {
   cat: string;
-  data: Array<Project>;
+  data: Project[];
 }
 
 const iconStyling = {

@@ -1,54 +1,15 @@
-import React, { useRef, useState } from "react";
+import React from "react";
 
-import Grid from "@mui/material/Grid";
-import { Typography } from "@mui/material";
-import { Outlet } from "react-router-dom";
-
-import ProjectBlock from "../../components/project/ProjectCard";
-import {
-  ProjectCategories,
-  ProjectList,
-} from "../../content/projects/project-list";
-import SlideWrapper from "../../components/styled/SlideWrapper";
-import {
-  ANI_CONST,
-  ImageQualityProps,
-} from "../../components/styled/constants";
-import FadeWrapper from "../../components/styled/FadeWrapper";
-import { isSmallScreen } from "../../utils/breakpoints";
+import ProjectVariants from "../../components/project/ProjectVariants";
+import { ImageQualityProps } from "../../components/styled/constants";
+import { ProjectCategories } from "../../content/projects/project-list";
 
 const Academic = ({ imgQuality }: ImageQualityProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [activeProj, setActiveProj] = useState<string | null>(null);
-  const animationBreakpoint = isSmallScreen();
   return (
-    <>
-      <div ref={containerRef}>
-        <FadeWrapper delay={ANI_CONST.PROJ_SUBHEADING_DELAY}>
-          <Typography variant="h4">Academic_projects</Typography>
-        </FadeWrapper>
-        <Grid container spacing={2} alignItems="flex-start">
-          {ProjectList[ProjectCategories.ACADEMIC].map((proj, i) => {
-            return (
-              <SlideWrapper
-                slideFromRef={containerRef}
-                delay={i * ANI_CONST.PROJ_CARDS_DELAY}
-                direction={animationBreakpoint ? "up" : "left"}
-              >
-                <ProjectBlock
-                  activeProj={activeProj}
-                  setActiveProj={setActiveProj}
-                  proj={proj}
-                  imgQuality={imgQuality}
-                  key={i}
-                />
-              </SlideWrapper>
-            );
-          })}
-        </Grid>
-      </div>
-      <Outlet />
-    </>
+    <ProjectVariants
+      variant={ProjectCategories.ACADEMIC}
+      imgQuality={imgQuality}
+    />
   );
 };
 
