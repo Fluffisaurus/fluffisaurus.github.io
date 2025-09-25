@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 
 import Grid from "@mui/material/Grid";
-import { Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Typography } from "@mui/material";
 import { Outlet } from "react-router-dom";
 
 import ProjectBlock from "../../components/ProjectBlock";
@@ -15,14 +15,12 @@ import {
   ImageQualityProps,
 } from "../../components/styled/constants";
 import FadeWrapper from "../../components/styled/FadeWrapper";
+import { isSmallScreen } from "../../utils/breakpoints";
 
 const Academic = ({ imgQuality }: ImageQualityProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeProj, setActiveProj] = useState<string | null>(null);
-  const theme = useTheme();
-  const animationBreakpoint = useMediaQuery(
-    theme.breakpoints.down(ANI_CONST.PROJ_ROW_BREAKPOINT)
-  );
+  const animationBreakpoint = isSmallScreen();
   return (
     <>
       <div ref={containerRef}>
