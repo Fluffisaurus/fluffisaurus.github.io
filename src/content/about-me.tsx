@@ -1,6 +1,6 @@
 import { ContentBlockProps } from "../components/ContentBlock";
 
-const AboutMeContent: Array<ContentBlockProps> = [
+const AboutMeContent: ContentBlockProps[] = [
   {
     heading: "Who is Angus?",
     body: [

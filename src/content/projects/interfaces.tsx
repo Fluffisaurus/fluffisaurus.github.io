@@ -5,7 +5,7 @@ export interface ProjectLink {
 
 export interface ProjectDetail {
   short: string; // sentence or two summary
-  long: Array<string>; // extended detail
+  long: string[]; // extended detail
 }
 
 export interface ProjectImage {
@@ -18,9 +18,9 @@ export interface Project {
   abbr: string;
   name: string;
   date: string;
-  tags: Array<string>;
+  tags: string[];
   category: string;
   link: ProjectLink;
   detail: ProjectDetail;
-  images: Array<ProjectImage>;
+  images: ProjectImage[];
 }

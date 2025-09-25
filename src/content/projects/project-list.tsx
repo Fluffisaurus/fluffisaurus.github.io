@@ -6,7 +6,7 @@ import websiteV1 from "./personal/website-v1";
 import foodpick from "./personal/foodpick";
 import fallingBlocks from "./personal/falling-blocks";
 
-const PersonalProjects: Array<Project> = [
+const PersonalProjects: Project[] = [
   ggj2020,
   spochiV0,
   websiteV1,
@@ -20,7 +20,7 @@ import motionArt from "./academic/motion-art";
 import kingdomOfHelios from "./academic/kingdom-of-helios";
 import antlionTowerDefense from "./academic/antlion-tower-defense";
 
-const AcademicProjects: Array<Project> = [
+const AcademicProjects: Project[] = [
   bobbysBreakout,
   playerPerformanceProjection,
   motionArt,
@@ -28,7 +28,7 @@ const AcademicProjects: Array<Project> = [
   antlionTowerDefense,
 ];
 
-type ProjectGroupArray = Array<Project>;
+type ProjectGroupArray = Project[];
 enum ProjectCategories {
   PERSONAL = "personal",
   ACADEMIC = "academic",
