@@ -17,7 +17,7 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build/"),
-    publicPath: devMode ? "/" : "./",
+    publicPath: "/",
     filename: devMode ? "[name].js" : "[name].[contenthash].js",
   },
   cache: {
