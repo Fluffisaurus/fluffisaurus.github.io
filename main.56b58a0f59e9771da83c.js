@@ -346,7 +346,8 @@ var ProjectVariants_1 = __importDefault(__webpack_require__(32244));
 var project_list_1 = __webpack_require__(60803);
 var Personal = function (_a) {
     var imgQuality = _a.imgQuality;
-    return (react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.PERSONAL, imgQuality: imgQuality }));
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.PERSONAL, imgQuality: imgQuality })));
 };
 exports["default"] = Personal;
 
@@ -1098,7 +1099,8 @@ var ProjectVariants_1 = __importDefault(__webpack_require__(32244));
 var project_list_1 = __webpack_require__(60803);
 var Academic = function (_a) {
     var imgQuality = _a.imgQuality;
-    return (react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.ACADEMIC, imgQuality: imgQuality }));
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.ACADEMIC, imgQuality: imgQuality })));
 };
 exports["default"] = Academic;
 
