@@ -342,12 +342,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(96540));
+var react_router_dom_1 = __webpack_require__(28651);
 var ProjectVariants_1 = __importDefault(__webpack_require__(32244));
 var project_list_1 = __webpack_require__(60803);
 var Personal = function (_a) {
     var imgQuality = _a.imgQuality;
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.PERSONAL, imgQuality: imgQuality })));
+        react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.PERSONAL, imgQuality: imgQuality }),
+        react_1.default.createElement(react_router_dom_1.Outlet, null)));
 };
 exports["default"] = Personal;
 
@@ -1095,12 +1097,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(96540));
+var react_router_dom_1 = __webpack_require__(28651);
 var ProjectVariants_1 = __importDefault(__webpack_require__(32244));
 var project_list_1 = __webpack_require__(60803);
 var Academic = function (_a) {
     var imgQuality = _a.imgQuality;
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.ACADEMIC, imgQuality: imgQuality })));
+        react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.ACADEMIC, imgQuality: imgQuality }),
+        react_1.default.createElement(react_router_dom_1.Outlet, null)));
 };
 exports["default"] = Academic;
 
@@ -1553,7 +1557,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(96540));
 var material_1 = __webpack_require__(8157);
-var react_router_dom_1 = __webpack_require__(28651);
 var ProjectCard_1 = __importDefault(__webpack_require__(25124));
 var project_list_1 = __webpack_require__(60803);
 var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
@@ -1568,14 +1571,14 @@ var ProjectVariants = function (_a) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("div", { ref: containerRef },
             react_1.default.createElement(FadeWrapper_1.default, { delay: constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY },
+                react_1.default.createElement(material_1.Typography, null, "HELLO"),
                 react_1.default.createElement(material_1.Typography, { variant: "h4" },
                     variant,
                     " projects")),
             react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[variant].map(function (proj, i) {
                 return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
                     react_1.default.createElement(ProjectCard_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
-            }))),
-        react_1.default.createElement(react_router_dom_1.Outlet, null)));
+            })))));
 };
 exports["default"] = ProjectVariants;
 
