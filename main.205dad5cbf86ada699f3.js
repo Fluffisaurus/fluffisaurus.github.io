@@ -337,18 +337,65 @@ exports["default"] = GlobalNav;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(96540));
+var react_1 = __importStar(__webpack_require__(96540));
+var material_1 = __webpack_require__(8157);
 var react_router_dom_1 = __webpack_require__(28651);
-var ProjectVariants_1 = __importDefault(__webpack_require__(32244));
+var ProjectCard_1 = __importDefault(__webpack_require__(25124));
 var project_list_1 = __webpack_require__(60803);
+var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
+var constants_1 = __webpack_require__(70908);
+var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
+var breakpoints_1 = __webpack_require__(2386);
 var Personal = function (_a) {
     var imgQuality = _a.imgQuality;
+    var containerRef = (0, react_1.useRef)(null);
+    var _b = (0, react_1.useState)(null), activeProj = _b[0], setActiveProj = _b[1];
+    var animationBreakpoint = (0, breakpoints_1.isSmallScreen)();
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.PERSONAL, imgQuality: imgQuality }),
+        react_1.default.createElement("div", { ref: containerRef },
+            react_1.default.createElement(FadeWrapper_1.default, { delay: constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY },
+                react_1.default.createElement(material_1.Typography, { variant: "h4" }, "Personal_projects")),
+            react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[project_list_1.ProjectCategories.PERSONAL].map(function (proj, i) {
+                return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
+                    react_1.default.createElement(ProjectCard_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
+            }))),
         react_1.default.createElement(react_router_dom_1.Outlet, null)));
 };
 exports["default"] = Personal;
@@ -832,32 +879,6 @@ exports["default"] = CarouselPlaceholder;
 
 /***/ }),
 
-/***/ 11438:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(96540));
-var react_router_dom_1 = __webpack_require__(28651);
-__webpack_require__(76103);
-var material_1 = __webpack_require__(8157);
-var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
-var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
-var Projects = function () {
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(ScrollableContainer_1.default, { className: "Projects-container" },
-            react_1.default.createElement(FadeWrapper_1.default, null,
-                react_1.default.createElement(material_1.Typography, { variant: "h3" }, "Projects")),
-            react_1.default.createElement(react_router_dom_1.Outlet, null))));
-};
-exports["default"] = Projects;
-
-
-/***/ }),
-
 /***/ 12612:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -943,21 +964,13 @@ var muiMenuItem_1 = __importDefault(__webpack_require__(294));
 var muiDrawer_1 = __importDefault(__webpack_require__(56665));
 var muiSpeedDial_1 = __webpack_require__(85459);
 var muiCssBaseline_1 = __importDefault(__webpack_require__(86704));
-var constants_1 = __webpack_require__(70908);
 var theme = (0, styles_1.createTheme)(__assign(__assign(__assign(__assign({}, muiBreakpoints_1.default), muiColorSchemes_1.default), muiTypography_1.default), { components: __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, muiButton_1.default), muiContainer_1.default), muiList_1.default), muiMenuItem_1.default), muiDrawer_1.default), muiSpeedDial_1.muiSpeedDial), muiSpeedDial_1.muiSpeedDialAction), muiCssBaseline_1.default), cssVariables: {
         colorSchemeSelector: "class",
         // generated stylesheet:
         // --custom-mui-theme-primary-main: ...;
         cssVarPrefix: "custom-mui-theme",
     } }));
-var breakpoints = [
-    constants_1.Viewport.mobile,
-    constants_1.Viewport.tablet,
-    constants_1.Viewport.laptop,
-    constants_1.Viewport.desktop,
-    constants_1.Viewport.bigboi,
-];
-theme = (0, styles_1.responsiveFontSizes)(theme, { breakpoints: breakpoints });
+theme = (0, styles_1.responsiveFontSizes)(theme);
 exports["default"] = theme;
 
 
@@ -1007,7 +1020,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(96540));
 var Grid_1 = __importDefault(__webpack_require__(36434));
 var project_list_1 = __webpack_require__(60803);
-var ProjectSelectionBlock_1 = __importDefault(__webpack_require__(90619));
+var ProjectSelectionBlock_1 = __importDefault(__webpack_require__(42973));
 var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
 var Selection = function () {
     var containerRef = (0, react_1.useRef)(null);
@@ -1092,18 +1105,66 @@ exports["default"] = AboutMe;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(96540));
+var react_1 = __importStar(__webpack_require__(96540));
+var Grid_1 = __importDefault(__webpack_require__(36434));
+var material_1 = __webpack_require__(8157);
 var react_router_dom_1 = __webpack_require__(28651);
-var ProjectVariants_1 = __importDefault(__webpack_require__(32244));
+var ProjectCard_1 = __importDefault(__webpack_require__(25124));
 var project_list_1 = __webpack_require__(60803);
+var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
+var constants_1 = __webpack_require__(70908);
+var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
+var breakpoints_1 = __webpack_require__(2386);
 var Academic = function (_a) {
     var imgQuality = _a.imgQuality;
+    var containerRef = (0, react_1.useRef)(null);
+    var _b = (0, react_1.useState)(null), activeProj = _b[0], setActiveProj = _b[1];
+    var animationBreakpoint = (0, breakpoints_1.isSmallScreen)();
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(ProjectVariants_1.default, { variant: project_list_1.ProjectCategories.ACADEMIC, imgQuality: imgQuality }),
+        react_1.default.createElement("div", { ref: containerRef },
+            react_1.default.createElement(FadeWrapper_1.default, { delay: constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY },
+                react_1.default.createElement(material_1.Typography, { variant: "h4" }, "Academic_projects")),
+            react_1.default.createElement(Grid_1.default, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[project_list_1.ProjectCategories.ACADEMIC].map(function (proj, i) {
+                return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
+                    react_1.default.createElement(ProjectCard_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
+            }))),
         react_1.default.createElement(react_router_dom_1.Outlet, null)));
 };
 exports["default"] = Academic;
@@ -1514,73 +1575,28 @@ exports["default"] = fallingBlocks;
 
 /***/ }),
 
-/***/ 32244:
+/***/ 30791:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
-        };
-        return ownKeys(o);
-    };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importStar(__webpack_require__(96540));
+var react_1 = __importDefault(__webpack_require__(96540));
+var react_router_dom_1 = __webpack_require__(28651);
+__webpack_require__(76103);
 var material_1 = __webpack_require__(8157);
-var ProjectCard_1 = __importDefault(__webpack_require__(25124));
-var project_list_1 = __webpack_require__(60803);
-var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
-var constants_1 = __webpack_require__(70908);
+var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
 var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
-var breakpoints_1 = __webpack_require__(2386);
-var ProjectVariants = function (_a) {
-    var variant = _a.variant, imgQuality = _a.imgQuality;
-    var containerRef = (0, react_1.useRef)(null);
-    var _b = (0, react_1.useState)(null), activeProj = _b[0], setActiveProj = _b[1];
-    var animationBreakpoint = (0, breakpoints_1.isSmallScreen)();
+var Projects = function () {
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("div", { ref: containerRef },
-            react_1.default.createElement(FadeWrapper_1.default, { delay: constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY },
-                react_1.default.createElement(material_1.Typography, null, "HELLO"),
-                react_1.default.createElement(material_1.Typography, { variant: "h4" },
-                    variant,
-                    " projects")),
-            react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[variant].map(function (proj, i) {
-                return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
-                    react_1.default.createElement(ProjectCard_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
-            })))));
+        react_1.default.createElement(ScrollableContainer_1.default, { className: "Projects-container" },
+            react_1.default.createElement(FadeWrapper_1.default, null,
+                react_1.default.createElement(material_1.Typography, { variant: "h3" }, "Projects")),
+            react_1.default.createElement(react_router_dom_1.Outlet, null))));
 };
-exports["default"] = ProjectVariants;
+exports["default"] = Projects;
 
 
 /***/ }),
@@ -1890,6 +1906,46 @@ var Contact = function (_a) {
                             react_1.default.createElement(material_1.Typography, { variant: "body1" }, "self portrait"))))))));
 };
 exports["default"] = Contact;
+
+
+/***/ }),
+
+/***/ 42973:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var react_1 = __importDefault(__webpack_require__(96540));
+var Card_1 = __importDefault(__webpack_require__(97452));
+var CardActionArea_1 = __importDefault(__webpack_require__(91319));
+var CardContent_1 = __importDefault(__webpack_require__(61593));
+var react_router_dom_1 = __webpack_require__(28651);
+var Typography_1 = __importDefault(__webpack_require__(59259));
+var SchoolTwoTone_1 = __importDefault(__webpack_require__(88455));
+var FaceTwoTone_1 = __importDefault(__webpack_require__(27736));
+var project_list_1 = __webpack_require__(60803);
+var iconStyling = {
+    display: "flex",
+    width: "50%",
+    height: "50%",
+    margin: "auto",
+};
+var ProjectSelectionBlock = function (_a) {
+    var cat = _a.cat, data = _a.data;
+    var location = (0, react_router_dom_1.useLocation)();
+    return (react_1.default.createElement(Card_1.default, { sx: { maxWidth: 300 } },
+        react_1.default.createElement(CardActionArea_1.default, { component: react_router_dom_1.Link, to: cat, state: location },
+            cat == project_list_1.ProjectCategories.PERSONAL ? (react_1.default.createElement(FaceTwoTone_1.default, { sx: iconStyling })) : (react_1.default.createElement(SchoolTwoTone_1.default, { sx: iconStyling })),
+            react_1.default.createElement(CardContent_1.default, null,
+                react_1.default.createElement(Typography_1.default, { gutterBottom: true, variant: "h5", component: "div" }, cat),
+                react_1.default.createElement(Typography_1.default, { variant: "body2", sx: { color: "text.secondary" } }, data.map(function (proj) {
+                    return "- ".concat(proj.name, " ");
+                }))))));
+};
+exports["default"] = ProjectSelectionBlock;
 
 
 /***/ }),
@@ -2552,7 +2608,7 @@ var DoesNotExist = (0, react_1.lazy)(function () { return Promise.resolve().then
 var CustomOptionsDial = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(7496)); }); });
 var GlobalNav = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(2943)); }); });
 var Landing = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(45688)); }); });
-var Projects = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(11438)); }); });
+var Projects = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(30791)); }); });
 var Selection = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(19432)); }); });
 var Academic = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(21645)); }); });
 var Personal = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(4040)); }); });
@@ -3276,46 +3332,6 @@ var kingdomOfHelios = {
     ],
 };
 exports["default"] = kingdomOfHelios;
-
-
-/***/ }),
-
-/***/ 90619:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
-
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-var react_1 = __importDefault(__webpack_require__(96540));
-var Card_1 = __importDefault(__webpack_require__(97452));
-var CardActionArea_1 = __importDefault(__webpack_require__(91319));
-var CardContent_1 = __importDefault(__webpack_require__(61593));
-var react_router_dom_1 = __webpack_require__(28651);
-var Typography_1 = __importDefault(__webpack_require__(59259));
-var SchoolTwoTone_1 = __importDefault(__webpack_require__(88455));
-var FaceTwoTone_1 = __importDefault(__webpack_require__(27736));
-var project_list_1 = __webpack_require__(60803);
-var iconStyling = {
-    display: "flex",
-    width: "50%",
-    height: "50%",
-    margin: "auto",
-};
-var ProjectSelectionBlock = function (_a) {
-    var cat = _a.cat, data = _a.data;
-    var location = (0, react_router_dom_1.useLocation)();
-    return (react_1.default.createElement(Card_1.default, { sx: { maxWidth: 300 } },
-        react_1.default.createElement(CardActionArea_1.default, { component: react_router_dom_1.Link, to: cat, state: location },
-            cat == project_list_1.ProjectCategories.PERSONAL ? (react_1.default.createElement(FaceTwoTone_1.default, { sx: iconStyling })) : (react_1.default.createElement(SchoolTwoTone_1.default, { sx: iconStyling })),
-            react_1.default.createElement(CardContent_1.default, null,
-                react_1.default.createElement(Typography_1.default, { gutterBottom: true, variant: "h5", component: "div" }, cat),
-                react_1.default.createElement(Typography_1.default, { variant: "body2", sx: { color: "text.secondary" } }, data.map(function (proj) {
-                    return "- ".concat(proj.name, " ");
-                }))))));
-};
-exports["default"] = ProjectSelectionBlock;
 
 
 /***/ }),
