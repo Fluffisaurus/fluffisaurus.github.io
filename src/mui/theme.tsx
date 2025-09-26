@@ -9,6 +9,7 @@ import muiColorSchemes from "./muiColorSchemes";
 import muiTypography from "./muiTypography";
 import muiButtonStyles from "./components/muiButton";
 import muiContainer from "./components/muiContainer";
+import muiGrid from "./components/muiGrid";
 import muiList from "./components/muiList";
 import muiMenuItem from "./components/muiMenuItem";
 import muiDrawer from "./components/muiDrawer";
@@ -52,6 +53,7 @@ let theme = createTheme({
   components: {
     ...muiButtonStyles,
     ...muiContainer,
+    ...muiGrid,
     ...muiList,
     ...muiMenuItem,
     ...muiDrawer,
