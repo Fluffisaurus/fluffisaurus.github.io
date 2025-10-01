@@ -22,6 +22,27 @@ exports["default"] = muiMenuItem;
 
 /***/ }),
 
+/***/ 298:
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var muiGrid = {
+    MuiGrid: {
+        styleOverrides: {
+            root: {
+                "@media (min-width: 480px)": {
+                    width: "100%", // override default calc(100% * 20 / var(--Grid-parent-columns) - (var(--Grid-parent-columns) - 20) * (var(--Grid-parent-columnSpacing) / var(--Grid-parent-columns)))
+                },
+            },
+        },
+    },
+};
+exports["default"] = muiGrid;
+
+
+/***/ }),
+
 /***/ 2386:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -544,6 +565,9 @@ var breakpoints_1 = __webpack_require__(2386);
 function CustomOptionsDial(_a) {
     var imgQuality = _a.imgQuality, setImgQuality = _a.setImgQuality;
     var _b = (0, material_1.useColorScheme)(), mode = _b.mode, systemMode = _b.systemMode, setMode = _b.setMode;
+    var _c = React.useState(false), open = _c[0], setOpen = _c[1];
+    var handleOpen = function () { return setOpen(true); };
+    var handleClose = function () { return setOpen(false); };
     var actions = [
         {
             icon: (React.createElement(ToggleImageQualityButtons_1.default, { imgQuality: imgQuality, setImgQuality: setImgQuality })),
@@ -557,9 +581,9 @@ function CustomOptionsDial(_a) {
     var smallScreen = (0, breakpoints_1.isSmallScreen)();
     // Note: --speedDial-onboard is cleared after <App/> unmount
     //       to re-enable functionality, remove that line
-    var _c = React.useState(function () {
+    var _d = React.useState(function () {
         return !!localStorage.getItem("--speedDial-onboard");
-    }), initialLoad = _c[0], setInitialLoad = _c[1];
+    }), initialLoad = _d[0], setInitialLoad = _d[1];
     React.useEffect(function () {
         if (!initialLoad) {
             // first load
@@ -585,7 +609,8 @@ function CustomOptionsDial(_a) {
         }
     }, []);
     return (React.createElement(React.Fragment, null,
-        React.createElement(react_toastify_1.ToastContainer, { position: "bottom-left", autoClose: 2000, limit: 3, hideProgressBar: false, newestOnTop: false, closeOnClick: false, pauseOnFocusLoss: true, draggable: true, pauseOnHover: true, theme: mode == "system" ? systemMode : mode, transition: react_toastify_1.Slide }),
+        React.createElement(material_1.Backdrop, { open: open, sx: { zIndex: constants_1.ANI_CONST.ZINDEX.BACKDROP } }),
+        React.createElement(react_toastify_1.ToastContainer, { position: "bottom-left", autoClose: 2000, limit: 1, hideProgressBar: false, newestOnTop: false, closeOnClick: false, pauseOnFocusLoss: true, draggable: true, pauseOnHover: true, theme: mode == "system" ? systemMode : mode, transition: react_toastify_1.Slide }),
         React.createElement(material_1.Box, { sx: {
                 position: "absolute",
                 bottom: 0,
@@ -595,7 +620,7 @@ function CustomOptionsDial(_a) {
                 flexGrow: 1,
                 zIndex: constants_1.ANI_CONST.ZINDEX.OPTIONS_DIAL,
             } },
-            React.createElement(material_1.SpeedDial, { ariaLabel: "website options dial for theme mode and image quality", sx: { position: "absolute", bottom: 16, right: 16 }, icon: React.createElement(material_1.SpeedDialIcon, { icon: React.createElement(DisplaySettingsTwoTone_1.default, null), openIcon: React.createElement(DisplaySettingsTwoTone_1.default, null) }) }, actions.map(function (action) { return (React.createElement(material_1.SpeedDialAction, { key: action.name, icon: action.icon, slotProps: {
+            React.createElement(material_1.SpeedDial, { ariaLabel: "website options dial for theme mode and image quality", sx: { position: "absolute", bottom: 16, right: 16 }, icon: React.createElement(material_1.SpeedDialIcon, { icon: React.createElement(DisplaySettingsTwoTone_1.default, null), openIcon: React.createElement(DisplaySettingsTwoTone_1.default, null) }), direction: "up", onOpen: handleOpen, onClose: handleClose }, actions.map(function (action) { return (React.createElement(material_1.SpeedDialAction, { key: action.name, icon: action.icon, slotProps: {
                     tooltip: {
                         title: action.name,
                         open: true,
@@ -935,13 +960,14 @@ var muiColorSchemes_1 = __importDefault(__webpack_require__(54790));
 var muiTypography_1 = __importDefault(__webpack_require__(76710));
 var muiButton_1 = __importDefault(__webpack_require__(8038));
 var muiContainer_1 = __importDefault(__webpack_require__(25205));
+var muiGrid_1 = __importDefault(__webpack_require__(298));
 var muiList_1 = __importDefault(__webpack_require__(34822));
 var muiMenuItem_1 = __importDefault(__webpack_require__(294));
 var muiDrawer_1 = __importDefault(__webpack_require__(56665));
 var muiSpeedDial_1 = __webpack_require__(85459);
 var muiCssBaseline_1 = __importDefault(__webpack_require__(86704));
 var constants_1 = __webpack_require__(70908);
-var theme = (0, styles_1.createTheme)(__assign(__assign(__assign(__assign({}, muiBreakpoints_1.default), muiColorSchemes_1.default), muiTypography_1.default), { components: __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, muiButton_1.default), muiContainer_1.default), muiList_1.default), muiMenuItem_1.default), muiDrawer_1.default), muiSpeedDial_1.muiSpeedDial), muiSpeedDial_1.muiSpeedDialAction), muiCssBaseline_1.default), cssVariables: {
+var theme = (0, styles_1.createTheme)(__assign(__assign(__assign(__assign({}, muiBreakpoints_1.default), muiColorSchemes_1.default), muiTypography_1.default), { components: __assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign(__assign({}, muiButton_1.default), muiContainer_1.default), muiGrid_1.default), muiList_1.default), muiMenuItem_1.default), muiDrawer_1.default), muiSpeedDial_1.muiSpeedDial), muiSpeedDial_1.muiSpeedDialAction), muiCssBaseline_1.default), cssVariables: {
         colorSchemeSelector: "class",
         // generated stylesheet:
         // --custom-mui-theme-primary-main: ...;
@@ -1934,15 +1960,12 @@ var React = __importStar(__webpack_require__(96540));
 var material_1 = __webpack_require__(8157);
 var DarkModeTwoTone_1 = __importDefault(__webpack_require__(65698));
 var LightModeTwoTone_1 = __importDefault(__webpack_require__(80170));
-var SettingsSystemDaydreamTwoTone_1 = __importDefault(__webpack_require__(31572));
 var ToggleThemeButtons = function (_a) {
     var mode = _a.mode, setMode = _a.setMode;
     var handleToggleTheme = function (event, newThemeMode) {
         setMode(newThemeMode);
     };
     return (React.createElement(material_1.ToggleButtonGroup, { value: mode, defaultValue: mode, exclusive: true, onChange: handleToggleTheme, "aria-label": "theme mode toggle" },
-        React.createElement(material_1.ToggleButton, { value: "system", "aria-label": "light mode" },
-            React.createElement(SettingsSystemDaydreamTwoTone_1.default, null)),
         React.createElement(material_1.ToggleButton, { value: "light", "aria-label": "light mode" },
             React.createElement(LightModeTwoTone_1.default, null)),
         React.createElement(material_1.ToggleButton, { value: "dark", "aria-label": "dark mode" },
@@ -2018,9 +2041,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(96540));
 var material_1 = __webpack_require__(8157);
-var SdTwoTone_1 = __importDefault(__webpack_require__(38786));
-var HdTwoTone_1 = __importDefault(__webpack_require__(58287));
-var FourKTwoTone_1 = __importDefault(__webpack_require__(36424));
+var SignalCellular1BarTwoTone_1 = __importDefault(__webpack_require__(43601));
+var SignalCellular4BarTwoTone_1 = __importDefault(__webpack_require__(85234));
 var react_toastify_1 = __webpack_require__(90701);
 function ToggleImageQualityButtons(_a) {
     var imgQuality = _a.imgQuality, setImgQuality = _a.setImgQuality;
@@ -2028,7 +2050,7 @@ function ToggleImageQualityButtons(_a) {
         if (setImgQuality) {
             if (newImgQuality) {
                 setImgQuality(newImgQuality);
-                react_toastify_1.toast.success("Image quality: ".concat(newImgQuality));
+                react_toastify_1.toast.success("Image quality: ".concat(newImgQuality, " ").concat(newImgQuality == "low" ? "(data saver)" : ""));
             }
             else {
                 setImgQuality("best");
@@ -2043,11 +2065,9 @@ function ToggleImageQualityButtons(_a) {
     return (React.createElement(React.Fragment, null,
         React.createElement(material_1.ToggleButtonGroup, { value: imgQuality, exclusive: true, onChange: handleToggleImgQuality, "aria-label": "image quality toggle" },
             React.createElement(material_1.ToggleButton, { value: "low", "aria-label": "low image quality" },
-                React.createElement(SdTwoTone_1.default, null)),
-            React.createElement(material_1.ToggleButton, { value: "good", "aria-label": "good image quality" },
-                React.createElement(HdTwoTone_1.default, null)),
+                React.createElement(SignalCellular1BarTwoTone_1.default, null)),
             React.createElement(material_1.ToggleButton, { value: "best", "aria-label": "best image quality" },
-                React.createElement(FourKTwoTone_1.default, null)))));
+                React.createElement(SignalCellular4BarTwoTone_1.default, null)))));
 }
 exports["default"] = ToggleImageQualityButtons;
 
@@ -2107,18 +2127,18 @@ var AboutMeContent = [
     {
         heading: "Who is Angus?",
         body: [
-            "He is a software engineer who also happens to be a data scientist. He is an avid computer & keyboard builder, amateur basketball analyst, and casual volleyball player.",
+            "He is a software engineer for work and a data scientist for fun. He is also many other things, most notably an amateur photographer, computer & keyboard enthusiast, amateur basketball analyst, cycling enthusiast, and volleyball player.",
         ],
     },
     {
         heading: "What is Angus?",
         body: [
-            "He is an ethnically Chinese human that was born and raised in Vancouver, Canada. As noted by culinary experts, Angus is also a type of beef.",
+            "Culinary experts frequently profess that Angus is a sumptuous beef variant. However, this Angus is just an ethnically Chinese human.",
         ],
     },
     {
         heading: "Where is Angus?",
-        body: ["He is currently in Vancouver, BC, Canada."],
+        body: ["He is somewhere in Vancouver, BC, Canada."],
     },
     {
         heading: "When is Angus?",
@@ -2126,15 +2146,12 @@ var AboutMeContent = [
     },
     {
         heading: "Why is Angus?",
-        body: ["That is a question he frequently asks himself."],
+        body: ["He is actively pursing his raison d'être."],
     },
     {
         heading: "How is Angus?",
         body: [
-            "He is taking a break from work to explore his other passions.",
-            "Previously, he worked as a software engineer at Amazon Web Services and Sokanu.",
-            "Angus graduated from Simon Fraser University - main'ing in Data Science and alt'ing Interactive Arts and Technology (Game Design and Interaction Design).",
-            "In his spare time, Angus enjoys hanging out with his friends, playing video games, and watching the NBA.",
+            "He is taking a break from work to explore and git gud at his other passions in life - photography, volleyball, cycling, and his overall wellbeing. In his spare time, Angus enjoys hanging out with his friends, playing video games, and watching the NBA",
         ],
     },
 ];
@@ -2824,6 +2841,7 @@ exports.ANI_CONST = {
         EXPAND_MORE: 501,
         COLLAPSED_CONTENT: 500,
         OPTIONS_DIAL: 1500, // default is 1050
+        BACKDROP: 1499,
         GLOBAL_NAV: 2000,
     },
 };
