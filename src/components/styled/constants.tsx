@@ -58,6 +58,7 @@ export const ANI_CONST = {
     EXPAND_MORE: 501,
     COLLAPSED_CONTENT: 500,
     OPTIONS_DIAL: 1500, // default is 1050
+    BACKDROP: 1499,
     GLOBAL_NAV: 2000,
   },
 };

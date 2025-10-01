@@ -5,6 +5,7 @@ import {
   SpeedDialIcon,
   SpeedDialAction,
   useColorScheme,
+  Backdrop,
 } from "@mui/material";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 
@@ -24,6 +25,10 @@ export default function CustomOptionsDial({
   setImgQuality,
 }: ImageQualityProps) {
   const { mode, systemMode, setMode } = useColorScheme();
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const actions: DialActions[] = [
     {
       icon: (
@@ -74,10 +79,11 @@ export default function CustomOptionsDial({
 
   return (
     <>
+      <Backdrop open={open} sx={{ zIndex: ANI_CONST.ZINDEX.BACKDROP }} />
       <ToastContainer
         position="bottom-left"
         autoClose={2000}
-        limit={3}
+        limit={1}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick={false}
@@ -107,6 +113,9 @@ export default function CustomOptionsDial({
               openIcon={<DisplaySettingsTwoToneIcon />}
             />
           }
+          direction="up"
+          onOpen={handleOpen}
+          onClose={handleClose}
         >
           {actions.map((action) => (
             <SpeedDialAction
