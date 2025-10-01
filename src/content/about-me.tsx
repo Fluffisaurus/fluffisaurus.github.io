@@ -4,18 +4,18 @@ const AboutMeContent: ContentBlockProps[] = [
   {
     heading: "Who is Angus?",
     body: [
-      "He is a software engineer who also happens to be a data scientist. He is an avid computer & keyboard builder, amateur basketball analyst, and casual volleyball player.",
+      "He is a software engineer for work and a data scientist for fun. He is also many other things, most notably an amateur photographer, computer & keyboard enthusiast, amateur basketball analyst, cycling enthusiast, and volleyball player.",
     ],
   },
   {
     heading: "What is Angus?",
     body: [
-      "He is an ethnically Chinese human that was born and raised in Vancouver, Canada. As noted by culinary experts, Angus is also a type of beef.",
+      "Culinary experts frequently profess that Angus is a sumptuous beef variant. However, this Angus is just an ethnically Chinese human.",
     ],
   },
   {
     heading: "Where is Angus?",
-    body: ["He is currently in Vancouver, BC, Canada."],
+    body: ["He is somewhere in Vancouver, BC, Canada."],
   },
   {
     heading: "When is Angus?",
@@ -23,15 +23,12 @@ const AboutMeContent: ContentBlockProps[] = [
   },
   {
     heading: "Why is Angus?",
-    body: ["That is a question he frequently asks himself."],
+    body: ["He is actively pursing his raison d'être."],
   },
   {
     heading: "How is Angus?",
     body: [
-      "He is taking a break from work to explore his other passions.",
-      "Previously, he worked as a software engineer at Amazon Web Services and Sokanu.",
-      "Angus graduated from Simon Fraser University - main'ing in Data Science and alt'ing Interactive Arts and Technology (Game Design and Interaction Design).",
-      "In his spare time, Angus enjoys hanging out with his friends, playing video games, and watching the NBA.",
+      "He is taking a break from work to explore and git gud at his other passions in life - photography, volleyball, cycling, and his overall wellbeing. In his spare time, Angus enjoys hanging out with his friends, playing video games, and watching the NBA",
     ],
   },
 ];
