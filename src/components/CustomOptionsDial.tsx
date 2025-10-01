@@ -1,12 +1,11 @@
 import * as React from "react";
-import {
-  Box,
-  SpeedDial,
-  SpeedDialIcon,
-  SpeedDialAction,
-  useColorScheme,
-  Backdrop,
-} from "@mui/material";
+
+import Box from "@mui/material/Box";
+import SpeedDial from "@mui/material/SpeedDial";
+import SpeedDialIcon from "@mui/material/SpeedDialIcon";
+import SpeedDialAction from "@mui/material/SpeedDialAction";
+import { useColorScheme } from "@mui/material"; // eslint-disable-line no-restricted-imports
+import Backdrop from "@mui/material/Backdrop";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 
 import ToggleThemeButtons from "./ToggleThemeButtons";

@@ -1,0 +1,5 @@
+// Avoid Barrel imports for mui in VS Code
+// https://mui.com/material-ui/guides/minimizing-bundle-size/#avoid-vs-code-auto-importing-from-barrel-files
+{
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": ["^@mui/[^/]+$"]
+}

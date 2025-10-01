@@ -1,6 +1,6 @@
 import type {} from "@mui/material/themeCssVarsAugmentation";
-import { ButtonProps } from "@mui/material";
 import { CSSObject, Theme } from "@mui/material/styles";
+import { ButtonProps } from "@mui/material"; // eslint-disable-line no-restricted-imports
 
 const muiButtonNavlinkFontSizes = {
   fontSize: { mobile: 18, tablet: 20, laptop: 24, desktop: 26 },

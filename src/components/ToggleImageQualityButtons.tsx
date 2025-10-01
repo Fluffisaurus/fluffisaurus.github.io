@@ -1,6 +1,7 @@
 import * as React from "react";
 
-import { ToggleButton, ToggleButtonGroup } from "@mui/material";
+import ToggleButton from "@mui/material/ToggleButton";
+import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import SignalCellular1BarTwoToneIcon from "@mui/icons-material/SignalCellular1BarTwoTone";
 import SignalCellular4BarTwoToneIcon from "@mui/icons-material/SignalCellular4BarTwoTone";
 import { toast } from "react-toastify";

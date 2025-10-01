@@ -4,7 +4,8 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { To, useNavigate } from "react-router-dom";
-import { CardContent, Grid } from "@mui/material";
+import CardContent from "@mui/material/CardContent";
+import Grid from "@mui/material/Grid";
 
 import { Project } from "../../content/projects/interfaces";
 import computeNodeStyle from "../../utils/computeNodeStyle";

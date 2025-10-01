@@ -1,13 +1,11 @@
 import React, { useRef } from "react";
 import loadable from "@loadable/component";
 
-import {
-  Card,
-  CardActionArea,
-  Grid,
-  SvgIconProps,
-  Typography,
-} from "@mui/material";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import { SvgIconProps } from "@mui/material"; // eslint-disable-line no-restricted-imports
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import EmailIcon from "@mui/icons-material/Email";

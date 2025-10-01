@@ -1,8 +1,9 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
+import Typography from "@mui/material/Typography";
+
 import "../../styles/projects.scss";
-import { Typography } from "@mui/material";
 import ScrollableContainer from "../../components/styled/ScrollableContainer";
 import FadeWrapper from "../../components/styled/FadeWrapper";
 

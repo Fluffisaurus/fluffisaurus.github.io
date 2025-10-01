@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 
-import { Grid, Typography } from "@mui/material";
 import { Outlet } from "react-router-dom";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
 
 import ProjectCard from "./ProjectCard";
 import {

@@ -1,7 +1,8 @@
 import * as React from "react";
 import loadable from "@loadable/component";
 
-import { Container, SxProps, Theme } from "@mui/material";
+import { SxProps, Theme } from "@mui/material"; // eslint-disable-line no-restricted-imports
+import Container from "@mui/material/Container";
 
 const ScrollArea = loadable.lib(() => import("@blur-ui/scroll-area"));
 

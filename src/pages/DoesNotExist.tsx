@@ -1,6 +1,7 @@
 import React from "react";
 
-import { Typography } from "@mui/material";
+import Typography from "@mui/material/Typography";
+
 import ScrollableContainer from "../components/styled/ScrollableContainer";
 
 const DoesNotExist: React.FunctionComponent = () => {

@@ -1,6 +1,6 @@
 import React, { Suspense, lazy, useEffect, useState } from "react";
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
-import { Box } from "@mui/material";
+import Box from "@mui/material/Box";
 
 const Loading = lazy(() => import("../pages/Loading"));
 const Default = lazy(() => import("../pages/Default"));

@@ -2,7 +2,11 @@ import React, { useCallback, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 import type {} from "@mui/material/themeCssVarsAugmentation";
-import { Box, Button, Slide, styled, SwipeableDrawer } from "@mui/material";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Slide from "@mui/material/Slide";
+import { styled } from "@mui/material"; // eslint-disable-line no-restricted-imports
+import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { bindTrigger, usePopupState } from "material-ui-popup-state/hooks";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 import MenuOpenTwoToneIcon from "@mui/icons-material/MenuOpenTwoTone";

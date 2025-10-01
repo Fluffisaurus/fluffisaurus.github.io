@@ -1,10 +1,15 @@
 import React from "react";
+
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Fade from "@mui/material/Fade";
+import type {} from "@mui/material/themeCssVarsAugmentation";
+
 import NavLinks from "../components/NavLinks";
+import { navLinkButtonProps } from "../mui/components/muiButton";
 
 import "../styles/landing.scss";
-import { Box, Button, Fade, Typography } from "@mui/material";
-import type {} from "@mui/material/themeCssVarsAugmentation";
-import { navLinkButtonProps } from "../mui/components/muiButton";
 import theme from "../mui/theme";
 
 const Landing = () => {

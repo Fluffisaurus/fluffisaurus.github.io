@@ -1,7 +1,10 @@
 import * as React from "react";
 import loadable from "@loadable/component";
 
-import { Box, Card, CardActionArea, Typography } from "@mui/material";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardActionArea from "@mui/material/CardActionArea";
+import Typography from "@mui/material/Typography";
 import { Link, useLocation } from "react-router-dom";
 
 import { ProjectImage } from "../../content/projects/interfaces";

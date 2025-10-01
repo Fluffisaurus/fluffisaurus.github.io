@@ -7,8 +7,11 @@ import CardMedia from "@mui/material/CardMedia";
 import { styled, useTheme } from "@mui/material/styles";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { Button, CardActions, Grid, Slide } from "@mui/material";
 import AddCircleOutlineTwoToneIcon from "@mui/icons-material/AddCircleOutlineTwoTone";
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
+import Grid from "@mui/material/Grid";
+import Slide from "@mui/material/Slide";
 
 import { Project } from "../../content/projects/interfaces";
 import ProjectCardMedia from "./ProjectCardMedia";
