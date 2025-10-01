@@ -4,7 +4,6 @@ import { Mode } from "@mui/system/cssVars/useCurrentColorScheme";
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone";
 import LightModeTwoToneIcon from "@mui/icons-material/LightModeTwoTone";
-import SettingsSystemDaydreamTwoToneIcon from "@mui/icons-material/SettingsSystemDaydreamTwoTone";
 
 interface ToggleThemeButtonsProps {
   mode: "light" | "dark" | "system" | undefined;
@@ -27,9 +26,6 @@ const ToggleThemeButtons = ({ mode, setMode }: ToggleThemeButtonsProps) => {
       onChange={handleToggleTheme}
       aria-label="theme mode toggle"
     >
-      <ToggleButton value="system" aria-label="light mode">
-        <SettingsSystemDaydreamTwoToneIcon />
-      </ToggleButton>
       <ToggleButton value="light" aria-label="light mode">
         <LightModeTwoToneIcon />
       </ToggleButton>

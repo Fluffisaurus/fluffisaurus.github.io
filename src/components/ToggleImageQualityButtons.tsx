@@ -1,9 +1,8 @@
 import * as React from "react";
 
 import { ToggleButton, ToggleButtonGroup } from "@mui/material";
-import SdTwoToneIcon from "@mui/icons-material/SdTwoTone";
-import HdTwoToneIcon from "@mui/icons-material/HdTwoTone";
-import FourKTwoToneIcon from "@mui/icons-material/FourKTwoTone";
+import SignalCellular1BarTwoToneIcon from "@mui/icons-material/SignalCellular1BarTwoTone";
+import SignalCellular4BarTwoToneIcon from "@mui/icons-material/SignalCellular4BarTwoTone";
 import { toast } from "react-toastify";
 import { ImageQuality, ImageQualityProps } from "./styled/constants";
 
@@ -18,7 +17,11 @@ function ToggleImageQualityButtons({
     if (setImgQuality) {
       if (newImgQuality) {
         setImgQuality(newImgQuality);
-        toast.success(`Image quality: ${newImgQuality}`);
+        toast.success(
+          `Image quality: ${newImgQuality} ${
+            newImgQuality == "low" ? "(data saver)" : ""
+          }`
+        );
       } else {
         setImgQuality("best");
         toast.success(`Image quality: default (best)`);
@@ -38,13 +41,10 @@ function ToggleImageQualityButtons({
         aria-label="image quality toggle"
       >
         <ToggleButton value="low" aria-label="low image quality">
-          <SdTwoToneIcon />
-        </ToggleButton>
-        <ToggleButton value="good" aria-label="good image quality">
-          <HdTwoToneIcon />
+          <SignalCellular1BarTwoToneIcon />
         </ToggleButton>
         <ToggleButton value="best" aria-label="best image quality">
-          <FourKTwoToneIcon />
+          <SignalCellular4BarTwoToneIcon />
         </ToggleButton>
       </ToggleButtonGroup>
     </>
