@@ -59,6 +59,38 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
   ],
 }));
 
+const ProjectCardLinks = (proj: Project) => {
+  const hostLink = proj.link.host != "";
+  const repoLink = proj.link.repo != "";
+  return (
+    <>
+      {(hostLink || repoLink) && (
+        <Grid
+          container
+          display={"flex"}
+          flexDirection={"row"}
+          spacing={1}
+          sx={{ paddingTop: "8px", alignItems: "center" }}
+        >
+          <Typography variant="subtitle2" sx={{ color: "text.secondary" }}>
+            Links:
+          </Typography>
+          {hostLink && (
+            <Button href={proj.link.repo} target="_blank">
+              Github Repo
+            </Button>
+          )}
+          {repoLink && (
+            <Button href={proj.link.host} target="_blank">
+              Try it here
+            </Button>
+          )}
+        </Grid>
+      )}
+    </>
+  );
+};
+
 const ProjectCardTitle = (proj: Project) => {
   return (
     <>
@@ -189,6 +221,9 @@ const ProjectCard = ({
                 {proj.date}
               </Typography>
               <Typography variant="body1">{proj.detail.short}</Typography>
+            </div>
+            <div style={{ alignSelf: "flex-end" }}>
+              <ProjectCardLinks {...proj} />
             </div>
           </Grid>
           <Button
