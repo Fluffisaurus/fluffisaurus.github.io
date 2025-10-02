@@ -2,7 +2,6 @@ import React, { useRef, useState } from "react";
 
 import { Outlet } from "react-router-dom";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
 
 import ProjectCard from "./ProjectCard";
 import {
@@ -11,7 +10,6 @@ import {
 } from "../../content/projects/project-list";
 import SlideWrapper from "../styled/SlideWrapper";
 import { ANI_CONST, ImageQualityProps } from "../styled/constants";
-import FadeWrapper from "../styled/FadeWrapper";
 import { isSmallScreen } from "../../utils/breakpoints";
 
 interface ProjectVariantsProps extends ImageQualityProps {
@@ -25,15 +23,15 @@ const ProjectVariants = ({ variant, imgQuality }: ProjectVariantsProps) => {
   return (
     <>
       <div ref={containerRef}>
-        <FadeWrapper delay={ANI_CONST.PROJ_SUBHEADING_DELAY}>
-          <Typography variant="h4">{variant} projects</Typography>
-        </FadeWrapper>
         <Grid container spacing={2} alignItems="flex-start">
           {ProjectList[variant].map((proj, i) => {
             return (
               <SlideWrapper
                 slideFromRef={containerRef}
-                delay={i * ANI_CONST.PROJ_CARDS_DELAY}
+                delay={
+                  ANI_CONST.PROJ_SUBHEADING_TYPING_DELAY +
+                  i * ANI_CONST.PROJ_CARDS_DELAY
+                }
                 direction={animationBreakpoint ? "up" : "left"}
               >
                 <ProjectCard
