@@ -8,16 +8,16 @@ const spochiV0: Project = {
   tags: ["D3", "React", "Python", "Flask", "JS"],
   category: "Interactive Data Visualization Tool",
   link: {
-    repo: "", // repo FBDV
-    host: "",
+    repo: "", // repo bball-data-viz
+    host: "https://fluffisaurus.github.io/bball-data-viz/",
   },
   detail: {
     keypoints: [
-      "Interactive proof of concept data visualization built from D3.",
-      "Supports brushed selections, data subsetting, data zooming, tool tips, and switching categories.",
+      "Proof of concept app built from React and D3 for interactive data visualization.",
+      "Supports brushed selections, data subsetting, data zooming, tool tips, switching dimensions, and history undo/redo.",
+      "Note: this legacy app only works on PC desktops, no support for mobile, and no responsive layouts.",
     ],
-    short:
-      "[In Progress] Full-stack data visualization tool. Analyze NBA player's stats through interactive visualizations. ",
+    short: "",
     long: [],
   },
   images: [

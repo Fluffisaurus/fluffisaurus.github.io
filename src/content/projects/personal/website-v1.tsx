@@ -8,7 +8,7 @@ const websiteV1: Project = {
   category: "Single-Page Application Portfolio",
   link: {
     repo: "",
-    host: "",
+    host: "https://fluffisaurus.github.io/portfolio-v1/",
   },
   detail: {
     keypoints: [
