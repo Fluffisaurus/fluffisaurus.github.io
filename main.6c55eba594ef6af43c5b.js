@@ -2833,11 +2833,11 @@ var motion_art_1 = __importDefault(__webpack_require__(8285));
 var kingdom_of_helios_1 = __importDefault(__webpack_require__(90425));
 var antlion_tower_defense_1 = __importDefault(__webpack_require__(7293));
 var AcademicProjects = [
-    bobbys_breakout_1.default,
     player_performance_projection_1.default,
-    motion_art_1.default,
+    bobbys_breakout_1.default,
     kingdom_of_helios_1.default,
     antlion_tower_defense_1.default,
+    motion_art_1.default,
 ];
 var ProjectCategories;
 (function (ProjectCategories) {
