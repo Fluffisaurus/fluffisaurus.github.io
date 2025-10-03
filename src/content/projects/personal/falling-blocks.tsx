@@ -9,7 +9,7 @@ const fallingBlocks: Project = {
   category: "Endless Mini Game",
   link: {
     repo: "https://github.com/Fluffisaurus/Falling-Blocks",
-    host: "bit.ly/fall-blocks",
+    host: "https://fluffisaurus.github.io/Falling-Blocks/",
     hostCTA: "Play it here",
   },
   detail: {

@@ -8,7 +8,7 @@ const ggj2020: Project = {
   category: "2D Strategy Game",
   link: {
     repo: "https://github.com/Fluffisaurus/GGJ-2020",
-    host: "http://bit.ly/RatThief",
+    host: "https://fluffisaurus.github.io/GGJ-2020/",
     hostCTA: "Play it here",
   },
   detail: {

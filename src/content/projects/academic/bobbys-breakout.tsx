@@ -17,7 +17,7 @@ const bobbysBreakout: Project = {
   category: "Top Down 2D Pokemon-style RPG",
   link: {
     repo: "https://github.com/abhatthal/Bobby-Breakout",
-    host: "bit.ly/bobby-breakout",
+    host: "",
     hostCTA: "Play it here",
   },
   detail: {
