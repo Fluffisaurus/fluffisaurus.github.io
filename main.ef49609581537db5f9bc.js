@@ -1494,7 +1494,7 @@ var playerPerformanceProjection = {
     category: "Statistical Analysis",
     link: {
         repo: "https://github.com/Fluffisaurus/player-performance-projection",
-        host: "bit.ly/ppp-report",
+        host: "https://github.com/Fluffisaurus/player-performance-projection/blob/master/report.md",
         hostCTA: "See results here",
     },
     detail: {
@@ -1571,7 +1571,7 @@ var fallingBlocks = {
     category: "Endless Mini Game",
     link: {
         repo: "https://github.com/Fluffisaurus/Falling-Blocks",
-        host: "bit.ly/fall-blocks",
+        host: "https://fluffisaurus.github.io/Falling-Blocks/",
         hostCTA: "Play it here",
     },
     detail: {
@@ -1774,7 +1774,7 @@ var bobbysBreakout = {
     category: "Top Down 2D Pokemon-style RPG",
     link: {
         repo: "https://github.com/abhatthal/Bobby-Breakout",
-        host: "bit.ly/bobby-breakout",
+        host: "",
         hostCTA: "Play it here",
     },
     detail: {
@@ -3267,7 +3267,7 @@ var ggj2020 = {
     category: "2D Strategy Game",
     link: {
         repo: "https://github.com/Fluffisaurus/GGJ-2020",
-        host: "http://bit.ly/RatThief",
+        host: "https://fluffisaurus.github.io/GGJ-2020/",
         hostCTA: "Play it here",
     },
     detail: {
@@ -3361,7 +3361,7 @@ var kingdomOfHelios = {
     category: "2D Side-Scrolling Platformer Game",
     link: {
         repo: "https://github.com/Fluffisaurus/kingdom-of-helios",
-        host: "bit.ly/KoHelios",
+        host: "https://fluffisaurus.github.io/kingdom-of-helios/",
         hostCTA: "Play it here",
     },
     detail: {
