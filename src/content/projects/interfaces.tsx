@@ -1,6 +1,7 @@
 export interface ProjectLink {
   repo: string;
   host: string;
+  hostCTA?: string;
 }
 
 export interface ProjectDetail {

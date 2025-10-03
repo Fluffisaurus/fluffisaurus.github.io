@@ -9,6 +9,7 @@ const ggj2020: Project = {
   link: {
     repo: "https://github.com/Fluffisaurus/GGJ-2020",
     host: "http://bit.ly/RatThief",
+    hostCTA: "Play it here",
   },
   detail: {
     keypoints: [

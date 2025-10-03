@@ -83,7 +83,7 @@ const ProjectCardLinks = (proj: Project) => {
           )}
           {hostLink && (
             <Button href={proj.link.host} target="_blank">
-              Try it here
+              {proj.link.hostCTA}
             </Button>
           )}
         </Grid>

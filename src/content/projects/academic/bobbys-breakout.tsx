@@ -18,6 +18,7 @@ const bobbysBreakout: Project = {
   link: {
     repo: "https://github.com/abhatthal/Bobby-Breakout",
     host: "bit.ly/bobby-breakout",
+    hostCTA: "Play it here",
   },
   detail: {
     keypoints: [

@@ -9,6 +9,7 @@ const playerPerformanceProjection: Project = {
   link: {
     repo: "https://github.com/Fluffisaurus/player-performance-projection",
     host: "bit.ly/ppp-report",
+    hostCTA: "See results here",
   },
   detail: {
     keypoints: [

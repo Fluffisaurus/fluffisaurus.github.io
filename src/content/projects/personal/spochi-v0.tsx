@@ -10,6 +10,7 @@ const spochiV0: Project = {
   link: {
     repo: "", // repo bball-data-viz
     host: "https://fluffisaurus.github.io/bball-data-viz/",
+    hostCTA: "Try it here",
   },
   detail: {
     keypoints: [

@@ -10,6 +10,7 @@ const fallingBlocks: Project = {
   link: {
     repo: "https://github.com/Fluffisaurus/Falling-Blocks",
     host: "bit.ly/fall-blocks",
+    hostCTA: "Play it here",
   },
   detail: {
     keypoints: [

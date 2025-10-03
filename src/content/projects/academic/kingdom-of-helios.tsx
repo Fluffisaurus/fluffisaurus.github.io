@@ -9,6 +9,7 @@ const kingdomOfHelios: Project = {
   link: {
     repo: "https://github.com/Fluffisaurus/kingdom-of-helios",
     host: "bit.ly/KoHelios",
+    hostCTA: "Play it here",
   },
   detail: {
     keypoints: [

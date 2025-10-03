@@ -9,6 +9,7 @@ const websiteV1: Project = {
   link: {
     repo: "",
     host: "https://fluffisaurus.github.io/portfolio-v1/",
+    hostCTA: "See it here",
   },
   detail: {
     keypoints: [
