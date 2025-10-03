@@ -21,11 +21,11 @@ import kingdomOfHelios from "./academic/kingdom-of-helios";
 import antlionTowerDefense from "./academic/antlion-tower-defense";
 
 const AcademicProjects: Project[] = [
-  bobbysBreakout,
   playerPerformanceProjection,
-  motionArt,
+  bobbysBreakout,
   kingdomOfHelios,
   antlionTowerDefense,
+  motionArt,
 ];
 
 type ProjectGroupArray = Project[];
