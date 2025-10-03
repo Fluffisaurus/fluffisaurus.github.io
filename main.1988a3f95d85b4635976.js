@@ -1363,8 +1363,8 @@ var ProjectCardLinks = function (proj) {
     var repoLink = proj.link.repo != "";
     return (react_1.default.createElement(react_1.default.Fragment, null, (hostLink || repoLink) && (react_1.default.createElement(Grid_1.default, { container: true, display: "flex", flexDirection: "row", spacing: 1, sx: { paddingTop: "8px", alignItems: "center" } },
         react_1.default.createElement(Typography_1.default, { variant: "subtitle2", sx: { color: "text.secondary" } }, "Links:"),
-        hostLink && (react_1.default.createElement(Button_1.default, { href: proj.link.repo, target: "_blank" }, "Github Repo")),
-        repoLink && (react_1.default.createElement(Button_1.default, { href: proj.link.host, target: "_blank" }, "Try it here"))))));
+        repoLink && (react_1.default.createElement(Button_1.default, { href: proj.link.repo, target: "_blank" }, "Github Repo")),
+        hostLink && (react_1.default.createElement(Button_1.default, { href: proj.link.host, target: "_blank" }, "Try it here"))))));
 };
 var ProjectCardTitle = function (proj) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
