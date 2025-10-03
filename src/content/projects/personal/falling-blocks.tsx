@@ -12,6 +12,11 @@ const fallingBlocks: Project = {
     host: "bit.ly/fall-blocks",
   },
   detail: {
+    keypoints: [
+      "First ever hosted mini-game from my initial foray into game dev.",
+      "Small endless mini game to learn Unity basics.",
+      "Progressive difficulty and simple mechanics.",
+    ],
     short:
       "Endless 2D game - evade the blocks! Was completed to practice Unity basics after a long hiatus from the game engine.",
     long: [],

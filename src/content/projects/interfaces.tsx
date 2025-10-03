@@ -4,6 +4,7 @@ export interface ProjectLink {
 }
 
 export interface ProjectDetail {
+  keypoints: string[];
   short: string; // sentence or two summary
   long: string[]; // extended detail
 }

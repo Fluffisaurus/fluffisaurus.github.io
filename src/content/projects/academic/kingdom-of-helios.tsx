@@ -11,6 +11,11 @@ const kingdomOfHelios: Project = {
     host: "bit.ly/KoHelios",
   },
   detail: {
+    keypoints: [
+      "2D platformer that draws inspiration from MapleStory.",
+      "Tag-team mechanic where player can swap characters to utilize different skillsets to conquer different enemies and terrain challenges.",
+      "Implemented all game logic and RPG game mechanics.",
+    ],
     short:
       "2D side-scrolling platformer RPG - play as two protagonists with distinct skill sets to progress through the game.",
     long: [],

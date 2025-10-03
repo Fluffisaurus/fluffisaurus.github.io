@@ -4,14 +4,18 @@ const spochiV0: Project = {
   // nba-data-viz
   abbr: "nba-data-viz",
   name: "NBA Data Visualization",
-  date: "Aug 2019 - Present",
+  date: "Aug 2019 - Oct 2019",
   tags: ["D3", "React", "Python", "Flask", "JS"],
   category: "Web App / Tool",
   link: {
-    repo: "",
+    repo: "", // repo FBDV
     host: "",
   },
   detail: {
+    keypoints: [
+      "Interactive proof of concept data visualization built from D3.",
+      "Supports brushed selections, data subsetting, data zooming, tool tips, and switching categories.",
+    ],
     short:
       "[In Progress] Full-stack data visualization tool. Analyze NBA player's stats through interactive visualizations. ",
     long: [],

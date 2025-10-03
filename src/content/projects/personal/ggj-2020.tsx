@@ -1,8 +1,8 @@
 import { Project } from "../interfaces";
 
 const ggj2020: Project = {
-  abbr: "i-was-never-here",
-  name: "GGJ: I Was Never Here",
+  abbr: "global-game-jam-2020",
+  name: "Global Game Jam 2020",
   date: "Jan 2020 - Feb 2020",
   tags: ["GGJ-2020", "Unity", "C#", "Strategy", "Game"],
   category: "2D Strategy Game",
@@ -11,6 +11,10 @@ const ggj2020: Project = {
     host: "http://bit.ly/RatThief",
   },
   detail: {
+    keypoints: [
+      "Grid-based thinking game based on the GGJ 2020 theme of 'Repair'.",
+      "Emergent gameplay where players discover mechanics during their playthrough.",
+    ],
     short:
       "Our team's take on the Global Game Jam 2020 theme: Repair. A strategy game with unique and emergent mechanics.",
     long: [],

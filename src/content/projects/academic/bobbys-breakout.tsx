@@ -20,6 +20,12 @@ const bobbysBreakout: Project = {
     host: "bit.ly/bobby-breakout",
   },
   detail: {
+    keypoints: [
+      "Designed and implemented 2D physics engine from native javascript (bounding boxes, movement vectors, collision detections, etc.) without external libraries.",
+      "Pokemon-styled turn-based combat.",
+      "2D map with unidirectional movement.",
+      "Other notable features: global achievements, item acquisition, item buffs, and inventory management.",
+    ],
     short:
       "Full stack browser RPG - play as SFU's Dr. Bobby Chan in a top-down game with the Pokemon-style combat system.",
     long: [],

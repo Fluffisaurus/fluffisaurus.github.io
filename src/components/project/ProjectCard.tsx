@@ -18,6 +18,7 @@ import ProjectCardMedia from "./ProjectCardMedia";
 import { ANI_CONST, ImageQualityProps } from "../styled/constants";
 import { Link, useLocation } from "react-router-dom";
 import resolveDimensionValue from "../../utils/breakpoints";
+import ScrollableContainer from "../styled/ScrollableContainer";
 
 interface ProjectCardProps extends ImageQualityProps {
   proj: Project;
@@ -216,15 +217,19 @@ const ProjectCard = ({
             <div>
               <ProjectCardTitle {...proj} />
             </div>
-            <div>
+            <ScrollableContainer>
               <Typography variant="body2" sx={{ marginBottom: "5px" }}>
                 {proj.date}
               </Typography>
-              <Typography variant="body1">{proj.detail.short}</Typography>
-            </div>
-            <div style={{ alignSelf: "flex-end" }}>
+              {proj.detail.keypoints.map((keypoint, i) => {
+                return (
+                  <Typography variant="body1" key={`${proj.abbr}-${i}`}>
+                    - {keypoint}
+                  </Typography>
+                );
+              })}
               <ProjectCardLinks {...proj} />
-            </div>
+            </ScrollableContainer>
           </Grid>
           <Button
             variant="cardDetails"

@@ -11,6 +11,11 @@ const playerPerformanceProjection: Project = {
     host: "bit.ly/ppp-report",
   },
   detail: {
+    keypoints: [
+      "Statistical analysis of Steph Curry's box score performance relative to opponent's team defensive quality.",
+      "Full ETL pipeline to process 10 years of playing data.",
+      "Machine learning with regression for fitting and ANOVA to identify important performance signals.",
+    ],
     short:
       "ML algo to analyze Steph Curry's performance stats. Utilizes ETL for data collection and parsing, GradientBoostingRegressor, and ANOVA.",
     long: [],

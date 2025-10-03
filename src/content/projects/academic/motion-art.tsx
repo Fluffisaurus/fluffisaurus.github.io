@@ -11,6 +11,11 @@ const motionArt: Project = {
     host: "",
   },
   detail: {
+    keypoints: [
+      "MVP of a map-based drawing app that utilizes user location and draws based on movement",
+      "Built on Android Studio practicing industry standards and proper user interface.",
+      "Doubles as a simple drawing app when not in map mode.",
+    ],
     short:
       "Experimental Android drawing application that maps device movement as drawing strokes on a canvas.",
     long: [],

@@ -19,6 +19,12 @@ const antlionTowerDefense: Project = {
     host: "",
   },
   detail: {
+    keypoints: [
+      "Implemented all game mechanics (i.e. tower placement, enemy pathing, attacking abilities, hit radius, etc.).",
+      "Enemy pathing with A* pathfinding and is generated at run-time based on the user's defensive tower deployment.",
+      "Open canvas design where players can freely decide their tower placement and create their own pathing.",
+      "Integrity checks to prevent the player from fully blocking off a path to the exit.",
+    ],
     short:
       "Build an army to fend off invaders with 5 different defensive towers. Block off paths and decide how you want to redirect the invading antlions.",
     long: [],
