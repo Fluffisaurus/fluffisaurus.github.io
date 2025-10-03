@@ -1364,7 +1364,7 @@ var ProjectCardLinks = function (proj) {
     return (react_1.default.createElement(react_1.default.Fragment, null, (hostLink || repoLink) && (react_1.default.createElement(Grid_1.default, { container: true, display: "flex", flexDirection: "row", spacing: 1, sx: { paddingTop: "8px", alignItems: "center" } },
         react_1.default.createElement(Typography_1.default, { variant: "subtitle2", sx: { color: "text.secondary" } }, "Links:"),
         repoLink && (react_1.default.createElement(Button_1.default, { href: proj.link.repo, target: "_blank" }, "Github Repo")),
-        hostLink && (react_1.default.createElement(Button_1.default, { href: proj.link.host, target: "_blank" }, "Try it here"))))));
+        hostLink && (react_1.default.createElement(Button_1.default, { href: proj.link.host, target: "_blank" }, proj.link.hostCTA))))));
 };
 var ProjectCardTitle = function (proj) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
@@ -1495,6 +1495,7 @@ var playerPerformanceProjection = {
     link: {
         repo: "https://github.com/Fluffisaurus/player-performance-projection",
         host: "bit.ly/ppp-report",
+        hostCTA: "See results here",
     },
     detail: {
         keypoints: [
@@ -1571,6 +1572,7 @@ var fallingBlocks = {
     link: {
         repo: "https://github.com/Fluffisaurus/Falling-Blocks",
         host: "bit.ly/fall-blocks",
+        hostCTA: "Play it here",
     },
     detail: {
         keypoints: [
@@ -1687,6 +1689,7 @@ var spochiV0 = {
     link: {
         repo: "", // repo bball-data-viz
         host: "https://fluffisaurus.github.io/bball-data-viz/",
+        hostCTA: "Try it here",
     },
     detail: {
         keypoints: [
@@ -1772,6 +1775,7 @@ var bobbysBreakout = {
     link: {
         repo: "https://github.com/abhatthal/Bobby-Breakout",
         host: "bit.ly/bobby-breakout",
+        hostCTA: "Play it here",
     },
     detail: {
         keypoints: [
@@ -2259,6 +2263,7 @@ var websiteV1 = {
     link: {
         repo: "",
         host: "https://fluffisaurus.github.io/portfolio-v1/",
+        hostCTA: "See it here",
     },
     detail: {
         keypoints: [
@@ -3263,6 +3268,7 @@ var ggj2020 = {
     link: {
         repo: "https://github.com/Fluffisaurus/GGJ-2020",
         host: "http://bit.ly/RatThief",
+        hostCTA: "Play it here",
     },
     detail: {
         keypoints: [
@@ -3356,6 +3362,7 @@ var kingdomOfHelios = {
     link: {
         repo: "https://github.com/Fluffisaurus/kingdom-of-helios",
         host: "bit.ly/KoHelios",
+        hostCTA: "Play it here",
     },
     detail: {
         keypoints: [
