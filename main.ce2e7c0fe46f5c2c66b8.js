@@ -465,7 +465,7 @@ var antlionTowerDefense = {
         "Game Design",
         "Game",
     ],
-    category: "Tower Defense Game",
+    category: "2D Tower Defense Game",
     link: {
         repo: "https://github.com/Fluffisaurus/ATD",
         host: "",
@@ -750,7 +750,7 @@ var motionArt = {
     name: "Motion Art",
     date: "Sep 2018 - Dec 2018",
     tags: ["Java", "Android Studio", "Sensors", "Activity Lifecycle"],
-    category: "Android App",
+    category: "Location & Map-based Drawing App",
     link: {
         repo: "",
         host: "",
@@ -955,7 +955,7 @@ var foodpick = {
     name: "FoodPick",
     date: "Jun 2018 - Mar 2019",
     tags: ["React", "Redux", "JS", "NodeJS", "CSS"],
-    category: "Web and Mobile App",
+    category: "Google Places Foodpicking Randomizer",
     link: {
         repo: "https://github.com/kca99/foodpick-native",
         host: "",
@@ -1567,7 +1567,7 @@ var fallingBlocks = {
     name: "Falling Blocks",
     date: "Apr 2018 - May 2018",
     tags: ["C#", "Unity", "Game Dev", "Game"],
-    category: "Endless Game",
+    category: "Endless Mini Game",
     link: {
         repo: "https://github.com/Fluffisaurus/Falling-Blocks",
         host: "bit.ly/fall-blocks",
@@ -1683,7 +1683,7 @@ var spochiV0 = {
     name: "NBA Data Visualization",
     date: "Aug 2019 - Oct 2019",
     tags: ["D3", "React", "Python", "Flask", "JS"],
-    category: "Web App / Tool",
+    category: "Interactive Data Visualization Tool",
     link: {
         repo: "", // repo FBDV
         host: "",
@@ -1767,7 +1767,7 @@ var bobbysBreakout = {
         "Sys Design",
         "Game",
     ],
-    category: "Top Down RPG",
+    category: "Top Down 2D Pokemon-style RPG",
     link: {
         repo: "https://github.com/abhatthal/Bobby-Breakout",
         host: "bit.ly/bobby-breakout",
@@ -2254,7 +2254,7 @@ var websiteV1 = {
     name: "Personal Website",
     date: "Mar 2019 - Feb 2020",
     tags: ["React", "JS", "CSS"],
-    category: "Single-Page Web Application",
+    category: "Single-Page Application Portfolio",
     link: {
         repo: "",
         host: "",
