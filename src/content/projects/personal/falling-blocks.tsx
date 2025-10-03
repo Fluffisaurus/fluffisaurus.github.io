@@ -6,7 +6,7 @@ const fallingBlocks: Project = {
   name: "Falling Blocks",
   date: "Apr 2018 - May 2018",
   tags: ["C#", "Unity", "Game Dev", "Game"],
-  category: "Endless Game",
+  category: "Endless Mini Game",
   link: {
     repo: "https://github.com/Fluffisaurus/Falling-Blocks",
     host: "bit.ly/fall-blocks",

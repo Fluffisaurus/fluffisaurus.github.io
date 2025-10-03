@@ -5,7 +5,7 @@ const motionArt: Project = {
   name: "Motion Art",
   date: "Sep 2018 - Dec 2018",
   tags: ["Java", "Android Studio", "Sensors", "Activity Lifecycle"],
-  category: "Android App",
+  category: "Location & Map-based Drawing App",
   link: {
     repo: "",
     host: "",

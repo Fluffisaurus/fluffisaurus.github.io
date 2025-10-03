@@ -5,7 +5,7 @@ const websiteV1: Project = {
   name: "Personal Website",
   date: "Mar 2019 - Feb 2020",
   tags: ["React", "JS", "CSS"],
-  category: "Single-Page Web Application",
+  category: "Single-Page Application Portfolio",
   link: {
     repo: "",
     host: "",

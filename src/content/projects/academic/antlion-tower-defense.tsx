@@ -13,7 +13,7 @@ const antlionTowerDefense: Project = {
     "Game Design",
     "Game",
   ],
-  category: "Tower Defense Game",
+  category: "2D Tower Defense Game",
   link: {
     repo: "https://github.com/Fluffisaurus/ATD",
     host: "",

@@ -6,7 +6,7 @@ const foodpick: Project = {
   name: "FoodPick",
   date: "Jun 2018 - Mar 2019",
   tags: ["React", "Redux", "JS", "NodeJS", "CSS"],
-  category: "Web and Mobile App",
+  category: "Google Places Foodpicking Randomizer",
   link: {
     repo: "https://github.com/kca99/foodpick-native",
     host: "",

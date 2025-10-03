@@ -6,7 +6,7 @@ const spochiV0: Project = {
   name: "NBA Data Visualization",
   date: "Aug 2019 - Oct 2019",
   tags: ["D3", "React", "Python", "Flask", "JS"],
-  category: "Web App / Tool",
+  category: "Interactive Data Visualization Tool",
   link: {
     repo: "", // repo FBDV
     host: "",
