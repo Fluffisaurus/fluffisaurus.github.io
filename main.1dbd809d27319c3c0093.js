@@ -52,16 +52,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.isSmallScreen = isSmallScreen;
-var material_1 = __webpack_require__(8157);
 var theme_1 = __importDefault(__webpack_require__(17425));
+var useMediaQuery_1 = __importDefault(__webpack_require__(10725));
 var constants_1 = __webpack_require__(70908);
 var getBreakpoints = function () {
     var bp = {
-        mobile: (0, material_1.useMediaQuery)(theme_1.default.breakpoints.down("mobile")),
-        tablet: (0, material_1.useMediaQuery)(theme_1.default.breakpoints.between("mobile", "tablet")),
-        laptop: (0, material_1.useMediaQuery)(theme_1.default.breakpoints.between("tablet", "laptop")),
-        desktop: (0, material_1.useMediaQuery)(theme_1.default.breakpoints.between("desktop", "bigboi")),
-        bigboi: (0, material_1.useMediaQuery)(theme_1.default.breakpoints.up("bigboi")),
+        mobile: (0, useMediaQuery_1.default)(theme_1.default.breakpoints.down("mobile")),
+        tablet: (0, useMediaQuery_1.default)(theme_1.default.breakpoints.between("mobile", "tablet")),
+        laptop: (0, useMediaQuery_1.default)(theme_1.default.breakpoints.between("tablet", "laptop")),
+        desktop: (0, useMediaQuery_1.default)(theme_1.default.breakpoints.between("desktop", "bigboi")),
+        bigboi: (0, useMediaQuery_1.default)(theme_1.default.breakpoints.up("bigboi")),
     };
     return bp;
 };
@@ -179,7 +179,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(96540));
 var react_router_dom_1 = __webpack_require__(28651);
-var material_1 = __webpack_require__(8157);
+var Box_1 = __importDefault(__webpack_require__(20079));
+var Button_1 = __importDefault(__webpack_require__(31650));
+var Slide_1 = __importDefault(__webpack_require__(86919));
+var material_1 = __webpack_require__(8157); // eslint-disable-line no-restricted-imports
+var SwipeableDrawer_1 = __importDefault(__webpack_require__(58241));
 var hooks_1 = __webpack_require__(81214);
 var MenuTwoTone_1 = __importDefault(__webpack_require__(78626));
 var MenuOpenTwoTone_1 = __importDefault(__webpack_require__(53342));
@@ -306,20 +310,20 @@ var GlobalNav = function () {
         }
     }, [hoverPath]);
     return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement(material_1.Slide, { in: showContent, timeout: constants_1.ANI_CONST.GLOBAL_NAV_DELAY },
+        react_1.default.createElement(Slide_1.default, { in: showContent, timeout: constants_1.ANI_CONST.GLOBAL_NAV_DELAY },
             react_1.default.createElement(StyledBox, { className: "Global-nav", sx: { zIndex: constants_1.ANI_CONST.ZINDEX.GLOBAL_NAV } },
-                react_1.default.createElement(material_1.Box, { className: "Global-nav__root" },
-                    react_1.default.createElement(material_1.Button, __assign({ onClick: toggleDrawer }, muiButton_1.globalNavButtonProps, { onMouseEnter: function () { return setHoverPath("menu"); }, "aria-label": "Global navigation button to expand drawer navigation." }), openDrawer ? react_1.default.createElement(MenuOpenTwoTone_1.default, null) : react_1.default.createElement(MenuTwoTone_1.default, null)),
-                    react_1.default.createElement(material_1.Button, __assign({ ref: homeIconButtonRef, component: react_router_dom_1.Link, to: "/" }, muiButton_1.globalNavButtonProps, { sx: __assign({}, muiButton_1.globalNavButtonProps.sx), onMouseEnter: function () { return setHoverPath("~"); }, "aria-label": "Global navigation button to return to home." }), "\uD83C\uDFE0"),
-                    react_1.default.createElement(material_1.Button, __assign({ className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { color: theme_1.default.vars.palette.primary.dark, padding: 0 }), "aria-label": "Styling emulating a terminal's file structure." }), ":/"),
-                    react_1.default.createElement(material_1.Button, __assign({ component: react_router_dom_1.Link, to: currPath }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { padding: 0 }), onMouseEnter: function () { return setHoverPath("/" + currPath); }, "aria-label": "Breadcrumb navigation path." }), currPath == "" ? "" : currPath + "/"),
-                    subPath && (react_1.default.createElement(material_1.Button, __assign({ component: react_router_dom_1.Link, to: currPath + "/" + subPath }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { padding: 0 }), onMouseEnter: function () {
+                react_1.default.createElement(Box_1.default, { className: "Global-nav__root" },
+                    react_1.default.createElement(Button_1.default, __assign({ onClick: toggleDrawer }, muiButton_1.globalNavButtonProps, { onMouseEnter: function () { return setHoverPath("menu"); }, "aria-label": "Global navigation button to expand drawer navigation." }), openDrawer ? react_1.default.createElement(MenuOpenTwoTone_1.default, null) : react_1.default.createElement(MenuTwoTone_1.default, null)),
+                    react_1.default.createElement(Button_1.default, __assign({ ref: homeIconButtonRef, component: react_router_dom_1.Link, to: "/" }, muiButton_1.globalNavButtonProps, { sx: __assign({}, muiButton_1.globalNavButtonProps.sx), onMouseEnter: function () { return setHoverPath("~"); }, "aria-label": "Global navigation button to return to home." }), "\uD83C\uDFE0"),
+                    react_1.default.createElement(Button_1.default, __assign({ className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { color: theme_1.default.vars.palette.primary.dark, padding: 0 }), "aria-label": "Styling emulating a terminal's file structure." }), ":/"),
+                    react_1.default.createElement(Button_1.default, __assign({ component: react_router_dom_1.Link, to: currPath }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { padding: 0 }), onMouseEnter: function () { return setHoverPath("/" + currPath); }, "aria-label": "Breadcrumb navigation path." }), currPath == "" ? "" : currPath + "/"),
+                    subPath && (react_1.default.createElement(Button_1.default, __assign({ component: react_router_dom_1.Link, to: currPath + "/" + subPath }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { padding: 0 }), onMouseEnter: function () {
                             return setHoverPath("/" + currPath + "/" + subPath);
                         }, "aria-label": "Breadcrumb navigation subpath." }), subPath + "/")),
-                    react_1.default.createElement(material_1.Button, __assign({ className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { color: theme_1.default.vars.palette.primary.dark, padding: 0 }), "aria-label": "Styling emulating a terminal's command line blinking cursor for text input." }), "~$"),
-                    !smallScreen && (react_1.default.createElement(material_1.Button, __assign({ className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { color: theme_1.default.vars.palette.primary.light, justifyContent: "flex-start", padding: "0 5px 0 25px" }), "aria-label": "Styling emulating a terminal's command line input. Types out paths and sub paths on user focus." }),
+                    react_1.default.createElement(Button_1.default, __assign({ className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { color: theme_1.default.vars.palette.primary.dark, padding: 0 }), "aria-label": "Styling emulating a terminal's command line blinking cursor for text input." }), "~$"),
+                    !smallScreen && (react_1.default.createElement(Button_1.default, __assign({ className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { color: theme_1.default.vars.palette.primary.light, justifyContent: "flex-start", padding: "0 5px 0 25px" }), "aria-label": "Styling emulating a terminal's command line input. Types out paths and sub paths on user focus." }),
                         react_1.default.createElement(react_type_animation_1.TypeAnimation, { key: hoverText, sequence: [hoverText, 500], speed: hoverText.length > 8 ? 50 : 1 })))))),
-        react_1.default.createElement(material_1.SwipeableDrawer, { anchor: "top", open: openDrawer, onClose: toggleDrawer, onOpen: toggleDrawer, disableSwipeToOpen: false, keepMounted: true },
+        react_1.default.createElement(SwipeableDrawer_1.default, { anchor: "top", open: openDrawer, onClose: toggleDrawer, onOpen: toggleDrawer, disableSwipeToOpen: false, keepMounted: true },
             react_1.default.createElement(StyledBox, { sx: { position: "relative" } },
                 react_1.default.createElement(StyledBox, { sx: {
                         px: 2,
@@ -330,22 +334,22 @@ var GlobalNav = function () {
                         width: "fit-content",
                         marginLeft: homeIconButtonDims.width + "px",
                     } },
-                    react_1.default.createElement(material_1.Button, __assign({ component: react_router_dom_1.Link, to: "/about" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), onMouseEnter: function () { return setHoverPath("/about"); }, "aria-label": "Global navigation drawer menu link to about page." }),
+                    react_1.default.createElement(Button_1.default, __assign({ component: react_router_dom_1.Link, to: "/about" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), onMouseEnter: function () { return setHoverPath("/about"); }, "aria-label": "Global navigation drawer menu link to about page." }),
                         react_1.default.createElement(SubdirectoryArrowRightTwoTone_1.default, null),
                         "about"),
-                    react_1.default.createElement(material_1.Button, __assign({ ref: drawerProjectButtonRef, className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, (0, hooks_1.bindTrigger)(popupState), { sx: __assign(__assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), { color: theme_1.default.vars.palette.primary.dark }), onMouseEnter: function () { return setHoverPath("/projects"); }, "aria-label": "Global navigation drawer menu heading that emulates a terminal's foldre structure showing that projects is a folder with contents." }),
+                    react_1.default.createElement(Button_1.default, __assign({ ref: drawerProjectButtonRef, className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, (0, hooks_1.bindTrigger)(popupState), { sx: __assign(__assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), { color: theme_1.default.vars.palette.primary.dark }), onMouseEnter: function () { return setHoverPath("/projects"); }, "aria-label": "Global navigation drawer menu heading that emulates a terminal's foldre structure showing that projects is a folder with contents." }),
                         react_1.default.createElement(SubdirectoryArrowRightTwoTone_1.default, null),
                         "projects/"),
-                    react_1.default.createElement(material_1.Button, __assign({ component: react_router_dom_1.Link, to: "/projects" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), { marginLeft: drawerProjectButtonDims.width + "px" }), onMouseEnter: function () { return setHoverPath("/projects"); }, "aria-label": "Global navigation drawer menu link to projects page." }),
+                    react_1.default.createElement(Button_1.default, __assign({ component: react_router_dom_1.Link, to: "/projects" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), { marginLeft: drawerProjectButtonDims.width + "px" }), onMouseEnter: function () { return setHoverPath("/projects"); }, "aria-label": "Global navigation drawer menu link to projects page." }),
                         react_1.default.createElement(SubdirectoryArrowRightTwoTone_1.default, null),
                         "./"),
-                    react_1.default.createElement(material_1.Button, __assign({ component: react_router_dom_1.Link, to: "/projects/personal" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), { marginLeft: drawerProjectButtonDims.width + "px" }), onMouseEnter: function () { return setHoverPath("/projects/personal"); }, "aria-label": "Global navigation drawer menu link to personal projects page." }),
+                    react_1.default.createElement(Button_1.default, __assign({ component: react_router_dom_1.Link, to: "/projects/personal" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), { marginLeft: drawerProjectButtonDims.width + "px" }), onMouseEnter: function () { return setHoverPath("/projects/personal"); }, "aria-label": "Global navigation drawer menu link to personal projects page." }),
                         react_1.default.createElement(SubdirectoryArrowRightTwoTone_1.default, null),
                         "personal"),
-                    react_1.default.createElement(material_1.Button, __assign({ component: react_router_dom_1.Link, to: "/projects/academic" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), { marginLeft: drawerProjectButtonDims.width + "px" }), onMouseEnter: function () { return setHoverPath("/projects/academic"); }, "aria-label": "Global navigation drawer menu link to academic projects page." }),
+                    react_1.default.createElement(Button_1.default, __assign({ component: react_router_dom_1.Link, to: "/projects/academic" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), { marginLeft: drawerProjectButtonDims.width + "px" }), onMouseEnter: function () { return setHoverPath("/projects/academic"); }, "aria-label": "Global navigation drawer menu link to academic projects page." }),
                         react_1.default.createElement(SubdirectoryArrowRightTwoTone_1.default, null),
                         "academic"),
-                    react_1.default.createElement(material_1.Button, __assign({ component: react_router_dom_1.Link, to: "/contact" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), onMouseEnter: function () { return setHoverPath("/contact"); }, "aria-label": "Global navigation drawer menu link to contact page." }),
+                    react_1.default.createElement(Button_1.default, __assign({ component: react_router_dom_1.Link, to: "/contact" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), globalNavDrawerButtonStyles), onMouseEnter: function () { return setHoverPath("/contact"); }, "aria-label": "Global navigation drawer menu link to contact page." }),
                         react_1.default.createElement(SubdirectoryArrowRightTwoTone_1.default, null),
                         "contact"))))));
 };
@@ -393,11 +397,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-var material_1 = __webpack_require__(8157);
-var hooks_1 = __webpack_require__(81214);
-var HoverMenu_1 = __importDefault(__webpack_require__(90467));
 var react_1 = __importDefault(__webpack_require__(96540));
 var react_router_dom_1 = __webpack_require__(28651);
+var hooks_1 = __webpack_require__(81214);
+var HoverMenu_1 = __importDefault(__webpack_require__(90467));
+var Button_1 = __importDefault(__webpack_require__(31650));
+var MenuItem_1 = __importDefault(__webpack_require__(44598));
 var muiButton_1 = __webpack_require__(8038);
 var breakpoints_1 = __webpack_require__(2386);
 var paths = [
@@ -428,13 +433,13 @@ var NavLinks = function () {
     });
     return (react_1.default.createElement(react_1.default.Fragment, null, paths.map(function (path, index) {
         return (react_1.default.createElement(react_1.default.Fragment, null, path.subpaths.length !== 0 ? (react_1.default.createElement(react_1.default.Fragment, null,
-            react_1.default.createElement(material_1.Button, __assign({ key: "".concat(path.text), component: react_router_dom_1.Link, to: path.path }, muiButton_1.navLinkButtonProps, (0, hooks_1.bindHover)(popupState), { "aria-label": "Landing page navigation to ".concat(path.text, " page.") }), path.text),
+            react_1.default.createElement(Button_1.default, __assign({ key: "".concat(path.text), component: react_router_dom_1.Link, to: path.path }, muiButton_1.navLinkButtonProps, (0, hooks_1.bindHover)(popupState), { "aria-label": "Landing page navigation to ".concat(path.text, " page.") }), path.text),
             react_1.default.createElement(HoverMenu_1.default, __assign({}, (0, hooks_1.bindMenu)(popupState), { anchorOrigin: smallScreen
                     ? { vertical: "top", horizontal: "right" }
                     : { vertical: "bottom", horizontal: "left" }, transformOrigin: { vertical: "top", horizontal: "left" } }), path.subpaths.map(function (subPath, i) {
-                return (react_1.default.createElement(material_1.MenuItem, null,
-                    react_1.default.createElement(material_1.Button, __assign({ key: "".concat(subPath.text, "-").concat(i), component: react_router_dom_1.Link, to: subPath.path }, muiButton_1.navLinkButtonProps, { "aria-label": "Landing page navigation dropdown sub-menu to ".concat(path.text, " ").concat(subPath.text, " page.") }), subPath.text)));
-            })))) : (react_1.default.createElement(material_1.Button, __assign({ key: "".concat(path.text, "-").concat(index), component: react_router_dom_1.Link, to: path.path }, muiButton_1.navLinkButtonProps, { "aria-label": "Landing page navigation to ".concat(path.text, " page.") }), path.text))));
+                return (react_1.default.createElement(MenuItem_1.default, null,
+                    react_1.default.createElement(Button_1.default, __assign({ key: "".concat(subPath.text, "-").concat(i), component: react_router_dom_1.Link, to: subPath.path }, muiButton_1.navLinkButtonProps, { "aria-label": "Landing page navigation dropdown sub-menu to ".concat(path.text, " ").concat(subPath.text, " page.") }), subPath.text)));
+            })))) : (react_1.default.createElement(Button_1.default, __assign({ key: "".concat(path.text, "-").concat(index), component: react_router_dom_1.Link, to: path.path }, muiButton_1.navLinkButtonProps, { "aria-label": "Landing page navigation to ".concat(path.text, " page.") }), path.text))));
     })));
 };
 exports["default"] = NavLinks;
@@ -466,6 +471,12 @@ var antlionTowerDefense = {
         host: "",
     },
     detail: {
+        keypoints: [
+            "Implemented all game mechanics (i.e. tower placement, enemy pathing, attacking abilities, hit radius, etc.).",
+            "Enemy pathing with A* pathfinding and is generated at run-time based on the user's defensive tower deployment.",
+            "Open canvas design where players can freely decide their tower placement and create their own pathing.",
+            "Integrity checks to prevent the player from fully blocking off a path to the exit.",
+        ],
         short: "Build an army to fend off invaders with 5 different defensive towers. Block off paths and decide how you want to redirect the invading antlions.",
         long: [],
     },
@@ -555,7 +566,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports["default"] = CustomOptionsDial;
 var React = __importStar(__webpack_require__(96540));
-var material_1 = __webpack_require__(8157);
+var Box_1 = __importDefault(__webpack_require__(20079));
+var SpeedDial_1 = __importDefault(__webpack_require__(75515));
+var SpeedDialIcon_1 = __importDefault(__webpack_require__(97322));
+var SpeedDialAction_1 = __importDefault(__webpack_require__(89957));
+var material_1 = __webpack_require__(8157); // eslint-disable-line no-restricted-imports
+var Backdrop_1 = __importDefault(__webpack_require__(29980));
 var DisplaySettingsTwoTone_1 = __importDefault(__webpack_require__(12434));
 var ToggleThemeButtons_1 = __importDefault(__webpack_require__(44685));
 var ToggleImageQualityButtons_1 = __importDefault(__webpack_require__(45242));
@@ -609,9 +625,9 @@ function CustomOptionsDial(_a) {
         }
     }, []);
     return (React.createElement(React.Fragment, null,
-        React.createElement(material_1.Backdrop, { open: open, sx: { zIndex: constants_1.ANI_CONST.ZINDEX.BACKDROP } }),
+        React.createElement(Backdrop_1.default, { open: open, sx: { zIndex: constants_1.ANI_CONST.ZINDEX.BACKDROP } }),
         React.createElement(react_toastify_1.ToastContainer, { position: "bottom-left", autoClose: 2000, limit: 1, hideProgressBar: false, newestOnTop: false, closeOnClick: false, pauseOnFocusLoss: true, draggable: true, pauseOnHover: true, theme: mode == "system" ? systemMode : mode, transition: react_toastify_1.Slide }),
-        React.createElement(material_1.Box, { sx: {
+        React.createElement(Box_1.default, { sx: {
                 position: "absolute",
                 bottom: 0,
                 right: 0,
@@ -620,7 +636,7 @@ function CustomOptionsDial(_a) {
                 flexGrow: 1,
                 zIndex: constants_1.ANI_CONST.ZINDEX.OPTIONS_DIAL,
             } },
-            React.createElement(material_1.SpeedDial, { ariaLabel: "website options dial for theme mode and image quality", sx: { position: "absolute", bottom: 16, right: 16 }, icon: React.createElement(material_1.SpeedDialIcon, { icon: React.createElement(DisplaySettingsTwoTone_1.default, null), openIcon: React.createElement(DisplaySettingsTwoTone_1.default, null) }), direction: "up", onOpen: handleOpen, onClose: handleClose }, actions.map(function (action) { return (React.createElement(material_1.SpeedDialAction, { key: action.name, icon: action.icon, slotProps: {
+            React.createElement(SpeedDial_1.default, { ariaLabel: "website options dial for theme mode and image quality", sx: { position: "absolute", bottom: 16, right: 16 }, icon: React.createElement(SpeedDialIcon_1.default, { icon: React.createElement(DisplaySettingsTwoTone_1.default, null), openIcon: React.createElement(DisplaySettingsTwoTone_1.default, null) }), direction: "up", onOpen: handleOpen, onClose: handleClose }, actions.map(function (action) { return (React.createElement(SpeedDialAction_1.default, { key: action.name, icon: action.icon, slotProps: {
                     tooltip: {
                         title: action.name,
                         open: true,
@@ -740,6 +756,11 @@ var motionArt = {
         host: "",
     },
     detail: {
+        keypoints: [
+            "MVP of a map-based drawing app that utilizes user location and draws based on movement",
+            "Built on Android Studio practicing industry standards and proper user interface.",
+            "Doubles as a simple drawing app when not in map mode.",
+        ],
         short: "Experimental Android drawing application that maps device movement as drawing strokes on a canvas.",
         long: [],
     },
@@ -830,23 +851,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(96540));
 var react_router_dom_1 = __webpack_require__(28651);
-var material_1 = __webpack_require__(8157);
+var Box_1 = __importDefault(__webpack_require__(20079));
+var Card_1 = __importDefault(__webpack_require__(97452));
+var CardActionArea_1 = __importDefault(__webpack_require__(91319));
+var Typography_1 = __importDefault(__webpack_require__(59259));
 var PhotoLibraryTwoTone_1 = __importDefault(__webpack_require__(53194));
 var constants_1 = __webpack_require__(70908);
 var PlaceholderCardContent = function (props) {
     var width = props.width, height = props.height;
-    return (React.createElement(material_1.Box, { sx: __assign({ width: width }, constants_1.CarouselStyles.wrapperBox) },
+    return (React.createElement(Box_1.default, { sx: __assign({ width: width }, constants_1.CarouselStyles.wrapperBox) },
         React.createElement(PhotoLibraryTwoTone_1.default, { sx: {
                 width: width,
                 height: height,
             } }),
-        React.createElement(material_1.Box, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
-            React.createElement(material_1.Typography, { variant: "caption" }, "Photo not availble at the moment."))));
+        React.createElement(Box_1.default, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
+            React.createElement(Typography_1.default, { variant: "caption" }, "Photo not availble at the moment."))));
 };
 var CarouselPlaceholder = function (props) {
     var width = props.width, height = props.height, cardActionArea = props.cardActionArea;
     var location = (0, react_router_dom_1.useLocation)();
-    return (React.createElement(material_1.Card, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
+    return (React.createElement(Card_1.default, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(CardActionArea_1.default, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
         React.createElement(PlaceholderCardContent, { width: width, height: height }))) : (React.createElement(PlaceholderCardContent, { width: width, height: height }))));
 };
 exports["default"] = CarouselPlaceholder;
@@ -864,15 +888,27 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(96540));
 var react_router_dom_1 = __webpack_require__(28651);
+var Typography_1 = __importDefault(__webpack_require__(59259));
 __webpack_require__(76103);
-var material_1 = __webpack_require__(8157);
 var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
 var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
+var react_type_animation_1 = __webpack_require__(9519);
+var constants_1 = __webpack_require__(70908);
 var Projects = function () {
+    var location = (0, react_router_dom_1.useLocation)();
+    var delay = location.key === "default"
+        ? constants_1.ANI_CONST.WRAPPER_ONLOAD_DELAY + constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY
+        : constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY;
+    var academic = location.pathname.includes("academic");
+    var personal = location.pathname.includes("personal");
+    var subPage = academic || personal;
+    var subPageHeadingText = academic ? " - academic" : " - personal";
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(ScrollableContainer_1.default, { className: "Projects-container" },
             react_1.default.createElement(FadeWrapper_1.default, null,
-                react_1.default.createElement(material_1.Typography, { variant: "h3" }, "Projects")),
+                react_1.default.createElement(Typography_1.default, { variant: "h3", sx: { paddingTop: "5px", paddingBottom: "10px" } },
+                    "Projects",
+                    subPage && (react_1.default.createElement(react_type_animation_1.TypeAnimation, { key: location.key, sequence: [delay, subPageHeadingText], speed: 30, cursor: false })))),
             react_1.default.createElement(react_router_dom_1.Outlet, null))));
 };
 exports["default"] = Projects;
@@ -925,6 +961,12 @@ var foodpick = {
         host: "",
     },
     detail: {
+        keypoints: [
+            "Lightweight mobile and desktop application that utilizes Google Places API.",
+            "Randomly generates food options based on location and selected cuisine.",
+            "Interactive UI with text search, tabs, and map view.",
+            "React with Redux to manage all user interactions and prior selections.",
+        ],
         short: "Multiplatform random cuisine picker. Uses a randomizer for a the cuisines to feed into the Google Places API to generate suggestions!",
         long: [],
     },
@@ -1088,7 +1130,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(96540));
-var material_1 = __webpack_require__(8157);
+var Grid_1 = __importDefault(__webpack_require__(36434));
+var Typography_1 = __importDefault(__webpack_require__(59259));
 var about_me_1 = __importDefault(__webpack_require__(47294));
 var ContentBlock_1 = __importDefault(__webpack_require__(24701));
 var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
@@ -1100,8 +1143,8 @@ var AboutMe = function () {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(ScrollableContainer_1.default, { ref: containerRef },
             react_1.default.createElement(FadeWrapper_1.default, null,
-                react_1.default.createElement(material_1.Typography, { variant: "h3" }, "5w1h")),
-            react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, flexDirection: "column" }, about_me_1.default === null || about_me_1.default === void 0 ? void 0 : about_me_1.default.map(function (cntBlk, i) {
+                react_1.default.createElement(Typography_1.default, { variant: "h3" }, "5w1h")),
+            react_1.default.createElement(Grid_1.default, { container: true, spacing: 2, flexDirection: "column" }, about_me_1.default === null || about_me_1.default === void 0 ? void 0 : about_me_1.default.map(function (cntBlk, i) {
                 return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.ABOUT_CARD_DELAY, direction: "up" },
                     react_1.default.createElement(ContentBlock_1.default, { key: i, heading: cntBlk.heading, body: cntBlk.body })));
             })))));
@@ -1270,12 +1313,16 @@ var CardMedia_1 = __importDefault(__webpack_require__(85672));
 var styles_1 = __webpack_require__(9752);
 var IconButton_1 = __importDefault(__webpack_require__(92975));
 var ExpandMore_1 = __importDefault(__webpack_require__(72048));
-var material_1 = __webpack_require__(8157);
 var AddCircleOutlineTwoTone_1 = __importDefault(__webpack_require__(56322));
+var Button_1 = __importDefault(__webpack_require__(31650));
+var CardActions_1 = __importDefault(__webpack_require__(93355));
+var Grid_1 = __importDefault(__webpack_require__(36434));
+var Slide_1 = __importDefault(__webpack_require__(86919));
 var ProjectCardMedia_1 = __importDefault(__webpack_require__(63182));
 var constants_1 = __webpack_require__(70908);
 var react_router_dom_1 = __webpack_require__(28651);
 var breakpoints_1 = __importDefault(__webpack_require__(2386));
+var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
 var ExpandMore = (0, styles_1.styled)(function (props) {
     var expand = props.expand, other = __rest(props, ["expand"]); //eslint-disable-line @typescript-eslint/no-unused-vars
     return (react_1.default.createElement(IconButton_1.default, __assign({}, other),
@@ -1311,11 +1358,19 @@ var ExpandMore = (0, styles_1.styled)(function (props) {
         ],
     });
 });
+var ProjectCardLinks = function (proj) {
+    var hostLink = proj.link.host != "";
+    var repoLink = proj.link.repo != "";
+    return (react_1.default.createElement(react_1.default.Fragment, null, (hostLink || repoLink) && (react_1.default.createElement(Grid_1.default, { container: true, display: "flex", flexDirection: "row", spacing: 1, sx: { paddingTop: "8px", alignItems: "center" } },
+        react_1.default.createElement(Typography_1.default, { variant: "subtitle2", sx: { color: "text.secondary" } }, "Links:"),
+        hostLink && (react_1.default.createElement(Button_1.default, { href: proj.link.repo, target: "_blank" }, "Github Repo")),
+        repoLink && (react_1.default.createElement(Button_1.default, { href: proj.link.host, target: "_blank" }, "Try it here"))))));
+};
 var ProjectCardTitle = function (proj) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(Typography_1.default, { component: "div", variant: "h5" }, proj.name),
         react_1.default.createElement(Typography_1.default, { variant: "subtitle1", component: "div", sx: { color: "text.secondary" } }, proj.category),
-        react_1.default.createElement(material_1.Grid, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) {
+        react_1.default.createElement(Grid_1.default, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) {
             return (react_1.default.createElement(Typography_1.default, { key: i, variant: "subtitle2", component: "div", sx: { color: "text.secondary" } }, tag));
         }))));
 };
@@ -1364,7 +1419,7 @@ var ProjectCard = function (_a) {
             react_1.default.createElement(ProjectCardMedia_1.default, __assign({ key: location.pathname, proj: proj, imgQuality: imgQuality }, carouselDims))),
         react_1.default.createElement(CardContent_1.default, { sx: { position: "relative" } },
             react_1.default.createElement(ProjectCardTitle, __assign({}, proj)),
-            react_1.default.createElement(material_1.CardActions, { disableSpacing: true, sx: {
+            react_1.default.createElement(CardActions_1.default, { disableSpacing: true, sx: {
                     position: "absolute",
                     padding: 0,
                     right: "10px",
@@ -1372,15 +1427,20 @@ var ProjectCard = function (_a) {
                 } },
                 react_1.default.createElement(ExpandMore, { expand: expanded, onClick: handleExpandClick, "aria-expanded": expanded, "aria-label": "show more" },
                     react_1.default.createElement(ExpandMore_1.default, null)))),
-        react_1.default.createElement(material_1.Slide, { in: expanded, direction: "up", timeout: constants_1.ANI_CONST.PROJ_CARDS_DELAY },
+        react_1.default.createElement(Slide_1.default, { in: expanded, direction: "up", timeout: constants_1.ANI_CONST.PROJ_CARDS_DELAY },
             react_1.default.createElement(CardContent_1.default, { sx: __assign({}, collapsedContentStyling) },
-                react_1.default.createElement(material_1.Grid, { container: true, rowSpacing: 3 },
+                react_1.default.createElement(Grid_1.default, { container: true, rowSpacing: 3 },
                     react_1.default.createElement("div", null,
                         react_1.default.createElement(ProjectCardTitle, __assign({}, proj))),
-                    react_1.default.createElement("div", null,
+                    react_1.default.createElement(ScrollableContainer_1.default, null,
                         react_1.default.createElement(Typography_1.default, { variant: "body2", sx: { marginBottom: "5px" } }, proj.date),
-                        react_1.default.createElement(Typography_1.default, { variant: "body1" }, proj.detail.short))),
-                react_1.default.createElement(material_1.Button, { variant: "cardDetails", component: react_router_dom_1.Link, to: proj.abbr, state: { background: location } }, "More details")))));
+                        proj.detail.keypoints.map(function (keypoint, i) {
+                            return (react_1.default.createElement(Typography_1.default, { variant: "body1", key: "".concat(proj.abbr, "-").concat(i) },
+                                "- ",
+                                keypoint));
+                        }),
+                        react_1.default.createElement(ProjectCardLinks, __assign({}, proj)))),
+                react_1.default.createElement(Button_1.default, { variant: "cardDetails", component: react_router_dom_1.Link, to: proj.abbr, state: { background: location } }, "More details")))));
 };
 exports["default"] = ProjectCard;
 
@@ -1437,6 +1497,11 @@ var playerPerformanceProjection = {
         host: "bit.ly/ppp-report",
     },
     detail: {
+        keypoints: [
+            "Statistical analysis of Steph Curry's box score performance relative to opponent's team defensive quality.",
+            "Full ETL pipeline to process 10 years of playing data.",
+            "Machine learning with regression for fitting and ANOVA to identify important performance signals.",
+        ],
         short: "ML algo to analyze Steph Curry's performance stats. Utilizes ETL for data collection and parsing, GradientBoostingRegressor, and ANOVA.",
         long: [],
     },
@@ -1477,14 +1542,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(96540));
-var material_1 = __webpack_require__(8157);
+var Typography_1 = __importDefault(__webpack_require__(59259));
 var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
 var DoesNotExist = function () {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(ScrollableContainer_1.default, null,
-            react_1.default.createElement(material_1.Typography, { variant: "h3" }, "Oops!"),
-            react_1.default.createElement(material_1.Typography, { variant: "body1" }, "The page you're looking for does not exist (yet?)!"),
-            react_1.default.createElement(material_1.Typography, { variant: "body1" }, "Click the links above to teleport back!"))));
+            react_1.default.createElement(Typography_1.default, { variant: "h3" }, "Oops!"),
+            react_1.default.createElement(Typography_1.default, { variant: "body1" }, "The page you're looking for does not exist (yet?)!"),
+            react_1.default.createElement(Typography_1.default, { variant: "body1" }, "Click the links above to teleport back!"))));
 };
 exports["default"] = DoesNotExist;
 
@@ -1508,6 +1573,11 @@ var fallingBlocks = {
         host: "bit.ly/fall-blocks",
     },
     detail: {
+        keypoints: [
+            "First ever hosted mini-game from my initial foray into game dev.",
+            "Small endless mini game to learn Unity basics.",
+            "Progressive difficulty and simple mechanics.",
+        ],
         short: "Endless 2D game - evade the blocks! Was completed to practice Unity basics after a long hiatus from the game engine.",
         long: [],
     },
@@ -1576,13 +1646,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(96540));
-var material_1 = __webpack_require__(8157);
 var react_router_dom_1 = __webpack_require__(28651);
+var Grid_1 = __importDefault(__webpack_require__(36434));
 var ProjectCard_1 = __importDefault(__webpack_require__(25124));
 var project_list_1 = __webpack_require__(60803);
 var SlideWrapper_1 = __importDefault(__webpack_require__(53655));
 var constants_1 = __webpack_require__(70908);
-var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
 var breakpoints_1 = __webpack_require__(2386);
 var ProjectVariants = function (_a) {
     var variant = _a.variant, imgQuality = _a.imgQuality;
@@ -1591,12 +1660,9 @@ var ProjectVariants = function (_a) {
     var animationBreakpoint = (0, breakpoints_1.isSmallScreen)();
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("div", { ref: containerRef },
-            react_1.default.createElement(FadeWrapper_1.default, { delay: constants_1.ANI_CONST.PROJ_SUBHEADING_DELAY },
-                react_1.default.createElement(material_1.Typography, { variant: "h4" },
-                    variant,
-                    " projects")),
-            react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[variant].map(function (proj, i) {
-                return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
+            react_1.default.createElement(Grid_1.default, { container: true, spacing: 2, alignItems: "flex-start" }, project_list_1.ProjectList[variant].map(function (proj, i) {
+                return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: constants_1.ANI_CONST.PROJ_SUBHEADING_TYPING_DELAY +
+                        i * constants_1.ANI_CONST.PROJ_CARDS_DELAY, direction: animationBreakpoint ? "up" : "left" },
                     react_1.default.createElement(ProjectCard_1.default, { activeProj: activeProj, setActiveProj: setActiveProj, proj: proj, imgQuality: imgQuality, key: i })));
             }))),
         react_1.default.createElement(react_router_dom_1.Outlet, null)));
@@ -1615,14 +1681,18 @@ var spochiV0 = {
     // nba-data-viz
     abbr: "nba-data-viz",
     name: "NBA Data Visualization",
-    date: "Aug 2019 - Present",
+    date: "Aug 2019 - Oct 2019",
     tags: ["D3", "React", "Python", "Flask", "JS"],
     category: "Web App / Tool",
     link: {
-        repo: "",
+        repo: "", // repo FBDV
         host: "",
     },
     detail: {
+        keypoints: [
+            "Interactive proof of concept data visualization built from D3.",
+            "Supports brushed selections, data subsetting, data zooming, tool tips, and switching categories.",
+        ],
         short: "[In Progress] Full-stack data visualization tool. Analyze NBA player's stats through interactive visualizations. ",
         long: [],
     },
@@ -1703,6 +1773,12 @@ var bobbysBreakout = {
         host: "bit.ly/bobby-breakout",
     },
     detail: {
+        keypoints: [
+            "Designed and implemented 2D physics engine from native javascript (bounding boxes, movement vectors, collision detections, etc.) without external libraries.",
+            "Pokemon-styled turn-based combat.",
+            "2D map with unidirectional movement.",
+            "Other notable features: global achievements, item acquisition, item buffs, and inventory management.",
+        ],
         short: "Full stack browser RPG - play as SFU's Dr. Bobby Chan in a top-down game with the Pokemon-style combat system.",
         long: [],
     },
@@ -1833,7 +1909,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(96540));
 var component_1 = __importDefault(__webpack_require__(35440));
-var material_1 = __webpack_require__(8157);
+var Grid_1 = __importDefault(__webpack_require__(36434));
+var Typography_1 = __importDefault(__webpack_require__(59259));
+var Card_1 = __importDefault(__webpack_require__(97452));
+var CardActionArea_1 = __importDefault(__webpack_require__(91319));
 var GitHub_1 = __importDefault(__webpack_require__(43294));
 var LinkedIn_1 = __importDefault(__webpack_require__(47139));
 var Email_1 = __importDefault(__webpack_require__(41845));
@@ -1884,31 +1963,31 @@ var Contact = function (_a) {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(ScrollableContainer_1.default, { ref: containerRef },
             react_1.default.createElement(FadeWrapper_1.default, null,
-                react_1.default.createElement(material_1.Typography, { variant: "h3" }, "Contact Info")),
-            react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, direction: { mobile: "column", tablet: "row" } }, info.map(function (item, i) {
+                react_1.default.createElement(Typography_1.default, { variant: "h3" }, "Contact Info")),
+            react_1.default.createElement(Grid_1.default, { container: true, spacing: 2, direction: { mobile: "column", tablet: "row" } }, info.map(function (item, i) {
                 return (react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: i * constants_1.ANI_CONST.CONTACT_BADGE_DELAY, direction: smallScreen ? "up" : "left" },
-                    react_1.default.createElement(material_1.Card, { key: i, sx: { width: "150px", height: "fit-content" } },
-                        react_1.default.createElement(material_1.CardActionArea, { href: item.link, target: "_blank", rel: "noopener noreferrer", onClick: item.modal ? function () { return handleEmailClick(); } : undefined },
-                            react_1.default.createElement(material_1.Grid, { container: true, spacing: 2, sx: {
+                    react_1.default.createElement(Card_1.default, { key: i, sx: { width: "150px", height: "fit-content" } },
+                        react_1.default.createElement(CardActionArea_1.default, { href: item.link, target: "_blank", rel: "noopener noreferrer", onClick: item.modal ? function () { return handleEmailClick(); } : undefined },
+                            react_1.default.createElement(Grid_1.default, { container: true, spacing: 2, sx: {
                                     justifyContent: "center",
                                     alignItems: "center",
                                     padding: "10px",
                                 } },
                                 item.icon,
-                                react_1.default.createElement(material_1.Typography, { variant: "body1" }, item.name))))));
+                                react_1.default.createElement(Typography_1.default, { variant: "body1" }, item.name))))));
             })),
-            react_1.default.createElement(material_1.Grid, { container: true, spacing: 1, direction: "column", sx: { paddingTop: "30px" } },
+            react_1.default.createElement(Grid_1.default, { container: true, spacing: 1, direction: "column", sx: { paddingTop: "30px" } },
                 react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: constants_1.ANI_CONST.CONTACT_PORTRAIT_HEADING_DELAY, direction: "up" },
-                    react_1.default.createElement(material_1.Typography, { variant: "h5" }, "Who you are contacting:")),
+                    react_1.default.createElement(Typography_1.default, { variant: "h5" }, "Who you are contacting:")),
                 react_1.default.createElement(SlideWrapper_1.default, { slideFromRef: containerRef, delay: constants_1.ANI_CONST.CONTACT_PORTRAIT_PIC_DELAY, direction: "up" },
-                    react_1.default.createElement(material_1.Card, { sx: { width: "fit-content", height: "fit-content" } },
-                        react_1.default.createElement(material_1.Grid, { container: true, direction: "column", spacing: 2, sx: {
+                    react_1.default.createElement(Card_1.default, { sx: { width: "fit-content", height: "fit-content" } },
+                        react_1.default.createElement(Grid_1.default, { container: true, direction: "column", spacing: 2, sx: {
                                 justifyContent: "center",
                                 alignItems: "center",
                                 padding: "10px",
                             } },
                             react_1.default.createElement(CloudinaryCustomImage, { src: "Elite_goose_jndy3l", width: 400, height: 400, imgQuality: imgQuality }),
-                            react_1.default.createElement(material_1.Typography, { variant: "body1" }, "self portrait"))))))));
+                            react_1.default.createElement(Typography_1.default, { variant: "body1" }, "self portrait"))))))));
 };
 exports["default"] = Contact;
 
@@ -1957,7 +2036,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(96540));
-var material_1 = __webpack_require__(8157);
+var ToggleButton_1 = __importDefault(__webpack_require__(88954));
+var ToggleButtonGroup_1 = __importDefault(__webpack_require__(81809));
 var DarkModeTwoTone_1 = __importDefault(__webpack_require__(65698));
 var LightModeTwoTone_1 = __importDefault(__webpack_require__(80170));
 var ToggleThemeButtons = function (_a) {
@@ -1965,10 +2045,10 @@ var ToggleThemeButtons = function (_a) {
     var handleToggleTheme = function (event, newThemeMode) {
         setMode(newThemeMode);
     };
-    return (React.createElement(material_1.ToggleButtonGroup, { value: mode, defaultValue: mode, exclusive: true, onChange: handleToggleTheme, "aria-label": "theme mode toggle" },
-        React.createElement(material_1.ToggleButton, { value: "light", "aria-label": "light mode" },
+    return (React.createElement(ToggleButtonGroup_1.default, { value: mode, defaultValue: mode, exclusive: true, onChange: handleToggleTheme, "aria-label": "theme mode toggle" },
+        React.createElement(ToggleButton_1.default, { value: "light", "aria-label": "light mode" },
             React.createElement(LightModeTwoTone_1.default, null)),
-        React.createElement(material_1.ToggleButton, { value: "dark", "aria-label": "dark mode" },
+        React.createElement(ToggleButton_1.default, { value: "dark", "aria-label": "dark mode" },
             React.createElement(DarkModeTwoTone_1.default, null))));
 };
 exports["default"] = ToggleThemeButtons;
@@ -2040,7 +2120,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(96540));
-var material_1 = __webpack_require__(8157);
+var ToggleButton_1 = __importDefault(__webpack_require__(88954));
+var ToggleButtonGroup_1 = __importDefault(__webpack_require__(81809));
 var SignalCellular1BarTwoTone_1 = __importDefault(__webpack_require__(43601));
 var SignalCellular4BarTwoTone_1 = __importDefault(__webpack_require__(85234));
 var react_toastify_1 = __webpack_require__(90701);
@@ -2063,10 +2144,10 @@ function ToggleImageQualityButtons(_a) {
         }
     };
     return (React.createElement(React.Fragment, null,
-        React.createElement(material_1.ToggleButtonGroup, { value: imgQuality, exclusive: true, onChange: handleToggleImgQuality, "aria-label": "image quality toggle" },
-            React.createElement(material_1.ToggleButton, { value: "low", "aria-label": "low image quality" },
+        React.createElement(ToggleButtonGroup_1.default, { value: imgQuality, exclusive: true, onChange: handleToggleImgQuality, "aria-label": "image quality toggle" },
+            React.createElement(ToggleButton_1.default, { value: "low", "aria-label": "low image quality" },
                 React.createElement(SignalCellular1BarTwoTone_1.default, null)),
-            React.createElement(material_1.ToggleButton, { value: "best", "aria-label": "best image quality" },
+            React.createElement(ToggleButton_1.default, { value: "best", "aria-label": "best image quality" },
                 React.createElement(SignalCellular4BarTwoTone_1.default, null)))));
 }
 exports["default"] = ToggleImageQualityButtons;
@@ -2094,23 +2175,26 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(96540));
+var Typography_1 = __importDefault(__webpack_require__(59259));
+var Box_1 = __importDefault(__webpack_require__(20079));
+var Button_1 = __importDefault(__webpack_require__(31650));
+var Fade_1 = __importDefault(__webpack_require__(86496));
 var NavLinks_1 = __importDefault(__webpack_require__(6705));
-__webpack_require__(26740);
-var material_1 = __webpack_require__(8157);
 var muiButton_1 = __webpack_require__(8038);
+__webpack_require__(26740);
 var theme_1 = __importDefault(__webpack_require__(17425));
 var Landing = function () {
-    return (react_1.default.createElement(material_1.Fade, { in: true, appear: true, timeout: 3000 },
-        react_1.default.createElement(material_1.Box, { className: "Landing-container" },
-            react_1.default.createElement(material_1.Typography, { variant: "h5", sx: { fontFamily: "Karla", fontWeight: 700 } }, "Hi there! Welcome to"),
-            react_1.default.createElement(material_1.Box, { className: "Landing-container__name" },
-                react_1.default.createElement(material_1.Typography, { className: "Landing-container__name__fullname", variant: "h1", sx: {
+    return (react_1.default.createElement(Fade_1.default, { in: true, appear: true, timeout: 3000 },
+        react_1.default.createElement(Box_1.default, { className: "Landing-container" },
+            react_1.default.createElement(Typography_1.default, { variant: "h5", sx: { fontFamily: "Karla", fontWeight: 700 } }, "Hi there! Welcome to"),
+            react_1.default.createElement(Box_1.default, { className: "Landing-container__name" },
+                react_1.default.createElement(Typography_1.default, { className: "Landing-container__name__fullname", variant: "h1", sx: {
                         color: theme_1.default.vars.palette.primary.main,
                         backgroundColor: theme_1.default.vars.palette.background.highlight,
                     } }, "angus_hon"),
-                react_1.default.createElement(material_1.Typography, { className: "Landing-container__name__at", variant: "h1", sx: { color: theme_1.default.vars.palette.primary.main } }, "@\uD83C\uDFE0")),
-            react_1.default.createElement(material_1.Box, { className: "Landing-container__nav" },
-                react_1.default.createElement(material_1.Button, __assign({ className: "Nav-link__no-events" }, muiButton_1.navLinkButtonProps, { sx: __assign({ paddingLeft: 0 }, muiButton_1.navLinkButtonProps.sx), "aria-label": "Styling emulating a terminal's command line blinking cursor for text input." }), "~$"),
+                react_1.default.createElement(Typography_1.default, { className: "Landing-container__name__at", variant: "h1", sx: { color: theme_1.default.vars.palette.primary.main } }, "@\uD83C\uDFE0")),
+            react_1.default.createElement(Box_1.default, { className: "Landing-container__nav" },
+                react_1.default.createElement(Button_1.default, __assign({ className: "Nav-link__no-events" }, muiButton_1.navLinkButtonProps, { sx: __assign({ paddingLeft: 0 }, muiButton_1.navLinkButtonProps.sx), "aria-label": "Styling emulating a terminal's command line blinking cursor for text input." }), "~$"),
                 react_1.default.createElement(NavLinks_1.default, null)))));
 };
 exports["default"] = Landing;
@@ -2168,7 +2252,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 var websiteV1 = {
     abbr: "website",
     name: "Personal Website",
-    date: "Mar 2019 - Present",
+    date: "Mar 2019 - Feb 2020",
     tags: ["React", "JS", "CSS"],
     category: "Single-Page Web Application",
     link: {
@@ -2176,6 +2260,13 @@ var websiteV1 = {
         host: "",
     },
     detail: {
+        keypoints: [
+            "1st attempt at creating a full SPA from scratch with React and CSS",
+            "Ultra lightweight app utilizing CDN for content delivery",
+            "Self-taught React with class-based reusable components",
+            "First online portfolio that utilizes more than plain HTML & CSS",
+            "Early adopter of Light/Dark Mode before it was a standard",
+        ],
         short: "You're looking right at it! Single page web app - my online portfolio. Find my most up-to-date projects, interests, and my contact info.",
         long: [],
     },
@@ -2227,11 +2318,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(96540));
 var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
-var material_1 = __webpack_require__(8157);
+var Typography_1 = __importDefault(__webpack_require__(59259));
 var Loading = function () {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(FadeWrapper_1.default, null,
-            react_1.default.createElement(material_1.Typography, { variant: "h5" }, "loading..."))));
+            react_1.default.createElement(Typography_1.default, { variant: "h5" }, "loading..."))));
 };
 exports["default"] = Loading;
 
@@ -2417,11 +2508,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(96540));
 var component_1 = __importDefault(__webpack_require__(35440));
-var material_1 = __webpack_require__(8157);
+var Container_1 = __importDefault(__webpack_require__(57477));
 var ScrollArea = component_1.default.lib(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(72298)); }); });
 var ScrollableContainer = function (_a) {
     var children = _a.children, ref = _a.ref, sx = _a.sx, className = _a.className;
-    return (React.createElement(material_1.Container, { sx: sx, className: className, ref: ref },
+    return (React.createElement(Container_1.default, { sx: sx, className: className, ref: ref },
         React.createElement(ScrollArea, null, function (ScrollAreaModule) { return (React.createElement(ScrollAreaModule.ScrollArea, { classNames: {
                 horizontalScrollbar: "h-2.5",
                 root: "w-60 h-60 text-black dark:text-white",
@@ -2447,7 +2538,7 @@ var react_1 = __importDefault(__webpack_require__(96540));
 var client_1 = __importDefault(__webpack_require__(5338));
 var react_router_dom_1 = __webpack_require__(28651);
 var styles_1 = __webpack_require__(9752);
-var material_1 = __webpack_require__(8157);
+var CssBaseline_1 = __importDefault(__webpack_require__(88118));
 var App_1 = __importDefault(__webpack_require__(55802));
 var theme_1 = __importDefault(__webpack_require__(17425));
 __webpack_require__(97216);
@@ -2455,7 +2546,7 @@ var root = client_1.default.createRoot(document.getElementById("root"));
 root.render(react_1.default.createElement(react_1.default.StrictMode, null,
     react_1.default.createElement(react_router_dom_1.BrowserRouter, { basename: "/" },
         react_1.default.createElement(styles_1.ThemeProvider, { theme: theme_1.default, defaultMode: "light", noSsr: true },
-            react_1.default.createElement(material_1.CssBaseline, null),
+            react_1.default.createElement(CssBaseline_1.default, null),
             react_1.default.createElement(App_1.default, null)))));
 
 
@@ -2554,10 +2645,13 @@ var __importStar = (this && this.__importStar) || (function () {
         return result;
     };
 })();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(96540));
 var react_router_dom_1 = __webpack_require__(28651);
-var material_1 = __webpack_require__(8157);
+var Box_1 = __importDefault(__webpack_require__(20079));
 var Loading = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(50585)); }); });
 var Default = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(72374)); }); });
 var DoesNotExist = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(28346)); }); });
@@ -2583,11 +2677,11 @@ var App = function () {
         localStorage.removeItem("--slide-animatedOnLoad");
         localStorage.removeItem("--speedDial-onboard");
     }, []);
-    return (react_1.default.createElement(material_1.Box, { className: "App" },
+    return (react_1.default.createElement(Box_1.default, { className: "App" },
         react_1.default.createElement(CustomOptionsDial, { imgQuality: imgQuality, setImgQuality: setImgQuality }),
         react_1.default.createElement(react_1.Suspense, { fallback: react_1.default.createElement(Loading, null) },
             react_1.default.createElement(GlobalNav, null),
-            react_1.default.createElement(material_1.Box, { className: location.pathname == "/" ? "Container" : "Container Container--open" },
+            react_1.default.createElement(Box_1.default, { className: location.pathname == "/" ? "Container" : "Container Container--open" },
                 react_1.default.createElement(react_router_dom_1.Routes, { location: background || location },
                     react_1.default.createElement(react_router_dom_1.Route, { path: "", element: react_1.default.createElement(Landing, null) }),
                     react_1.default.createElement(react_router_dom_1.Route, { path: "about", element: react_1.default.createElement(AboutMe, null) }),
@@ -2823,6 +2917,7 @@ exports.ANI_CONST = {
     ABOUT_CARD_DELAY: GENERIC_CARD_DELAY,
     // PROJECTS
     PROJ_SUBHEADING_DELAY: 300, // same as WRAPPER_FADE_WRAPPER_DELAY
+    PROJ_SUBHEADING_TYPING_DELAY: 500,
     PROJ_CARDS_DELAY: GENERIC_CARD_DELAY,
     PROJ_CARD_WIDTH: {
         mobile: 350,
@@ -2944,12 +3039,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importDefault(__webpack_require__(96540));
-var material_1 = __webpack_require__(8157);
+var Typography_1 = __importDefault(__webpack_require__(59259));
 var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
 var Default = function () {
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement(ScrollableContainer_1.default, null,
-            react_1.default.createElement(material_1.Typography, { variant: "body1" }, "much wow, such empty"))));
+            react_1.default.createElement(Typography_1.default, { variant: "body1" }, "much wow, such empty"))));
 };
 exports["default"] = Default;
 
@@ -3083,7 +3178,8 @@ var Box_1 = __importDefault(__webpack_require__(20079));
 var Typography_1 = __importDefault(__webpack_require__(59259));
 var Modal_1 = __importDefault(__webpack_require__(1219));
 var react_router_dom_1 = __webpack_require__(28651);
-var material_1 = __webpack_require__(8157);
+var CardContent_1 = __importDefault(__webpack_require__(61593));
+var Grid_1 = __importDefault(__webpack_require__(36434));
 var computeNodeStyle_1 = __importDefault(__webpack_require__(91582));
 var ScrollableContainer_1 = __importDefault(__webpack_require__(53751));
 var FadeWrapper_1 = __importDefault(__webpack_require__(57824));
@@ -3134,12 +3230,12 @@ function ProjectModalCard(_a) {
                         width: smallScreen ? "100%" : "30%",
                         height: smallScreen ? "40%" : "100%",
                     } },
-                    react_1.default.createElement(material_1.CardContent, { sx: {
+                    react_1.default.createElement(CardContent_1.default, { sx: {
                             flex: "1 0 auto",
                         } },
                         react_1.default.createElement(Typography_1.default, { id: "modal-modal-title-".concat(proj.abbr), component: "div", variant: "h5" }, proj.name),
                         react_1.default.createElement(Typography_1.default, { variant: "subtitle1", component: "div", sx: { color: "text.secondary" } }, proj.category),
-                        react_1.default.createElement(material_1.Grid, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) { return (react_1.default.createElement(Typography_1.default, { key: i, variant: "subtitle2", component: "div", sx: { color: "text.secondary" } }, tag)); })),
+                        react_1.default.createElement(Grid_1.default, { container: true, display: "flex", flexDirection: "row", spacing: 2, rowSpacing: 0, width: "90%" }, proj.tags.map(function (tag, i) { return (react_1.default.createElement(Typography_1.default, { key: i, variant: "subtitle2", component: "div", sx: { color: "text.secondary" } }, tag)); })),
                         react_1.default.createElement(Box_1.default, { sx: { paddingTop: "10px" } },
                             react_1.default.createElement(Typography_1.default, { variant: "body2" }, proj.date),
                             react_1.default.createElement(Typography_1.default, { variant: "body1" }, proj.detail.short)))),
@@ -3158,8 +3254,8 @@ function ProjectModalCard(_a) {
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var ggj2020 = {
-    abbr: "i-was-never-here",
-    name: "GGJ: I Was Never Here",
+    abbr: "global-game-jam-2020",
+    name: "Global Game Jam 2020",
     date: "Jan 2020 - Feb 2020",
     tags: ["GGJ-2020", "Unity", "C#", "Strategy", "Game"],
     category: "2D Strategy Game",
@@ -3168,6 +3264,10 @@ var ggj2020 = {
         host: "http://bit.ly/RatThief",
     },
     detail: {
+        keypoints: [
+            "Grid-based thinking game based on the GGJ 2020 theme of 'Repair'.",
+            "Emergent gameplay where players discover mechanics during their playthrough.",
+        ],
         short: "Our team's take on the Global Game Jam 2020 theme: Repair. A strategy game with unique and emergent mechanics.",
         long: [],
     },
@@ -3257,6 +3357,11 @@ var kingdomOfHelios = {
         host: "bit.ly/KoHelios",
     },
     detail: {
+        keypoints: [
+            "2D platformer that draws inspiration from MapleStory.",
+            "Tag-team mechanic where player can swap characters to utilize different skillsets to conquer different enemies and terrain challenges.",
+            "Implemented all game logic and RPG game mechanics.",
+        ],
         short: "2D side-scrolling platformer RPG - play as two protagonists with distinct skill sets to progress through the game.",
         long: [],
     },
@@ -3412,7 +3517,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var React = __importStar(__webpack_require__(96540));
 var component_1 = __importDefault(__webpack_require__(35440));
-var material_1 = __webpack_require__(8157);
+var Box_1 = __importDefault(__webpack_require__(20079));
+var Card_1 = __importDefault(__webpack_require__(97452));
+var CardActionArea_1 = __importDefault(__webpack_require__(91319));
+var Typography_1 = __importDefault(__webpack_require__(59259));
 var react_router_dom_1 = __webpack_require__(28651);
 var constants_1 = __webpack_require__(70908);
 var breakpoints_1 = __importDefault(__webpack_require__(2386));
@@ -3421,15 +3529,15 @@ var CarouselMediaContent = function (props) {
     var item = props.item, width = props.width, height = props.height, imgQuality = props.imgQuality;
     var imgWidth = (0, breakpoints_1.default)(width);
     var imgHeight = (0, breakpoints_1.default)(height);
-    return (React.createElement(material_1.Box, { sx: __assign({ width: width }, constants_1.CarouselStyles.wrapperBox) },
+    return (React.createElement(Box_1.default, { sx: __assign({ width: width }, constants_1.CarouselStyles.wrapperBox) },
         React.createElement(CloudinaryCustomImage, { src: item.src, width: imgWidth, height: imgHeight, imgQuality: imgQuality }),
-        React.createElement(material_1.Box, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
-            React.createElement(material_1.Typography, { variant: "caption" }, item.description))));
+        React.createElement(Box_1.default, { sx: __assign({}, constants_1.CarouselStyles.textOverlayBox) },
+            React.createElement(Typography_1.default, { variant: "caption" }, item.description))));
 };
 var CarouselMedia = function (props) {
     var height = props.height, cardActionArea = props.cardActionArea;
     var location = (0, react_router_dom_1.useLocation)();
-    return (React.createElement(material_1.Card, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(material_1.CardActionArea, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
+    return (React.createElement(Card_1.default, { sx: __assign({ height: height }, constants_1.CarouselStyles.card) }, cardActionArea ? (React.createElement(CardActionArea_1.default, { component: react_router_dom_1.Link, to: cardActionArea, state: { background: location } },
         React.createElement(CarouselMediaContent, __assign({}, props)))) : (React.createElement(CarouselMediaContent, __assign({}, props)))));
 };
 exports["default"] = CarouselMedia;
