@@ -76,12 +76,12 @@ const ProjectCardLinks = (proj: Project) => {
           <Typography variant="subtitle2" sx={{ color: "text.secondary" }}>
             Links:
           </Typography>
-          {hostLink && (
+          {repoLink && (
             <Button href={proj.link.repo} target="_blank">
               Github Repo
             </Button>
           )}
-          {repoLink && (
+          {hostLink && (
             <Button href={proj.link.host} target="_blank">
               Try it here
             </Button>
