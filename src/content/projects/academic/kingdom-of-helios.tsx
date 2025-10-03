@@ -15,6 +15,7 @@ const kingdomOfHelios: Project = {
       "2D platformer that draws inspiration from MapleStory.",
       "Tag-team mechanic where player can swap characters to utilize different skillsets to conquer different enemies and terrain challenges.",
       "Implemented all game logic and RPG game mechanics.",
+      "Controls: WASD to move, Q to swap characters, 1-4 for skills, Cursor to aim, RMB to melee.",
     ],
     short:
       "2D side-scrolling platformer RPG - play as two protagonists with distinct skill sets to progress through the game.",
