@@ -179,6 +179,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 var react_1 = __importStar(__webpack_require__(96540));
 var react_router_dom_1 = __webpack_require__(28651);
+var component_1 = __webpack_require__(35440);
 var Box_1 = __importDefault(__webpack_require__(20079));
 var Button_1 = __importDefault(__webpack_require__(31650));
 var Slide_1 = __importDefault(__webpack_require__(86919));
@@ -195,6 +196,7 @@ var constants_1 = __webpack_require__(70908);
 var react_type_animation_1 = __webpack_require__(9519);
 var breakpoints_1 = __webpack_require__(2386);
 var theme_1 = __importDefault(__webpack_require__(17425));
+var CustomOptionsDial = (0, component_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(7496)); }); });
 var StyledBox = (0, material_1.styled)("div")(function (_a) {
     var theme = _a.theme;
     return [
@@ -210,7 +212,7 @@ var StyledBox = (0, material_1.styled)("div")(function (_a) {
 var globalNavDrawerButtonStyles = {
     width: "min-content",
 };
-var GlobalNav = function () {
+var GlobalNav = function (props) {
     var location = (0, react_router_dom_1.useLocation)();
     var _a = (0, react_1.useState)(""), currPath = _a[0], setCurrPath = _a[1];
     var _b = (0, react_1.useState)(), subPath = _b[0], setSubPath = _b[1];
@@ -322,7 +324,8 @@ var GlobalNav = function () {
                         }, "aria-label": "Breadcrumb navigation subpath." }), subPath + "/")),
                     react_1.default.createElement(Button_1.default, __assign({ className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { color: theme_1.default.vars.palette.primary.dark, padding: 0 }), "aria-label": "Styling emulating a terminal's command line blinking cursor for text input." }), "~$"),
                     !smallScreen && (react_1.default.createElement(Button_1.default, __assign({ className: "Nav-link__no-events" }, muiButton_1.globalNavButtonProps, { sx: __assign(__assign({}, muiButton_1.globalNavButtonProps.sx), { color: theme_1.default.vars.palette.primary.light, justifyContent: "flex-start", padding: "0 5px 0 25px" }), "aria-label": "Styling emulating a terminal's command line input. Types out paths and sub paths on user focus." }),
-                        react_1.default.createElement(react_type_animation_1.TypeAnimation, { key: hoverText, sequence: [hoverText, 500], speed: hoverText.length > 8 ? 50 : 1 })))))),
+                        react_1.default.createElement(react_type_animation_1.TypeAnimation, { key: hoverText, sequence: [hoverText, 500], speed: hoverText.length > 8 ? 50 : 1 }))),
+                    react_1.default.createElement(CustomOptionsDial, __assign({}, props, { dims: homeIconButtonDims }))))),
         react_1.default.createElement(SwipeableDrawer_1.default, { anchor: "top", open: openDrawer, onClose: toggleDrawer, onOpen: toggleDrawer, disableSwipeToOpen: false, keepMounted: true },
             react_1.default.createElement(StyledBox, { sx: { position: "relative" } },
                 react_1.default.createElement(StyledBox, { sx: {
@@ -527,6 +530,17 @@ exports["default"] = antlionTowerDefense;
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     var desc = Object.getOwnPropertyDescriptor(m, k);
@@ -572,16 +586,17 @@ var SpeedDialIcon_1 = __importDefault(__webpack_require__(97322));
 var SpeedDialAction_1 = __importDefault(__webpack_require__(89957));
 var material_1 = __webpack_require__(8157); // eslint-disable-line no-restricted-imports
 var Backdrop_1 = __importDefault(__webpack_require__(29980));
+var SettingsOutlined_1 = __importDefault(__webpack_require__(84866));
 var DisplaySettingsTwoTone_1 = __importDefault(__webpack_require__(12434));
 var ToggleThemeButtons_1 = __importDefault(__webpack_require__(44685));
 var ToggleImageQualityButtons_1 = __importDefault(__webpack_require__(45242));
 var constants_1 = __webpack_require__(70908);
 var react_toastify_1 = __webpack_require__(90701);
 var breakpoints_1 = __webpack_require__(2386);
-function CustomOptionsDial(_a) {
-    var imgQuality = _a.imgQuality, setImgQuality = _a.setImgQuality;
-    var _b = (0, material_1.useColorScheme)(), mode = _b.mode, systemMode = _b.systemMode, setMode = _b.setMode;
-    var _c = React.useState(false), open = _c[0], setOpen = _c[1];
+function CustomOptionsDial(props) {
+    var imgQuality = props.imgQuality, setImgQuality = props.setImgQuality, dims = props.dims;
+    var _a = (0, material_1.useColorScheme)(), mode = _a.mode, systemMode = _a.systemMode, setMode = _a.setMode;
+    var _b = React.useState(false), open = _b[0], setOpen = _b[1];
     var handleOpen = function () { return setOpen(true); };
     var handleClose = function () { return setOpen(false); };
     var actions = [
@@ -597,26 +612,27 @@ function CustomOptionsDial(_a) {
     var smallScreen = (0, breakpoints_1.isSmallScreen)();
     // Note: --speedDial-onboard is cleared after <App/> unmount
     //       to re-enable functionality, remove that line
-    var _d = React.useState(function () {
+    var _c = React.useState(function () {
         return !!localStorage.getItem("--speedDial-onboard");
-    }), initialLoad = _d[0], setInitialLoad = _d[1];
+    }), initialLoad = _c[0], setInitialLoad = _c[1];
     React.useEffect(function () {
         if (!initialLoad) {
             // first load
             react_toastify_1.toast.info("Customize your experience", {
-                position: "bottom-right",
+                position: "top-right",
+                delay: constants_1.ANI_CONST.GLOBAL_NAV_LANDING_DELAY + 500,
                 autoClose: 5000,
                 hideProgressBar: true,
                 closeOnClick: true,
                 pauseOnFocusLoss: false,
                 draggableDirection: "y",
                 style: {
-                    right: smallScreen ? "65px" : "55px",
-                    bottom: smallScreen ? "70px" : "40px",
+                    right: smallScreen ? "25px" : "10px",
+                    top: smallScreen ? "60px" : "45px",
                     borderTopLeftRadius: "10px",
-                    borderTopRightRadius: "10px",
+                    borderTopRightRadius: 0,
                     borderBottomLeftRadius: "10px",
-                    borderBottomRightRadius: 0,
+                    borderBottomRightRadius: "10px",
                     width: smallScreen ? "280px" : "fit-content",
                 },
             });
@@ -629,14 +645,14 @@ function CustomOptionsDial(_a) {
         React.createElement(react_toastify_1.ToastContainer, { position: "bottom-left", autoClose: 2000, limit: 1, hideProgressBar: false, newestOnTop: false, closeOnClick: false, pauseOnFocusLoss: true, draggable: true, pauseOnHover: true, theme: mode == "system" ? systemMode : mode, transition: react_toastify_1.Slide }),
         React.createElement(Box_1.default, { sx: {
                 position: "absolute",
-                bottom: 0,
+                top: dims.height / 2,
                 right: 0,
                 height: 320,
                 transform: "translateZ(0px)",
                 flexGrow: 1,
                 zIndex: constants_1.ANI_CONST.ZINDEX.OPTIONS_DIAL,
             } },
-            React.createElement(SpeedDial_1.default, { ariaLabel: "website options dial for theme mode and image quality", sx: { position: "absolute", bottom: 16, right: 16 }, icon: React.createElement(SpeedDialIcon_1.default, { icon: React.createElement(DisplaySettingsTwoTone_1.default, null), openIcon: React.createElement(DisplaySettingsTwoTone_1.default, null) }), direction: "up", onOpen: handleOpen, onClose: handleClose }, actions.map(function (action) { return (React.createElement(SpeedDialAction_1.default, { key: action.name, icon: action.icon, slotProps: {
+            React.createElement(SpeedDial_1.default, { ariaLabel: "website options dial for theme mode and image quality", sx: __assign({}, dims), icon: React.createElement(SpeedDialIcon_1.default, { icon: React.createElement(SettingsOutlined_1.default, null), openIcon: React.createElement(DisplaySettingsTwoTone_1.default, null) }), direction: "down", onOpen: handleOpen, onClose: handleClose }, actions.map(function (action) { return (React.createElement(SpeedDialAction_1.default, { key: action.name, icon: action.icon, slotProps: {
                     tooltip: {
                         title: action.name,
                         open: true,
@@ -2661,7 +2677,6 @@ var Box_1 = __importDefault(__webpack_require__(20079));
 var Loading = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(50585)); }); });
 var Default = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(72374)); }); });
 var DoesNotExist = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(28346)); }); });
-var CustomOptionsDial = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(7496)); }); });
 var GlobalNav = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(2943)); }); });
 var Landing = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(45688)); }); });
 var Projects = (0, react_1.lazy)(function () { return Promise.resolve().then(function () { return __importStar(__webpack_require__(11438)); }); });
@@ -2684,9 +2699,8 @@ var App = function () {
         localStorage.removeItem("--speedDial-onboard");
     }, []);
     return (react_1.default.createElement(Box_1.default, { className: "App" },
-        react_1.default.createElement(CustomOptionsDial, { imgQuality: imgQuality, setImgQuality: setImgQuality }),
         react_1.default.createElement(react_1.Suspense, { fallback: react_1.default.createElement(Loading, null) },
-            react_1.default.createElement(GlobalNav, null),
+            react_1.default.createElement(GlobalNav, { imgQuality: imgQuality, setImgQuality: setImgQuality }),
             react_1.default.createElement(Box_1.default, { className: location.pathname == "/" ? "Container" : "Container Container--open" },
                 react_1.default.createElement(react_router_dom_1.Routes, { location: background || location },
                     react_1.default.createElement(react_router_dom_1.Route, { path: "", element: react_1.default.createElement(Landing, null) }),
@@ -3311,6 +3325,9 @@ exports.muiSpeedDial = {
             fab: {
                 // the actual icon on the speed dial itself
                 alignItems: "center",
+                minHeight: 0,
+                borderRadius: 0,
+                marginBottom: "10px", // push actions below navbar
             },
         },
     },
