@@ -7,6 +7,9 @@ export const muiSpeedDial = {
       fab: {
         // the actual icon on the speed dial itself
         alignItems: "center",
+        minHeight: 0,
+        borderRadius: 0,
+        marginBottom: "10px", // push actions below navbar
       },
     },
   },

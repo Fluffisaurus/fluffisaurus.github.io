@@ -6,7 +6,6 @@ const Loading = lazy(() => import("../pages/Loading"));
 const Default = lazy(() => import("../pages/Default"));
 const DoesNotExist = lazy(() => import("../pages/DoesNotExist"));
 
-const CustomOptionsDial = lazy(() => import("./CustomOptionsDial"));
 const GlobalNav = lazy(() => import("../components/GlobalNav"));
 const Landing = lazy(() => import("../pages/Landing"));
 const Projects = lazy(() => import("../pages/projects/Projects"));
@@ -36,12 +35,8 @@ const App = () => {
 
   return (
     <Box className="App">
-      <CustomOptionsDial
-        imgQuality={imgQuality}
-        setImgQuality={setImgQuality}
-      />
       <Suspense fallback={<Loading />}>
-        <GlobalNav />
+        <GlobalNav imgQuality={imgQuality} setImgQuality={setImgQuality} />
         <Box
           className={
             location.pathname == "/" ? "Container" : "Container Container--open"

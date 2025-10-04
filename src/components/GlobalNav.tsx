@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { lazy } from "@loadable/component";
 
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import Box from "@mui/material/Box";
@@ -15,10 +16,12 @@ import SubdirectoryArrowRightTwoToneIcon from "@mui/icons-material/SubdirectoryA
 import computeNodeStyle from "../utils/computeNodeStyle";
 import { globalNavButtonProps } from "../mui/components/muiButton";
 import "../styles/global-nav.scss";
-import { ANI_CONST } from "./styled/constants";
+import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import { TypeAnimation } from "react-type-animation";
 import { isSmallScreen } from "../utils/breakpoints";
 import theme from "../mui/theme";
+
+const CustomOptionsDial = lazy(() => import("./CustomOptionsDial"));
 
 const StyledBox = styled("div")(({ theme }) => [
   {
@@ -34,7 +37,7 @@ const globalNavDrawerButtonStyles = {
   width: "min-content",
 };
 
-const GlobalNav = () => {
+const GlobalNav = (props: ImageQualityProps) => {
   const location = useLocation();
   const [currPath, setCurrPath] = useState<string>("");
   const [subPath, setSubPath] = useState<string | null>();
@@ -237,6 +240,7 @@ const GlobalNav = () => {
                 />
               </Button>
             )}
+            <CustomOptionsDial {...props} dims={homeIconButtonDims} />
           </Box>
         </StyledBox>
       </Slide>

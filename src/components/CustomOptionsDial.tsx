@@ -6,6 +6,7 @@ import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import { useColorScheme } from "@mui/material"; // eslint-disable-line no-restricted-imports
 import Backdrop from "@mui/material/Backdrop";
+import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
 
 import ToggleThemeButtons from "./ToggleThemeButtons";
@@ -19,10 +20,12 @@ interface DialActions {
   name: string;
 }
 
-export default function CustomOptionsDial({
-  imgQuality,
-  setImgQuality,
-}: ImageQualityProps) {
+interface CustomOptionsDialProps extends ImageQualityProps {
+  dims: { width: number; height: number };
+}
+
+export default function CustomOptionsDial(props: CustomOptionsDialProps) {
+  const { imgQuality, setImgQuality, dims } = props;
   const { mode, systemMode, setMode } = useColorScheme();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
@@ -55,19 +58,20 @@ export default function CustomOptionsDial({
     if (!initialLoad) {
       // first load
       toast.info("Customize your experience", {
-        position: "bottom-right",
+        position: "top-right",
+        delay: ANI_CONST.GLOBAL_NAV_LANDING_DELAY + 500,
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
         pauseOnFocusLoss: false,
         draggableDirection: "y",
         style: {
-          right: smallScreen ? "65px" : "55px",
-          bottom: smallScreen ? "70px" : "40px",
+          right: smallScreen ? "25px" : "10px",
+          top: smallScreen ? "60px" : "45px",
           borderTopLeftRadius: "10px",
-          borderTopRightRadius: "10px",
+          borderTopRightRadius: 0,
           borderBottomLeftRadius: "10px",
-          borderBottomRightRadius: 0,
+          borderBottomRightRadius: "10px",
           width: smallScreen ? "280px" : "fit-content",
         },
       });
@@ -95,7 +99,7 @@ export default function CustomOptionsDial({
       <Box
         sx={{
           position: "absolute",
-          bottom: 0,
+          top: dims.height / 2,
           right: 0,
           height: 320,
           transform: "translateZ(0px)",
@@ -105,14 +109,14 @@ export default function CustomOptionsDial({
       >
         <SpeedDial
           ariaLabel="website options dial for theme mode and image quality"
-          sx={{ position: "absolute", bottom: 16, right: 16 }}
+          sx={{ ...dims }}
           icon={
             <SpeedDialIcon
-              icon={<DisplaySettingsTwoToneIcon />}
+              icon={<SettingsOutlinedIcon />}
               openIcon={<DisplaySettingsTwoToneIcon />}
             />
           }
-          direction="up"
+          direction="down"
           onOpen={handleOpen}
           onClose={handleClose}
         >
