@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "my updated personal website",
   "main": "./src/index.tsx",
+  "sideEffects": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky",
@@ -12,7 +13,7 @@
     "start": "NODE_ENV=development webpack serve",
     "build": "NODE_ENV=production webpack && cp build/index.html build/404.html",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "node --env-file=.env deploy.js",
     "analyze": "webpack --profile --json > stats.json"
   },
   "lint-staged": {
@@ -79,6 +80,7 @@
     "mini-css-extract-plugin": "2.6.0",
     "sass": "1.51.0",
     "sass-loader": "12.6.0",
+    "shelljs": "^0.10.0",
     "ts-loader": "9.3.0",
     "typescript": "^5.9.2",
     "typescript-eslint": "^8.43.0",

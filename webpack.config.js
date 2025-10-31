@@ -68,6 +68,9 @@ module.exports = {
       },
     ],
   },
+  performance: {
+    hints: false,
+  },
   optimization: {
     minimize: !devMode,
     minimizer: [new CssMinimizerPlugin()],
