@@ -22,7 +22,9 @@ const tryShell = (command) => {
 
 // upload
 console.log("Uploading and syncing content:---------->");
-tryShell(`aws s3 sync --delete ./build ${config.deploy.bucketUrl}`);
+tryShell(
+  `aws s3 sync --delete ./build ${config.deploy.bucketUrl}  --cache-control max-age=${config.deploy.cacheControlMaxAge}`
+);
 
 console.log("Invalidating CloudFront cache:---------->");
 // invalidate cloudfront cache
