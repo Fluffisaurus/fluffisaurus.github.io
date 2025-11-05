@@ -5,7 +5,7 @@ const muiColorSchemes = {
         background: {
           default: "#fff3de",
           paper: "white",
-          highlight: "#147F8259",
+          highlight: "#1fc7cd59",
           globalNav: "white",
         },
         primary: {
@@ -34,7 +34,7 @@ const muiColorSchemes = {
           contrastText: "#fff3de",
         },
         secondary: {
-          main: "#9d2dff3f",
+          main: "#9d2dff2d",
           contrastText: "#fff3de",
         },
         text: {

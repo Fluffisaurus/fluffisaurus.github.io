@@ -24,7 +24,7 @@ const Landing = () => {
             className="Landing-container__name__fullname"
             variant="h1"
             sx={{
-              color: theme.vars.palette.primary.main,
+              color: theme.vars.palette.primary.contrastText,
               backgroundColor: theme.vars.palette.background.highlight,
             }}
           >
@@ -33,7 +33,7 @@ const Landing = () => {
           <Typography
             className="Landing-container__name__at"
             variant="h1"
-            sx={{ color: theme.vars.palette.primary.main }}
+            sx={{ color: theme.vars.palette.primary.contrastText }}
           >
             @🏠
           </Typography>
@@ -43,7 +43,14 @@ const Landing = () => {
             className="Nav-link__no-events"
             disabled
             {...navLinkButtonProps}
-            sx={{ paddingLeft: 0, ...navLinkButtonProps.sx, tabIndex: -1 }}
+            sx={{
+              paddingLeft: 0,
+              ...navLinkButtonProps.sx,
+              tabIndex: -1,
+              "&.Mui-disabled": {
+                color: theme.vars.palette.primary.contrastText,
+              },
+            }}
             aria-label="Styling emulating a terminal's command line blinking cursor for text input."
           >
             ~$
