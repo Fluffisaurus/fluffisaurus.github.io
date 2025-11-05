@@ -45,7 +45,7 @@ module.exports = {
     new Dotenv(),
     new BundleAnalyzerPlugin({
       generateStatsFile: devMode,
-      analyzerMode: devMode ? "static" : "json",
+      analyzerMode: "disabled",
     }),
   ],
   module: {
