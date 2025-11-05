@@ -32,6 +32,11 @@ const paths = [
     text: "contact",
     subpaths: [],
   },
+  {
+    path: "/resume",
+    text: "resume",
+    subpaths: [],
+  },
 ];
 
 const NavLinks = () => {

@@ -14,6 +14,7 @@ const Academic = lazy(() => import("../pages/projects/Academic"));
 const Personal = lazy(() => import("../pages/projects/Personal"));
 const AboutMe = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
+const Resume = lazy(() => import("../pages/Resume"));
 
 const ProjectModalCard = lazy(() => import("./project/ProjectModalCard"));
 import { ProjectList } from "../content/projects/project-list";
@@ -65,6 +66,7 @@ const App = () => {
               />
             </Route>
             <Route path="contact" element={<Contact />} />
+            <Route path="resume" element={<Resume />} />
             <Route path="default" element={<Default />} />
             <Route path="*" element={<DoesNotExist />} />
           </Routes>

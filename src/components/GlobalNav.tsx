@@ -349,6 +349,20 @@ const GlobalNav = (props: ImageQualityProps) => {
               <SubdirectoryArrowRightTwoToneIcon />
               contact
             </Button>
+            <Button
+              component={Link}
+              to={"/resume"}
+              {...globalNavButtonProps}
+              sx={{
+                ...globalNavButtonProps.sx,
+                ...globalNavDrawerButtonStyles,
+              }}
+              onMouseEnter={() => setHoverPath("/resume")}
+              aria-label="Global navigation drawer menu link to resume page."
+            >
+              <SubdirectoryArrowRightTwoToneIcon />
+              resume
+            </Button>
           </StyledBox>
         </StyledBox>
       </SwipeableDrawer>
