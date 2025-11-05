@@ -1,11 +1,11 @@
 import * as React from "react";
 
-import { Mode } from "@mui/system/cssVars/useCurrentColorScheme";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone";
 import LightModeTwoToneIcon from "@mui/icons-material/LightModeTwoTone";
 
+type Mode = "light" | "dark" | "system";
 interface ToggleThemeButtonsProps {
   mode: "light" | "dark" | "system" | undefined;
   setMode: (mode: Mode | null) => void;
