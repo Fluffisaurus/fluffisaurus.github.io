@@ -45,19 +45,6 @@ const GlobalNav = (props: ImageQualityProps) => {
   const [hoverText, setHoverText] = useState<string>("cd ");
   const [fullPath, setFullPath] = useState<string | null>();
 
-  const [showContent, setShowContent] = useState(false);
-  useEffect(() => {
-    if (location.pathname == "/") {
-      const timer = setTimeout(() => {
-        setShowContent(true);
-      }, ANI_CONST.GLOBAL_NAV_LANDING_DELAY);
-
-      return () => clearTimeout(timer);
-    } else {
-      setShowContent(true);
-    }
-  }, []);
-
   const [openDrawer, setOpenDrawer] = React.useState(false);
   const toggleDrawer = () => setOpenDrawer(!openDrawer);
 
@@ -148,7 +135,7 @@ const GlobalNav = (props: ImageQualityProps) => {
 
   return (
     <>
-      <Slide in={showContent}>
+      <Slide in timeout={ANI_CONST.GLOBAL_NAV_DELAY}>
         <StyledBox
           className="Global-nav"
           role="banner"

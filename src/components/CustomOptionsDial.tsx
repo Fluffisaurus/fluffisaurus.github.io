@@ -59,7 +59,7 @@ export default function CustomOptionsDial(props: CustomOptionsDialProps) {
       // first load
       toast.info("Customize your experience", {
         position: "top-right",
-        delay: ANI_CONST.GLOBAL_NAV_LANDING_DELAY + 500,
+        delay: ANI_CONST.OPTIONS_DIAL_DELAY,
         autoClose: 5000,
         hideProgressBar: true,
         closeOnClick: true,
