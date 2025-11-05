@@ -148,7 +148,7 @@ const GlobalNav = (props: ImageQualityProps) => {
 
   return (
     <>
-      <Slide in={showContent} timeout={ANI_CONST.GLOBAL_NAV_DELAY}>
+      <Slide in={showContent}>
         <StyledBox
           className="Global-nav"
           sx={{ zIndex: ANI_CONST.ZINDEX.GLOBAL_NAV }}
@@ -180,6 +180,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 color: theme.vars.palette.primary.dark,
                 padding: 0,
+                tabIndex: -1,
               }}
               aria-label="Styling emulating a terminal's file structure."
             >
@@ -216,6 +217,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 color: theme.vars.palette.primary.dark,
                 padding: 0,
+                tabIndex: -1,
               }}
               aria-label="Styling emulating a terminal's command line blinking cursor for text input."
             >
@@ -230,6 +232,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                   color: theme.vars.palette.primary.light,
                   justifyContent: "flex-start",
                   padding: "0 5px 0 25px",
+                  tabIndex: -1,
                 }}
                 aria-label="Styling emulating a terminal's command line input. Types out paths and sub paths on user focus."
               >
@@ -287,6 +290,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
                 color: theme.vars.palette.primary.dark,
+                tabIndex: -1,
               }}
               onMouseEnter={() => setHoverPath("/projects")}
               aria-label="Global navigation drawer menu heading that emulates a terminal's foldre structure showing that projects is a folder with contents."

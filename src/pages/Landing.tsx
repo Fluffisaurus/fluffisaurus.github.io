@@ -14,7 +14,7 @@ import theme from "../mui/theme";
 
 const Landing = () => {
   return (
-    <Fade in appear timeout={3000}>
+    <Fade in appear>
       <Box className="Landing-container">
         <Typography variant="h5" sx={{ fontFamily: "Karla", fontWeight: 700 }}>
           Hi there! Welcome to
@@ -42,7 +42,7 @@ const Landing = () => {
           <Button
             className="Nav-link__no-events"
             {...navLinkButtonProps}
-            sx={{ paddingLeft: 0, ...navLinkButtonProps.sx }}
+            sx={{ paddingLeft: 0, ...navLinkButtonProps.sx, tabIndex: -1 }}
             aria-label="Styling emulating a terminal's command line blinking cursor for text input."
           >
             ~$
