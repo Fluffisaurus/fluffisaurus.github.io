@@ -15,7 +15,7 @@ import theme from "../mui/theme";
 const Landing = () => {
   return (
     <Fade in appear>
-      <Box className="Landing-container">
+      <Box className="Landing-container" role="main">
         <Typography variant="h5" sx={{ fontFamily: "Karla", fontWeight: 700 }}>
           Hi there! Welcome to
         </Typography>
@@ -38,7 +38,7 @@ const Landing = () => {
             @🏠
           </Typography>
         </Box>
-        <Box className="Landing-container__nav">
+        <Box className="Landing-container__nav" role="navigation">
           <Button
             className="Nav-link__no-events"
             disabled

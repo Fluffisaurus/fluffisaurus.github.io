@@ -151,6 +151,7 @@ const GlobalNav = (props: ImageQualityProps) => {
       <Slide in={showContent}>
         <StyledBox
           className="Global-nav"
+          role="banner"
           sx={{ zIndex: ANI_CONST.ZINDEX.GLOBAL_NAV }}
         >
           <Box className="Global-nav__root">
