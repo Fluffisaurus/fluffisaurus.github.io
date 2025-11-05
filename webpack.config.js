@@ -3,6 +3,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
@@ -42,8 +44,8 @@ module.exports = {
     }),
     new Dotenv(),
     new BundleAnalyzerPlugin({
-      generateStatsFile: true,
-      analyzerMode: devMode ? "server" : "json",
+      generateStatsFile: devMode,
+      analyzerMode: devMode ? "static" : "json",
     }),
   ],
   module: {
@@ -63,6 +65,10 @@ module.exports = {
         },
       },
       {
+        test: /\.(svg|png|jpe?g|gif)$/i,
+        type: "asset/resource",
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
@@ -73,7 +79,22 @@ module.exports = {
   },
   optimization: {
     minimize: !devMode,
-    minimizer: [new CssMinimizerPlugin()],
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new TerserPlugin({
+        parallel: !devMode,
+        terserOptions: {
+          compress: !devMode,
+          mangle: !devMode,
+        },
+      }),
+      new CompressionPlugin({
+        algorithm: "gzip",
+        test: /\.(js|css|html|svg)$/,
+        threshold: 10240,
+        minRatio: 0.8,
+      }),
+    ],
     chunkIds: devMode ? "named" : "deterministic",
     splitChunks: {
       chunks: "all",
