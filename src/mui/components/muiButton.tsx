@@ -60,6 +60,12 @@ const muiButtonStyles = {
             backgroundColor: props.theme.vars.palette.secondary.main,
           },
           "&:focus": {},
+          "&.Mui-disabled": {
+            // Remove or override specific styles for Button
+            color: props.theme.vars.palette.primary.dark,
+            backgroundColor: "transparent",
+            opacity: 1,
+          },
         } as CSSObject),
       cardDetails: () => ({
         position: "absolute",

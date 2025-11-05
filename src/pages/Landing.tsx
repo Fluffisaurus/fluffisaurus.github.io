@@ -41,6 +41,7 @@ const Landing = () => {
         <Box className="Landing-container__nav">
           <Button
             className="Nav-link__no-events"
+            disabled
             {...navLinkButtonProps}
             sx={{ paddingLeft: 0, ...navLinkButtonProps.sx, tabIndex: -1 }}
             aria-label="Styling emulating a terminal's command line blinking cursor for text input."

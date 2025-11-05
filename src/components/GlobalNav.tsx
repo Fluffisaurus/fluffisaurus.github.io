@@ -175,6 +175,7 @@ const GlobalNav = (props: ImageQualityProps) => {
             </Button>
             <Button
               className="Nav-link__no-events"
+              disabled
               {...globalNavButtonProps}
               sx={{
                 ...globalNavButtonProps.sx,
@@ -212,6 +213,7 @@ const GlobalNav = (props: ImageQualityProps) => {
             )}
             <Button
               className="Nav-link__no-events"
+              disabled
               {...globalNavButtonProps}
               sx={{
                 ...globalNavButtonProps.sx,
@@ -226,6 +228,7 @@ const GlobalNav = (props: ImageQualityProps) => {
             {!smallScreen && (
               <Button
                 className="Nav-link__no-events"
+                disabled
                 {...globalNavButtonProps}
                 sx={{
                   ...globalNavButtonProps.sx,
@@ -284,6 +287,7 @@ const GlobalNav = (props: ImageQualityProps) => {
             <Button
               ref={drawerProjectButtonRef}
               className="Nav-link__no-events"
+              disabled
               {...globalNavButtonProps}
               {...bindTrigger(popupState)}
               sx={{
