@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 
 import ScrollableContainer from "../components/styled/ScrollableContainer";
 import FadeWrapper from "../components/styled/FadeWrapper";
+import { PDFViewer } from "../components/PDFViewer";
 
 const Resume: React.FunctionComponent = () => {
   return (
@@ -12,6 +13,7 @@ const Resume: React.FunctionComponent = () => {
         <FadeWrapper>
           <Typography variant="h3">Resume</Typography>
         </FadeWrapper>
+        <PDFViewer />
       </ScrollableContainer>
     </>
   );
