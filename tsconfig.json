@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    // "lib": [
-    //     "dom",
-    //     "dom.iterable",
-    //     "esnext"
-    // ],
+    "target": "esnext",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -13,14 +9,14 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    // "module": "esnext",
+    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react",
-    "outDir": "./static/"
+    "outDir": "./build/"
   },
   "include": ["./src/index.tsx"],
-  "exclude": ["node_modules", "static"]
+  "exclude": ["node_modules", "build"]
 }

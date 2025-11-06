@@ -36,7 +36,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: devMode ? "[name].css" : "[name].[contenthash].css",
-      chunkFilename: devMode ? "[ic].css" : "[ic].[contenthash].css",
+      chunkFilename: "[ic].[contenthash].css",
     }),
     new HtmlWebpackPlugin({
       template: "public/index.html",
