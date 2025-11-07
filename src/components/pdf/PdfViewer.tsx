@@ -1,0 +1,104 @@
+/*
+ * Functional template code from embedpdf's examples seen here.
+ * https://github.com/embedpdf/embed-pdf-viewer/blob/f3486941665843c5bcbe7778a871fe8b068a4fa4/examples/react-mui/src/application.tsx
+ *
+ * Rewritten and modified by me for my specific usecase.
+ */
+
+import Box from "@mui/material/Box";
+
+import { createPluginRegistration } from "@embedpdf/core";
+import { EmbedPDF } from "@embedpdf/core/react";
+import { usePdfiumEngine } from "@embedpdf/engines/react";
+
+import {
+  Viewport,
+  ViewportPluginPackage,
+} from "@embedpdf/plugin-viewport/react";
+import { Scroller, ScrollPluginPackage } from "@embedpdf/plugin-scroll/react";
+import { LoaderPluginPackage } from "@embedpdf/plugin-loader/react";
+import {
+  RenderLayer,
+  RenderPluginPackage,
+} from "@embedpdf/plugin-render/react";
+
+import { InteractionManagerPluginPackage } from "@embedpdf/plugin-interaction-manager/react";
+import { FullscreenPluginPackage } from "@embedpdf/plugin-fullscreen/react";
+import { ExportPluginPackage } from "@embedpdf/plugin-export/react";
+import { ZoomMode, ZoomPluginPackage } from "@embedpdf/plugin-zoom/react";
+
+import PdfToolbar from "./PdfToolbar";
+import PageControls from "./PageControls";
+
+// 1. Register the plugins you need
+const plugins = [
+  createPluginRegistration(LoaderPluginPackage, {
+    loadingOptions: {
+      type: "url",
+      pdfFile: {
+        id: "example-pdf",
+        url: "https://res.cloudinary.com/djlcricbu/image/upload/v1653627212/pdfs/placeholder-pdf-doc_j3pjxs.pdf",
+      },
+    },
+  }),
+  createPluginRegistration(ViewportPluginPackage),
+  createPluginRegistration(ScrollPluginPackage),
+  createPluginRegistration(RenderPluginPackage),
+
+  createPluginRegistration(InteractionManagerPluginPackage),
+  createPluginRegistration(FullscreenPluginPackage),
+  createPluginRegistration(ExportPluginPackage),
+  createPluginRegistration(ZoomPluginPackage, {
+    defaultZoomLevel: ZoomMode.FitPage,
+  }),
+];
+
+const PdfViewer = () => {
+  // 2. Initialize the engine with the React hook
+  const { engine, isLoading } = usePdfiumEngine();
+
+  if (isLoading || !engine) {
+    return <div>Loading PDF Engine...</div>;
+  }
+
+  // 3. Wrap your UI with the <EmbedPDF> provider
+  return (
+    <Box
+      sx={{
+        height: "85%",
+      }}
+    >
+      <EmbedPDF engine={engine} plugins={plugins}>
+        <Box
+          sx={{
+            height: "100%",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            position: "relative",
+            userSelect: "none",
+          }}
+        >
+          <PdfToolbar />
+          <Viewport
+            style={{
+              backgroundColor: "#f1f3f5",
+            }}
+          >
+            <Scroller
+              renderPage={({ width, height, pageIndex, scale }) => (
+                <div style={{ width, height }}>
+                  {/* The RenderLayer is responsible for drawing the page */}
+                  <RenderLayer pageIndex={pageIndex} scale={scale} />
+                </div>
+              )}
+            />
+            <PageControls />
+          </Viewport>
+        </Box>
+      </EmbedPDF>
+    </Box>
+  );
+};
+
+export default PdfViewer;

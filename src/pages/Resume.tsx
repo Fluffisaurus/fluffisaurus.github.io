@@ -1,20 +1,27 @@
 import React from "react";
 
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-import ScrollableContainer from "../components/styled/ScrollableContainer";
 import FadeWrapper from "../components/styled/FadeWrapper";
-import { PDFViewer } from "../components/PDFViewer";
+import PdfViewer from "../components/pdf/PdfViewer";
 
 const Resume: React.FunctionComponent = () => {
   return (
     <>
-      <ScrollableContainer>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          flex: "1 1 0",
+          overflow: "hidden",
+        }}
+      >
         <FadeWrapper>
           <Typography variant="h3">Resume</Typography>
         </FadeWrapper>
-        <PDFViewer />
-      </ScrollableContainer>
+        <PdfViewer />
+      </Box>
     </>
   );
 };
