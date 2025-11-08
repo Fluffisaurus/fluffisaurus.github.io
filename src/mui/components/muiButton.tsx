@@ -12,7 +12,7 @@ export const navLinkButtonProps: ButtonProps = {
   sx: { ...muiButtonNavlinkFontSizes },
 };
 
-const muiButtonGlobalNavFontSizes = {
+export const muiButtonGlobalNavFontSizes = {
   fontSize: { mobile: 19, tablet: 20, laptop: 21, desktop: 22 },
 };
 

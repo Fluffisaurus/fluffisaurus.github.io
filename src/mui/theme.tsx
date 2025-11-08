@@ -28,6 +28,7 @@ declare module "@mui/material/styles" {
   interface TypeBackground {
     highlight: string;
     globalNav: string;
+    pdf: string;
   }
 }
 

@@ -1,3 +1,5 @@
+import { darken } from "@mui/material/styles";
+
 const muiColorSchemes = {
   colorSchemes: {
     light: {
@@ -6,6 +8,7 @@ const muiColorSchemes = {
           default: "#fff3de",
           paper: "white",
           highlight: "#1fc7cd59",
+          pdf: darken("#fff3de", 0.15),
           globalNav: "white",
         },
         primary: {

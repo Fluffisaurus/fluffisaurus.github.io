@@ -29,6 +29,7 @@ import { ZoomMode, ZoomPluginPackage } from "@embedpdf/plugin-zoom/react";
 
 import PdfToolbar from "./PdfToolbar";
 import PageControls from "./PageControls";
+import theme from "../../mui/theme";
 
 // 1. Register the plugins you need
 const plugins = [
@@ -47,9 +48,14 @@ const plugins = [
 
   createPluginRegistration(InteractionManagerPluginPackage),
   createPluginRegistration(FullscreenPluginPackage),
-  createPluginRegistration(ExportPluginPackage),
+  createPluginRegistration(ExportPluginPackage, {
+    defaultFileName: "resume-2025_angus-hon.pdf",
+  }),
   createPluginRegistration(ZoomPluginPackage, {
     defaultZoomLevel: ZoomMode.FitPage,
+    minZoom: 0.25,
+    maxZoom: 2,
+    zoomRanges: [{ min: 0.25, max: 2.1, step: 0.25 }],
   }),
 ];
 
@@ -82,7 +88,7 @@ const PdfViewer = () => {
           <PdfToolbar />
           <Viewport
             style={{
-              backgroundColor: "#f1f3f5",
+              backgroundColor: theme.vars.palette.background.pdf,
             }}
           >
             <Scroller
