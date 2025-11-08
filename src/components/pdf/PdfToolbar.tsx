@@ -37,6 +37,11 @@ export const StyledIconButton = styled(IconButton)({
   },
 });
 
+export const StyledButton = styled(Button)({
+  border: "2px",
+  borderColor: theme.vars.palette.secondary.main,
+});
+
 type DownloadConfirmationProps = ToastContentProps & {
   exportProvider?: ExportCapability | null;
 };
@@ -49,16 +54,21 @@ const DownloadConfirmation = (props: DownloadConfirmationProps) => {
   }
 
   return (
-    <Box>
-      <Typography>Would you like to download?</Typography>
+    <Box sx={{ margin: "auto" }}>
+      <Typography variant="body1">Would you like to download?</Typography>
       <Grid
         container
         display={"flex"}
         flexDirection={"row"}
         justifyContent={"space-between"}
+        sx={{ paddingTop: "10px" }}
       >
-        <Button onClick={downloadConfirmed}>Yes</Button>
-        <Button onClick={closeToast}>No</Button>
+        <StyledButton onClick={downloadConfirmed} size="large">
+          Yes
+        </StyledButton>
+        <StyledButton onClick={closeToast} size="large">
+          No
+        </StyledButton>
       </Grid>
     </Box>
   );

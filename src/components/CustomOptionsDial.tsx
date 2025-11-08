@@ -4,6 +4,7 @@ import Box from "@mui/material/Box";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
+import Typography from "@mui/material/Typography";
 import { useColorScheme } from "@mui/material"; // eslint-disable-line no-restricted-imports
 import Backdrop from "@mui/material/Backdrop";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -57,24 +58,36 @@ export default function CustomOptionsDial(props: CustomOptionsDialProps) {
   React.useEffect(() => {
     if (!initialLoad) {
       // first load
-      toast.info("Customize your experience", {
-        position: "top-right",
-        delay: ANI_CONST.OPTIONS_DIAL_DELAY,
-        autoClose: 5000,
-        hideProgressBar: true,
-        closeOnClick: true,
-        pauseOnFocusLoss: false,
-        draggableDirection: "y",
-        style: {
-          right: smallScreen ? "25px" : "10px",
-          top: smallScreen ? "60px" : "45px",
-          borderTopLeftRadius: "10px",
-          borderTopRightRadius: 0,
-          borderBottomLeftRadius: "10px",
-          borderBottomRightRadius: "10px",
-          width: smallScreen ? "280px" : "fit-content",
-        },
-      });
+      toast.info(
+        <Typography
+          variant="body1"
+          sx={{
+            margin: "auto",
+            paddingLeft: "5px",
+            paddingRight: "15px",
+          }}
+        >
+          Customize your experience
+        </Typography>,
+        {
+          position: "top-right",
+          delay: ANI_CONST.OPTIONS_DIAL_DELAY,
+          autoClose: 5000,
+          hideProgressBar: true,
+          closeOnClick: true,
+          pauseOnFocusLoss: false,
+          draggableDirection: "y",
+          style: {
+            right: smallScreen ? "25px" : "10px",
+            top: smallScreen ? "60px" : "45px",
+            borderTopLeftRadius: "10px",
+            borderTopRightRadius: 0,
+            borderBottomLeftRadius: "10px",
+            borderBottomRightRadius: "10px",
+            width: smallScreen ? "280px" : "fit-content",
+          },
+        }
+      );
       setInitialLoad(true);
       localStorage.setItem("--speedDial-onboard", "true");
     }
