@@ -18,7 +18,10 @@ import FullscreenExitTwoToneIcon from "@mui/icons-material/FullscreenExitTwoTone
 import DownloadTwoToneIcon from "@mui/icons-material/DownloadTwoTone";
 
 import { useFullscreen } from "@embedpdf/plugin-fullscreen/react";
-import { useExportCapability } from "@embedpdf/plugin-export/react";
+import {
+  ExportCapability,
+  useExportCapability,
+} from "@embedpdf/plugin-export/react";
 
 import { toast, ToastContentProps } from "react-toastify";
 import ZoomControls from "./ZoomControls";
@@ -34,12 +37,15 @@ export const StyledIconButton = styled(IconButton)({
   },
 });
 
-const DownloadConfirmation = (props: ToastContentProps) => {
-  const { closeToast } = props;
-  const { provides: exportProvider } = useExportCapability();
+type DownloadConfirmationProps = ToastContentProps & {
+  exportProvider?: ExportCapability | null;
+};
+
+const DownloadConfirmation = (props: DownloadConfirmationProps) => {
+  const { closeToast, exportProvider } = props;
 
   function downloadConfirmed() {
-    exportProvider?.download();
+    exportProvider?.download?.();
   }
 
   return (
@@ -51,7 +57,7 @@ const DownloadConfirmation = (props: ToastContentProps) => {
         flexDirection={"row"}
         justifyContent={"space-between"}
       >
-        <Button onClick={() => downloadConfirmed}>Yes</Button>
+        <Button onClick={downloadConfirmed}>Yes</Button>
         <Button onClick={closeToast}>No</Button>
       </Grid>
     </Box>
@@ -61,6 +67,7 @@ const DownloadConfirmation = (props: ToastContentProps) => {
 const PdfToolbar = () => {
   const { provides: fullscreenProvider, state: fullscreenState } =
     useFullscreen();
+  const { provides: exportProvider } = useExportCapability();
 
   const handleFullscreenToggle = () => {
     fullscreenProvider?.toggleFullscreen();
@@ -68,7 +75,9 @@ const PdfToolbar = () => {
 
   const handleDownload = () => {
     toast.info(
-      (props: ToastContentProps) => <DownloadConfirmation {...props} />,
+      (props: ToastContentProps) => (
+        <DownloadConfirmation exportProvider={exportProvider} {...props} />
+      ),
       {
         autoClose: 8000,
       }
