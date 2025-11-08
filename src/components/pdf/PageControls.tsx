@@ -17,6 +17,8 @@ import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 import { useViewportCapability } from "@embedpdf/plugin-viewport/react";
 import { useScroll } from "@embedpdf/plugin-scroll/react";
 
+import theme from "../../mui/theme";
+
 const PageControls = () => {
   const { provides: viewport } = useViewportCapability();
   const {
@@ -111,7 +113,7 @@ const PageControls = () => {
       onMouseLeave={handleMouseLeave}
       sx={{
         position: "absolute",
-        bottom: 16,
+        bottom: 18,
         left: "50%",
         transform: "translateX(-50%)",
         zIndex: 1000,
@@ -124,9 +126,9 @@ const PageControls = () => {
           display: "flex",
           alignItems: "center",
           gap: 2,
-          bgcolor: "#f8f9fa",
+          bgcolor: theme.vars.palette.background.default,
           borderRadius: 1,
-          border: "1px solid #cfd4da",
+          border: theme.vars.palette.background.pdf,
           p: 0.5,
         }}
       >
