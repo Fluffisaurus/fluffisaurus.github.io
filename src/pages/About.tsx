@@ -18,7 +18,12 @@ const AboutMe: React.FunctionComponent = () => {
         <FadeWrapper>
           <Typography variant="h3">5w1h</Typography>
         </FadeWrapper>
-        <Grid container spacing={2} flexDirection={"column"}>
+        <Grid
+          container
+          spacing={2}
+          flexDirection={"column"}
+          sx={{ paddingBottom: "40px" }}
+        >
           {AboutMeContent?.map((cntBlk, i) => {
             return (
               <SlideWrapper

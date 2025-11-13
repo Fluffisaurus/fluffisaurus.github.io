@@ -17,6 +17,7 @@ const Selection = () => {
         direction="row"
         spacing={2}
         size={{ mobile: 6, tablet: 8 }}
+        sx={{ paddingBottom: "40px" }}
       >
         <SlideWrapper slideFromRef={containerRef} delay={500} direction="up">
           <ProjectSelectionBlock

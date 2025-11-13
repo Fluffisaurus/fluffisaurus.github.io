@@ -109,7 +109,7 @@ const Contact: React.FunctionComponent = ({
           container
           spacing={1}
           direction={"column"}
-          sx={{ paddingTop: "30px" }}
+          sx={{ paddingTop: "30px", paddingBottom: "40px" }}
         >
           <SlideWrapper
             slideFromRef={containerRef}

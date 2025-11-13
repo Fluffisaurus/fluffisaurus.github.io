@@ -23,7 +23,12 @@ const ProjectVariants = ({ variant, imgQuality }: ProjectVariantsProps) => {
   return (
     <>
       <div ref={containerRef}>
-        <Grid container spacing={2} alignItems="flex-start">
+        <Grid
+          container
+          spacing={2}
+          alignItems="flex-start"
+          sx={{ paddingBottom: "40px" }}
+        >
           {ProjectList[variant].map((proj, i) => {
             return (
               <SlideWrapper
