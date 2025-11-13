@@ -8,10 +8,22 @@ const CompressionPlugin = require("compression-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
+const SitemapPlugin = require("sitemap-webpack-plugin").default;
+const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 
 const devMode = process.env.NODE_ENV !== "production";
+const isProduction = process.env.NODE_ENV === "production";
 const devCacheTTL = 1200000; // 20 min = 20min * 60s/min * 1000ms/s
 const prodCacheTTL = 7776000000; // 3 month = 3months * 30days * 24h/day * 60min/h * 60s/min * 1000ms/s
+
+const paths = [
+  "/about/",
+  "/projects/",
+  "/projects/personal/",
+  "/projects/academic/",
+  "/contact/",
+  "/resume/",
+];
 
 module.exports = {
   mode: devMode ? "development" : "production",
@@ -47,6 +59,27 @@ module.exports = {
       generateStatsFile: devMode,
       analyzerMode: "disabled",
     }),
+    new SitemapPlugin({
+      base: "https://angushon.io",
+      paths,
+      options: {
+        filename: "sitemap.xml",
+        lastmod: true,
+        changefreq: "monthly",
+        priority: 0.4,
+        skipgzip: true,
+      },
+    }),
+    new RobotstxtPlugin({
+      userAgents: [
+        {
+          name: "*",
+          disallow: isProduction ? [] : ["/"], // Disallow all in non-production
+          allow: isProduction ? ["/"] : [], // Allow all in production
+        },
+      ],
+      sitemap: isProduction ? "https://angushon.io/sitemap.xml" : undefined,
+    }),
   ],
   module: {
     rules: [
@@ -78,14 +111,14 @@ module.exports = {
     hints: false,
   },
   optimization: {
-    minimize: !devMode,
+    minimize: isProduction,
     minimizer: [
       new CssMinimizerPlugin(),
       new TerserPlugin({
-        parallel: !devMode,
+        parallel: isProduction,
         terserOptions: {
-          compress: !devMode,
-          mangle: !devMode,
+          compress: isProduction,
+          mangle: isProduction,
         },
       }),
       new CompressionPlugin({
