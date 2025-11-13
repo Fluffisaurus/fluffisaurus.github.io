@@ -77,5 +77,5 @@ const breakpoints: Breakpoint[] = [
   Viewport.desktop,
   Viewport.bigboi,
 ];
-theme = responsiveFontSizes(theme, { breakpoints });
+theme = responsiveFontSizes(theme, { breakpoints, factor: 2.5 });
 export default theme;
