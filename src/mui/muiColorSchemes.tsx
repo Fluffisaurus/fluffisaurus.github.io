@@ -38,6 +38,7 @@ const muiColorSchemes = {
         },
         secondary: {
           main: "#9d2dff2d",
+          dark: darken("#9d2dff2d", 0.2),
           contrastText: "#fff3de",
         },
         text: {

@@ -12,6 +12,7 @@ import MenuItem from "@mui/material/MenuItem";
 
 import { navLinkButtonProps } from "../mui/components/muiButton";
 import { isSmallScreen } from "../utils/breakpoints";
+import theme from "../mui/theme";
 
 const paths = [
   {
@@ -59,6 +60,12 @@ const NavLinks = () => {
                   to={path.path}
                   {...navLinkButtonProps}
                   {...bindHover(popupState)}
+                  sx={{
+                    ...navLinkButtonProps.sx,
+                    backgroundColor: popupState.isOpen
+                      ? theme.vars.palette.secondary.dark
+                      : "none",
+                  }}
                   aria-label={`Landing page navigation to ${path.text} page.`}
                 >
                   {path.text}
