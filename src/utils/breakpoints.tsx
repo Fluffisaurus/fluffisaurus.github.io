@@ -47,13 +47,7 @@ const getViewport = () => {
 };
 
 function isSmallScreen() {
-  const vp = getViewport();
-  return vp == null ||
-    vp == undefined || // mobile layout by default if error
-    vp == Viewport.mobile ||
-    vp == Viewport.tablet
-    ? true
-    : false;
+  return useMediaQuery(theme.breakpoints.down("tablet"));
 }
 
 function getDimsFromViewport(dim: MuiBreakpointDimension) {
