@@ -145,6 +145,10 @@ const GlobalNav = (props: ImageQualityProps) => {
             <Button
               onClick={toggleDrawer}
               {...globalNavButtonProps}
+              sx={{
+                ...globalNavButtonProps.sx,
+                minWidth: ANI_CONST.GLOBAL_NAV_HEIGHT,
+              }}
               onMouseEnter={() => setHoverPath("menu")}
               aria-label="Global navigation button to expand drawer navigation."
             >
