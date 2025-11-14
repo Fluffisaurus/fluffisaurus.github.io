@@ -72,14 +72,14 @@ const GlobalNav = (props: ImageQualityProps) => {
     []
   );
 
-  const [homeIconButtonDims, setHomeIconeButtonDims] = useState({
+  const [drawerIconButtonDims, setDrawerIconButtonDims] = useState({
     width: 0,
     height: 0,
   });
-  const homeIconButtonRef = useCallback((node: HTMLButtonElement | null) => {
+  const drawerIconButtonRef = useCallback((node: HTMLButtonElement | null) => {
     if (node !== null) {
       const nodeDims = computeNodeStyle(node);
-      setHomeIconeButtonDims({
+      setDrawerIconButtonDims({
         width: nodeDims.width,
         height: nodeDims.height,
       });
@@ -143,6 +143,7 @@ const GlobalNav = (props: ImageQualityProps) => {
         >
           <Box className="Global-nav__root">
             <Button
+              ref={drawerIconButtonRef}
               onClick={toggleDrawer}
               {...globalNavButtonProps}
               sx={{
@@ -155,7 +156,6 @@ const GlobalNav = (props: ImageQualityProps) => {
               {openDrawer ? <MenuOpenTwoToneIcon /> : <MenuTwoToneIcon />}
             </Button>
             <Button
-              ref={homeIconButtonRef}
               component={Link}
               to={"/"}
               {...globalNavButtonProps}
@@ -238,7 +238,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 />
               </Button>
             )}
-            <CustomOptionsDial {...props} dims={homeIconButtonDims} />
+            <CustomOptionsDial {...props} dims={drawerIconButtonDims} />
           </Box>
         </StyledBox>
       </Slide>
@@ -259,7 +259,7 @@ const GlobalNav = (props: ImageQualityProps) => {
               display: "flex",
               flexDirection: "column",
               width: "fit-content",
-              marginLeft: homeIconButtonDims.width + "px",
+              marginLeft: drawerIconButtonDims.width + "px",
             }}
           >
             <Button
