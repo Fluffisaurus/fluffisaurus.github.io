@@ -8,7 +8,7 @@ const kingdomOfHelios: Project = {
   category: "2D Side-Scrolling Platformer Game",
   link: {
     repo: "https://github.com/Fluffisaurus/kingdom-of-helios",
-    host: "https://fluffisaurus.github.io/kingdom-of-helios/",
+    host: "https://angushon.io/kingdom-of-helios/",
     hostCTA: "Play it here",
   },
   detail: {

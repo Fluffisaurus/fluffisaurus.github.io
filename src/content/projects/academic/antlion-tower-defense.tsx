@@ -16,7 +16,7 @@ const antlionTowerDefense: Project = {
   category: "2D Tower Defense Game",
   link: {
     repo: "https://github.com/Fluffisaurus/ATD",
-    host: "",
+    host: "https://angushon.io/antlion-tower-defense/",
   },
   detail: {
     keypoints: [

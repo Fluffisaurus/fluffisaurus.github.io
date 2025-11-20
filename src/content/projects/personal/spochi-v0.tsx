@@ -9,7 +9,7 @@ const spochiV0: Project = {
   category: "Interactive Data Visualization Tool",
   link: {
     repo: "", // repo bball-data-viz
-    host: "https://fluffisaurus.github.io/bball-data-viz/",
+    host: "https://angushon.io/bball-data-viz/",
     hostCTA: "Try it here",
   },
   detail: {
