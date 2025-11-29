@@ -16,9 +16,9 @@ import Slide from "@mui/material/Slide";
 import { Project } from "../../content/projects/interfaces";
 import ProjectCardMedia from "./ProjectCardMedia";
 import { ANI_CONST, ImageQualityProps } from "../styled/constants";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import resolveDimensionValue from "../../utils/breakpoints";
-import ScrollableContainer from "../styled/ScrollableContainer";
+import Box from "@mui/material/Box";
 
 interface ProjectCardProps extends ImageQualityProps {
   proj: Project;
@@ -94,7 +94,7 @@ const ProjectCardLinks = (proj: Project) => {
 
 const ProjectCardTitle = (proj: Project) => {
   return (
-    <>
+    <Grid container flexDirection={"column"}>
       <Typography component="div" variant="h5">
         {proj.name}
       </Typography>
@@ -105,28 +105,7 @@ const ProjectCardTitle = (proj: Project) => {
       >
         {proj.category}
       </Typography>
-      <Grid
-        container
-        display={"flex"}
-        flexDirection={"row"}
-        spacing={2}
-        rowSpacing={0}
-        width={"90%"}
-      >
-        {proj.tags.map((tag, i) => {
-          return (
-            <Typography
-              key={i}
-              variant="subtitle2"
-              component="div"
-              sx={{ color: "text.secondary" }}
-            >
-              {tag}
-            </Typography>
-          );
-        })}
-      </Grid>
-    </>
+    </Grid>
   );
 };
 
@@ -167,6 +146,7 @@ const ProjectCard = ({
     width: ANI_CONST.PROJ_CARD_WIDTH,
     height: "100%",
     zIndex: ANI_CONST.ZINDEX.COLLAPSED_CONTENT,
+    overflow: "auto",
   };
 
   useLayoutEffect(() => {
@@ -213,14 +193,44 @@ const ProjectCard = ({
       </CardContent>
       <Slide in={expanded} direction="up" timeout={ANI_CONST.PROJ_CARDS_DELAY}>
         <CardContent sx={{ ...collapsedContentStyling }}>
-          <Grid container rowSpacing={3}>
-            <div>
-              <ProjectCardTitle {...proj} />
-            </div>
-            <ScrollableContainer>
+          <Grid
+            container
+            sx={{
+              position: "sticky",
+              top: 0,
+              backgroundColor: theme.vars.palette.background.paper,
+            }}
+          >
+            <ProjectCardTitle {...proj} />
+          </Grid>
+          <Box sx={{ height: "100%", padding: "10px 0px 25px 0px" }}>
+            <Grid container rowSpacing={1}>
+              <Grid // tags
+                container
+                display={"flex"}
+                flexDirection={"row"}
+                spacing={2}
+                rowSpacing={0}
+                width={"90%"}
+              >
+                {proj.tags.map((tag, i) => {
+                  return (
+                    <Typography
+                      key={i}
+                      variant="subtitle2"
+                      component="div"
+                      sx={{ color: "text.secondary" }}
+                    >
+                      {tag}
+                    </Typography>
+                  );
+                })}
+              </Grid>
               <Typography variant="body2" sx={{ marginBottom: "5px" }}>
                 {proj.date}
               </Typography>
+            </Grid>
+            <Box>
               {proj.detail.keypoints.map((keypoint, i) => {
                 return (
                   <Typography variant="body1" key={`${proj.abbr}-${i}`}>
@@ -229,16 +239,8 @@ const ProjectCard = ({
                 );
               })}
               <ProjectCardLinks {...proj} />
-            </ScrollableContainer>
-          </Grid>
-          <Button
-            variant="cardDetails"
-            component={Link}
-            to={proj.abbr}
-            state={{ background: location }}
-          >
-            More details
-          </Button>
+            </Box>
+          </Box>
         </CardContent>
       </Slide>
     </Card>
