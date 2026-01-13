@@ -147,6 +147,7 @@ const ProjectCard = ({
     height: "100%",
     zIndex: ANI_CONST.ZINDEX.COLLAPSED_CONTENT,
     overflow: "auto",
+    scrollbarWidth: "thin",
   };
 
   useLayoutEffect(() => {
@@ -177,7 +178,7 @@ const ProjectCard = ({
           sx={{
             position: "absolute",
             padding: 0,
-            right: "10px",
+            right: "13px",
             bottom: "10px",
           }}
         >
