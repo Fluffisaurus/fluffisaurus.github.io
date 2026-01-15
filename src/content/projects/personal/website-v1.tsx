@@ -1,8 +1,8 @@
 import { Project } from "../interfaces";
 
 const websiteV1: Project = {
-  abbr: "website",
-  name: "Personal Website",
+  abbr: "portfolio-v1",
+  name: "Portfolio v1.0",
   date: "Mar 2019 - Feb 2020",
   tags: ["React", "JS", "CSS"],
   category: "Single-Page Application Portfolio",
@@ -13,11 +13,10 @@ const websiteV1: Project = {
   },
   detail: {
     keypoints: [
-      "1st attempt at creating a full SPA from scratch with React and CSS",
-      "Ultra lightweight app utilizing CDN for content delivery",
-      "Self-taught React with class-based reusable components",
-      "First online portfolio that utilizes more than plain HTML & CSS",
-      "Early adopter of Light/Dark Mode before it was a standard",
+      "Curiosity and self-indulgence led me to create my first ever online portfolio to showcase everything I worked on in my free time and in university.",
+      "Full SPA with React and CSS back in the era where class-based components were the norm and React hooks didn’t exist.",
+      "Self-taught React and Javascript to build this project.",
+      "Early adopter of Light/Dark Mode before it was a standard.",
     ],
     short:
       "You're looking right at it! Single page web app - my online portfolio. Find my most up-to-date projects, interests, and my contact info.",

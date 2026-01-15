@@ -14,9 +14,10 @@ const spochiV0: Project = {
   },
   detail: {
     keypoints: [
+      "Exploratory project that blends my passions of basketball, data analysis, and software engineering.",
       "Proof of concept app built from React and D3 for interactive data visualization.",
       "Supports brushed selections, data subsetting, data zooming, tool tips, switching dimensions, and history undo/redo.",
-      "Note: this legacy app only works on PC desktops, no support for mobile, and no responsive layouts.",
+      "Note: this legacy app only works on desktop and does not have a responsive design for mobile or smaller displays.",
     ],
     short: "",
     long: [],

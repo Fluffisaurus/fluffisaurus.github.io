@@ -14,8 +14,8 @@ const fallingBlocks: Project = {
   },
   detail: {
     keypoints: [
-      "First ever hosted mini-game from my initial foray into game dev.",
-      "Small endless mini game to learn Unity basics.",
+      "Mini-game from the early days of learning game dev principles.",
+      "Small endless mini game utilizing Unity basics.",
       "Progressive difficulty and simple mechanics.",
     ],
     short:

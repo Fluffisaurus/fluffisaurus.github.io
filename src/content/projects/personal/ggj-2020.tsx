@@ -13,8 +13,9 @@ const ggj2020: Project = {
   },
   detail: {
     keypoints: [
-      "Grid-based thinking game based on the GGJ 2020 theme of 'Repair'.",
-      "Emergent gameplay where players discover mechanics during their playthrough.",
+      "Joined with a couple friends and worked with incredible people to execute our group’s idea on the GGJ 2020 theme of 'Repair'.",
+      "Grid-based thinking game with emergent gameplay where the player discovers mechanics and the story during their playthrough.",
+      "Tenaciously scrapped together in a 24-hour game jam with Unity, Photoshop, whiteboard, paper, and tons of laughter.",
     ],
     short:
       "Our team's take on the Global Game Jam 2020 theme: Repair. A strategy game with unique and emergent mechanics.",
