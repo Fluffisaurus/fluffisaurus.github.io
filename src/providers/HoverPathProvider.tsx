@@ -1,4 +1,4 @@
-import { createContext, Dispatch, useReducer } from "react";
+import { createContext, Dispatch, useContext, useReducer } from "react";
 
 const initialPath = {
   path: "",
@@ -28,6 +28,14 @@ function hoverPathReducer(
 
 const HoverPathContext = createContext(initialPath);
 const HoverPathDispatchContext = createContext<Dispatch<never> | null>(null);
+
+export function useHoverPath() {
+  return useContext(HoverPathContext);
+}
+
+export function useHoverPathDispatch() {
+  return useContext(HoverPathDispatchContext);
+}
 
 const HoverPathProvider = ({ children }: { children: React.ReactNode }) => {
   const [path, dispatch] = useReducer(hoverPathReducer, initialPath);
