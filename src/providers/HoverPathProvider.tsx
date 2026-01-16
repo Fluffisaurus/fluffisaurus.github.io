@@ -27,14 +27,19 @@ function hoverPathReducer(
 }
 
 const HoverPathContext = createContext(initialPath);
-const HoverPathDispatchContext = createContext<Dispatch<never> | null>(null);
+const HoverPathDispatchContext =
+  createContext<Dispatch<HoverPathAction> | null>(null);
 
 export function useHoverPath() {
   return useContext(HoverPathContext);
 }
 
 export function useHoverPathDispatch() {
-  return useContext(HoverPathDispatchContext);
+  const dispatchContext = useContext(HoverPathDispatchContext);
+  if (dispatchContext === null) {
+    throw new Error("HoverPathDispatchContext is null but it is required.");
+  }
+  return dispatchContext;
 }
 
 const HoverPathProvider = ({ children }: { children: React.ReactNode }) => {
