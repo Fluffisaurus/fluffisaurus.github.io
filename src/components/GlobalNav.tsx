@@ -285,7 +285,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
               }}
-              onMouseEnter={() => dispatch({ type: "onHover", path: "/about" })}
+              onMouseEnter={() => dispatch({ type: "onHover", path: "about" })}
               aria-label="Global navigation drawer menu link to about page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
@@ -304,7 +304,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 tabIndex: -1,
               }}
               onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "/projects" })
+                dispatch({ type: "onHover", path: "projects" })
               }
               aria-label="Global navigation drawer menu heading that emulates a terminal's foldre structure showing that projects is a folder with contents."
             >
@@ -321,7 +321,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
               onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "/projects" })
+                dispatch({ type: "onHover", path: "projects" })
               }
               aria-label="Global navigation drawer menu link to projects page."
             >
@@ -338,7 +338,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
               onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "/projects/personal" })
+                dispatch({ type: "onHover", path: "projects/personal" })
               }
               aria-label="Global navigation drawer menu link to personal projects page."
             >
@@ -355,7 +355,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
               onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "/projects/academic" })
+                dispatch({ type: "onHover", path: "projects/academic" })
               }
               aria-label="Global navigation drawer menu link to academic projects page."
             >
@@ -371,7 +371,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavDrawerButtonStyles,
               }}
               onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "/contact" })
+                dispatch({ type: "onHover", path: "contact" })
               }
               aria-label="Global navigation drawer menu link to contact page."
             >
@@ -386,9 +386,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
               }}
-              onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "/resume" })
-              }
+              onMouseEnter={() => dispatch({ type: "onHover", path: "resume" })}
               aria-label="Global navigation drawer menu link to resume page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
