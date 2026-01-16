@@ -20,6 +20,10 @@ import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import { TypeAnimation } from "react-type-animation";
 import { isSmallScreen } from "../utils/breakpoints";
 import theme from "../mui/theme";
+import {
+  useHoverPath,
+  useHoverPathDispatch,
+} from "../providers/HoverPathProvider";
 
 const CustomOptionsDial = lazy(() => import("./CustomOptionsDial"));
 
@@ -41,7 +45,10 @@ const GlobalNav = (props: ImageQualityProps) => {
   const location = useLocation();
   const [currPath, setCurrPath] = useState<string>("");
   const [subPath, setSubPath] = useState<string | null>();
-  const [hoverPath, setHoverPath] = useState<string | null>();
+
+  const hoverPath = useHoverPath();
+  const dispatch = useHoverPathDispatch();
+
   const [hoverText, setHoverText] = useState<string>("cd ");
   const [fullPath, setFullPath] = useState<string | null>();
 
@@ -92,44 +99,47 @@ const GlobalNav = (props: ImageQualityProps) => {
       popupState.close();
     }
 
-    if (location.pathname.substring(1).includes("/")) {
-      setCurrPath(location.pathname.substring(1).split("/")[0]);
-      setSubPath(location.pathname.substring(1).split("/")[1]);
-      setHoverPath(location.pathname);
+    const pathSubstring = location.pathname.substring(1);
+    if (pathSubstring.includes("/")) {
+      setCurrPath(pathSubstring.split("/")[0]);
+      setSubPath(pathSubstring.split("/")[1]);
+      dispatch({
+        type: "onHover",
+        path: location.pathname,
+      });
     } else {
-      setCurrPath(location.pathname.substring(1));
+      setCurrPath(pathSubstring);
       setSubPath(null);
-      setHoverPath(location.pathname.substring(1));
+      dispatch({
+        type: "onHover",
+        path: pathSubstring,
+      });
     }
     setFullPath(location.pathname);
   }, [location]);
 
   useEffect(() => {
-    if (hoverPath == "menu") {
+    if (hoverPath.path == "menu") {
       setHoverText("ls -R ~");
       return;
     }
-    if (!hoverPath) {
-      setHoverText("");
-      return;
-    }
     if (subPath) {
-      if (hoverPath == fullPath) {
+      if (hoverPath.path == fullPath) {
         setHoverText("cd ./");
         return;
       }
-      if (fullPath?.includes(hoverPath)) {
+      if (fullPath?.includes(hoverPath.path)) {
         setHoverText("cd ../");
         return;
       }
-      if (hoverPath != fullPath) {
-        setHoverText("cd " + hoverPath);
+      if (hoverPath.path != fullPath) {
+        setHoverText("cd " + hoverPath.path);
         return;
       }
-    } else if (hoverPath == fullPath) {
+    } else if (hoverPath.path == fullPath) {
       setHoverText("cd ./");
     } else {
-      setHoverText("cd " + hoverPath);
+      setHoverText("cd " + hoverPath.path);
     }
   }, [hoverPath]);
 
@@ -150,7 +160,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 minWidth: ANI_CONST.GLOBAL_NAV_HEIGHT,
               }}
-              onMouseEnter={() => setHoverPath("menu")}
+              onMouseEnter={() => dispatch({ type: "onHover", path: "menu" })}
               aria-label="Global navigation button to expand drawer navigation."
             >
               {openDrawer ? <MenuOpenTwoToneIcon /> : <MenuTwoToneIcon />}
@@ -160,7 +170,7 @@ const GlobalNav = (props: ImageQualityProps) => {
               to={"/"}
               {...globalNavButtonProps}
               sx={{ ...globalNavButtonProps.sx }}
-              onMouseEnter={() => setHoverPath("~")}
+              onMouseEnter={() => dispatch({ type: "onHover", path: "~" })}
               aria-label="Global navigation button to return to home."
             >
               🏠
@@ -184,7 +194,9 @@ const GlobalNav = (props: ImageQualityProps) => {
               to={currPath}
               {...globalNavButtonProps}
               sx={{ ...globalNavButtonProps.sx, padding: 0 }}
-              onMouseEnter={() => setHoverPath("/" + currPath)}
+              onMouseEnter={() =>
+                dispatch({ type: "onHover", path: "/" + currPath })
+              }
               aria-label="Breadcrumb navigation path."
             >
               {currPath == "" ? "" : currPath + "/"}
@@ -196,7 +208,10 @@ const GlobalNav = (props: ImageQualityProps) => {
                 {...globalNavButtonProps}
                 sx={{ ...globalNavButtonProps.sx, padding: 0 }}
                 onMouseEnter={() =>
-                  setHoverPath("/" + currPath + "/" + subPath)
+                  dispatch({
+                    type: "onHover",
+                    path: "/" + currPath + "/" + subPath,
+                  })
                 }
                 aria-label="Breadcrumb navigation subpath."
               >
@@ -270,7 +285,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
               }}
-              onMouseEnter={() => setHoverPath("/about")}
+              onMouseEnter={() => dispatch({ type: "onHover", path: "/about" })}
               aria-label="Global navigation drawer menu link to about page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
@@ -288,7 +303,9 @@ const GlobalNav = (props: ImageQualityProps) => {
                 color: theme.vars.palette.primary.dark,
                 tabIndex: -1,
               }}
-              onMouseEnter={() => setHoverPath("/projects")}
+              onMouseEnter={() =>
+                dispatch({ type: "onHover", path: "/projects" })
+              }
               aria-label="Global navigation drawer menu heading that emulates a terminal's foldre structure showing that projects is a folder with contents."
             >
               <SubdirectoryArrowRightTwoToneIcon />
@@ -303,7 +320,9 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavDrawerButtonStyles,
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
-              onMouseEnter={() => setHoverPath("/projects")}
+              onMouseEnter={() =>
+                dispatch({ type: "onHover", path: "/projects" })
+              }
               aria-label="Global navigation drawer menu link to projects page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
@@ -318,7 +337,9 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavDrawerButtonStyles,
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
-              onMouseEnter={() => setHoverPath("/projects/personal")}
+              onMouseEnter={() =>
+                dispatch({ type: "onHover", path: "/projects/personal" })
+              }
               aria-label="Global navigation drawer menu link to personal projects page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
@@ -333,7 +354,9 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavDrawerButtonStyles,
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
-              onMouseEnter={() => setHoverPath("/projects/academic")}
+              onMouseEnter={() =>
+                dispatch({ type: "onHover", path: "/projects/academic" })
+              }
               aria-label="Global navigation drawer menu link to academic projects page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
@@ -347,7 +370,9 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
               }}
-              onMouseEnter={() => setHoverPath("/contact")}
+              onMouseEnter={() =>
+                dispatch({ type: "onHover", path: "/contact" })
+              }
               aria-label="Global navigation drawer menu link to contact page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
@@ -361,7 +386,9 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
               }}
-              onMouseEnter={() => setHoverPath("/resume")}
+              onMouseEnter={() =>
+                dispatch({ type: "onHover", path: "/resume" })
+              }
               aria-label="Global navigation drawer menu link to resume page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
