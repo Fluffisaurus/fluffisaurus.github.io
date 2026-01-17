@@ -2,13 +2,14 @@ import React from "react";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import SchoolTwoToneIcon from "@mui/icons-material/SchoolTwoTone";
 import FaceTwoToneIcon from "@mui/icons-material/FaceTwoTone";
 
 import { Project } from "../../content/projects/interfaces";
 import { ProjectCategories } from "../../content/projects/project-list";
+import { useHoverPathDispatch } from "../../providers/HoverPathProvider";
 
 interface ProjectSelectionBlockProps {
   cat: string;
@@ -23,10 +24,16 @@ const iconStyling = {
 };
 
 const ProjectSelectionBlock = ({ cat, data }: ProjectSelectionBlockProps) => {
-  const location = useLocation();
+  const dispatch = useHoverPathDispatch();
   return (
     <Card sx={{ maxWidth: 300 }}>
-      <CardActionArea component={Link} to={cat} state={location}>
+      <CardActionArea
+        component={Link}
+        to={cat}
+        onMouseEnter={() =>
+          dispatch({ type: "onHover", path: "projects/" + cat })
+        }
+      >
         {cat == ProjectCategories.PERSONAL ? (
           <FaceTwoToneIcon sx={iconStyling} />
         ) : (
