@@ -74,7 +74,7 @@ const DownloadConfirmation = (props: DownloadConfirmationProps) => {
   );
 };
 
-const PdfToolbar = () => {
+const PdfToolbar = ({ documentId }: { documentId: string }) => {
   const { provides: fullscreenProvider, state: fullscreenState } =
     useFullscreen();
   const { provides: exportProvider } = useExportCapability();
@@ -105,7 +105,7 @@ const PdfToolbar = () => {
             padding: "5px 8px 5px 8px",
           }}
         >
-          <ZoomControls />
+          <ZoomControls documentId={documentId} />
           <Box
             sx={{
               display: "flex",

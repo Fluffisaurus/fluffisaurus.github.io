@@ -90,8 +90,8 @@ const StyledMenuItem = styled(MenuItem)({
   },
 });
 
-const ZoomControls = () => {
-  const { state, provides } = useZoom();
+const ZoomControls = ({ documentId }: { documentId: string }) => {
+  const { state, provides } = useZoom(documentId);
   const isMobile = isSmallScreen();
 
   const handleSelect = (value: ZoomLevel) => {

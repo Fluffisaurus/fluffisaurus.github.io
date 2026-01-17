@@ -19,12 +19,12 @@ import { useScroll } from "@embedpdf/plugin-scroll/react";
 
 import theme from "../../mui/theme";
 
-const PageControls = () => {
+const PageControls = ({ documentId }: { documentId: string }) => {
   const { provides: viewport } = useViewportCapability();
   const {
     provides: scroll,
     state: { currentPage, totalPages },
-  } = useScroll();
+  } = useScroll(documentId);
   const [isVisible, setIsVisible] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
   const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
