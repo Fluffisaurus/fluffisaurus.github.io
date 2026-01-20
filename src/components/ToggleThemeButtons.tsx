@@ -24,6 +24,7 @@ const ToggleThemeButtons = ({ mode, setMode }: ToggleThemeButtonsProps) => {
 
     if (newThemeMode)
       toast.success(`Theme Mode: ${capitalize(newThemeMode)}`, {
+        containerId: "toast-container",
         theme: newThemeMode,
       });
   };

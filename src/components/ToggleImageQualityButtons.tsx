@@ -25,7 +25,10 @@ function ToggleImageQualityButtons({
         toast.success(
           `Image Quality: ${capitalize(newImgQuality)} ${
             newImgQuality == "low" ? "(data saver)" : ""
-          }`
+          }`,
+          {
+            containerId: "toast-container",
+          }
         );
       } else {
         setImgQuality("best");

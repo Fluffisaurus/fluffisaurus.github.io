@@ -70,6 +70,8 @@ export default function CustomOptionsDial(props: CustomOptionsDialProps) {
           Customize your experience
         </Typography>,
         {
+          containerId: "toast-container",
+          toastId: "onboarding-toast",
           position: "top-right",
           delay: ANI_CONST.OPTIONS_DIAL_DELAY,
           autoClose: 5000,
@@ -97,6 +99,7 @@ export default function CustomOptionsDial(props: CustomOptionsDialProps) {
     <>
       <Backdrop open={open} sx={{ zIndex: ANI_CONST.ZINDEX.BACKDROP }} />
       <ToastContainer
+        containerId="toast-container"
         position="bottom-left"
         autoClose={2000}
         limit={1}
@@ -108,6 +111,7 @@ export default function CustomOptionsDial(props: CustomOptionsDialProps) {
         pauseOnHover
         theme={mode == "system" ? systemMode : mode}
         transition={Slide}
+        style={{ zIndex: ANI_CONST.ZINDEX.TOAST }}
       />
       <Box
         sx={{
@@ -132,6 +136,12 @@ export default function CustomOptionsDial(props: CustomOptionsDialProps) {
           direction="down"
           onOpen={handleOpen}
           onClose={handleClose}
+          onMouseEnter={() =>
+            toast.dismiss({
+              containerId: "toast-container",
+              id: "onboarding-toast",
+            })
+          }
         >
           {actions.map((action) => (
             <SpeedDialAction

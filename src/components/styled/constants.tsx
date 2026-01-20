@@ -60,6 +60,7 @@ export const ANI_CONST = {
   ZINDEX: {
     EXPAND_MORE: 501,
     COLLAPSED_CONTENT: 500,
+    TOAST: 1499,
     OPTIONS_DIAL: 1500, // default is 1050
     BACKDROP: 1499,
     GLOBAL_NAV: 2000,
