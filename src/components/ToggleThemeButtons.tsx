@@ -42,7 +42,7 @@ const ToggleThemeButtons = ({ mode, setMode }: ToggleThemeButtonsProps) => {
         value="light"
         aria-label="light mode"
         onMouseEnter={() =>
-          dispatch({ type: "onCommand", command: "set theme light" })
+          dispatch({ type: "onCommand", command: "set theme-mode light" })
         }
         onMouseLeave={() => dispatch({ type: "onCommand", command: undefined })}
       >
@@ -52,7 +52,7 @@ const ToggleThemeButtons = ({ mode, setMode }: ToggleThemeButtonsProps) => {
         value="dark"
         aria-label="dark mode"
         onMouseEnter={() =>
-          dispatch({ type: "onCommand", command: "set theme dark" })
+          dispatch({ type: "onCommand", command: "set theme-mode dark" })
         }
         onMouseLeave={() => dispatch({ type: "onCommand", command: undefined })}
       >
