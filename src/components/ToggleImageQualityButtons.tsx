@@ -7,6 +7,7 @@ import SignalCellular4BarTwoToneIcon from "@mui/icons-material/SignalCellular4Ba
 import { toast } from "react-toastify";
 import { ImageQuality, ImageQualityProps } from "./styled/constants";
 import { useHoverDispatch } from "../providers/HoverProvider";
+import capitalize from "../utils/capitalize";
 
 function ToggleImageQualityButtons({
   imgQuality,
@@ -22,7 +23,7 @@ function ToggleImageQualityButtons({
       if (newImgQuality) {
         setImgQuality(newImgQuality);
         toast.success(
-          `Image quality: ${newImgQuality} ${
+          `Image Quality: ${capitalize(newImgQuality)} ${
             newImgQuality == "low" ? "(data saver)" : ""
           }`
         );

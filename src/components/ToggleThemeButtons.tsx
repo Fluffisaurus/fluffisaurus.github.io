@@ -4,7 +4,10 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone";
 import LightModeTwoToneIcon from "@mui/icons-material/LightModeTwoTone";
+import { toast } from "react-toastify";
+
 import { useHoverDispatch } from "../providers/HoverProvider";
+import capitalize from "../utils/capitalize";
 
 type Mode = "light" | "dark" | "system";
 interface ToggleThemeButtonsProps {
@@ -18,6 +21,11 @@ const ToggleThemeButtons = ({ mode, setMode }: ToggleThemeButtonsProps) => {
     newThemeMode: Mode | null
   ) => {
     setMode(newThemeMode);
+
+    if (newThemeMode)
+      toast.success(`Theme Mode: ${capitalize(newThemeMode)}`, {
+        theme: newThemeMode,
+      });
   };
 
   const dispatch = useHoverDispatch();
