@@ -4,6 +4,7 @@ import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import DarkModeTwoToneIcon from "@mui/icons-material/DarkModeTwoTone";
 import LightModeTwoToneIcon from "@mui/icons-material/LightModeTwoTone";
+import { useHoverDispatch } from "../providers/HoverProvider";
 
 type Mode = "light" | "dark" | "system";
 interface ToggleThemeButtonsProps {
@@ -19,6 +20,8 @@ const ToggleThemeButtons = ({ mode, setMode }: ToggleThemeButtonsProps) => {
     setMode(newThemeMode);
   };
 
+  const dispatch = useHoverDispatch();
+
   return (
     <ToggleButtonGroup
       value={mode}
@@ -27,10 +30,24 @@ const ToggleThemeButtons = ({ mode, setMode }: ToggleThemeButtonsProps) => {
       onChange={handleToggleTheme}
       aria-label="theme mode toggle"
     >
-      <ToggleButton value="light" aria-label="light mode">
+      <ToggleButton
+        value="light"
+        aria-label="light mode"
+        onMouseEnter={() =>
+          dispatch({ type: "onCommand", command: "set theme light" })
+        }
+        onMouseLeave={() => dispatch({ type: "onCommand", command: undefined })}
+      >
         <LightModeTwoToneIcon />
       </ToggleButton>
-      <ToggleButton value="dark" aria-label="dark mode">
+      <ToggleButton
+        value="dark"
+        aria-label="dark mode"
+        onMouseEnter={() =>
+          dispatch({ type: "onCommand", command: "set theme dark" })
+        }
+        onMouseLeave={() => dispatch({ type: "onCommand", command: undefined })}
+      >
         <DarkModeTwoToneIcon />
       </ToggleButton>
     </ToggleButtonGroup>

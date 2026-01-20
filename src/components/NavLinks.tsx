@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { navLinkButtonProps } from "../mui/components/muiButton";
 import { isSmallScreen } from "../utils/breakpoints";
 import theme from "../mui/theme";
-import { useHoverPathDispatch } from "../providers/HoverPathProvider";
+import { useHoverDispatch } from "../providers/HoverProvider";
 
 const paths = [
   {
@@ -47,7 +47,7 @@ const NavLinks = () => {
     variant: "popover",
     popupId: "subPathMenu",
   });
-  const dispatch = useHoverPathDispatch();
+  const dispatch = useHoverDispatch();
 
   return (
     <>
@@ -69,7 +69,7 @@ const NavLinks = () => {
                       : "none",
                   }}
                   onMouseEnter={() =>
-                    dispatch({ type: "onHover", path: path.text })
+                    dispatch({ type: "onPath", path: path.text })
                   }
                   aria-label={`Landing page navigation to ${path.text} page.`}
                 >
@@ -94,7 +94,7 @@ const NavLinks = () => {
                           {...navLinkButtonProps}
                           onMouseEnter={() =>
                             dispatch({
-                              type: "onHover",
+                              type: "onPath",
                               path: path.text + "/" + subPath.text,
                             })
                           }
@@ -114,7 +114,7 @@ const NavLinks = () => {
                 to={path.path}
                 {...navLinkButtonProps}
                 onMouseEnter={() =>
-                  dispatch({ type: "onHover", path: path.text })
+                  dispatch({ type: "onPath", path: path.text })
                 }
                 aria-label={`Landing page navigation to ${path.text} page.`}
               >

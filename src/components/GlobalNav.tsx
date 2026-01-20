@@ -20,10 +20,7 @@ import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import { TypeAnimation } from "react-type-animation";
 import { isSmallScreen } from "../utils/breakpoints";
 import theme from "../mui/theme";
-import {
-  useHoverPath,
-  useHoverPathDispatch,
-} from "../providers/HoverPathProvider";
+import { useHover, useHoverDispatch } from "../providers/HoverProvider";
 
 const CustomOptionsDial = lazy(() => import("./CustomOptionsDial"));
 
@@ -43,11 +40,11 @@ const globalNavDrawerButtonStyles = {
 
 const GlobalNav = (props: ImageQualityProps) => {
   const location = useLocation();
-  const [currPath, setCurrPath] = useState<string>("");
+  const [path, setPath] = useState<string>("");
   const [subPath, setSubPath] = useState<string | null>();
 
-  const hoverPath = useHoverPath();
-  const dispatch = useHoverPathDispatch();
+  const hover = useHover();
+  const dispatch = useHoverDispatch();
 
   const [hoverText, setHoverText] = useState<string>("cd ");
   const [fullPath, setFullPath] = useState<string | null>();
@@ -101,47 +98,77 @@ const GlobalNav = (props: ImageQualityProps) => {
 
     const pathSubstring = location.pathname.substring(1);
     if (pathSubstring.includes("/")) {
-      setCurrPath(pathSubstring.split("/")[0]);
+      // there is a sub path
+      setPath(pathSubstring.split("/")[0]);
       setSubPath(pathSubstring.split("/")[1]);
-      dispatch({
-        type: "onHover",
-        path: location.pathname,
-      });
     } else {
-      setCurrPath(pathSubstring);
+      // no sub path
+      setPath(pathSubstring);
       setSubPath(null);
-      dispatch({
-        type: "onHover",
-        path: pathSubstring,
-      });
     }
-    setFullPath(location.pathname);
+    // removes the leading '/' that's normally included in location.pathname
+    // for custom matching patterns when hoverPath changes
+    setFullPath(pathSubstring);
+
+    // on page load, reset path
+    dispatch({
+      type: "onPath",
+      path: undefined,
+    });
   }, [location]);
 
   useEffect(() => {
-    if (hoverPath.path == "menu") {
+    if (hover.command != undefined) {
+      setHoverText(hover.command);
+      return;
+    }
+
+    // NOTE: hover.path only includes the latest path
+    if (hover.path === undefined) {
+      setHoverText("");
+      return;
+    }
+    const hoverFullPath: string = hover.path;
+    const [hoverPath, hoverSubPath] = hoverFullPath.split("/");
+
+    // hard coded pathing options
+    if (hoverFullPath == "menu") {
       setHoverText("ls -R ~");
       return;
     }
+    if (hoverFullPath == "~") {
+      setHoverText("cd ~/");
+      return;
+    }
+
     if (subPath) {
-      if (hoverPath.path == fullPath) {
+      if (hoverFullPath == fullPath) {
         setHoverText("cd ./");
         return;
       }
-      if (fullPath?.includes(hoverPath.path)) {
+      if (hoverSubPath && hoverFullPath != subPath && hoverPath == path) {
+        // accessing a diff sub directory in same parent directory
+        setHoverText("cd ../" + hoverSubPath);
+        return;
+      }
+      if (subPath && hoverSubPath == undefined && hoverFullPath == path) {
+        // going back to parent directory
         setHoverText("cd ../");
         return;
       }
-      if (hoverPath.path != fullPath) {
-        setHoverText("cd " + hoverPath.path);
-        return;
-      }
-    } else if (hoverPath.path == fullPath) {
-      setHoverText("cd ./");
-    } else {
-      setHoverText("cd " + hoverPath.path);
     }
-  }, [hoverPath]);
+
+    // below option triggers when...
+    // 1) in a path with subPath and parent, but leaving to go elsewhere
+    // 2) subPath doesn't exist, aka we're not currently in a path with a sub path
+    if (hoverFullPath == fullPath || hoverFullPath == path) {
+      setHoverText("cd ./");
+    } else if (hoverPath == path && hoverSubPath) {
+      setHoverText("cd ./" + hoverSubPath);
+    } else {
+      setHoverText("cd ~/" + hoverFullPath);
+    }
+  }, [hover]);
 
   return (
     <>
@@ -160,7 +187,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 minWidth: ANI_CONST.GLOBAL_NAV_HEIGHT,
               }}
-              onMouseEnter={() => dispatch({ type: "onHover", path: "menu" })}
+              onMouseEnter={() => dispatch({ type: "onPath", path: "menu" })}
               aria-label="Global navigation button to expand drawer navigation."
             >
               {openDrawer ? <MenuOpenTwoToneIcon /> : <MenuTwoToneIcon />}
@@ -170,7 +197,7 @@ const GlobalNav = (props: ImageQualityProps) => {
               to={"/"}
               {...globalNavButtonProps}
               sx={{ ...globalNavButtonProps.sx }}
-              onMouseEnter={() => dispatch({ type: "onHover", path: "~" })}
+              onMouseEnter={() => dispatch({ type: "onPath", path: "~" })}
               aria-label="Global navigation button to return to home."
             >
               🏠
@@ -191,26 +218,24 @@ const GlobalNav = (props: ImageQualityProps) => {
             </Button>
             <Button
               component={Link}
-              to={currPath}
+              to={path}
               {...globalNavButtonProps}
               sx={{ ...globalNavButtonProps.sx, padding: 0 }}
-              onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "/" + currPath })
-              }
+              onMouseEnter={() => dispatch({ type: "onPath", path: path })}
               aria-label="Breadcrumb navigation path."
             >
-              {currPath == "" ? "" : currPath + "/"}
+              {path == "" ? "" : path + "/"}
             </Button>
             {subPath && (
               <Button
                 component={Link}
-                to={currPath + "/" + subPath}
+                to={path + "/" + subPath}
                 {...globalNavButtonProps}
                 sx={{ ...globalNavButtonProps.sx, padding: 0 }}
                 onMouseEnter={() =>
                   dispatch({
-                    type: "onHover",
-                    path: "/" + currPath + "/" + subPath,
+                    type: "onPath",
+                    path: path + "/" + subPath,
                   })
                 }
                 aria-label="Breadcrumb navigation subpath."
@@ -285,7 +310,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
               }}
-              onMouseEnter={() => dispatch({ type: "onHover", path: "about" })}
+              onMouseEnter={() => dispatch({ type: "onPath", path: "about" })}
               aria-label="Global navigation drawer menu link to about page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
@@ -304,7 +329,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 tabIndex: -1,
               }}
               onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "projects" })
+                dispatch({ type: "onPath", path: "projects" })
               }
               aria-label="Global navigation drawer menu heading that emulates a terminal's foldre structure showing that projects is a folder with contents."
             >
@@ -321,7 +346,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
               onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "projects" })
+                dispatch({ type: "onPath", path: "projects" })
               }
               aria-label="Global navigation drawer menu link to projects page."
             >
@@ -338,7 +363,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
               onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "projects/personal" })
+                dispatch({ type: "onPath", path: "projects/personal" })
               }
               aria-label="Global navigation drawer menu link to personal projects page."
             >
@@ -355,7 +380,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 marginLeft: drawerProjectButtonDims.width + "px",
               }}
               onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "projects/academic" })
+                dispatch({ type: "onPath", path: "projects/academic" })
               }
               aria-label="Global navigation drawer menu link to academic projects page."
             >
@@ -370,9 +395,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
               }}
-              onMouseEnter={() =>
-                dispatch({ type: "onHover", path: "contact" })
-              }
+              onMouseEnter={() => dispatch({ type: "onPath", path: "contact" })}
               aria-label="Global navigation drawer menu link to contact page."
             >
               <SubdirectoryArrowRightTwoToneIcon />
@@ -386,7 +409,7 @@ const GlobalNav = (props: ImageQualityProps) => {
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
               }}
-              onMouseEnter={() => dispatch({ type: "onHover", path: "resume" })}
+              onMouseEnter={() => dispatch({ type: "onPath", path: "resume" })}
               aria-label="Global navigation drawer menu link to resume page."
             >
               <SubdirectoryArrowRightTwoToneIcon />

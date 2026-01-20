@@ -9,7 +9,7 @@ import FaceTwoToneIcon from "@mui/icons-material/FaceTwoTone";
 
 import { Project } from "../../content/projects/interfaces";
 import { ProjectCategories } from "../../content/projects/project-list";
-import { useHoverPathDispatch } from "../../providers/HoverPathProvider";
+import { useHoverDispatch } from "../../providers/HoverProvider";
 
 interface ProjectSelectionBlockProps {
   cat: string;
@@ -24,14 +24,14 @@ const iconStyling = {
 };
 
 const ProjectSelectionBlock = ({ cat, data }: ProjectSelectionBlockProps) => {
-  const dispatch = useHoverPathDispatch();
+  const dispatch = useHoverDispatch();
   return (
     <Card sx={{ maxWidth: 300 }}>
       <CardActionArea
         component={Link}
         to={cat}
         onMouseEnter={() =>
-          dispatch({ type: "onHover", path: "projects/" + cat })
+          dispatch({ type: "onPath", path: "projects/" + cat })
         }
       >
         {cat == ProjectCategories.PERSONAL ? (

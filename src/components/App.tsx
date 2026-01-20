@@ -7,7 +7,7 @@ import { ImageQuality } from "./styled/constants";
 const Loading = lazy(() => import("../pages/Loading"));
 const GlobalNav = lazy(() => import("../components/GlobalNav"));
 const CustomRoutes = lazy(() => import("./CustomRoutes"));
-const HoverPathProvider = lazy(() => import("../providers/HoverPathProvider"));
+const HoverProvider = lazy(() => import("../providers/HoverProvider"));
 
 const App = () => {
   const location = useLocation();
@@ -25,7 +25,7 @@ const App = () => {
   return (
     <Box className="App">
       <Suspense fallback={<Loading />}>
-        <HoverPathProvider>
+        <HoverProvider>
           <GlobalNav imgQuality={imgQuality} setImgQuality={setImgQuality} />
           <Box
             className={
@@ -36,7 +36,7 @@ const App = () => {
           >
             <CustomRoutes background={background} imgQuality={imgQuality} />
           </Box>
-        </HoverPathProvider>
+        </HoverProvider>
       </Suspense>
     </Box>
   );

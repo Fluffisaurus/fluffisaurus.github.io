@@ -6,11 +6,14 @@ import SignalCellular1BarTwoToneIcon from "@mui/icons-material/SignalCellular1Ba
 import SignalCellular4BarTwoToneIcon from "@mui/icons-material/SignalCellular4BarTwoTone";
 import { toast } from "react-toastify";
 import { ImageQuality, ImageQualityProps } from "./styled/constants";
+import { useHoverDispatch } from "../providers/HoverProvider";
 
 function ToggleImageQualityButtons({
   imgQuality,
   setImgQuality,
 }: ImageQualityProps) {
+  const dispatch = useHoverDispatch();
+
   const handleToggleImgQuality = (
     event: React.MouseEvent<HTMLElement>,
     newImgQuality: ImageQuality | null
@@ -41,10 +44,28 @@ function ToggleImageQualityButtons({
         onChange={handleToggleImgQuality}
         aria-label="image quality toggle"
       >
-        <ToggleButton value="low" aria-label="low image quality">
+        <ToggleButton
+          value="low"
+          aria-label="low image quality"
+          onMouseEnter={() =>
+            dispatch({ type: "onCommand", command: "set image-quality low" })
+          }
+          onMouseLeave={() =>
+            dispatch({ type: "onCommand", command: undefined })
+          }
+        >
           <SignalCellular1BarTwoToneIcon />
         </ToggleButton>
-        <ToggleButton value="best" aria-label="best image quality">
+        <ToggleButton
+          value="best"
+          aria-label="best image quality"
+          onMouseEnter={() =>
+            dispatch({ type: "onCommand", command: "set image-quality best" })
+          }
+          onMouseLeave={() =>
+            dispatch({ type: "onCommand", command: undefined })
+          }
+        >
           <SignalCellular4BarTwoToneIcon />
         </ToggleButton>
       </ToggleButtonGroup>
