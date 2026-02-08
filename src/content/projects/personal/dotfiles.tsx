@@ -1,13 +1,13 @@
 import { Project } from "../interfaces";
 
 const dotfiles: Project = {
-  abbr: "",
-  name: "",
-  date: "",
-  tags: [],
-  category: "",
+  abbr: "dotfiles",
+  name: "My dotfiles",
+  date: "Aug 2025 - Present",
+  tags: ["dotfiles", "Linux", "Fedora", "dotbot", "fish shell", "config files"],
+  category: "Automated Linux config files",
   link: {
-    repo: "",
+    repo: "https://github.com/Fluffisaurus/dotfiles",
     host: "",
     hostCTA: "",
   },

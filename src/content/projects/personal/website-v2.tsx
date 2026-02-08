@@ -4,8 +4,8 @@ const websiteV2: Project = {
   abbr: "portfolio-v2",
   name: "Portfolio v2.0",
   date: "Jun 2022",
-  tags: ["React", "JS", "CSS", "Cloudinary CDN"],
-  category: "",
+  tags: ["React", "JS", "CSS", "SPA", "Cloudinary CDN"],
+  category: "2022 Portfolio",
   link: {
     repo: "",
     host: "https://angushon.io/portfolio-v2/",

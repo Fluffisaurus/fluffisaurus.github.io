@@ -1,13 +1,20 @@
 import { Project } from "../interfaces";
 
 const zenbookDuo: Project = {
-  abbr: "",
-  name: "",
-  date: "",
-  tags: [],
-  category: "",
+  abbr: "zenbook-duo-linux",
+  name: "Zenbook Duo Fedora KDE",
+  date: "Aug 2025",
+  tags: [
+    "shell scripts",
+    "service",
+    "Linux",
+    "Fedora 42",
+    "KDE",
+    "ASUS Zenbook Duo UX8406CA",
+  ],
+  category: "Linux scripts for dual screen features",
   link: {
-    repo: "",
+    repo: "https://github.com/Fluffisaurus/zenbook-duo-fedora-kde",
     host: "",
     hostCTA: "",
   },

@@ -1,5 +1,10 @@
 import { Project } from "./interfaces";
 
+import websiteV3 from "./personal/website-v3";
+import personalBackendInfra from "./personal/backend-infra";
+import dotfiles from "./personal/dotfiles";
+import zenbookDuo from "./personal/zenbook-duo";
+import websiteV2 from "./personal/website-v2";
 import ggj2020 from "./personal/ggj-2020";
 import spochiV0 from "./personal/spochi-v0";
 import websiteV1 from "./personal/website-v1";
@@ -7,6 +12,11 @@ import foodpick from "./personal/foodpick";
 import fallingBlocks from "./personal/falling-blocks";
 
 const PersonalProjects: Project[] = [
+  websiteV3,
+  personalBackendInfra,
+  dotfiles,
+  zenbookDuo,
+  websiteV2,
   ggj2020,
   spochiV0,
   websiteV1,

@@ -1,13 +1,21 @@
 import { Project } from "../interfaces";
 
 const websiteV3: Project = {
-  abbr: "",
-  name: "",
-  date: "",
-  tags: [],
-  category: "",
+  abbr: "portfolio-v3",
+  name: "Portfolio v3.0",
+  date: "Sept 2025 - Present",
+  tags: [
+    "React",
+    "SCSS",
+    "TypeScript",
+    "Custom MUI",
+    "Webpack 5",
+    "Cloudinary CDN",
+    "SPA",
+  ],
+  category: "2025 Portfolio",
   link: {
-    repo: "",
+    repo: "https://github.com/Fluffisaurus/fluffisaurus.github.io",
     host: "",
     hostCTA: "",
   },
