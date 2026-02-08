@@ -30,7 +30,7 @@ const PlaceholderCardContent = (props: CarouselMediaContentProps) => {
       />
       <Box sx={{ ...CarouselStyles.textOverlayBox }}>
         <Typography variant="caption">
-          Photo not availble at the moment.
+          Photo not currently available.
         </Typography>
       </Box>
     </Box>
