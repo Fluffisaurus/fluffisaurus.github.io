@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { AdvancedImage, placeholder, responsive } from "@cloudinary/react";
+import { AdvancedImage, placeholder } from "@cloudinary/react";
 import { fit } from "@cloudinary/url-gen/actions/resize";
 
 import getCloudinaryInstance, { getDesiredQuality } from "../utils/Cloudinary";
@@ -22,7 +22,7 @@ const CloudinaryCustomImage = React.memo((props: CloudinaryImageProps) => {
         .image(`portfolio/${src}`)
         .resize(fit(width, height))
         .quality(getDesiredQuality(imgQuality))}
-      plugins={[placeholder({ mode: "blur" }), responsive()]}
+      plugins={[placeholder({ mode: "blur" })]}
     />
   );
 });
