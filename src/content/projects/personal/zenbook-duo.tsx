@@ -27,7 +27,13 @@ const zenbookDuo: Project = {
     short: "",
     long: [],
   },
-  images: [],
+  images: [
+    {
+      src: "zenbook-duo-service-setup_crywl6",
+      description:
+        "Screenshot of zenbook-duo-service background service successfully running.",
+    },
+  ],
 };
 
 export default zenbookDuo;

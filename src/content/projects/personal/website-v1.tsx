@@ -24,27 +24,23 @@ const websiteV1: Project = {
   },
   images: [
     {
-      src: "website/mobile_w4jkn3",
-      description: "Mobile view of my website",
+      src: "portfolio-v1/mobile_w4jkn3",
+      description: "Landing page of my original portfolio.",
     },
     {
-      src: "website/mobile-about_tkthtq",
-      description: "Different hierarchy and layout for mobile view.",
+      src: "portfolio-v1/mobile-about_tkthtq",
+      description: "About page.",
     },
     {
-      src: "website/mobile-projects_aalnaf",
+      src: "portfolio-v1/mobile-projects_aalnaf",
       description: "Vertical card layout and swipable carousel to view images.",
     },
     {
-      src: "website/mobile-light_toonsi",
-      description: "Light themed version.",
+      src: "portfolio-v1/mobile-light-about_unfudo",
+      description: "Light themed version of about page.",
     },
     {
-      src: "website/mobile-light-about_unfudo",
-      description: "Brighter colour palette for outdoor environments.",
-    },
-    {
-      src: "website/mobile-light-projects_cloblh",
+      src: "portfolio-v1/mobile-light-projects_cloblh",
       description: "Light themed version of the projects page.",
     },
   ],

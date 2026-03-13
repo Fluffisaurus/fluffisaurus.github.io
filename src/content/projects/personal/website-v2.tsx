@@ -21,7 +21,23 @@ const websiteV2: Project = {
     short: "",
     long: [],
   },
-  images: [],
+  images: [
+    {
+      src: "portfolio-v2/landing-page_chwhof",
+      description:
+        "Simplified landing page for the first revision of my original portfolio.",
+    },
+    {
+      src: "portfolio-v2/example-project_x2muib",
+      description:
+        "Redesigned project page includes a picture carousel, tags, short description, and hyperlinks in a compact card format.",
+    },
+    {
+      src: "portfolio-v2/contact-page_rcn8it",
+      description:
+        "Redesigned contact page includes links to important social platforms.",
+    },
+  ],
 };
 
 export default websiteV2;

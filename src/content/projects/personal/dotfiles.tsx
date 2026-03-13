@@ -20,7 +20,21 @@ const dotfiles: Project = {
     short: "",
     long: [],
   },
-  images: [],
+  images: [
+    {
+      src: "dotfiles/dotfiles-repo-content_n9uu39",
+      description: "Contents of my dotfiles repo as of Mar 12, 2026.",
+    },
+    {
+      src: "dotfiles/fedora-43-kde-setup_gok2hl",
+      description: "My custom Fedora 43 KDE desktop setup.",
+    },
+    {
+      src: "dotfiles/custom-kitty-starship-fish-setup_gqzo0d",
+      description:
+        "Screenshot of my kitty terminal with a custom starship prompt config and fish shell.",
+    },
+  ],
 };
 
 export default dotfiles;
