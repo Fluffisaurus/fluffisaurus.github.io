@@ -1,17 +1,19 @@
 import * as React from "react";
 import loadable from "@loadable/component";
 
+import { Link, useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
 import Typography from "@mui/material/Typography";
-import { Link, useLocation } from "react-router-dom";
+import PhotoLibraryTwoToneIcon from "@mui/icons-material/PhotoLibraryTwoTone";
 
 import { ProjectImage } from "../../content/projects/interfaces";
 import {
+  CarouselMediaContentProps,
   CarouselActionMediaContentProps,
-  CarouselStyles,
   ImageQualityProps,
+  CarouselStyles,
 } from "./constants";
 import resolveDimensionValue from "../../utils/breakpoints";
 
@@ -22,14 +24,41 @@ const CloudinaryCustomImage = loadable(
 interface CarouselMediaProps
   extends CarouselActionMediaContentProps,
     ImageQualityProps {
-  item: ProjectImage;
-  projectName: string;
+  item?: ProjectImage;
+  projectName?: string;
 }
+
+const PlaceholderCardContent = (props: CarouselMediaContentProps) => {
+  const { width, height } = props;
+  return (
+    <Box
+      sx={{
+        width,
+        ...CarouselStyles.wrapperBox,
+      }}
+    >
+      <PhotoLibraryTwoToneIcon
+        sx={{
+          width,
+          height,
+        }}
+      />
+      <Box sx={{ ...CarouselStyles.textOverlayBox }}>
+        <Typography variant="caption">
+          Photo not currently available.
+        </Typography>
+      </Box>
+    </Box>
+  );
+};
 
 const CarouselMediaContent = (props: CarouselMediaProps) => {
   const { item, projectName, width, height, imgQuality } = props;
   const imgWidth = resolveDimensionValue(width);
   const imgHeight = resolveDimensionValue(height);
+
+  if (!item) throw new Error("Can't call Cloudinary with no item");
+
   return (
     <Box sx={{ width: width, ...CarouselStyles.wrapperBox }}>
       <CloudinaryCustomImage
@@ -46,12 +75,15 @@ const CarouselMediaContent = (props: CarouselMediaProps) => {
   );
 };
 
-const CarouselMedia = (props: CarouselMediaProps) => {
-  const { height, cardActionArea } = props;
+const CarouselContent = (props: CarouselMediaProps) => {
+  const { isPlaceholder, width, height, cardActionArea } = props;
   const location = useLocation();
+
   return (
     <Card sx={{ height: height, ...CarouselStyles.card }}>
-      {cardActionArea ? (
+      {isPlaceholder ? (
+        <PlaceholderCardContent width={width} height={height} />
+      ) : cardActionArea ? (
         <CardActionArea
           component={Link}
           to={cardActionArea}
@@ -66,4 +98,4 @@ const CarouselMedia = (props: CarouselMediaProps) => {
   );
 };
 
-export default CarouselMedia;
+export default CarouselContent;

@@ -78,6 +78,7 @@ export enum Viewport {
 export type MuiBreakpointDimension = Record<Viewport, number>;
 
 export interface CarouselMediaContentProps {
+  isPlaceholder?: boolean;
   width: number;
   height: number;
 }

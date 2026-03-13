@@ -13,8 +13,7 @@ import ScrollableContainer from "../styled/ScrollableContainer";
 import FadeWrapper from "../styled/FadeWrapper";
 import { ANI_CONST, ImageQualityProps } from "../styled/constants";
 import CarouselWrapper from "../styled/CarouselWrapper";
-import CarouselPlaceholderCard from "../styled/CarouselPlaceholder";
-import CarouselMedia from "../styled/CarouselMedia";
+import CarouselContent from "../styled/CarouselContent";
 import { isSmallScreen } from "../../utils/breakpoints";
 
 const styles = {
@@ -134,7 +133,7 @@ export default function ProjectModalCard({
             <CarouselWrapper navButtonsAlwaysVisible={true}>
               {proj.images.length >= 1
                 ? proj.images.map((item, i) => (
-                    <CarouselMedia
+                    <CarouselContent
                       key={i}
                       projectName={proj.name}
                       item={item}
@@ -145,7 +144,8 @@ export default function ProjectModalCard({
                     />
                   ))
                 : [1, 2].map((i) => (
-                    <CarouselPlaceholderCard
+                    <CarouselContent
+                      isPlaceholder
                       key={i}
                       width={dims.width}
                       height={dims.height}
