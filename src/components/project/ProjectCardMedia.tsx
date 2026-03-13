@@ -21,7 +21,6 @@ interface ProjectContentProps extends ProjectCardMediaProps {
 }
 
 const PlaceholderCarousel = ({
-  proj,
   width,
   height,
   smallScreen,
@@ -37,7 +36,7 @@ const PlaceholderCarousel = ({
           key={i}
           width={width}
           height={height}
-          cardActionArea={proj.abbr}
+          cardActionArea={false}
         />
       ))}
     </CarouselWrapper>
