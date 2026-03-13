@@ -59,6 +59,7 @@ const ProjectCardMediaCarousel = ({
       {proj.images.map((item, i) => (
         <CarouselMedia
           key={i}
+          projectName={proj.name}
           item={item}
           width={width}
           height={height}

@@ -32,37 +32,30 @@ const antlionTowerDefense: Project = {
   images: [
     {
       src: "atd/atd-pathfinding_muihab",
-      alt: "ATD: A* Pathfinding",
       description: "Enemy AI with A* Pathfinding shown by lines and points.",
     },
     {
       src: "atd/atd-start-screen_mus0ji",
-      alt: "ATD: Start Screen",
       description: "Start screen for the game.",
     },
     {
       src: "atd/atd-story_xms5lc",
-      alt: "ATD: Story Screen",
       description: "Scrollable story and narrative screen.",
     },
     {
       src: "atd/atd-start-screen_mus0ji",
-      alt: "ATD: Level Select Screen",
       description: "Level select screen.",
     },
     {
       src: "atd/atd-gameplay_xaxpcl",
-      alt: "ATD: Gameplay Screenshot",
       description: "Gameplay screenshot.",
     },
     {
       src: "atd/atd-win-screen_vwnbfe",
-      alt: "ATD: Win Screen",
       description: "Win screen",
     },
     {
       src: "atd/atd-lose-screen_tebbl0",
-      alt: "ATD: Lose Screen",
       description: "Lose screen",
     },
   ],

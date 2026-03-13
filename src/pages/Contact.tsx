@@ -136,6 +136,7 @@ const Contact: React.FunctionComponent = ({
               >
                 <CloudinaryCustomImage
                   src={"Elite_goose_jndy3l"}
+                  alt="self portrait"
                   width={400}
                   height={400}
                   imgQuality={imgQuality}

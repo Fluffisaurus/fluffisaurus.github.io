@@ -8,13 +8,14 @@ import { ImageQuality } from "./styled/constants";
 
 interface CloudinaryImageProps {
   src: string;
+  alt: string;
   width: number;
   height: string | number;
   imgQuality: ImageQuality | undefined;
 }
 
 const CloudinaryCustomImage = React.memo((props: CloudinaryImageProps) => {
-  const { src, width, height, imgQuality } = props;
+  const { src, alt, width, height, imgQuality } = props;
   const cld = getCloudinaryInstance();
   return (
     <AdvancedImage
@@ -23,6 +24,7 @@ const CloudinaryCustomImage = React.memo((props: CloudinaryImageProps) => {
         .resize(fit(width, height))
         .quality(getDesiredQuality(imgQuality))}
       plugins={[placeholder({ mode: "blur" })]}
+      alt={alt}
     />
   );
 });

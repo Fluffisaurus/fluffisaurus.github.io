@@ -12,7 +12,6 @@ export interface ProjectDetail {
 
 export interface ProjectImage {
   src: string;
-  alt: string; // 5-word description
   description: string;
 }
 

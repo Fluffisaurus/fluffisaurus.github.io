@@ -23,16 +23,18 @@ interface CarouselMediaProps
   extends CarouselActionMediaContentProps,
     ImageQualityProps {
   item: ProjectImage;
+  projectName: string;
 }
 
 const CarouselMediaContent = (props: CarouselMediaProps) => {
-  const { item, width, height, imgQuality } = props;
+  const { item, projectName, width, height, imgQuality } = props;
   const imgWidth = resolveDimensionValue(width);
   const imgHeight = resolveDimensionValue(height);
   return (
     <Box sx={{ width: width, ...CarouselStyles.wrapperBox }}>
       <CloudinaryCustomImage
         src={item.src}
+        alt={`${projectName}: ${item.description}`}
         width={imgWidth}
         height={imgHeight}
         imgQuality={imgQuality}

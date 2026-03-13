@@ -136,6 +136,7 @@ export default function ProjectModalCard({
                 ? proj.images.map((item, i) => (
                     <CarouselMedia
                       key={i}
+                      projectName={proj.name}
                       item={item}
                       width={dims.width}
                       height={dims.height}
