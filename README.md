@@ -8,8 +8,8 @@ If this website inspires you at all - great!!! Free to fork or utilize snippets 
 
 ## Required env vars in `.env` file
 
-| Environment Variable         | Use case                                                                       |
-| ---------------------------- | ------------------------------------------------------------------------------ |
-| `CLOUDINARY_CLOUD_NAME`      | used when calling Cloudinary to fetch images                                   |
-| `S3_BUCKET_URL`              | used in `deploy.js` script to upload `./build` folder to specified S3 bucket   |
-| `CLOUDFRONT_DISTRIBUTION_ID` | used in `deploy.js` script to invalidate cache for the CloudFront distribution |
+| Environment Variable         | Use case                                                                                                    |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `CLOUDINARY_CLOUD_NAME`      | used when calling Cloudinary to fetch images                                                                |
+| `S3_BUCKET_URL`              | used in `deploy.js` script to upload `./build` folder to specified S3 bucket, format "s3://[S3_BUCKET_NAME] |
+| `CLOUDFRONT_DISTRIBUTION_ID` | used in `deploy.js` script to invalidate cache for the CloudFront distribution                              |
