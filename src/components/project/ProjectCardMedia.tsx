@@ -32,6 +32,7 @@ const PlaceholderCarousel = (props: ProjectContentProps) => {
         <CarouselContent
           isPlaceholder
           key={i}
+          photoIndex={i}
           width={width}
           height={height}
           cardActionArea={false}
@@ -44,6 +45,13 @@ const PlaceholderCarousel = (props: ProjectContentProps) => {
 const MediaCarousel = (props: ProjectContentProps) => {
   const { proj, width, height, imgQuality, smallScreen } = props;
   const [open, setOpen] = React.useState(false);
+  const [slideIndex, setSlideIndex] = React.useState(0);
+
+  function handleOpenLightbox(selectedIndex: number) {
+    setSlideIndex(selectedIndex);
+    setOpen(!open);
+  }
+
   return (
     <>
       <CarouselWrapper
@@ -59,8 +67,8 @@ const MediaCarousel = (props: ProjectContentProps) => {
             height={height}
             cardActionArea={proj.abbr}
             imgQuality={imgQuality}
-            open={open}
-            setOpen={setOpen}
+            photoIndex={i}
+            handleOpenLightbox={handleOpenLightbox}
           />
         ))}
       </CarouselWrapper>
@@ -69,6 +77,8 @@ const MediaCarousel = (props: ProjectContentProps) => {
         imgQuality={imgQuality}
         open={open}
         setOpen={setOpen}
+        slideIndex={slideIndex}
+        setSlideIndex={setSlideIndex}
       />
     </>
   );

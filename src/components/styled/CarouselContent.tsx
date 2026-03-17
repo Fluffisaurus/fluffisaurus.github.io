@@ -25,8 +25,8 @@ interface CarouselMediaProps
     ImageQualityProps {
   item?: ProjectImage;
   projectName?: string;
-  open?: boolean;
-  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
+  photoIndex: number;
+  handleOpenLightbox?: (selectedIndex: number) => void;
 }
 
 const PlaceholderCardContent = (props: CarouselMediaContentProps) => {
@@ -77,14 +77,21 @@ const CarouselMediaContent = (props: CarouselMediaProps) => {
 };
 
 const CarouselContent = (props: CarouselMediaProps) => {
-  const { isPlaceholder, width, height, cardActionArea, open, setOpen } = props;
+  const {
+    isPlaceholder,
+    width,
+    height,
+    cardActionArea,
+    handleOpenLightbox,
+    photoIndex,
+  } = props;
 
   return (
     <Card sx={{ height: height, ...CarouselStyles.card }}>
       {isPlaceholder ? (
         <PlaceholderCardContent width={width} height={height} />
       ) : cardActionArea ? (
-        <CardActionArea onClick={() => setOpen?.(!open)}>
+        <CardActionArea onClick={() => handleOpenLightbox?.(photoIndex)}>
           <CarouselMediaContent {...props} />
         </CardActionArea>
       ) : (

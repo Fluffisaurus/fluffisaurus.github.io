@@ -18,10 +18,13 @@ interface ContentLightboxProps extends ImageQualityProps {
   images: ProjectImage[];
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  slideIndex: number;
+  setSlideIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const ContentLightbox = (props: ContentLightboxProps) => {
-  const { images, imgQuality, open, setOpen } = props;
+  const { images, imgQuality, open, setOpen, slideIndex, setSlideIndex } =
+    props;
 
   return (
     <>
@@ -30,6 +33,8 @@ const ContentLightbox = (props: ContentLightboxProps) => {
         open={open}
         close={() => setOpen(!open)}
         slides={CloudinaryCustomUrl({ images, imgQuality })}
+        index={slideIndex}
+        on={{ view: ({ index: currentIndex }) => setSlideIndex(currentIndex) }}
       />
     </>
   );
