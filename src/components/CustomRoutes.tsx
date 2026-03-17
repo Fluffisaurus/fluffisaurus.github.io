@@ -13,9 +13,6 @@ const AboutMe = lazy(() => import("../pages/About"));
 const Contact = lazy(() => import("../pages/Contact"));
 const Resume = lazy(() => import("../pages/Resume"));
 
-const ProjectModalCard = lazy(() => import("./project/ProjectModalCard"));
-import { ProjectList } from "../content/projects/project-list";
-import { Project } from "../content/projects/interfaces";
 import { ImageQuality } from "./styled/constants";
 
 interface CustomRoutesProps {
@@ -54,24 +51,6 @@ const CustomRoutes = (props: CustomRoutesProps) => {
         <Route path="default" element={<Default />} />
         <Route path="*" element={<DoesNotExist />} />
       </Routes>
-      {background && (
-        <Routes>
-          {ProjectList.personal.map((proj: Project, i) => (
-            <Route
-              key={i}
-              path={`projects/personal/${proj.abbr}`}
-              element={<ProjectModalCard proj={proj} imgQuality={imgQuality} />}
-            />
-          ))}
-          {ProjectList.academic.map((proj, i) => (
-            <Route
-              key={i}
-              path={`projects/academic/${proj.abbr}`}
-              element={<ProjectModalCard proj={proj} imgQuality={imgQuality} />}
-            />
-          ))}
-        </Routes>
-      )}
     </>
   );
 };
