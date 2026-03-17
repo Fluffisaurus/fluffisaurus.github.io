@@ -8,6 +8,7 @@ import {
 import CarouselWrapper from "../styled/CarouselWrapper";
 import CarouselContent from "../styled/CarouselContent";
 import { isSmallScreen } from "../../utils/breakpoints";
+import ContentLightbox from "../styled/ContentLightbox";
 
 interface ProjectCardMediaProps
   extends CarouselMediaContentProps,
@@ -42,23 +43,34 @@ const PlaceholderCarousel = (props: ProjectContentProps) => {
 
 const MediaCarousel = (props: ProjectContentProps) => {
   const { proj, width, height, imgQuality, smallScreen } = props;
+  const [open, setOpen] = React.useState(false);
   return (
-    <CarouselWrapper
-      height={height}
-      navButtonsAlwaysVisible={smallScreen ? true : false}
-    >
-      {proj.images.map((item, i) => (
-        <CarouselContent
-          key={i}
-          projectName={proj.name}
-          item={item}
-          width={width}
-          height={height}
-          cardActionArea={proj.abbr}
-          imgQuality={imgQuality}
-        />
-      ))}
-    </CarouselWrapper>
+    <>
+      <CarouselWrapper
+        height={height}
+        navButtonsAlwaysVisible={smallScreen ? true : false}
+      >
+        {proj.images.map((item, i) => (
+          <CarouselContent
+            key={i}
+            projectName={proj.name}
+            item={item}
+            width={width}
+            height={height}
+            cardActionArea={proj.abbr}
+            imgQuality={imgQuality}
+            open={open}
+            setOpen={setOpen}
+          />
+        ))}
+      </CarouselWrapper>
+      <ContentLightbox
+        images={proj.images}
+        imgQuality={imgQuality}
+        open={open}
+        setOpen={setOpen}
+      />
+    </>
   );
 };
 

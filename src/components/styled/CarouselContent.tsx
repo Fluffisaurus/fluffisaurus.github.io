@@ -1,7 +1,6 @@
 import * as React from "react";
 import loadable from "@loadable/component";
 
-import { Link, useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardActionArea from "@mui/material/CardActionArea";
@@ -26,6 +25,8 @@ interface CarouselMediaProps
     ImageQualityProps {
   item?: ProjectImage;
   projectName?: string;
+  open?: boolean;
+  setOpen?: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const PlaceholderCardContent = (props: CarouselMediaContentProps) => {
@@ -76,19 +77,14 @@ const CarouselMediaContent = (props: CarouselMediaProps) => {
 };
 
 const CarouselContent = (props: CarouselMediaProps) => {
-  const { isPlaceholder, width, height, cardActionArea } = props;
-  const location = useLocation();
+  const { isPlaceholder, width, height, cardActionArea, open, setOpen } = props;
 
   return (
     <Card sx={{ height: height, ...CarouselStyles.card }}>
       {isPlaceholder ? (
         <PlaceholderCardContent width={width} height={height} />
       ) : cardActionArea ? (
-        <CardActionArea
-          component={Link}
-          to={cardActionArea}
-          state={{ background: location }}
-        >
+        <CardActionArea onClick={() => setOpen?.(!open)}>
           <CarouselMediaContent {...props} />
         </CardActionArea>
       ) : (
