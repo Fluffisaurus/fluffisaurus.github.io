@@ -21,7 +21,16 @@ const personalBackendInfra: Project = {
     short: "",
     long: [],
   },
-  images: [],
+  images: [
+    {
+      src: "infra/project-infra.drawio_teppib",
+      description: "System architecture diagram of my backend setup.",
+    },
+    {
+      src: "infra/aws-cost_nwzofj",
+      description: "My monthly cost of 1.50 USD utilizing AWS.",
+    },
+  ],
 };
 
 export default personalBackendInfra;
