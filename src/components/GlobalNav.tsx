@@ -176,7 +176,10 @@ const GlobalNav = (props: ImageQualityProps) => {
         <StyledBox
           className="Global-nav"
           role="banner"
-          sx={{ zIndex: ANI_CONST.ZINDEX.GLOBAL_NAV }}
+          sx={{
+            zIndex: ANI_CONST.ZINDEX.GLOBAL_NAV,
+            height: ANI_CONST.GLOBAL_NAV_HEIGHT,
+          }}
         >
           <Box className="Global-nav__root">
             <Button

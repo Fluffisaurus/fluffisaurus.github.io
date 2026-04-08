@@ -1,14 +1,11 @@
 @import "./nav-link.scss";
 
-$global-nav-height: 50px;
-
 .Global-nav {
   @extend .Nav-link;
 
   position: absolute;
   top: 0;
   width: 100%;
-  height: $global-nav-height;
   padding: 0px 5px 0px 5px;
 
   display: flex;

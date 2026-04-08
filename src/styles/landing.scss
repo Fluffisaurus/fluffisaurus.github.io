@@ -1,5 +1,3 @@
-@import "./global-nav.scss";
-
 .Landing-container {
   width: fit-content;
   display: flex;
@@ -31,26 +29,5 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
-  }
-}
-
-@media (max-width: 600px) {
-  .Landing-container {
-    padding: $global-nav-height;
-
-    &__name {
-      &__fullname,
-      &__at {
-        padding: 0;
-      }
-    }
-
-    &__nav {
-      flex-direction: column;
-      align-content: start;
-      align-items: start;
-      gap: 10px;
-    }
   }
 }
