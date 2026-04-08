@@ -2,12 +2,32 @@ import { Suspense, lazy, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
 
-import { ImageQuality } from "./styled/constants";
+import { ANI_CONST, ImageQuality } from "./styled/constants";
 
 const Loading = lazy(() => import("../pages/Loading"));
 const GlobalNav = lazy(() => import("../components/GlobalNav"));
 const CustomRoutes = lazy(() => import("./CustomRoutes"));
 const HoverProvider = lazy(() => import("../providers/HoverProvider"));
+
+const StyledAppContainer = {
+  height: "100%",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "center",
+  alignItems: "center",
+  overflow: "hidden",
+};
+
+const StyledContainer = {
+  height: "100%",
+  display: "flex",
+};
+
+const StyledContainerOpen = {
+  padding: `${ANI_CONST.GLOBAL_NAV_HEIGHT}px 5% ${ANI_CONST.GLOBAL_NAV_HEIGHT}px 5%`,
+  height: "100%",
+  width: "100%",
+};
 
 const App = () => {
   const location = useLocation();
@@ -23,16 +43,15 @@ const App = () => {
   }, []);
 
   return (
-    <Box className="App">
+    <Box sx={StyledAppContainer}>
       <Suspense fallback={<Loading />}>
         <HoverProvider>
           <GlobalNav imgQuality={imgQuality} setImgQuality={setImgQuality} />
           <Box
-            className={
-              location.pathname == "/"
-                ? "Container"
-                : "Container Container--open"
-            }
+            sx={[
+              StyledContainer,
+              location.pathname != "/" && StyledContainerOpen,
+            ]}
           >
             <CustomRoutes background={background} imgQuality={imgQuality} />
           </Box>
