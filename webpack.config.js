@@ -1,16 +1,20 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+// webpack plugins
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
-const TerserPlugin = require("terser-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
+const HtmlBundlerPlugin = require("html-bundler-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const BundleAnalyzerPlugin =
   require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const SitemapPlugin = require("sitemap-webpack-plugin").default;
 const RobotstxtPlugin = require("robotstxt-webpack-plugin");
 
+// optimization plugins
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
+const CompressionPlugin = require("compression-webpack-plugin");
+
+// vars
 const devMode = process.env.NODE_ENV !== "production";
 const isProduction = process.env.NODE_ENV === "production";
 const devCacheTTL = 1200000; // 20 min = 20min * 60s/min * 1000ms/s
@@ -28,11 +32,9 @@ const paths = [
 module.exports = {
   mode: devMode ? "development" : "production",
   devtool: devMode ? "inline-source-map" : false,
-  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "build/"),
     publicPath: "/",
-    filename: devMode ? "[name].js" : "[name].[contenthash].js",
   },
   cache: {
     type: "filesystem",
@@ -41,18 +43,30 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".jsx", "..."],
     alias: {
+      "@styles": path.resolve(__dirname, "./src/styles"),
+      "@main": path.resolve(__dirname, "./src"),
       "@blur-ui": path.resolve(__dirname, "./node_modules/@blur-ui"),
     },
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      filename: devMode ? "[name].css" : "[name].[contenthash].css",
-      chunkFilename: "[ic].[contenthash].css",
-    }),
-    new HtmlWebpackPlugin({
-      template: "public/index.html",
-      // favicon: 'public/favicon.ico'
+    new HtmlBundlerPlugin({
+      entry: [
+        {
+          import: "public/index.html",
+          filename: "index.html",
+        },
+      ],
+      js: {
+        filename: devMode ? "js/[name].js" : "js/[name].[contenthash:8].js",
+        chunkFilename: "js/[name].[contenthash:8].js",
+      },
+      css: {
+        inline: true,
+        hot: true, // hot reload limitations https://webdiscus.github.io/html-bundler-docs/plugin-options-css#csshot-option
+        filename: devMode ? "css/[name].css" : "css/[name].[contenthash:8].css",
+        chunkFilename: "css/[name].[contenthash:8].css",
+      },
     }),
     new Dotenv(),
     new BundleAnalyzerPlugin({
@@ -103,7 +117,7 @@ module.exports = {
       },
       {
         test: /\.(sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
+        use: ["css-loader", "sass-loader"],
       },
     ],
   },
@@ -130,16 +144,17 @@ module.exports = {
     ],
     chunkIds: devMode ? "named" : "deterministic",
     splitChunks: {
-      chunks: "all",
       maxInitialRequests: Infinity,
       minSize: 0,
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
+          chunks: "all",
           name(module) {
             // https://stackoverflow.com/a/65860864
             // get the name. E.g. node_modules/packageName/not/this/part.js
             // or node_modules/packageName
+            // prettier-ignore
             const match = module.context.match(
               /[\\/]node_modules[\\/](.*?)([\\/]|$)/
             );
@@ -162,6 +177,13 @@ module.exports = {
     allowedHosts: "auto",
     hot: true,
     liveReload: true,
-    watchFiles: ["src/**/*", "public/**/*"],
+    static: {
+      // https://webdiscus.github.io/html-bundler-docs/plugin-options-css#csshot-option
+      directory: path.join(__dirname, "build/"),
+    },
+    watchFiles: {
+      paths: ["src/**/*.(html|eta)", "public/**/*"],
+      options: { usePolling: true },
+    },
   },
 };

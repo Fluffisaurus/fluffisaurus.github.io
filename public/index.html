@@ -11,6 +11,7 @@
       name="keywords"
       content="Angus Hon, software engineer, personal website"
     />
+    <link href="@styles/base.scss" rel="stylesheet" />
     <!-- favicon insert from https://favicons.joshuasoileau.com/ -->
     <link
       rel="icon"
@@ -37,5 +38,7 @@
     <div id="root">
       <!-- React will load here -->
     </div>
+    <!-- Scripts always after dom elements -->
+    <script src="@main/index.tsx" defer></script>
   </body>
 </html>
