@@ -4,7 +4,7 @@ import { lazy } from "@loadable/component";
 
 import type {} from "@mui/material/themeCssVarsAugmentation";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import Button, { ButtonProps } from "@mui/material/Button";
 import Slide from "@mui/material/Slide";
 import { styled } from "@mui/material"; // eslint-disable-line no-restricted-imports
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -15,7 +15,6 @@ import SubdirectoryArrowRightTwoToneIcon from "@mui/icons-material/SubdirectoryA
 
 import computeNodeStyle from "../utils/computeNodeStyle";
 import { globalNavButtonProps } from "../mui/components/muiButton";
-import "../styles/global-nav.scss";
 import { ANI_CONST, ImageQualityProps } from "./styled/constants";
 import { TypeAnimation } from "react-type-animation";
 import { isSmallScreen } from "../utils/breakpoints";
@@ -33,6 +32,13 @@ const StyledBox = styled("div")(({ theme }) => [
     backgroundColor: theme.vars.palette.background.globalNav,
   }),
 ]);
+
+const noEventsButtonStyling: ButtonProps = {
+  sx: {
+    pointerEvents: "none",
+    userSelect: "none",
+  },
+};
 
 const globalNavDrawerButtonStyles = {
   width: "min-content",
@@ -174,14 +180,25 @@ const GlobalNav = (props: ImageQualityProps) => {
     <>
       <Slide in timeout={ANI_CONST.GLOBAL_NAV_DELAY}>
         <StyledBox
-          className="Global-nav"
           role="banner"
           sx={{
+            position: "absolute",
+            top: 0,
+            width: "100%",
+            padding: "0px 5px 0px 5px",
+            display: "flex",
+            alignItems: "center",
             zIndex: ANI_CONST.ZINDEX.GLOBAL_NAV,
             height: ANI_CONST.GLOBAL_NAV_HEIGHT,
           }}
         >
-          <Box className="Global-nav__root">
+          <Box
+            display="flex"
+            justifyContent="flex-start"
+            alignSelf="center"
+            width="100%"
+            height="100%"
+          >
             <Button
               ref={drawerIconButtonRef}
               onClick={toggleDrawer}
@@ -206,11 +223,11 @@ const GlobalNav = (props: ImageQualityProps) => {
               🏠
             </Button>
             <Button
-              className="Nav-link__no-events"
               disabled
               {...globalNavButtonProps}
               sx={{
                 ...globalNavButtonProps.sx,
+                ...noEventsButtonStyling,
                 color: theme.vars.palette.primary.dark,
                 padding: 0,
                 tabIndex: -1,
@@ -247,11 +264,11 @@ const GlobalNav = (props: ImageQualityProps) => {
               </Button>
             )}
             <Button
-              className="Nav-link__no-events"
               disabled
               {...globalNavButtonProps}
               sx={{
                 ...globalNavButtonProps.sx,
+                ...noEventsButtonStyling,
                 color: theme.vars.palette.primary.dark,
                 padding: 0,
                 tabIndex: -1,
@@ -262,11 +279,11 @@ const GlobalNav = (props: ImageQualityProps) => {
             </Button>
             {!smallScreen && (
               <Button
-                className="Nav-link__no-events"
                 disabled
                 {...globalNavButtonProps}
                 sx={{
                   ...globalNavButtonProps.sx,
+                  ...noEventsButtonStyling,
                   color: theme.vars.palette.primary.light,
                   justifyContent: "flex-start",
                   padding: "0 5px 0 25px",
@@ -321,13 +338,13 @@ const GlobalNav = (props: ImageQualityProps) => {
             </Button>
             <Button
               ref={drawerProjectButtonRef}
-              className="Nav-link__no-events"
               disabled
               {...globalNavButtonProps}
               {...bindTrigger(popupState)}
               sx={{
                 ...globalNavButtonProps.sx,
                 ...globalNavDrawerButtonStyles,
+                ...noEventsButtonStyling,
                 color: theme.vars.palette.primary.dark,
                 tabIndex: -1,
               }}

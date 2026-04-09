@@ -3,7 +3,6 @@ import { Outlet, useLocation } from "react-router-dom";
 
 import Typography from "@mui/material/Typography";
 
-import "../../styles/projects.scss";
 import ScrollableContainer from "../../components/styled/ScrollableContainer";
 import FadeWrapper from "../../components/styled/FadeWrapper";
 import { TypeAnimation } from "react-type-animation";
@@ -21,7 +20,14 @@ const Projects: React.FunctionComponent = () => {
   const subPageHeadingText = academic ? " - academic" : " - personal";
   return (
     <>
-      <ScrollableContainer className="Projects-container">
+      <ScrollableContainer
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+          height: "100%",
+        }}
+      >
         <FadeWrapper>
           <Typography
             variant="h3"
