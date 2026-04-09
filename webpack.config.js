@@ -63,7 +63,7 @@ module.exports = {
       },
       css: {
         inline: true,
-        hot: true, // hot reload limitations https://webdiscus.github.io/html-bundler-docs/plugin-options-css#csshot-option
+        hot: devMode ? true : false, // hot reload limitations https://webdiscus.github.io/html-bundler-docs/plugin-options-css#csshot-option
         filename: devMode ? "css/[name].css" : "css/[name].[contenthash:8].css",
         chunkFilename: "css/[name].[contenthash:8].css",
       },
@@ -177,6 +177,9 @@ module.exports = {
     allowedHosts: "auto",
     hot: true,
     liveReload: true,
+    headers: {
+      "Cache-Control": "no-store",
+    },
     static: {
       // https://webdiscus.github.io/html-bundler-docs/plugin-options-css#csshot-option
       directory: path.join(__dirname, "build/"),
