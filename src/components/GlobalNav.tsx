@@ -7,7 +7,7 @@ import Box from "@mui/material/Box";
 import Button, { ButtonProps } from "@mui/material/Button";
 import Slide from "@mui/material/Slide";
 import styled from "@mui/system/styled";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
+import Drawer from "@mui/material/Drawer";
 import { bindTrigger, usePopupState } from "material-ui-popup-state/hooks";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
 import MenuOpenTwoToneIcon from "@mui/icons-material/MenuOpenTwoTone";
@@ -302,14 +302,7 @@ const GlobalNav = (props: ImageQualityProps) => {
           </Box>
         </StyledBox>
       </Slide>
-      <SwipeableDrawer
-        anchor="top"
-        open={openDrawer}
-        onClose={toggleDrawer}
-        onOpen={toggleDrawer}
-        disableSwipeToOpen={false}
-        keepMounted
-      >
+      <Drawer anchor="top" open={openDrawer} onClose={toggleDrawer}>
         <StyledBox sx={{ position: "relative" }}>
           <StyledBox
             sx={{
@@ -437,7 +430,7 @@ const GlobalNav = (props: ImageQualityProps) => {
             </Button>
           </StyledBox>
         </StyledBox>
-      </SwipeableDrawer>
+      </Drawer>
     </>
   );
 };
