@@ -52,6 +52,7 @@ const App = () => {
               StyledContainer,
               location.pathname != "/" && StyledContainerOpen,
             ]}
+            role="main"
           >
             <CustomRoutes background={background} imgQuality={imgQuality} />
           </Box>

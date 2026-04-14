@@ -26,7 +26,7 @@ const landingNameStyleProps: BoxProps = {
 
 const Landing = () => {
   return (
-    <Fade in appear>
+    <Fade in appear timeout={500}>
       <Box
         {...landingBoxStyleProps}
         sx={(theme) => ({
