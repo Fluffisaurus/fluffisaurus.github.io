@@ -1,7 +1,9 @@
 const path = require("path");
+const glob = require("glob");
 
 // webpack plugins
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const { PurgeCSSPlugin } = require("purgecss-webpack-plugin");
 const HtmlBundlerPlugin = require("html-bundler-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const BundleAnalyzerPlugin =
@@ -28,6 +30,9 @@ const paths = [
   "/contact/",
   "/resume/",
 ];
+const PATHS = {
+  src: path.join(__dirname, "src"),
+};
 
 module.exports = {
   mode: devMode ? "development" : "production",
@@ -50,6 +55,10 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
+    new PurgeCSSPlugin({
+      paths: () => glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+      rejected: true,
+    }),
     new HtmlBundlerPlugin({
       entry: [
         {
@@ -62,7 +71,7 @@ module.exports = {
         chunkFilename: "js/[name].[contenthash:8].js",
       },
       css: {
-        inline: true,
+        inline: true, // https://webdiscus.github.io/html-bundler-docs/plugin-options-css
         hot: devMode ? true : false, // hot reload limitations https://webdiscus.github.io/html-bundler-docs/plugin-options-css#csshot-option
         filename: devMode ? "css/[name].css" : "css/[name].[contenthash:8].css",
         chunkFilename: "css/[name].[contenthash:8].css",
@@ -71,7 +80,7 @@ module.exports = {
     new Dotenv(),
     new BundleAnalyzerPlugin({
       generateStatsFile: devMode,
-      analyzerMode: "disabled",
+      analyzerMode: "static",
     }),
     new SitemapPlugin({
       base: "https://angushon.io",
@@ -166,6 +175,12 @@ module.exports = {
             // npm package names are URL-safe, but some servers don't like @ symbols
             return `npm.${packageName.replace("@", "")}`;
           },
+        },
+        styles: {
+          name: "styles",
+          test: /\.css$/,
+          chunks: "all",
+          enforce: true,
         },
       },
     },
