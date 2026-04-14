@@ -18,7 +18,7 @@ import ProjectCardMedia from "./ProjectCardMedia";
 import { ANI_CONST, ImageQualityProps } from "../styled/constants";
 import { useLocation } from "react-router-dom";
 import resolveDimensionValue from "../../utils/breakpoints";
-import Box from "@mui/material/Box";
+import ScrollableContainer from "../styled/ScrollableContainer";
 
 interface ProjectCardProps extends ImageQualityProps {
   proj: Project;
@@ -143,11 +143,12 @@ const ProjectCard = ({
     position: "absolute",
     bottom: 0,
     backgroundColor: theme.vars.palette.background.paper,
-    width: ANI_CONST.PROJ_CARD_WIDTH,
+    display: "flex",
+    flexDirection: "column",
     height: "100%",
+    width: ANI_CONST.PROJ_CARD_WIDTH,
+    overflow: "hidden",
     zIndex: ANI_CONST.ZINDEX.COLLAPSED_CONTENT,
-    overflow: "auto",
-    scrollbarWidth: "thin",
   };
 
   useLayoutEffect(() => {
@@ -194,17 +195,8 @@ const ProjectCard = ({
       </CardContent>
       <Slide in={expanded} direction="up" timeout={ANI_CONST.PROJ_CARDS_DELAY}>
         <CardContent sx={{ ...collapsedContentStyling }}>
-          <Grid
-            container
-            sx={{
-              position: "sticky",
-              top: 0,
-              backgroundColor: theme.vars.palette.background.paper,
-            }}
-          >
-            <ProjectCardTitle {...proj} />
-          </Grid>
-          <Box sx={{ height: "100%", padding: "10px 0px 25px 0px" }}>
+          <ProjectCardTitle {...proj} />
+          <ScrollableContainer sx={{ flex: 1, pb: "25px" }}>
             <Grid container rowSpacing={1}>
               <Grid // tags
                 container
@@ -231,17 +223,15 @@ const ProjectCard = ({
                 {proj.date}
               </Typography>
             </Grid>
-            <Box>
-              {proj.detail.keypoints.map((keypoint, i) => {
-                return (
-                  <Typography variant="body1" key={`${proj.abbr}-${i}`}>
-                    - {keypoint}
-                  </Typography>
-                );
-              })}
-              <ProjectCardLinks {...proj} />
-            </Box>
-          </Box>
+            {proj.detail.keypoints.map((keypoint, i) => {
+              return (
+                <Typography variant="body1" key={`${proj.abbr}-${i}`}>
+                  - {keypoint}
+                </Typography>
+              );
+            })}
+            <ProjectCardLinks {...proj} />
+          </ScrollableContainer>
         </CardContent>
       </Slide>
     </Card>

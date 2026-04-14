@@ -35,7 +35,7 @@ const ScrollableContainer = ({
             dir="ltr"
             orientation="vertical"
             scrollHideDelay={600}
-            shadowSize={50}
+            shadowSize={35}
             type="always"
             style={{ width: "100%", height: "100%" }}
           >
