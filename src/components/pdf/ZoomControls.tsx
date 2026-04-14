@@ -13,7 +13,7 @@ import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import { SvgIconTypeMap } from "@mui/material/SvgIcon";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
-import { styled } from "@mui/material/styles";
+import styled from "@mui/system/styled";
 
 import ZoomInTwoToneIcon from "@mui/icons-material/ZoomInTwoTone";
 import ZoomOutTwoToneIcon from "@mui/icons-material/ZoomOutTwoTone";

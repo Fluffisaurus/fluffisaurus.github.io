@@ -5,7 +5,7 @@ import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import Typography from "@mui/material/Typography";
-import { useColorScheme } from "@mui/material"; // eslint-disable-line no-restricted-imports
+import { useColorScheme } from "@mui/material/styles";
 import Backdrop from "@mui/material/Backdrop";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";

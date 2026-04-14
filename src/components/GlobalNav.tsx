@@ -6,7 +6,7 @@ import type {} from "@mui/material/themeCssVarsAugmentation";
 import Box from "@mui/material/Box";
 import Button, { ButtonProps } from "@mui/material/Button";
 import Slide from "@mui/material/Slide";
-import { styled } from "@mui/material"; // eslint-disable-line no-restricted-imports
+import styled from "@mui/system/styled";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import { bindTrigger, usePopupState } from "material-ui-popup-state/hooks";
 import MenuTwoToneIcon from "@mui/icons-material/MenuTwoTone";
