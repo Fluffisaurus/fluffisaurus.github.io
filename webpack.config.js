@@ -57,6 +57,9 @@ module.exports = {
     new CleanWebpackPlugin(),
     new PurgeCSSPlugin({
       paths: () => glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+      safelist: {
+        deep: [/^yarl__/], // yet-another-react-lightbox class name prefix
+      },
       rejected: true,
     }),
     new HtmlBundlerPlugin({
@@ -80,7 +83,7 @@ module.exports = {
     new Dotenv(),
     new BundleAnalyzerPlugin({
       generateStatsFile: devMode,
-      analyzerMode: "disabled",
+      analyzerMode: "static",
     }),
     new SitemapPlugin({
       base: "https://angushon.io",
@@ -188,7 +191,7 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     compress: true,
-    port: 3000,
+    port: devMode ? 3000 : 8080,
     allowedHosts: "auto",
     hot: true,
     liveReload: true,
