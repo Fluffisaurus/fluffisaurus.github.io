@@ -46,7 +46,7 @@ const getViewport = () => {
   }
 };
 
-function isSmallScreen() {
+function isSmallScreen(): boolean {
   return useMediaQuery(theme.breakpoints.down("tablet"));
 }
 
