@@ -80,7 +80,7 @@ module.exports = {
     new Dotenv(),
     new BundleAnalyzerPlugin({
       generateStatsFile: devMode,
-      analyzerMode: "static",
+      analyzerMode: "disabled",
     }),
     new SitemapPlugin({
       base: "https://angushon.io",
