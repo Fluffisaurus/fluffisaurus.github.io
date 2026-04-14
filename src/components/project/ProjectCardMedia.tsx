@@ -5,10 +5,12 @@ import {
   CarouselMediaContentProps,
   ImageQualityProps,
 } from "../styled/constants";
-import CarouselWrapper from "../styled/CarouselWrapper";
-import CarouselContent from "../styled/CarouselContent";
 import { isSmallScreen } from "../../utils/breakpoints";
+import CloudinaryCustomUrl from "../CloudinaryCustomUrl";
+import CarouselLightbox from "../styled/CarouselLightbox";
 import ContentLightbox from "../styled/ContentLightbox";
+
+import type { PlaceholderSlide } from "yet-another-react-lightbox";
 
 interface ProjectCardMediaProps
   extends CarouselMediaContentProps,
@@ -16,84 +18,46 @@ interface ProjectCardMediaProps
   proj: Project;
 }
 
-interface ProjectContentProps extends ProjectCardMediaProps {
-  smallScreen: boolean;
-}
-
-const PlaceholderCarousel = (props: ProjectContentProps) => {
-  const { width, height, smallScreen } = props;
-  const placeholders = [1, 2];
-  return (
-    <CarouselWrapper
-      height={height}
-      navButtonsAlwaysVisible={smallScreen ? true : false}
-    >
-      {placeholders.map((item, i) => (
-        <CarouselContent
-          isPlaceholder
-          key={i}
-          photoIndex={i}
-          width={width}
-          height={height}
-          cardActionArea={false}
-        />
-      ))}
-    </CarouselWrapper>
-  );
-};
-
-const MediaCarousel = (props: ProjectContentProps) => {
-  const { proj, width, height, imgQuality, smallScreen } = props;
+const ImageCarousel = (props: ProjectCardMediaProps) => {
+  const { proj, width, height, imgQuality } = props;
   const [open, setOpen] = React.useState(false);
   const [slideIndex, setSlideIndex] = React.useState(0);
 
-  function handleOpenLightbox(selectedIndex: number) {
-    setSlideIndex(selectedIndex);
-    setOpen(!open);
-  }
+  const smallScreen = isSmallScreen();
+  const isPlaceholder = proj.images.length == 0;
+
+  const dims = { width: width, height: height };
+  const slides = isPlaceholder
+    ? ([{ type: "placeholder" }] as PlaceholderSlide[])
+    : CloudinaryCustomUrl({ images: proj.images, imgQuality, dims });
+
+  const carouselProps = {
+    isPlaceholder,
+    dims,
+    slides,
+    smallScreen,
+    setOpen,
+    slideIndex,
+    setSlideIndex,
+  };
+  const lightboxProps = {
+    imgQuality,
+    open,
+    setOpen,
+    slideIndex,
+    setSlideIndex,
+  };
 
   return (
     <>
-      <CarouselWrapper
-        height={height}
-        navButtonsAlwaysVisible={smallScreen ? true : false}
-      >
-        {proj.images.map((item, i) => (
-          <CarouselContent
-            key={i}
-            projectName={proj.name}
-            item={item}
-            width={width}
-            height={height}
-            cardActionArea={proj.abbr}
-            imgQuality={imgQuality}
-            photoIndex={i}
-            handleOpenLightbox={handleOpenLightbox}
-          />
-        ))}
-      </CarouselWrapper>
-      <ContentLightbox
-        images={proj.images}
-        imgQuality={imgQuality}
-        open={open}
-        setOpen={setOpen}
-        slideIndex={slideIndex}
-        setSlideIndex={setSlideIndex}
-      />
+      <CarouselLightbox {...carouselProps} />
+      <ContentLightbox images={proj.images} {...lightboxProps} />
     </>
   );
 };
 
 const ProjectCardMedia = (props: ProjectCardMediaProps) => {
-  const { proj } = props;
-  const smallScreen = isSmallScreen();
-  const isPlaceholder = proj.images.length == 0;
-
-  return isPlaceholder ? (
-    <PlaceholderCarousel {...props} smallScreen={smallScreen} />
-  ) : (
-    <MediaCarousel {...props} smallScreen={smallScreen} />
-  );
+  return <ImageCarousel {...props} />;
 };
 
 export default ProjectCardMedia;
