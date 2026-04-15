@@ -15,11 +15,11 @@ interface Breakpoints {
 
 const getBreakpoints = () => {
   const bp: Breakpoints = {
-    mobile: useMediaQuery(theme.breakpoints.down("mobile")),
-    tablet: useMediaQuery(theme.breakpoints.between("mobile", "tablet")),
-    laptop: useMediaQuery(theme.breakpoints.between("tablet", "laptop")),
+    mobile: useMediaQuery(theme.breakpoints.down("tablet")),
+    tablet: useMediaQuery(theme.breakpoints.between("tablet", "laptop")),
+    laptop: useMediaQuery(theme.breakpoints.between("laptop", "desktop")),
     desktop: useMediaQuery(theme.breakpoints.between("desktop", "bigboi")),
-    bigboi: useMediaQuery(theme.breakpoints.up("bigboi")),
+    bigboi: useMediaQuery(theme.breakpoints.up("desktop")),
   };
   return bp;
 };
