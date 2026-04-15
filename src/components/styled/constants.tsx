@@ -43,8 +43,8 @@ export const ANI_CONST = {
   PROJ_SUBHEADING_TYPING_DELAY: 500,
   PROJ_CARDS_DELAY: GENERIC_CARD_DELAY,
   PROJ_CARD_WIDTH: {
-    mobile: 335,
-    tablet: 350,
+    mobile: 320,
+    tablet: 320,
     laptop: 350,
     desktop: 375,
     bigboi: 400,
