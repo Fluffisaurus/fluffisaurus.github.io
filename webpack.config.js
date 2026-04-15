@@ -58,7 +58,7 @@ module.exports = {
     new PurgeCSSPlugin({
       paths: () => glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
       safelist: {
-        deep: [/^yarl__/], // yet-another-react-lightbox class name prefix
+        deep: [/yarl__/], // yet-another-react-lightbox class name prefix
       },
       rejected: true,
     }),
