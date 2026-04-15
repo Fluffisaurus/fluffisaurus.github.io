@@ -29,7 +29,18 @@ const websiteV3: Project = {
     short: "",
     long: [],
   },
-  images: [],
+  images: [
+    {
+      src: "portfolio-v3/portfolio_3.0-desktop_less-is-more_hmv5wr",
+      description:
+        "PageSpeed Insights report from Apr 13, 2026 for desktop performance and opimization.",
+    },
+    {
+      src: "portfolio-v3/portfolio_3..0-mobile_less-is-more_joqtda",
+      description:
+        "PageSpeed Insights report from Apr 13, 2026 for mobile . Assumes the user is using a budget phone (Moto G Power) on a slow and throttling 4G network.",
+    },
+  ],
 };
 
 export default websiteV3;
