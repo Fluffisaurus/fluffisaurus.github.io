@@ -19,7 +19,7 @@ const getBreakpoints = () => {
     tablet: useMediaQuery(theme.breakpoints.between("tablet", "laptop")),
     laptop: useMediaQuery(theme.breakpoints.between("laptop", "desktop")),
     desktop: useMediaQuery(theme.breakpoints.between("desktop", "bigboi")),
-    bigboi: useMediaQuery(theme.breakpoints.up("desktop")),
+    bigboi: useMediaQuery(theme.breakpoints.up("bigboi")),
   };
   return bp;
 };
@@ -33,7 +33,7 @@ const getViewport = () => {
     Number(bp.desktop) +
     Number(bp.bigboi);
   if (checkSum > 1 || checkSum == 0) {
-    console.error("Error in evaluating viewport breakpoints");
+    console.error("Error in evaluating viewport breakpoints: ", bp);
     return null;
   } else {
     if (bp.mobile) return Viewport.mobile;
