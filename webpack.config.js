@@ -33,6 +33,34 @@ const paths = [
 const PATHS = {
   src: path.join(__dirname, "src"),
 };
+const yetAnotherReactLightboxCssClasses = [
+  // general
+  "yarl__root",
+  "yarl__container",
+  "yarl__slide",
+  "yarl__button",
+  "yarl__icon",
+  "yarl__toolbar",
+  "yarl__navigation_prev",
+  "yarl__navigation_next",
+  "yarl__no_scroll_padding",
+  // captions css classes
+  "yarl__slide_title",
+  "yarl__slide_title_container",
+  "yarl__slide_description",
+  "yarl__slide_description_container",
+  // thumbnail css classes
+  "yarl__thumbnails_container",
+  "yarl__thumbnails_track",
+  "yarl__thumbnails_thumbnail",
+];
+function cssSafelist() {
+  return {
+    standard: [...yetAnotherReactLightboxCssClasses],
+    deep: [/yarl__\w+/], // yet-another-react-lightbox class name prefix
+    greedy: [/yarl__\w+/], // yet-another-react-lightbox class name prefix
+  };
+}
 
 module.exports = {
   mode: devMode ? "development" : "production",
@@ -57,9 +85,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new PurgeCSSPlugin({
       paths: () => glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-      safelist: {
-        greedy: [/yarl__/], // yet-another-react-lightbox class name prefix
-      },
+      safelist: cssSafelist,
       rejected: true,
     }),
     new HtmlBundlerPlugin({
