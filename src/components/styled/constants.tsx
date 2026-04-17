@@ -64,6 +64,7 @@ export const ANI_CONST = {
     OPTIONS_DIAL: 1500, // default is 1050
     BACKDROP: 1499,
     GLOBAL_NAV: 2000,
+    LIGHTBOX: 9999,
   },
 };
 

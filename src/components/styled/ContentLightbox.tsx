@@ -28,7 +28,7 @@ import "yet-another-react-lightbox/plugins/thumbnails.css";
 import "yet-another-react-lightbox/plugins/counter.css";
 
 import { ProjectImage } from "../../content/projects/interfaces";
-import { ImageQualityProps } from "../styled/constants";
+import { ANI_CONST, ImageQualityProps } from "../styled/constants";
 import CloudinaryCustomUrl from "../CloudinaryCustomUrl";
 
 interface ContentLightboxProps extends ImageQualityProps {
@@ -70,6 +70,11 @@ const ContentLightbox = (props: ContentLightboxProps) => {
           iconExitFullscreen: () => <CloseFullscreenTwoToneIcon />,
           iconSlideshowPlay: () => <PlayArrowTwoToneIcon />,
           iconSlideshowPause: () => <PauseTwoToneIcon />,
+        }}
+        styles={{
+          container: {
+            zIndex: ANI_CONST.ZINDEX.LIGHTBOX,
+          },
         }}
       />
     </>
