@@ -244,7 +244,7 @@ const GlobalNav = (props: ImageQualityProps) => {
               onMouseEnter={() => dispatch({ type: "onPath", path: path })}
               aria-label="Breadcrumb navigation path."
             >
-              {path == "" ? "" : path + "/"}
+              {path == "" ? "" : smallScreen && subPath ? ".../" : path + "/"}
             </Button>
             {subPath && (
               <Button
