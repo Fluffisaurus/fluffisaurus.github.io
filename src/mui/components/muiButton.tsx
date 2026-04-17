@@ -43,14 +43,16 @@ const muiButtonStyles = {
       },
     ],
     styleOverrides: {
-      root: (props: { theme: Theme }) =>
+      root: (props: { theme: Theme }) => ({
+        fontFamily: "Source Code Pro",
+        fontWeight: 600,
+        textTransform: "none",
+        color: props.theme.vars.palette.secondary.contrastText,
+        backgroundColor: "transparent",
+      }),
+      navlink: (props: { theme: Theme }) =>
         ({
-          fontFamily: "Source Code Pro",
-          fontWeight: 600,
-          textTransform: "none",
           padding: "0px 5px 0px 5px",
-          color: props.theme.vars.palette.secondary.contrastText,
-          backgroundColor: "transparent",
           "&:active": {
             boxShadow: "none",
             backgroundColor: props.theme.vars.palette.secondary.main,
