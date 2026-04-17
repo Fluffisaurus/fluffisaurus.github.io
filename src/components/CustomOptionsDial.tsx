@@ -1,19 +1,25 @@
 import * as React from "react";
 
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
 import Typography from "@mui/material/Typography";
-import { useColorScheme } from "@mui/material/styles";
+import { styled, useColorScheme } from "@mui/material/styles";
 import Backdrop from "@mui/material/Backdrop";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import DisplaySettingsTwoToneIcon from "@mui/icons-material/DisplaySettingsTwoTone";
+import DeleteTwoToneIcon from "@mui/icons-material/DeleteTwoTone";
+import TipsAndUpdatesTwoToneIcon from "@mui/icons-material/TipsAndUpdatesTwoTone";
+import ErrorTwoToneIcon from "@mui/icons-material/ErrorTwoTone";
+import CheckCircleTwoToneIcon from "@mui/icons-material/CheckCircleTwoTone";
+import WarningTwoToneIcon from "@mui/icons-material/WarningTwoTone";
 
 import ToggleThemeButtons from "./ToggleThemeButtons";
 import ToggleImageQualityButtons from "./ToggleImageQualityButtons";
 import { ANI_CONST, ImageQualityProps } from "./styled/constants";
-import { Slide, toast, ToastContainer } from "react-toastify";
+import { Slide, toast, ToastContainer, CloseButtonProps } from "react-toastify";
 import { isSmallScreen } from "../utils/breakpoints";
 
 interface DialActions {
@@ -25,9 +31,43 @@ interface CustomOptionsDialProps extends ImageQualityProps {
   dims: { width: number; height: number };
 }
 
+const StyledToastContainer = styled(ToastContainer)(({ theme }) => ({
+  "& .Toastify__progress-bar--success": {
+    background: theme.palette.background.pdf,
+  },
+  "& .Toastify__progress-bar--error": {
+    background: theme.palette.background.pdf,
+  },
+  "& .Toastify__progress-bar--warning": {
+    background: theme.palette.background.pdf,
+  },
+  "& .Toastify__progress-bar--info": {
+    background: theme.palette.background.pdf,
+  },
+  // Default/Primary bar color
+  "& .Toastify__progress-bar--theme--light": {
+    background: theme.palette.background.pdf,
+  },
+}));
+
+const customCloseButton = ({ closeToast }: CloseButtonProps) => {
+  return (
+    <Button
+      onClick={closeToast}
+      sx={{
+        position: "absolute",
+        right: 0,
+        padding: 0,
+      }}
+    >
+      <DeleteTwoToneIcon />
+    </Button>
+  );
+};
+
 export default function CustomOptionsDial(props: CustomOptionsDialProps) {
   const { imgQuality, setImgQuality, dims } = props;
-  const { mode, systemMode, setMode } = useColorScheme();
+  const { mode, setMode } = useColorScheme();
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -74,11 +114,13 @@ export default function CustomOptionsDial(props: CustomOptionsDialProps) {
           toastId: "onboarding-toast",
           position: "top-right",
           delay: ANI_CONST.OPTIONS_DIAL_DELAY,
-          autoClose: 5000,
+          autoClose: 3000,
           hideProgressBar: true,
           closeOnClick: true,
           pauseOnFocusLoss: false,
-          draggableDirection: "y",
+          pauseOnHover: false,
+          closeButton: false,
+          draggableDirection: "x",
           style: {
             right: smallScreen ? "25px" : "10px",
             top: smallScreen ? "60px" : "45px",
@@ -98,7 +140,7 @@ export default function CustomOptionsDial(props: CustomOptionsDialProps) {
   return (
     <>
       <Backdrop open={open} sx={{ zIndex: ANI_CONST.ZINDEX.BACKDROP }} />
-      <ToastContainer
+      <StyledToastContainer
         containerId="toast-container"
         position="bottom-left"
         autoClose={2000}
@@ -109,9 +151,24 @@ export default function CustomOptionsDial(props: CustomOptionsDialProps) {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme={mode == "system" ? systemMode : mode}
         transition={Slide}
         style={{ zIndex: ANI_CONST.ZINDEX.TOAST }}
+        closeButton={customCloseButton}
+        progressClassName="custom-toast-progress-bar"
+        icon={({ type }) => {
+          switch (type) {
+            case "info":
+              return <TipsAndUpdatesTwoToneIcon />;
+            case "error":
+              return <ErrorTwoToneIcon />;
+            case "success":
+              return <CheckCircleTwoToneIcon />;
+            case "warning":
+              return <WarningTwoToneIcon />;
+            default:
+              return null;
+          }
+        }}
       />
       <Box
         sx={{
