@@ -57,8 +57,8 @@ const yetAnotherReactLightboxCssClasses = [
 function cssSafelist() {
   return {
     standard: [...yetAnotherReactLightboxCssClasses],
-    deep: [/yarl__\w+/], // yet-another-react-lightbox class name prefix
-    greedy: [/yarl__\w+/], // yet-another-react-lightbox class name prefix
+    deep: [/yarl__\w*/], // yet-another-react-lightbox class name prefix
+    greedy: [/yarl__\w*/], // yet-another-react-lightbox class name prefix
   };
 }
 
@@ -110,6 +110,7 @@ module.exports = {
     new BundleAnalyzerPlugin({
       generateStatsFile: devMode,
       analyzerMode: "static",
+      openAnalyzer: false,
     }),
     new SitemapPlugin({
       base: "https://angushon.io",
