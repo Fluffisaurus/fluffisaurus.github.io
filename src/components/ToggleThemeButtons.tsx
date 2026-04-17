@@ -20,13 +20,14 @@ const ToggleThemeButtons = ({ mode, setMode }: ToggleThemeButtonsProps) => {
     event: React.MouseEvent<HTMLElement>,
     newThemeMode: Mode | null
   ) => {
-    setMode(newThemeMode);
+    if (newThemeMode) {
+      setMode(newThemeMode);
 
-    if (newThemeMode)
       toast.success(`Theme Mode: ${capitalize(newThemeMode)}`, {
         containerId: "toast-container",
         theme: newThemeMode,
       });
+    }
   };
 
   const dispatch = useHoverDispatch();
