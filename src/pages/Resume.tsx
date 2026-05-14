@@ -23,7 +23,7 @@ const Resume: React.FunctionComponent = () => {
         </FadeWrapper>
         {/* <PdfViewer /> */}
         <object
-          data="https://res.cloudinary.com/djlcricbu/image/upload/v1653627212/pdfs/placeholder-pdf-doc_j3pjxs.pdf"
+          data="https://res.cloudinary.com/djlcricbu/image/upload/v1778802693/portfolio/resume-2026-redacted.pdf"
           type="application/pdf"
           width="100%"
           height="100%"
